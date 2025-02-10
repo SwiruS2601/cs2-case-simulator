@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-const test = 'bajs';
+import Nav from './components/Nav.vue';
 </script>
 
 <template>
-  <main class="bg-cyan-950 text-cyan-400 min-h-dvh">
-    <RouterView />
+  <main class="min-h-dvh">
+    <Nav />
+    <div className="relative w-full max-w-5xl p-3 mx-auto">
+      <RouterView />
+    </div>
   </main>
 </template>

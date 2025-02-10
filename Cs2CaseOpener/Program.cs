@@ -31,9 +31,20 @@ builder.Services.AddResponseCompression(options =>
 });
 builder.Services.AddTransient<SkinService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 app.UseResponseCompression();
+app.UseCors("AllowLocalhost");
 
 using (var scope = app.Services.CreateScope())
 {

@@ -4,6 +4,7 @@ using Cs2CaseOpener.DB;
 using Cs2CaseOpener.Models;
 using Microsoft.Extensions.Caching.Memory;
 using Cs2CaseOpener.DTOs;
+using System.Text.Json.Nodes;
 
 namespace Cs2CaseOpener.Services;
 
@@ -53,21 +54,22 @@ public class SkinService
                 GunType = skin.GunType,
                 Rarity = skin.Rarity,
                 RarityColor = skin.RarityColor,
-                FirstSaleDate = skin.FirstSaleDate,
+                FirstSaleDate = skin.FirstSaleDate,  // Changed: removed parsing
                 KnifeType = skin.KnifeType,
                 Image = skin.Image,
-                MinFloat = skin.MinFloat,
-                MaxFloat = skin.MaxFloat,
+                MinFloat = skin.MinFloat.HasValue ? (float)skin.MinFloat.Value : null,
+                MaxFloat = skin.MaxFloat.HasValue ? (float)skin.MaxFloat.Value : null,
                 Stattrak = skin.Stattrak,
-                CaseId = skin.CaseId,
-                CaseName = skin.Case?.Name
+                CaseId = skin.CaseId,  // Changed: removed parsing
+                CaseName = skin.Case?.Name,
+                Prices = null // temporary initialization
             };
 
             if (skin.Prices != null)
             {
                 try
                 {
-                    skinDto.Prices = JsonSerializer.Deserialize<object>(skin.Prices, _jsonOptions);
+                    skinDto.Prices = JsonSerializer.Deserialize<JsonObject>(skin.Prices, _jsonOptions);
                 }
                 catch
                 {

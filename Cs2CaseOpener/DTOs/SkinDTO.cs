@@ -19,4 +19,13 @@ public class SkinDTO
     public double? Min_Float { get; set; }
     public double? Max_Float { get; set; }
     public bool? Stattrak { get; set; }
+    public string? WeaponType { get; set; }
+    public string? GunType { get; set; }
+    public string? RarityColor { get; set; }
+    public string? FirstSaleDate { get; set; }  // Changed from DateTime? to string
+    public string? KnifeType { get; set; }
+    public float? MinFloat { get; set; }
+    public float? MaxFloat { get; set; }
+    public string? CaseId { get; set; }  // Changed from int? to string
+    public string? CaseName { get; set; }
 }
