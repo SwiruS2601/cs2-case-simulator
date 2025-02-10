@@ -1,0 +1,6 @@
+@Cs2CaseOpener_HostAddress = http://localhost:5015
+
+GET {{Cs2CaseOpener_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
