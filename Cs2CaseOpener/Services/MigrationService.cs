@@ -30,6 +30,12 @@ public class MigrationService
             await _dbContext.Database.MigrateAsync();
 
             var existingSkins = await _dbContext.Skins.ToDictionaryAsync(s => s.Id);
+            var existingCases = new Dictionary<string, Case>();
+
+            var relationsResponse = await _httpClient.GetAsync("http://localhost:3000/api/crate-skin-relations");
+            relationsResponse.EnsureSuccessStatusCode();
+            var relationsJson = await relationsResponse.Content.ReadAsStringAsync();
+            var relations = JsonSerializer.Deserialize<List<CrateSkinRelationDTO>>(relationsJson, _jsonOptions);
 
             var crateListResponse = await _httpClient.GetAsync("http://localhost:3000/api/crates");
             crateListResponse.EnsureSuccessStatusCode();
@@ -53,7 +59,7 @@ public class MigrationService
                     var detailResponse = await _httpClient.GetAsync($"http://localhost:3000/api/crates/{crateDto.Id}");
                     detailResponse.EnsureSuccessStatusCode();
                     var detailJson = await detailResponse.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<CrateDetailDto>(detailJson, _jsonOptions);
+                    return JsonSerializer.Deserialize<CrateDetailDTO>(detailJson, _jsonOptions);
                 });
 
                 var crateDetails = (await Task.WhenAll(tasks)).Where(x => x != null);
@@ -73,6 +79,8 @@ public class MigrationService
                         };
                         _dbContext.Cases.Add(existingCase);
                     }
+
+                    existingCases[existingCase.Id] = existingCase;
 
                     existingCase.Name = crateDetail.Name;
                     existingCase.Type = crateDetail.Type;
@@ -98,7 +106,6 @@ public class MigrationService
                                 _dbContext.Skins.Add(skin);
                             }
 
-                            skin.CaseId = existingCase.Id;
                             skin.Name = skinDto.Name;
                             skin.Classid = skinDto.Classid;
                             skin.Type = skinDto.Type;
@@ -125,6 +132,22 @@ public class MigrationService
                     }
                 }
 
+                await _dbContext.SaveChangesAsync();
+            }
+
+            if (relations != null)
+            {
+                foreach (var relation in relations)
+                {
+                    if (existingCases.TryGetValue(relation.A, out var case_) &&
+                        existingSkins.TryGetValue(relation.B, out var skin))
+                    {
+                        if (!case_.Skins.Contains(skin))
+                        {
+                            case_.Skins.Add(skin);
+                        }
+                    }
+                }
                 await _dbContext.SaveChangesAsync();
             }
 

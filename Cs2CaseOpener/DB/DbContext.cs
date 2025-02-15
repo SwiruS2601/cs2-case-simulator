@@ -22,10 +22,15 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Case>().ToTable("Cases");
         modelBuilder.Entity<Skin>().ToTable("Skins");
         
+        // Configure many-to-many relationship
+        modelBuilder.Entity<Case>()
+            .HasMany(c => c.Skins)
+            .WithMany(s => s.Cases)
+            .UsingEntity(j => j.ToTable("CasesSkins"));
+        
         // Create indexes to optimize read-heavy workloads.
         modelBuilder.Entity<Case>().HasIndex(c => c.Name);
         modelBuilder.Entity<Skin>().HasIndex(s => s.Name);
-        modelBuilder.Entity<Skin>().HasIndex(s => s.CaseId);
     }
 }
 

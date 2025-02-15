@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import CasesView from '@/views/Cases.vue';
 import HomeView from '@/views/Home.vue';
 
 const router = createRouter({
@@ -11,14 +10,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/case',
-      name: 'case',
-      component: CasesView,
-    },
-    {
-      path: '/lazy',
-      name: 'lazy',
-      component: () => import('../views/TestLazy.vue'),
+      path: '/crate/:id',
+      name: 'crate',
+      component: () => import('@/views/Crate.vue'),
     },
   ],
 });

@@ -1,4 +1,4 @@
-using System.Text.Json.Nodes; // if you want to work with JSON nodes
+using System.Text.Json.Nodes;
 
 namespace Cs2CaseOpener.DTOs;
 
@@ -22,10 +22,16 @@ public class SkinDTO
     public string? WeaponType { get; set; }
     public string? GunType { get; set; }
     public string? RarityColor { get; set; }
-    public string? FirstSaleDate { get; set; }  // Changed from DateTime? to string
+    public string? FirstSaleDate { get; set; }
     public string? KnifeType { get; set; }
     public float? MinFloat { get; set; }
     public float? MaxFloat { get; set; }
-    public string? CaseId { get; set; }  // Changed from int? to string
-    public string? CaseName { get; set; }
+
+    public ICollection<CaseInfo> Cases { get; set; } = new List<CaseInfo>();
+}
+
+public class CaseInfo
+{
+    public string Id { get; set; } = string.Empty;
+    public string? Name { get; set; }
 }

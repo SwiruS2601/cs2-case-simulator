@@ -64,7 +64,6 @@ public class Skin
     public double? MaxFloat { get; set; }
     public bool? Stattrak { get; set; }
     
-    // Foreign key linking back to the Case.
-    public string? CaseId { get; set; }
-    public Case Case { get; set; }
+    // Many-to-many relationship with Cases
+    public ICollection<Case> Cases { get; set; } = new List<Case>();
 }

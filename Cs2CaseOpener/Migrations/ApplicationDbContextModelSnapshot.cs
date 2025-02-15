@@ -16,6 +16,21 @@ namespace Cs2CaseOpener.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
+            modelBuilder.Entity("CaseSkin", b =>
+                {
+                    b.Property<string>("CasesId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SkinsId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CasesId", "SkinsId");
+
+                    b.HasIndex("SkinsId");
+
+                    b.ToTable("CasesSkins", (string)null);
+                });
+
             modelBuilder.Entity("Cs2CaseOpener.Models.Case", b =>
                 {
                     b.Property<string>("Id")
@@ -52,9 +67,6 @@ namespace Cs2CaseOpener.Migrations
             modelBuilder.Entity("Cs2CaseOpener.Models.Skin", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CaseId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Classid")
@@ -101,25 +113,24 @@ namespace Cs2CaseOpener.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CaseId");
-
                     b.HasIndex("Name");
 
                     b.ToTable("Skins", (string)null);
                 });
 
-            modelBuilder.Entity("Cs2CaseOpener.Models.Skin", b =>
+            modelBuilder.Entity("CaseSkin", b =>
                 {
-                    b.HasOne("Cs2CaseOpener.Models.Case", "Case")
-                        .WithMany("Skins")
-                        .HasForeignKey("CaseId");
+                    b.HasOne("Cs2CaseOpener.Models.Case", null)
+                        .WithMany()
+                        .HasForeignKey("CasesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Case");
-                });
-
-            modelBuilder.Entity("Cs2CaseOpener.Models.Case", b =>
-                {
-                    b.Navigation("Skins");
+                    b.HasOne("Cs2CaseOpener.Models.Skin", null)
+                        .WithMany()
+                        .HasForeignKey("SkinsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

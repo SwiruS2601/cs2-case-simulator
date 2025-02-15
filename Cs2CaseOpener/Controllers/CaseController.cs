@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using Cs2CaseOpener.DB;
 using Cs2CaseOpener.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +23,7 @@ public class CaseController : ControllerBase
     {
         var cases = await _dbContext.Cases
             .AsNoTracking()
-            .Select(c => new CaseResponseDto
+            .Select(c => new CaseResponseDTO
             {
                 Id = c.Id,
                 Name = c.Name,
@@ -50,7 +52,7 @@ public class CaseController : ControllerBase
             return NotFound();
         }
 
-        var response = new CaseResponseDto
+        var response = new CaseResponseDTO
         {
             Id = case_.Id,
             Name = case_.Name,
@@ -69,7 +71,7 @@ public class CaseController : ControllerBase
                 GunType = s.GunType,
                 Rarity = s.Rarity,
                 RarityColor = s.RarityColor,
-                Prices = s.ParsedPrices,
+                Prices = s.Prices != null ? JsonSerializer.Deserialize<JsonObject>(s.Prices) : null,
                 FirstSaleDate = s.FirstSaleDate,
                 KnifeType = s.KnifeType,
                 Image = s.Image,

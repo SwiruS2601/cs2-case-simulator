@@ -19,7 +19,7 @@ public class SkinService
         EF.CompileAsyncQuery((ApplicationDbContext context) => 
             context.Skins
                 .AsNoTracking()
-                .Include(s => s.Case));
+                .Include(s => s.Cases));
 
     public SkinService(ApplicationDbContext dbContext, IMemoryCache cache)
     {
@@ -54,15 +54,18 @@ public class SkinService
                 GunType = skin.GunType,
                 Rarity = skin.Rarity,
                 RarityColor = skin.RarityColor,
-                FirstSaleDate = skin.FirstSaleDate,  // Changed: removed parsing
+                FirstSaleDate = skin.FirstSaleDate,
                 KnifeType = skin.KnifeType,
                 Image = skin.Image,
                 MinFloat = skin.MinFloat.HasValue ? (float)skin.MinFloat.Value : null,
                 MaxFloat = skin.MaxFloat.HasValue ? (float)skin.MaxFloat.Value : null,
                 Stattrak = skin.Stattrak,
-                CaseId = skin.CaseId,  // Changed: removed parsing
-                CaseName = skin.Case?.Name,
-                Prices = null // temporary initialization
+                Cases = skin.Cases.Select(c => new CaseInfo 
+                { 
+                    Id = c.Id, 
+                    Name = c.Name 
+                }).ToList(),
+                Prices = null
             };
 
             if (skin.Prices != null)
