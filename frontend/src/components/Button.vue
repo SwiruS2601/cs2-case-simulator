@@ -7,8 +7,8 @@ const props = defineProps<{
 }>();
 
 const buttonClasses = computed(() => {
-  const base = 'px-4 py-2 flex items-center border rounded w-fit focus:outline-none font-semibold';
-  const variants: Record<string, string> = {
+  const base = 'px-4 py-2 flex items-center border rounded w-fit focus:outline-none font-semibold cursor-pointer';
+  const variants = {
     primary: 'bg-slate-600 text-slate-300 border-slate-700 hover:bg-slate-500',
     secondary: 'bg-gray-600 text-white border-gray-600 hover:bg-gray-900',
     success: 'bg-green-400 text-green-900 border-green-400 hover:bg-green-300 hover:text-green-700',

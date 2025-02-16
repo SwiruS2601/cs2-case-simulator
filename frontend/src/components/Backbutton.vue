@@ -3,11 +3,10 @@ import { useRouter } from 'vue-router';
 import Button from './Button.vue';
 
 const router = useRouter();
-const goBack = () => router.go(-1);
 </script>
 
 <template>
-  <Button @click="goBack" class="flex items-center gap-3">
+  <Button @click="router.go(-1)" class="flex items-center gap-3">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
       <path
         fill-rule="evenodd"

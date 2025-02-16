@@ -7,15 +7,18 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="p-4 my-5 rounded gap-x-3 gap-y-2 bg-slate-800 responsive-grid sm:mb-0">
+  <div class="p-5 my-5 rounded-sm gap-5 bg-slate-800 responsive-grid sm:mb-0">
     <div v-for="(skin, i) in props.skins" :key="i">
       <img
         :src="skin?.image ?? '/images/placeholder.webp'"
         :alt="skin?.name"
         :style="{ borderColor: getSkinRarityColor(skin) }"
-        class="border-l-4 bg-slate-700 p-4 rounded-sm"
+        class="border-b-5 bg-slate-600 p-1 rounded-xs"
       />
-      <p class="mt-2 text-xs text-center">{{ skin.name }}</p>
+      <div class="mt-1 flex flex-col text-slate-300">
+        <p class="text-xs font-bold text-left">{{ skin.name.split('|')[0] }}</p>
+        <p class="text-xs text-left text-slate-300/80">{{ skin.name.split('|')[1] }}</p>
+      </div>
     </div>
   </div>
 </template>

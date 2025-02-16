@@ -12,21 +12,22 @@ import {
 } from '@/utils/sortAndfilters';
 import { computed, effect, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useRaffleStore } from '@/store/raffle';
-import { generateRaffleItems } from '@/utils/raffle';
-import RaffleSlider from '@/components/RaffleSlider.vue';
+import { useCaseOpeningStore } from '@/store/caseOpeningStore';
+import CaseOpeningSlider from '@/components/CaseOpeningSlider.vue';
 import type { Skin } from '@/query/skins';
+import { generateRandomCaseSkins } from '@/utils/caseOpening';
+import { FUN_ODDS, REAL_RARITY_ODDS } from '@/constants';
 
 const router = useRouter();
 const crateId = router.currentRoute.value.params.id as string;
 const { data } = useCreate(crateId);
 
 const optionsStore = useOptionsStore();
-const raffleStore = useRaffleStore();
+const caseOpeningStore = useCaseOpeningStore();
 
-const raffleItems = ref<Skin[]>([]);
+const caseItems = ref<Skin[]>([]);
 const winningItem = ref<Skin | null>(null);
-const raffleWinningIndex = ref(0);
+const winningIndex = ref(0);
 
 const guns = computed(() => {
   const skins = data?.value?.skins;
@@ -41,40 +42,79 @@ const knivesAndGloves = computed(() => {
 });
 
 const handleOpenCase = () => {
-  const allSkins = [...guns.value, ...knivesAndGloves.value];
-  const { items, wonItem, winningIndex } = generateRaffleItems(allSkins);
-  raffleStore.startRaffle();
-  raffleItems.value = items;
-  winningItem.value = wonItem;
-  raffleWinningIndex.value = winningIndex;
+  const {
+    skins,
+    wonSkin,
+    winningIndex: _winningIndex,
+  } = generateRandomCaseSkins(
+    [...guns.value, ...knivesAndGloves.value],
+    50,
+    optionsStore.moreRareSkins ? FUN_ODDS : REAL_RARITY_ODDS,
+  );
+
+  console.log({
+    skins,
+    wonSkin,
+    _winningIndex,
+  });
+
+  document.body.style.overflow = 'hidden';
+  caseOpeningStore.startCaseOpening();
+  caseItems.value = skins;
+  winningItem.value = wonSkin;
+  winningIndex.value = _winningIndex;
 };
 
-const handleRaffleFinished = (item: Skin) => {
-  raffleStore.endRaffle(item);
-};
-
-effect(() => {
-  if (raffleStore.isRaffling) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
+const handleCaseOpeningFinished = (item: Skin) => {
+  document.body.style.overflow = '';
+  caseOpeningStore.endCaseOpening(item);
+  if (optionsStore.autoOpen) {
+    setTimeout(handleOpenCase, 1000);
   }
-});
+};
 </script>
 
 <template>
   <div class="pt-5 pb-16">
     <div class="flex gap-4">
       <Backbutton />
-      <Button variant="success" @click="handleOpenCase" :disabled="raffleStore.isRaffling"> OPEN CASE </Button>
+      <Button variant="success" @click="handleOpenCase" :disabled="caseOpeningStore.isOpeningCase">
+        Unlock Container
+      </Button>
+      <div class="relative">
+        <Button @click="optionsStore.toggleShowOptions">
+          {{ optionsStore.showOptions ? 'Hide' : 'Show' }} Options
+        </Button>
+
+        <div
+          v-if="optionsStore.showOptions"
+          class="absolute flex top-12 -right-2 p-4 bg-gray-800 rounded-lg shadow-lg flex-col gap-4"
+        >
+          <!-- <Button @click="optionsStore.toggleAutoOpen">
+            {{ optionsStore.autoOpen ? 'Disable' : 'Enable' }} Auto Open
+          </Button> -->
+          <Button @click="optionsStore.toggleFastAnimation">
+            {{ optionsStore.fastAnimation ? 'Disable' : 'Enable' }} Fast Animation
+          </Button>
+          <Button @click="optionsStore.toggleMoreRareSkins">
+            {{ optionsStore.moreRareSkins ? 'Disable' : 'Enable' }} Guaranteed Rare Skins
+          </Button>
+          <Button @click="optionsStore.toggleSound"> {{ optionsStore.soundOn ? 'Disable' : 'Enable' }} Sound </Button>
+        </div>
+      </div>
     </div>
 
     <div
-      v-if="raffleStore.isRaffling"
-      class="fixed inset-0 bg-black/70 backdrop-blur-xs flex items-center justify-center z-50"
+      v-if="caseOpeningStore.isOpeningCase"
+      class="fixed inset-0 bg-black/20 backdrop-blur-xs flex items-center justify-center z-50"
     >
-      <div class="w-full max-w-5xl">
-        <RaffleSlider :skins="raffleItems" :winning-index="raffleWinningIndex" @finished="handleRaffleFinished" />
+      <div v-if="data" class="w-full max-w-5xl">
+        <CaseOpeningSlider
+          :crate="data"
+          :skins="caseItems"
+          :winning-index="winningIndex"
+          @finished="handleCaseOpeningFinished"
+        />
       </div>
     </div>
 
