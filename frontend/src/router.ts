@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/Home.vue';
+import HomeView from '@/views/HomeView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,7 +12,7 @@ const router = createRouter({
     {
       path: '/crate/:id',
       name: 'crate',
-      component: () => import('@/views/Crate.vue'),
+      component: () => import('@/views/CrateView.vue'),
     },
   ],
 });

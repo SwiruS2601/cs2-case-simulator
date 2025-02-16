@@ -1,12 +1,12 @@
-export const REAL_RARITY_PERCENTAGES = {
+export const REAL_RARITY_ODDS = {
   rare: 0.7992, // 79.92%
   mythical: 0.1598, // 15.98%
   legendary: 0.032, // 3.2%
   ancient: 0.0064, // 0.64%
-  exceedinglyRare: 0.0026, // 0.26%
+  exceedinglyRare: 0.0026, // 0.26% knifes/gloves
 } as const;
 
-export const FUN_RARITY_PERCENTAGES = {
+export const FUN_ODDS = {
   rare: 0.05,
   mythical: 0.1,
   legendary: 0.4,
@@ -20,7 +20,7 @@ export const RARITY = {
   legendary: ['Classified'],
   ancient: ['Covert', 'Extraordinary'],
   exceedinglyRare: ['Knife', 'Gloves', 'Contraband'],
-} as const;
+};
 
 export const RARITY_INDEX = {
   'Consumer Grade': 0,
