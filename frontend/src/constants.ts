@@ -22,6 +22,19 @@ export const RARITY = {
   exceedinglyRare: ['Knife', 'Gloves', 'Contraband'],
 };
 
+export const RARITY_MAPPED = {
+  'Consumer Grade': 'rare',
+  'Industrial Grade': 'rare',
+  'Mil-Spec Grade': 'rare',
+  Restricted: 'mythical',
+  Classified: 'legendary',
+  Covert: 'ancient',
+  Extraordinary: 'ancient',
+  Knife: 'exceedinglyRare',
+  Gloves: 'exceedinglyRare',
+  Contraband: 'exceedinglyRare',
+};
+
 export const RARITY_INDEX = {
   'Consumer Grade': 0,
   'Industrial Grade': 1,

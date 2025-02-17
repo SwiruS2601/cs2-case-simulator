@@ -5,7 +5,7 @@ import Backbutton from '@/components/Backbutton.vue';
 import { useCreates } from '@/query/crate';
 
 const { isPending, isError, data, error } = useCreates();
-  
+
 const route = useRoute();
 const router = useRouter();
 const searchTerm = ref(route.query.search?.toString() || '');
@@ -14,11 +14,9 @@ const crates = computed(() => {
   if (!data.value) return [];
   const souvenires = data.value.filter((crate) => crate.type === 'Souvenir');
   const cases = data.value.filter((crate) => crate.type === 'Case');
-  return [...cases, ...souvenires].filter((crate) =>
-    crate.name.toLowerCase().includes(searchTerm.value.toLowerCase()),
-  );
+  return [...cases, ...souvenires].filter((crate) => crate.name.toLowerCase().includes(searchTerm.value.toLowerCase()));
 });
-  
+
 watch(searchTerm, (newValue) => {
   if (route.path === '/') {
     router.replace({
@@ -37,7 +35,7 @@ watch(searchTerm, (newValue) => {
     <div class="pt-24">
       <div v-if="isPending">Loading...</div>
       <div v-else-if="isError">Error: {{ error?.message }}</div>
-      <div v-else class="gap-4 responsive-grid">
+      <div v-else class="gap-2 sm:gap-0 responsive-grid">
         <router-link v-for="crate in crates" :key="crate.id" :to="`/crate/${crate.id}`" class="max-w-[122.5px]">
           <div class="transition-transform duration-75 cursor-pointer hover:scale-105">
             <img :src="crate.image || '/images/placeholder.webp'" alt="" width="300" height="300" />

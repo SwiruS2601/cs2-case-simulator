@@ -1,30 +1,33 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import type { Skin } from '@/query/skins';
-import itemScrollSound from '../assets/audio/csgo_ui_crate_item_scroll.mp3';
 import type { Crate } from '@/query/crate';
 import SliderItem from './SliderItem.vue';
-import { useCaseOpeningStore } from '@/store/caseOpeningStore';
-import { useOptionsStore } from '@/store/options';
+import { useOptionsStore } from '@/store/optionsStore';
+import { audioService } from '@/services/audioService';
 
 const props = defineProps<{
   skins: Skin[];
-  winningIndex: number;
+  wonSkinIndex: number;
   crate: Crate;
 }>();
+
 const emit = defineEmits<{
   finished: [skin: Skin];
 }>();
 
 const optionsStore = useOptionsStore();
 
-const duration = optionsStore.fastAnimation ? 1500 : 6000;
+const FAST_DURATION = 1500;
+const NORMAL_DURATION = 6000;
+
+const duration = optionsStore.fastAnimation ? FAST_DURATION : NORMAL_DURATION;
 const isMobile = window.innerWidth < 768;
 const skinWidth = isMobile ? 160 : 256;
 const magnifiedSliderScale = 1.15;
 const magnifyingGlassRadius = isMobile ? 160 : 256;
 
-const easing = `transform ${duration}ms cubic-bezier(0.15, 0.4, 0.35, 1)`;
+const easing = `transform ${duration}ms cubic-bezier(0.1, 0.4, 0.4, 1)`;
 const maskCircle = `radial-gradient(circle at center, transparent ${magnifyingGlassRadius}px, black ${magnifyingGlassRadius}px)`;
 
 const scrollX = ref(0);
@@ -45,7 +48,7 @@ onMounted(() => {
 
   delta.value = bgCenterOffset - magCenterOffset;
 
-  const targetScroll = props.winningIndex * skinWidth - bgCenterOffset;
+  const targetScroll = props.wonSkinIndex * skinWidth - bgCenterOffset;
 
   if (bgSlider.value && magSlider.value) {
     bgSlider.value.style.transformOrigin = 'center center';
@@ -60,11 +63,12 @@ onMounted(() => {
   const playedIndices = new Set<number>();
   const startTime = Date.now();
 
-  function checkPosition() {
+  const checkPosition = () => {
     if (!bgSlider.value) return;
     const style = getComputedStyle(bgSlider.value);
     const transform = style.transform;
     let currentScroll = 0;
+
     if (transform && transform !== 'none') {
       const match = transform.match(/matrix.*\((.+)\)/);
       if (match) {
@@ -72,20 +76,20 @@ onMounted(() => {
         currentScroll = -parseFloat(values[4]);
       }
     }
+
     if (optionsStore.soundOn) {
       thresholds.forEach((threshold, index) => {
         if (!playedIndices.has(index) && currentScroll >= threshold) {
           playedIndices.add(index);
-          const audio = new Audio(itemScrollSound);
-          audio.volume = 0.07;
-          audio.play();
+          audioService.playItemScrollSound();
         }
       });
     }
+
     if (Date.now() - startTime < duration) {
       requestAnimationFrame(checkPosition);
     }
-  }
+  };
 
   setTimeout(() => {
     if (bgSlider.value) bgSlider.value.style.transition = easing;
@@ -94,17 +98,14 @@ onMounted(() => {
     requestAnimationFrame(checkPosition);
   }, 50);
 
-  setTimeout(
-    () => {
-      emit('finished', props.skins[props.winningIndex]);
-    },
-    optionsStore.fastAnimation ? 1000 : duration + 100,
-  );
+  setTimeout(() => {
+    emit('finished', props.skins[props.wonSkinIndex]);
+  }, duration);
 });
 </script>
 
 <template>
-  <div class="relative h-32 sm:h-48 select-none">
+  <div class="relative h-32 sm:h-48 select-none fast-fade-scale-up">
     <!-- Outer container with radial mask -->
     <div
       :style="{ maskImage: maskCircle, WebkitMaskImage: maskCircle }"
@@ -185,5 +186,20 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes fadeScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fast-fade-scale-up {
+  animation: fadeScaleUp 0.15s ease-out forwards;
 }
 </style>

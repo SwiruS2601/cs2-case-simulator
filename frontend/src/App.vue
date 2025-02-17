@@ -4,10 +4,8 @@ import Nav from './components/Nav.vue';
 </script>
 
 <template>
-  <main class="min-h-dvh">
-    <Nav />
-    <div className="relative w-full max-w-5xl px-3 mx-auto">
-      <RouterView />
-    </div>
-  </main>
+  <Nav />
+  <div className="relative w-full max-w-5xl px-3 mx-auto">
+    <RouterView />
+  </div>
 </template>

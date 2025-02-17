@@ -6,16 +6,18 @@ export const useCaseOpeningStore = defineStore('case-opening', () => {
   const isOpeningCase = ref(false);
   const wonSkin = ref<Skin | null>(null);
 
+  const setWonSkin = (skin: Skin | null) => {
+    wonSkin.value = skin;
+  };
+
   const startCaseOpening = () => {
     isOpeningCase.value = true;
     wonSkin.value = null;
   };
 
-  const endCaseOpening = (item: any) => {
-    wonSkin.value = item;
-    setTimeout(() => {
-      isOpeningCase.value = false;
-    }, 1000);
+  const endCaseOpening = (skin: Skin) => {
+    wonSkin.value = skin;
+    isOpeningCase.value = false;
   };
 
   return {
@@ -23,5 +25,6 @@ export const useCaseOpeningStore = defineStore('case-opening', () => {
     wonSkin,
     startCaseOpening,
     endCaseOpening,
+    setWonSkin,
   };
 });
