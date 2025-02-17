@@ -21,6 +21,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddHttpClient();
 builder.Services.AddTransient<DatabaseInitializationService>();
 builder.Services.AddTransient<MigrationService>();
+builder.Services.AddTransient<SkinService>();
+builder.Services.AddTransient<CaseService>();
 
 builder.Services.AddMemoryCache();
 builder.Services.AddResponseCompression(options =>
@@ -29,7 +31,7 @@ builder.Services.AddResponseCompression(options =>
     options.Providers.Add<BrotliCompressionProvider>();
     options.Providers.Add<GzipCompressionProvider>();
 });
-builder.Services.AddTransient<SkinService>();
+
 
 builder.Services.AddCors(options =>
 {
@@ -43,17 +45,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseResponseCompression();
 app.UseCors("AllowLocalhost");
-
-using (var scope = app.Services.CreateScope())
-{
-    var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
-    await dbInitializer.InitializeAsync();
-    
-    // var migrationService = scope.ServiceProvider.GetRequiredService<MigrationService>();
-    // await migrationService.MigrateDataFromApiAsync();
-}
 
 if (app.Environment.IsDevelopment())
 {
@@ -63,5 +57,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
+    await dbInitializer.InitializeAsync();
+    // var migrationService = scope.ServiceProvider.GetRequiredService<MigrationService>();
+    // await migrationService.MigrateDataFromApiAsync();
+}
 
 app.Run();

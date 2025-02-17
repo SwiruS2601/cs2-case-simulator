@@ -23,20 +23,13 @@ public class SkinController : ControllerBase
     public async Task<ActionResult<IEnumerable<SkinDTO>>> GetAll()
     {
         var skins = await _skinService.GetAllSkinsAsync();
-
         return Ok(skins);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetSkinById(string id)
     {
-        var skin = _dbContext.Skins.Find(id);
-
-        if (skin == null)
-        {
-            return NotFound();
-        }
-
+        var skin = _skinService.GetSkinByIdAsync(id);
         return Ok(skin);
     }
 

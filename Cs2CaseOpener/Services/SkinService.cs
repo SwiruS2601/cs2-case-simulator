@@ -5,6 +5,8 @@ using Cs2CaseOpener.Models;
 using Microsoft.Extensions.Caching.Memory;
 using Cs2CaseOpener.DTOs;
 using System.Text.Json.Nodes;
+using Cs2CaseOpener.Exceptions;
+using System.Net;
 
 namespace Cs2CaseOpener.Services;
 
@@ -32,15 +34,28 @@ public class SkinService
         };
     }
 
-    public async Task<IEnumerable<SkinDTO>> GetAllSkinsAsync()
+    public async Task<Skin?> GetSkinByIdAsync(string id)
     {
-        const string cacheKey = "AllSkins";
-        
-        if (_cache.TryGetValue(cacheKey, out List<SkinDTO> cachedSkins))
+        var skin = await _dbContext.Skins.FindAsync(id);
+
+        if (skin == null)
         {
-            return cachedSkins;
+            throw new DomainException($"No skin found for id {id}", HttpStatusCode.NotFound);
         }
 
+        return skin;
+    }
+    
+    public async Task<IEnumerable<SkinDTO>> GetAllSkinsAsync()
+    {
+
+        const string cacheKey = "AllSkins";
+        
+        if (_cache.TryGetValue(cacheKey, out List<SkinDTO>? cachedSkins) && cachedSkins is not null)
+        {
+            return cachedSkins;
+        }        
+        
         var skins = new List<SkinDTO>();
         await foreach (var skin in GetAllSkinsQuery(_dbContext))
         {
@@ -81,6 +96,11 @@ public class SkinService
             }
 
             skins.Add(skinDto);
+        }
+
+        if(!skins.Any())
+        {
+            throw new DomainException("An error occurred while fetching skins", HttpStatusCode.NotFound);
         }
 
         _cache.Set(cacheKey, skins, CacheDuration);
