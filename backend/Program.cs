@@ -37,7 +37,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost", policy =>
     {
-        policy.WithOrigins("http://localhost:5173, http://10.10.10.46:5015, https://case.oki.gg")
+        policy.WithOrigins("http://localhost:5173", "http://10.10.10.46:5020", "https://case.oki.gg")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
