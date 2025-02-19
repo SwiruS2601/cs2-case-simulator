@@ -10,7 +10,7 @@ import {
   sortSkinByName,
   sortSkinByRarity,
 } from '../utils/sortAndfilters';
-import { computed, onUnmounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useCaseOpeningStore } from '../store/caseOpeningStore';
 import CaseOpeningSlider from '../components/CaseOpeningSlider.vue';
@@ -34,6 +34,8 @@ const crateSliderSkins = ref<Skin[]>([]);
 const wonSkinIndex = ref(0);
 const showOptions = ref(false);
 const wonSkin = ref<Skin | null>(null);
+const showWonSkin = ref(false);
+const showSlider = ref(false);
 
 const guns = computed(() => {
   const skins = crate?.value?.skins;
@@ -67,11 +69,13 @@ const handleOpenCase = async () => {
   wonSkin.value = opnenedCrate.wonSkin;
 
   caseOpeningStore.startCaseOpening();
+  showSlider.value = true;
   inventory.incrementOpenCount();
   inventory.setBalance(inventory.balance - 2.5);
 };
 
 const handleCaseOpeningFinished = (skin: Skin) => {
+  showWonSkin.value = true;
   caseOpeningStore.endCaseOpening(skin);
   inventory.setBalance(inventory.balance + getSkinPrice(skin));
   inventory.addSkin(skin);
@@ -79,15 +83,26 @@ const handleCaseOpeningFinished = (skin: Skin) => {
 };
 
 const handleCloseWonSkinView = () => {
+  if (caseOpeningStore.isOpeningCase) return;
   document.body.style.overflow = '';
-  caseOpeningStore.setWonSkin(null);
+  showWonSkin.value = false;
+  showSlider.value = false;
 };
+
+const escListener = (event: KeyboardEvent) => {
+  if (event.key === 'Escape') handleCloseWonSkinView();
+};
+
+onMounted(() => {
+  document.addEventListener('keyup', escListener);
+});
 
 onUnmounted(() => {
   if (wonSkin.value && !caseOpeningStore.wonSkin) {
     handleCaseOpeningFinished(wonSkin.value);
   }
   handleCloseWonSkinView();
+  document.removeEventListener('keyup', escListener);
 });
 </script>
 
@@ -118,7 +133,7 @@ onUnmounted(() => {
     </dialog>
 
     <div
-      v-if="caseOpeningStore.isOpeningCase || caseOpeningStore?.wonSkin"
+      v-if="(caseOpeningStore.isOpeningCase || caseOpeningStore?.wonSkin) && showSlider"
       class="fixed inset-0 bg-black/20 backdrop-blur-xs flex items-center justify-center z-50"
     >
       <div v-if="crate" class="w-full max-w-5xl">
@@ -132,11 +147,10 @@ onUnmounted(() => {
     </div>
 
     <div
-      @click="handleCloseWonSkinView"
-      v-if="caseOpeningStore?.wonSkin"
+      v-if="showWonSkin && caseOpeningStore.wonSkin"
       class="absolute inset-0 h-[90dvh] flex items-center justify-center p-4 z-100 fade-scale-up backdrop-blur-xs"
     >
-      <div @click.stop class="flex items-center flex-col gap-6 rounded-xl backdrop-blur-xs">
+      <div class="flex items-center flex-col gap-6 rounded-xl backdrop-blur-xs">
         <img :src="caseOpeningStore.wonSkin.image" class="size-full select-none" />
         <div class="flex flex-col gap-4 items-center">
           <div>
