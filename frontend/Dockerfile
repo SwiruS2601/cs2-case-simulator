@@ -1,4 +1,4 @@
-FROM oven/bun:1 as build
+FROM oven/bun:1 AS build
 WORKDIR /app
 
 # Install required system dependencies
@@ -19,7 +19,7 @@ RUN bun install --frozen-lockfile
 COPY src/ ./src/
 COPY public/ ./public/
 COPY index.html ./
-COPY .env* ./
+COPY .env.production ./.env
 
 # Type check and build
 RUN bun run build
