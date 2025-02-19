@@ -10,17 +10,17 @@ import {
   sortSkinByName,
   sortSkinByRarity,
 } from '@/utils/sortAndfilters';
-import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { computed, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useCaseOpeningStore } from '@/store/caseOpeningStore';
 import CaseOpeningSlider from '@/components/CaseOpeningSlider.vue';
-import type { Skin } from '@/query/skins';
-import { caseOpeningService } from '@/services/caseOpeningService';
+import { crateOpeningService } from '@/services/crateOpeningService';
 import { FUN_ODDS, REAL_RARITY_ODDS } from '@/constants';
 import { audioService } from '@/services/audioService';
 import { useInventoryStore } from '@/store/inventoryStore';
 import { getSkinPrice } from '@/utils/balance';
 import OptionsIcon from '@/components/OptionsIcon.vue';
+import type { Skin } from '@/types';
 
 const router = useRouter();
 const crateId = router.currentRoute.value.params.id as string;
@@ -30,8 +30,10 @@ const inventory = useInventoryStore();
 const optionsStore = useOptionsStore();
 const caseOpeningStore = useCaseOpeningStore();
 
-const caseSkins = ref<Skin[]>([]);
+const crateSliderSkins = ref<Skin[]>([]);
 const wonSkinIndex = ref(0);
+const showOptions = ref(false);
+const wonSkin = ref<Skin | null>(null);
 
 const guns = computed(() => {
   const skins = crate?.value?.skins;
@@ -45,39 +47,30 @@ const knivesAndGloves = computed(() => {
   return skins.filter(filterOnlyGlovesAndKnives).sort(sortSkinByName);
 });
 
-onUnmounted(() => {
-  handleCloseWonSkin();
-});
-
 const handleOpenCase = async () => {
   if (!crate.value) return;
 
-  handleCloseWonSkin();
+  console.log(crate.value);
 
-  const {
-    skins,
-    wonSkin: _wonSkin,
-    wonSkinIndex: _wonSkinIndex,
-  } = caseOpeningService.generateSkinsForCaseOpening(
-    crate.value,
-    [...guns.value, ...knivesAndGloves.value],
-    50,
-    optionsStore.moreRareSkins ? FUN_ODDS : REAL_RARITY_ODDS,
-  );
+  handleCloseWonSkinView();
 
-  if (!_wonSkin) return;
-
+  showOptions.value = false;
   document.body.style.overflow = 'hidden';
 
-  inventory.setBalance(inventory.balance - 2.5);
-  inventory.incrementOpenCount();
-
   audioService.playUnlockSound();
-  caseSkins.value = skins;
-  wonSkinIndex.value = _wonSkinIndex;
 
   await new Promise((resolve) => setTimeout(resolve, 100));
+
+  const odds = optionsStore.moreRareSkins ? FUN_ODDS : REAL_RARITY_ODDS;
+  const opnenedCrate = crateOpeningService.openCrate(crate.value, odds);
+
+  crateSliderSkins.value = opnenedCrate.sliderSkins;
+  wonSkinIndex.value = opnenedCrate.wonSkinIndex;
+  wonSkin.value = opnenedCrate.wonSkin;
+
   caseOpeningStore.startCaseOpening();
+  inventory.incrementOpenCount();
+  inventory.setBalance(inventory.balance - 2.5);
 };
 
 const handleCaseOpeningFinished = (skin: Skin) => {
@@ -87,10 +80,17 @@ const handleCaseOpeningFinished = (skin: Skin) => {
   audioService.playRevealSound(skin.rarity);
 };
 
-const handleCloseWonSkin = () => {
+const handleCloseWonSkinView = () => {
   document.body.style.overflow = '';
   caseOpeningStore.setWonSkin(null);
 };
+
+onUnmounted(() => {
+  if (wonSkin.value) {
+    handleCaseOpeningFinished(wonSkin.value);
+  }
+  handleCloseWonSkinView();
+});
 </script>
 
 <template>
@@ -101,20 +101,20 @@ const handleCloseWonSkin = () => {
         Unlock Container
       </Button>
 
-      <Button size="icon" @click="optionsStore.toggleShowOptions">
+      <Button size="icon" @click="showOptions = !showOptions">
         <OptionsIcon fill="#f0f0f0" class="size-4.5 text-gray-400" />
       </Button>
     </div>
 
     <dialog
-      v-if="optionsStore.showOptions"
+      v-if="showOptions"
       class="absolute inset-0 z-50 left-[18%] top-20 flex p-4 bg-gray-700/95 rounded-lg shadow-2xl flex-col gap-4"
     >
       <Button @click="optionsStore.toggleFastAnimation">
         {{ optionsStore.fastAnimation ? 'Disable' : 'Enable' }} Fast Animation
       </Button>
       <Button @click="optionsStore.toggleMoreRareSkins">
-        {{ optionsStore.moreRareSkins ? 'Disable' : 'Enable' }} Guaranteed Rare Skins
+        {{ optionsStore.moreRareSkins ? 'Disable' : 'Enable' }} More Rare Skins
       </Button>
       <Button @click="optionsStore.toggleSound"> {{ optionsStore.soundOn ? 'Disable' : 'Enable' }} Sound </Button>
     </dialog>
@@ -126,7 +126,7 @@ const handleCloseWonSkin = () => {
       <div v-if="crate" class="w-full max-w-5xl">
         <CaseOpeningSlider
           :crate="crate"
-          :skins="caseSkins"
+          :skins="crateSliderSkins"
           :wonSkinIndex="wonSkinIndex"
           @finished="handleCaseOpeningFinished"
         />
@@ -134,7 +134,7 @@ const handleCloseWonSkin = () => {
     </div>
 
     <div
-      @click="handleCloseWonSkin"
+      @click="handleCloseWonSkinView"
       v-if="caseOpeningStore?.wonSkin"
       class="absolute inset-0 h-[90dvh] flex items-center justify-center p-4 z-100 fade-scale-up backdrop-blur-xs"
     >
@@ -143,13 +143,15 @@ const handleCloseWonSkin = () => {
         <div class="flex flex-col gap-4 items-center">
           <div>
             <p class="text-lg font-semibold">{{ caseOpeningStore.wonSkin.name }}</p>
-            <p class="text-sm text-gray-400">{{ caseOpeningStore.wonSkin.rarity }}</p>
-            <p class="text-sm text-gray-400">
-              Price <span class="text-green-400">€ {{ getSkinPrice(caseOpeningStore.wonSkin) }} </span>
-            </p>
+            <div class="flex gap-4 justify-between">
+              <p class="text-sm text-gray-400">{{ caseOpeningStore.wonSkin.wearCategory }}</p>
+              <p class="text-sm text-gray-400">
+                Price <span class="text-green-400">€ {{ getSkinPrice(caseOpeningStore.wonSkin) }} </span>
+              </p>
+            </div>
           </div>
           <div class="flex flex-wrap gap-4">
-            <Button @click="handleCloseWonSkin">Close</Button>
+            <Button @click="handleCloseWonSkinView">Close</Button>
             <Button variant="success" :disabled="caseOpeningStore.isOpeningCase" @click="handleOpenCase"
               >Open Another</Button
             >

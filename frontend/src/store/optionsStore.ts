@@ -8,14 +8,12 @@ export const useOptionsStore = defineStore(
     const autoOpen = ref(false);
     const fastAnimation = ref(false);
     const moreRareSkins = ref(false);
-    const showOptions = ref(false);
     const soundOn = ref(true);
 
     const toggleShowKnivesAndGloves = () => (showKnivesAndGloves.value = !showKnivesAndGloves.value);
     const toggleAutoOpen = () => (autoOpen.value = !autoOpen.value);
     const toggleFastAnimation = () => (fastAnimation.value = !fastAnimation.value);
     const toggleMoreRareSkins = () => (moreRareSkins.value = !moreRareSkins.value);
-    const toggleShowOptions = () => (showOptions.value = !showOptions.value);
     const toggleSound = () => (soundOn.value = !soundOn.value);
 
     return {
@@ -27,8 +25,6 @@ export const useOptionsStore = defineStore(
       toggleFastAnimation,
       moreRareSkins,
       toggleMoreRareSkins,
-      showOptions,
-      toggleShowOptions,
       soundOn,
       toggleSound,
     };

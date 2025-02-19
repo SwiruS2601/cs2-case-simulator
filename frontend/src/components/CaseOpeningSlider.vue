@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
-import type { Skin } from '@/query/skins';
-import type { Crate } from '@/query/crate';
 import SliderItem from './SliderItem.vue';
 import { useOptionsStore } from '@/store/optionsStore';
 import { audioService } from '@/services/audioService';
+import type { Crate, Skin } from '@/types';
 
 const props = defineProps<{
   skins: Skin[];
@@ -22,7 +21,7 @@ const FAST_DURATION = 1500;
 const NORMAL_DURATION = 6000;
 
 const duration = optionsStore.fastAnimation ? FAST_DURATION : NORMAL_DURATION;
-const isMobile = window.innerWidth < 768;
+const isMobile = window.innerWidth < 640;
 const skinWidth = isMobile ? 160 : 256;
 const magnifiedSliderScale = 1.15;
 const magnifyingGlassRadius = isMobile ? 160 : 256;

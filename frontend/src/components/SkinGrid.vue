@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Skin } from '@/query/skins';
+import type { Skin } from '@/types';
 import { getSkinPrice } from '@/utils/balance';
 import { getSkinRarityColor } from '@/utils/color';
 const props = defineProps<{
@@ -19,10 +19,14 @@ const props = defineProps<{
       />
       <div class="flex justify-between mt-1.5 gap-2">
         <div class="flex flex-col text-slate-300">
-          <p class="text-xs font-bold text-left">{{ skin.name.split('|')[0] }}</p>
-          <p class="text-xs text-left text-slate-300/80">{{ skin.name.split('|')[1] }}</p>
+          <p class="text-xs font-semibold text-left">{{ skin.name.split('|')[0] }}</p>
+          <p class="text-[11px] text-left text-slate-300/80">{{ skin.name.split('|')[1] }}</p>
         </div>
-        <span class="text-green-400 text-nowrap text-sm">€ {{ getSkinPrice(skin) }} </span>
+
+        <div v-if="inventoryView" class="flex flex-col">
+          <span class="text-nowrap text-[10px]">{{ skin.wearCategory }} </span>
+          <span class="text-green-400 text-nowrap text-sm ml-auto">€ {{ getSkinPrice(skin) }} </span>
+        </div>
       </div>
     </div>
   </div>

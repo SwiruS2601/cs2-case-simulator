@@ -2,18 +2,19 @@
 import { computed } from 'vue';
 
 const props = defineProps<{
-  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'cta';
   size?: 'icon' | 'small' | 'medium' | 'large';
 }>();
 
 const buttonClasses = computed(() => {
   const base = 'flex items-center border rounded w-fit focus:outline-none font-semibold cursor-pointer';
   const variants = {
-    primary: 'bg-slate-600 text-slate-300 border-slate-700 hover:bg-slate-500',
+    primary: 'bg-slate-600 text-slate-300 border-slate-600 hover:bg-slate-500',
     secondary: 'bg-gray-600 text-white border-gray-600 hover:bg-gray-900',
     success: 'bg-green-400 text-green-900 border-green-400 hover:bg-green-300 hover:text-green-700',
     warning: 'bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600',
-    danger: 'bg-red-500/80 text-white border-red-600 hover:bg-red-500',
+    danger: 'bg-red-500/80 text-white border-red-500 hover:bg-red-500',
+    cta: 'bg-yellow-300 text-yellow-950 border-yellow-300 hover:bg-yellow-300/80',
   };
   let sizeClass =
     props.size === 'icon'

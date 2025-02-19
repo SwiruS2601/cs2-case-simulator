@@ -1,17 +1,5 @@
 import { useQuery } from '@tanstack/vue-query';
-import type { Skin } from './skins';
-
-export type Crate = {
-  id: string;
-  name: string;
-  type: string;
-  firstSaleDate: string;
-  marketHashName: string;
-  rental: boolean;
-  image: string;
-  modelPlayer: string;
-  skins?: Skin[];
-};
+import type { Crate } from '@/types';
 
 export function useCreates() {
   return useQuery<Crate[]>({

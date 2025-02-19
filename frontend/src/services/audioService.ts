@@ -5,10 +5,24 @@ import revealSoundLegendary from '../assets/audio/case_reveal_legendary_01.wav';
 import revealSoundAncient from '../assets/audio/case_reveal_ancient_01.wav';
 import unlockSound from '../assets/audio/case_unlock_01.wav';
 import unlockImmidiateSound from '../assets/audio/case_unlock_immediate_01.wav';
-import { RARITY_MAPPED } from '@/constants';
 import { useOptionsStore } from '@/store/optionsStore';
+import { RARITY_MAPPED } from '@/constants';
+
+const revealSoundMapping = {
+  rare: revealSoundRare,
+  mythical: revealSoundMythical,
+  legendary: revealSoundLegendary,
+  ancient: revealSoundAncient,
+};
 
 const volume = 0.07;
+
+export const audioService = {
+  playItemScrollSound,
+  playRevealSound,
+  playUnlockSound,
+  playUnlockImmidiateSound,
+};
 
 function playItemScrollSound() {
   const options = useOptionsStore();
@@ -19,27 +33,10 @@ function playItemScrollSound() {
   audio.onended = () => audio.remove();
 }
 
-function playRevealSound(rarity: string) {
+function playRevealSound(rarity: keyof typeof RARITY_MAPPED) {
   const options = useOptionsStore();
   if (options.soundOn === false) return;
-  let audio;
-  switch (RARITY_MAPPED[rarity]) {
-    case 'rare':
-      audio = new Audio(revealSoundRare);
-      break;
-    case 'mythical':
-      audio = new Audio(revealSoundMythical);
-      break;
-    case 'legendary':
-      audio = new Audio(revealSoundLegendary);
-      break;
-    case 'ancient':
-      audio = new Audio(revealSoundAncient);
-      break;
-    default:
-      console.error('Invalid rarity:', rarity);
-      return;
-  }
+  const audio = new Audio(revealSoundMapping[RARITY_MAPPED[rarity]]);
   audio.volume = volume;
   audio.play();
   audio.onended = () => audio.remove();
@@ -62,10 +59,3 @@ function playUnlockImmidiateSound() {
   audio.play();
   audio.onended = () => audio.remove();
 }
-
-export const audioService = {
-  playItemScrollSound,
-  playRevealSound,
-  playUnlockSound,
-  playUnlockImmidiateSound,
-};

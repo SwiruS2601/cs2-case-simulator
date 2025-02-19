@@ -1,0 +1,2699 @@
+{
+  "id": "crate-4932",
+  "name": "Copenhagen 2024 Vertigo Souvenir Package",
+  "type": "Souvenir",
+  "firstSaleDate": null,
+  "marketHashName": "Copenhagen 2024 Vertigo Souvenir Package",
+  "rental": false,
+  "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_cph2024_promo_de_vertigo_png.png",
+  "modelPlayer": "models/props/crates/crate_cph2024_promo_de_vertigo.vmdl",
+  "skins": [
+    {
+      "id": "skin-1118412",
+      "name": "MAC-10 | Strats",
+      "type": "Weapon",
+      "weaponType": "SMG",
+      "gunType": "MAC-10",
+      "rarity": "Consumer Grade",
+      "rarityColor": "b0c3d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "100",
+            "median": 0.07,
+            "average": 0.07,
+            "lowest_price": 0.03,
+            "highest_price": 0.1,
+            "standard_deviation": "16.67"
+          },
+          "30_days": {
+            "sold": "426",
+            "median": 0.09,
+            "average": 0.12,
+            "lowest_price": 0.03,
+            "highest_price": 6.69,
+            "standard_deviation": "327.27"
+          },
+          "24_hours": {
+            "sold": "11",
+            "median": 0.09,
+            "average": 0.09,
+            "lowest_price": 0.09,
+            "highest_price": 0.09,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "6323",
+            "median": 0.13,
+            "average": 0.25,
+            "lowest_price": 0.03,
+            "highest_price": 12.8,
+            "standard_deviation": "330.43"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "269",
+            "median": 0.19,
+            "average": 0.19,
+            "lowest_price": 0.13,
+            "highest_price": 0.53,
+            "standard_deviation": "23.53"
+          },
+          "30_days": {
+            "sold": "1231",
+            "median": 0.21,
+            "average": 0.34,
+            "lowest_price": 0.1,
+            "highest_price": 151.84,
+            "standard_deviation": "1925.81"
+          },
+          "24_hours": {
+            "sold": "2",
+            "median": 0.19,
+            "average": 0.19,
+            "lowest_price": 0.19,
+            "highest_price": 0.19,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "16293",
+            "median": 0.26,
+            "average": 0.43,
+            "lowest_price": 0.1,
+            "highest_price": 151.84,
+            "standard_deviation": "1051.28"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "854",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.03,
+            "highest_price": 0.07,
+            "standard_deviation": "25"
+          },
+          "30_days": {
+            "sold": "4297",
+            "median": 0.05,
+            "average": 0.05,
+            "lowest_price": 0.03,
+            "highest_price": 0.1,
+            "standard_deviation": "20"
+          },
+          "24_hours": {
+            "sold": "10",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.04,
+            "highest_price": 0.04,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "64901",
+            "median": 0.07,
+            "average": 0.1,
+            "lowest_price": 0.03,
+            "highest_price": 4.32,
+            "standard_deviation": "188.89"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "441",
+            "median": 0.07,
+            "average": 0.07,
+            "lowest_price": 0.03,
+            "highest_price": 0.09,
+            "standard_deviation": "16.67"
+          },
+          "30_days": {
+            "sold": "1972",
+            "median": 0.09,
+            "average": 0.09,
+            "lowest_price": 0.03,
+            "highest_price": 0.32,
+            "standard_deviation": "25"
+          },
+          "24_hours": {
+            "sold": "7",
+            "median": 0.08,
+            "average": 0.08,
+            "lowest_price": 0.07,
+            "highest_price": 0.08,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "29742",
+            "median": 0.11,
+            "average": 0.36,
+            "lowest_price": 0.03,
+            "highest_price": 20.99,
+            "standard_deviation": "303.03"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "143",
+            "median": 0.04,
+            "average": 0.05,
+            "lowest_price": 0.03,
+            "highest_price": 0.75,
+            "standard_deviation": "140"
+          },
+          "30_days": {
+            "sold": "714",
+            "median": 0.05,
+            "average": 0.05,
+            "lowest_price": 0.03,
+            "highest_price": 0.75,
+            "standard_deviation": "100"
+          },
+          "24_hours": {
+            "sold": "7",
+            "median": 0.05,
+            "average": 0.05,
+            "lowest_price": 0.05,
+            "highest_price": 0.05,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "10530",
+            "median": 0.08,
+            "average": 0.37,
+            "lowest_price": 0.03,
+            "highest_price": 48.35,
+            "standard_deviation": "550"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mac10_hy_vertigospray_blue_light_large.834dc852bd8c722d0dd30a05b3f72e6401cd987b.png",
+      "minFloat": 0,
+      "maxFloat": 0.6,
+      "stattrak": false
+    },
+    {
+      "id": "skin-1249480",
+      "name": "P90 | Schematic",
+      "type": "Weapon",
+      "weaponType": "SMG",
+      "gunType": "P90",
+      "rarity": "Mil-Spec Grade",
+      "rarityColor": "4b69ff",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "4",
+            "median": 0.81,
+            "average": 0.83,
+            "lowest_price": 0.73,
+            "highest_price": 0.97,
+            "standard_deviation": "11.84"
+          },
+          "30_days": {
+            "sold": "27",
+            "median": 1.05,
+            "average": 1,
+            "lowest_price": 0.73,
+            "highest_price": 1.16,
+            "standard_deviation": "11.96"
+          },
+          "all_time": {
+            "sold": "545",
+            "median": 1.09,
+            "average": 3.72,
+            "lowest_price": 0.35,
+            "highest_price": 592.29,
+            "standard_deviation": "903.23"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "16",
+            "median": 2.65,
+            "average": 2.66,
+            "lowest_price": 1.07,
+            "highest_price": 5.15,
+            "standard_deviation": "29.92"
+          },
+          "30_days": {
+            "sold": "89",
+            "median": 2.4,
+            "average": 2.51,
+            "lowest_price": 0.53,
+            "highest_price": 6.06,
+            "standard_deviation": "31.74"
+          },
+          "all_time": {
+            "sold": "1244",
+            "median": 3.14,
+            "average": 3.31,
+            "lowest_price": 0.53,
+            "highest_price": 39.38,
+            "standard_deviation": "53.14"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "44",
+            "median": 0.53,
+            "average": 0.53,
+            "lowest_price": 0.39,
+            "highest_price": 0.7,
+            "standard_deviation": "10.2"
+          },
+          "30_days": {
+            "sold": "192",
+            "median": 0.53,
+            "average": 0.53,
+            "lowest_price": 0.2,
+            "highest_price": 0.78,
+            "standard_deviation": "14.29"
+          },
+          "all_time": {
+            "sold": "2614",
+            "median": 0.79,
+            "average": 1.02,
+            "lowest_price": 0.2,
+            "highest_price": 143.37,
+            "standard_deviation": "523.66"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "12",
+            "median": 1.17,
+            "average": 1.16,
+            "lowest_price": 1,
+            "highest_price": 1.27,
+            "standard_deviation": "5.66"
+          },
+          "30_days": {
+            "sold": "77",
+            "median": 1.24,
+            "average": 1.31,
+            "lowest_price": 0.8,
+            "highest_price": 3.37,
+            "standard_deviation": "24.17"
+          },
+          "all_time": {
+            "sold": "1415",
+            "median": 1.86,
+            "average": 1.83,
+            "lowest_price": 0.76,
+            "highest_price": 3.76,
+            "standard_deviation": "27.98"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "1",
+            "median": 1.26,
+            "average": 1.26,
+            "lowest_price": 1.26,
+            "highest_price": 1.26,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "22",
+            "median": 1.55,
+            "average": 1.62,
+            "lowest_price": 1.05,
+            "highest_price": 2.23,
+            "standard_deviation": "16.89"
+          },
+          "all_time": {
+            "sold": "346",
+            "median": 1.53,
+            "average": 1.99,
+            "lowest_price": 0.41,
+            "highest_price": 6.65,
+            "standard_deviation": "47.8"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_p90_hy_vertigogeo_light_large.321d8068761b4b89e1e9f5916ba2cfca5068e080.png",
+      "minFloat": 0,
+      "maxFloat": 0.5,
+      "stattrak": false
+    },
+    {
+      "id": "skin-135416",
+      "name": "Dual Berettas | Oil Change",
+      "type": "Weapon",
+      "weaponType": "Pistol",
+      "gunType": "Dual Berettas",
+      "rarity": "Consumer Grade",
+      "rarityColor": "b0c3d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "109",
+            "median": 0.07,
+            "average": 0.05,
+            "lowest_price": 0.03,
+            "highest_price": 0.12,
+            "standard_deviation": "40"
+          },
+          "30_days": {
+            "sold": "493",
+            "median": 0.08,
+            "average": 0.1,
+            "lowest_price": 0.03,
+            "highest_price": 2.63,
+            "standard_deviation": "211.11"
+          },
+          "all_time": {
+            "sold": "6832",
+            "median": 0.11,
+            "average": 0.2,
+            "lowest_price": 0.03,
+            "highest_price": 10.68,
+            "standard_deviation": "277.78"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "409",
+            "median": 0.11,
+            "average": 0.11,
+            "lowest_price": 0.08,
+            "highest_price": 0.14,
+            "standard_deviation": "10"
+          },
+          "30_days": {
+            "sold": "2079",
+            "median": 0.13,
+            "average": 0.14,
+            "lowest_price": 0.03,
+            "highest_price": 11.88,
+            "standard_deviation": "330.77"
+          },
+          "24_hours": {
+            "sold": "8",
+            "median": 0.12,
+            "average": 0.11,
+            "lowest_price": 0.1,
+            "highest_price": 0.13,
+            "standard_deviation": "10"
+          },
+          "all_time": {
+            "sold": "28560",
+            "median": 0.15,
+            "average": 0.21,
+            "lowest_price": 0.03,
+            "highest_price": 11.88,
+            "standard_deviation": "178.95"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "715",
+            "median": 0.03,
+            "average": 0.03,
+            "lowest_price": 0.03,
+            "highest_price": 0.05,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "4053",
+            "median": 0.03,
+            "average": 0.03,
+            "lowest_price": 0.03,
+            "highest_price": 0.07,
+            "standard_deviation": "0"
+          },
+          "24_hours": {
+            "sold": "10",
+            "median": 0.03,
+            "average": 0.03,
+            "lowest_price": 0.03,
+            "highest_price": 0.03,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "62286",
+            "median": 0.03,
+            "average": 0.07,
+            "lowest_price": 0.03,
+            "highest_price": 2.39,
+            "standard_deviation": "116.67"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "515",
+            "median": 0.07,
+            "average": 0.07,
+            "lowest_price": 0.03,
+            "highest_price": 0.09,
+            "standard_deviation": "16.67"
+          },
+          "30_days": {
+            "sold": "2564",
+            "median": 0.08,
+            "average": 0.08,
+            "lowest_price": 0.03,
+            "highest_price": 0.21,
+            "standard_deviation": "14.29"
+          },
+          "24_hours": {
+            "sold": "15",
+            "median": 0.07,
+            "average": 0.07,
+            "lowest_price": 0.05,
+            "highest_price": 0.07,
+            "standard_deviation": "16.67"
+          },
+          "all_time": {
+            "sold": "36662",
+            "median": 0.09,
+            "average": 0.15,
+            "lowest_price": 0.03,
+            "highest_price": 7.58,
+            "standard_deviation": "235.71"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "58",
+            "median": 0.04,
+            "average": 0.81,
+            "lowest_price": 0.03,
+            "highest_price": 12.68,
+            "standard_deviation": "294.59"
+          },
+          "30_days": {
+            "sold": "331",
+            "median": 0.07,
+            "average": 0.2,
+            "lowest_price": 0.03,
+            "highest_price": 12.68,
+            "standard_deviation": "527.78"
+          },
+          "all_time": {
+            "sold": "5374",
+            "median": 0.1,
+            "average": 0.39,
+            "lowest_price": 0.03,
+            "highest_price": 21.81,
+            "standard_deviation": "391.67"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_elite_sp_engine_dirty_light_large.0e7876df94dfe920abf273e75ea62e041100de4a.png",
+      "minFloat": 0,
+      "maxFloat": 0.5,
+      "stattrak": false
+    },
+    {
+      "id": "skin-1577204",
+      "name": "UMP-45 | Mechanism",
+      "type": "Weapon",
+      "weaponType": "SMG",
+      "gunType": "UMP-45",
+      "rarity": "Industrial Grade",
+      "rarityColor": "5e98d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "2",
+            "median": 1.69,
+            "average": 1.69,
+            "lowest_price": 1.69,
+            "highest_price": 1.7,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "18",
+            "median": 1.96,
+            "average": 1.95,
+            "lowest_price": 1.06,
+            "highest_price": 2.27,
+            "standard_deviation": "15.08"
+          },
+          "all_time": {
+            "sold": "2633",
+            "median": 0.8,
+            "average": 0.76,
+            "lowest_price": 0.44,
+            "highest_price": 3.91,
+            "standard_deviation": "54.29"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "27",
+            "median": 2.03,
+            "average": 2.86,
+            "lowest_price": 0.9,
+            "highest_price": 25.21,
+            "standard_deviation": "192.37"
+          },
+          "30_days": {
+            "sold": "105",
+            "median": 2.17,
+            "average": 2.47,
+            "lowest_price": 0.9,
+            "highest_price": 25.21,
+            "standard_deviation": "114.6"
+          },
+          "24_hours": {
+            "sold": "6",
+            "median": 2.15,
+            "average": 2.15,
+            "lowest_price": 2.15,
+            "highest_price": 2.15,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "16435",
+            "median": 1.06,
+            "average": 0.98,
+            "lowest_price": 0.59,
+            "highest_price": 25.21,
+            "standard_deviation": "115.56"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "25",
+            "median": 1.58,
+            "average": 1.56,
+            "lowest_price": 0.97,
+            "highest_price": 1.84,
+            "standard_deviation": "16.08"
+          },
+          "30_days": {
+            "sold": "142",
+            "median": 1.79,
+            "average": 1.82,
+            "lowest_price": 0.79,
+            "highest_price": 2.58,
+            "standard_deviation": "21.56"
+          },
+          "24_hours": {
+            "sold": "3",
+            "median": 1.79,
+            "average": 1.79,
+            "lowest_price": 1.79,
+            "highest_price": 1.79,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "23006",
+            "median": 0.88,
+            "average": 0.75,
+            "lowest_price": 0.49,
+            "highest_price": 2.58,
+            "standard_deviation": "60.87"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "29",
+            "median": 1.7,
+            "average": 1.68,
+            "lowest_price": 0.97,
+            "highest_price": 1.88,
+            "standard_deviation": "11.69"
+          },
+          "30_days": {
+            "sold": "138",
+            "median": 1.83,
+            "average": 1.84,
+            "lowest_price": 0.64,
+            "highest_price": 2.72,
+            "standard_deviation": "23.08"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 1.86,
+            "average": 1.86,
+            "lowest_price": 1.86,
+            "highest_price": 1.86,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "21619",
+            "median": 0.94,
+            "average": 0.83,
+            "lowest_price": 0.56,
+            "highest_price": 4.46,
+            "standard_deviation": "59.21"
+          }
+        },
+        "Battle-Scarred": {
+          "30_days": {
+            "sold": "9",
+            "median": 2.06,
+            "average": 2.94,
+            "lowest_price": 1.42,
+            "highest_price": 6.71,
+            "standard_deviation": "60.97"
+          },
+          "all_time": {
+            "sold": "1665",
+            "median": 0.81,
+            "average": 0.87,
+            "lowest_price": 0.45,
+            "highest_price": 7.69,
+            "standard_deviation": "82.5"
+          }
+        }
+      },
+      "firstSaleDate": "1635372000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ump45_aa_engine_performance_light_large.b4207d31aa53b7ed863535d77e9a7420f06c2681.png",
+      "minFloat": 0,
+      "maxFloat": 0.49,
+      "stattrak": false
+    },
+    {
+      "id": "skin-1642712",
+      "name": "XM1014 | Blue Tire",
+      "type": "Weapon",
+      "weaponType": "Shotgun",
+      "gunType": "XM1014",
+      "rarity": "Consumer Grade",
+      "rarityColor": "b0c3d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "2",
+            "median": 0.2,
+            "average": 0.2,
+            "lowest_price": 0.17,
+            "highest_price": 0.22,
+            "standard_deviation": "11.11"
+          },
+          "30_days": {
+            "sold": "50",
+            "median": 0.33,
+            "average": 0.33,
+            "lowest_price": 0.17,
+            "highest_price": 0.39,
+            "standard_deviation": "16.67"
+          },
+          "all_time": {
+            "sold": "7302",
+            "median": 0.15,
+            "average": 0.21,
+            "lowest_price": 0.07,
+            "highest_price": 15.92,
+            "standard_deviation": "421.05"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "89",
+            "median": 0.4,
+            "average": 0.45,
+            "lowest_price": 0.29,
+            "highest_price": 1.43,
+            "standard_deviation": "34.15"
+          },
+          "30_days": {
+            "sold": "478",
+            "median": 0.44,
+            "average": 0.45,
+            "lowest_price": 0.14,
+            "highest_price": 2.43,
+            "standard_deviation": "43.9"
+          },
+          "24_hours": {
+            "sold": "4",
+            "median": 0.97,
+            "average": 0.97,
+            "lowest_price": 0.5,
+            "highest_price": 1.43,
+            "standard_deviation": "48.31"
+          },
+          "all_time": {
+            "sold": "38599",
+            "median": 0.23,
+            "average": 0.21,
+            "lowest_price": 0.11,
+            "highest_price": 2.79,
+            "standard_deviation": "89.47"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "74",
+            "median": 0.28,
+            "average": 0.28,
+            "lowest_price": 0.21,
+            "highest_price": 0.36,
+            "standard_deviation": "11.54"
+          },
+          "30_days": {
+            "sold": "433",
+            "median": 0.32,
+            "average": 0.33,
+            "lowest_price": 0.14,
+            "highest_price": 0.47,
+            "standard_deviation": "13.33"
+          },
+          "24_hours": {
+            "sold": "2",
+            "median": 0.27,
+            "average": 0.27,
+            "lowest_price": 0.27,
+            "highest_price": 0.27,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "64354",
+            "median": 0.13,
+            "average": 0.1,
+            "lowest_price": 0.04,
+            "highest_price": 12.52,
+            "standard_deviation": "455.56"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "74",
+            "median": 0.29,
+            "average": 0.29,
+            "lowest_price": 0.21,
+            "highest_price": 0.41,
+            "standard_deviation": "11.11"
+          },
+          "30_days": {
+            "sold": "377",
+            "median": 0.32,
+            "average": 0.35,
+            "lowest_price": 0.05,
+            "highest_price": 0.58,
+            "standard_deviation": "18.75"
+          },
+          "24_hours": {
+            "sold": "4",
+            "median": 0.29,
+            "average": 0.31,
+            "lowest_price": 0.28,
+            "highest_price": 0.32,
+            "standard_deviation": "3.57"
+          },
+          "all_time": {
+            "sold": "42200",
+            "median": 0.15,
+            "average": 0.12,
+            "lowest_price": 0.05,
+            "highest_price": 1.82,
+            "standard_deviation": "109.09"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "10",
+            "median": 0.26,
+            "average": 0.26,
+            "lowest_price": 0.16,
+            "highest_price": 0.47,
+            "standard_deviation": "29.17"
+          },
+          "30_days": {
+            "sold": "54",
+            "median": 0.33,
+            "average": 0.34,
+            "lowest_price": 0.16,
+            "highest_price": 1.16,
+            "standard_deviation": "41.94"
+          },
+          "all_time": {
+            "sold": "8805",
+            "median": 0.11,
+            "average": 0.13,
+            "lowest_price": 0.03,
+            "highest_price": 9.79,
+            "standard_deviation": "400"
+          }
+        }
+      },
+      "firstSaleDate": "1635372000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_xm1014_sp_tire_tread_blue_light_large.c6107f07580de4c0d1440aacabbd8b47b788a687.png",
+      "minFloat": 0,
+      "maxFloat": 0.55,
+      "stattrak": false
+    },
+    {
+      "id": "skin-1708268",
+      "name": "PP-Bizon | Breaker Box",
+      "type": "Weapon",
+      "weaponType": "SMG",
+      "gunType": "PP-Bizon",
+      "rarity": "Industrial Grade",
+      "rarityColor": "5e98d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "36",
+            "median": 0.93,
+            "average": 1.05,
+            "lowest_price": 0.5,
+            "highest_price": 1.42,
+            "standard_deviation": "26.04"
+          },
+          "30_days": {
+            "sold": "152",
+            "median": 0.26,
+            "average": 1.51,
+            "lowest_price": 0.08,
+            "highest_price": 153.86,
+            "standard_deviation": "1168.12"
+          },
+          "all_time": {
+            "sold": "1492",
+            "median": 0.24,
+            "average": 0.63,
+            "lowest_price": 0.08,
+            "highest_price": 153.86,
+            "standard_deviation": "1068.97"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "70",
+            "median": 0.39,
+            "average": 0.39,
+            "lowest_price": 0.22,
+            "highest_price": 0.49,
+            "standard_deviation": "16.67"
+          },
+          "30_days": {
+            "sold": "332",
+            "median": 0.4,
+            "average": 0.41,
+            "lowest_price": 0.21,
+            "highest_price": 0.92,
+            "standard_deviation": "18.42"
+          },
+          "all_time": {
+            "sold": "5620",
+            "median": 0.43,
+            "average": 0.6,
+            "lowest_price": 0.07,
+            "highest_price": 57.74,
+            "standard_deviation": "385.45"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "172",
+            "median": 0.09,
+            "average": 0.1,
+            "lowest_price": 0.05,
+            "highest_price": 0.12,
+            "standard_deviation": "11.11"
+          },
+          "30_days": {
+            "sold": "677",
+            "median": 0.1,
+            "average": 0.1,
+            "lowest_price": 0.03,
+            "highest_price": 0.16,
+            "standard_deviation": "22.22"
+          },
+          "24_hours": {
+            "sold": "13",
+            "median": 0.11,
+            "average": 0.11,
+            "lowest_price": 0.1,
+            "highest_price": 0.11,
+            "standard_deviation": "10"
+          },
+          "all_time": {
+            "sold": "11736",
+            "median": 0.11,
+            "average": 0.4,
+            "lowest_price": 0.03,
+            "highest_price": 35.94,
+            "standard_deviation": "413.51"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "81",
+            "median": 0.19,
+            "average": 0.19,
+            "lowest_price": 0.11,
+            "highest_price": 0.23,
+            "standard_deviation": "17.65"
+          },
+          "30_days": {
+            "sold": "344",
+            "median": 0.23,
+            "average": 0.61,
+            "lowest_price": 0.11,
+            "highest_price": 64.48,
+            "standard_deviation": "646.43"
+          },
+          "24_hours": {
+            "sold": "2",
+            "median": 0.22,
+            "average": 0.22,
+            "lowest_price": 0.21,
+            "highest_price": 0.23,
+            "standard_deviation": "5"
+          },
+          "all_time": {
+            "sold": "6178",
+            "median": 0.23,
+            "average": 0.53,
+            "lowest_price": 0.09,
+            "highest_price": 79.42,
+            "standard_deviation": "728.57"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_bizon_aa_wiring_light_large.5ec614e6c258dd17db3f7949292008a2f466f2db.png",
+      "minFloat": 0,
+      "maxFloat": 0.44,
+      "stattrak": false
+    },
+    {
+      "id": "skin-1773760",
+      "name": "MAG-7 | Prism Terrace",
+      "type": "Weapon",
+      "weaponType": "Shotgun",
+      "gunType": "MAG-7",
+      "rarity": "Restricted",
+      "rarityColor": "8847ff",
+      "prices": {
+        "Factory New": {
+          "7_days": {
+            "sold": "11",
+            "median": 27.8,
+            "average": 25.6,
+            "lowest_price": 21.01,
+            "highest_price": 28.81,
+            "standard_deviation": "11.98"
+          },
+          "30_days": {
+            "sold": "32",
+            "median": 27.83,
+            "average": 28.44,
+            "lowest_price": 21.01,
+            "highest_price": 44.1,
+            "standard_deviation": "19.04"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 27.83,
+            "average": 27.83,
+            "lowest_price": 27.83,
+            "highest_price": 27.83,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "540",
+            "median": 22.74,
+            "average": 24.05,
+            "lowest_price": 11.81,
+            "highest_price": 52.24,
+            "standard_deviation": "31.91"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "21",
+            "median": 4.87,
+            "average": 5.24,
+            "lowest_price": 4.06,
+            "highest_price": 6.83,
+            "standard_deviation": "14.38"
+          },
+          "30_days": {
+            "sold": "66",
+            "median": 5.26,
+            "average": 5.39,
+            "lowest_price": 4.06,
+            "highest_price": 7.15,
+            "standard_deviation": "13.16"
+          },
+          "all_time": {
+            "sold": "1026",
+            "median": 5.35,
+            "average": 6,
+            "lowest_price": 2.27,
+            "highest_price": 12.16,
+            "standard_deviation": "32.18"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "7",
+            "median": 14.06,
+            "average": 13.99,
+            "lowest_price": 10.16,
+            "highest_price": 16.05,
+            "standard_deviation": "16.15"
+          },
+          "30_days": {
+            "sold": "49",
+            "median": 12.59,
+            "average": 13.02,
+            "lowest_price": 9.38,
+            "highest_price": 16.35,
+            "standard_deviation": "16.76"
+          },
+          "all_time": {
+            "sold": "813",
+            "median": 11.42,
+            "average": 11.84,
+            "lowest_price": 2.33,
+            "highest_price": 26.81,
+            "standard_deviation": "29.86"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_mag7_hy_geometric_steps_pearl_light_large.f31672cbe64c23d7d340199143758c8fc537ffb3.png",
+      "minFloat": 0,
+      "maxFloat": 0.37,
+      "stattrak": false
+    },
+    {
+      "id": "skin-1839328",
+      "name": "Negev | Infrastructure",
+      "type": "Weapon",
+      "weaponType": "Machinegun",
+      "gunType": "Negev",
+      "rarity": "Mil-Spec Grade",
+      "rarityColor": "4b69ff",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "23",
+            "median": 4.46,
+            "average": 4,
+            "lowest_price": 1.93,
+            "highest_price": 5.26,
+            "standard_deviation": "27.32"
+          },
+          "30_days": {
+            "sold": "47",
+            "median": 1,
+            "average": 2.51,
+            "lowest_price": 0.62,
+            "highest_price": 5.26,
+            "standard_deviation": "60.87"
+          },
+          "all_time": {
+            "sold": "463",
+            "median": 1.07,
+            "average": 2.65,
+            "lowest_price": 0.33,
+            "highest_price": 72.18,
+            "standard_deviation": "227.57"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "13",
+            "median": 1.86,
+            "average": 1.77,
+            "lowest_price": 1.42,
+            "highest_price": 2.18,
+            "standard_deviation": "12.96"
+          },
+          "30_days": {
+            "sold": "82",
+            "median": 1.88,
+            "average": 1.82,
+            "lowest_price": 0.81,
+            "highest_price": 3.47,
+            "standard_deviation": "22.16"
+          },
+          "24_hours": {
+            "sold": "2",
+            "median": 1.83,
+            "average": 1.83,
+            "lowest_price": 1.83,
+            "highest_price": 1.83,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "1507",
+            "median": 2.19,
+            "average": 2.46,
+            "lowest_price": 0.81,
+            "highest_price": 19.41,
+            "standard_deviation": "45.78"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "22",
+            "median": 0.52,
+            "average": 0.52,
+            "lowest_price": 0.44,
+            "highest_price": 0.7,
+            "standard_deviation": "10.42"
+          },
+          "30_days": {
+            "sold": "150",
+            "median": 0.53,
+            "average": 0.55,
+            "lowest_price": 0.24,
+            "highest_price": 1.24,
+            "standard_deviation": "20"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 0.53,
+            "average": 0.53,
+            "lowest_price": 0.53,
+            "highest_price": 0.53,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "2592",
+            "median": 0.7,
+            "average": 0.74,
+            "lowest_price": 0.09,
+            "highest_price": 2.84,
+            "standard_deviation": "30.88"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "21",
+            "median": 0.95,
+            "average": 0.93,
+            "lowest_price": 0.76,
+            "highest_price": 1.14,
+            "standard_deviation": "10.59"
+          },
+          "30_days": {
+            "sold": "105",
+            "median": 0.85,
+            "average": 0.87,
+            "lowest_price": 0.49,
+            "highest_price": 1.83,
+            "standard_deviation": "20"
+          },
+          "all_time": {
+            "sold": "1467",
+            "median": 1.19,
+            "average": 1.33,
+            "lowest_price": 0.46,
+            "highest_price": 3.82,
+            "standard_deviation": "32.79"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "3",
+            "median": 5.93,
+            "average": 5.93,
+            "lowest_price": 5.93,
+            "highest_price": 5.93,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "27",
+            "median": 2.98,
+            "average": 3.08,
+            "lowest_price": 0.81,
+            "highest_price": 5.93,
+            "standard_deviation": "42.2"
+          },
+          "all_time": {
+            "sold": "231",
+            "median": 2.45,
+            "average": 3.55,
+            "lowest_price": 0.81,
+            "highest_price": 43.27,
+            "standard_deviation": "121.85"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_negev_hy_vertigospray_light_large.1e6d69be2dc5ac7290ef815ae6a53bb2143103c3.png",
+      "minFloat": 0,
+      "maxFloat": 0.49,
+      "stattrak": false
+    },
+    {
+      "id": "skin-200936",
+      "name": "Five-SeveN | Fall Hazard",
+      "type": "Weapon",
+      "weaponType": "Pistol",
+      "gunType": "Five-SeveN",
+      "rarity": "Classified",
+      "rarityColor": "d32ce6",
+      "prices": {
+        "Well-Worn": {
+          "30_days": {
+            "sold": "2",
+            "median": 94.22,
+            "average": 94.22,
+            "lowest_price": 73.99,
+            "highest_price": 114.46,
+            "standard_deviation": "21.48"
+          },
+          "all_time": {
+            "sold": "48",
+            "median": 48.16,
+            "average": 58.69,
+            "lowest_price": 27.59,
+            "highest_price": 154.55,
+            "standard_deviation": "47.81"
+          }
+        },
+        "Factory New": {
+          "30_days": {
+            "sold": "1",
+            "median": 179.88,
+            "average": 179.88,
+            "lowest_price": 179.88,
+            "highest_price": 179.88,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "40",
+            "median": 130.65,
+            "average": 179.15,
+            "lowest_price": 84.1,
+            "highest_price": 1917.83,
+            "standard_deviation": "160.6"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "3",
+            "median": 50.82,
+            "average": 49.04,
+            "lowest_price": 43.23,
+            "highest_price": 53.08,
+            "standard_deviation": "8.59"
+          },
+          "30_days": {
+            "sold": "26",
+            "median": 58.76,
+            "average": 59.99,
+            "lowest_price": 43.23,
+            "highest_price": 87.34,
+            "standard_deviation": "17.09"
+          },
+          "all_time": {
+            "sold": "270",
+            "median": 53.08,
+            "average": 55.62,
+            "lowest_price": 24.82,
+            "highest_price": 513.37,
+            "standard_deviation": "61.83"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "1",
+            "median": 102.24,
+            "average": 102.24,
+            "lowest_price": 102.24,
+            "highest_price": 102.24,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "6",
+            "median": 113.31,
+            "average": 127.08,
+            "lowest_price": 85.4,
+            "highest_price": 212.86,
+            "standard_deviation": "34.32"
+          },
+          "all_time": {
+            "sold": "105",
+            "median": 71.8,
+            "average": 81.27,
+            "lowest_price": 42.85,
+            "highest_price": 212.86,
+            "standard_deviation": "34.79"
+          }
+        },
+        "Battle-Scarred": {
+          "all_time": {
+            "sold": "21",
+            "median": 54.83,
+            "average": 70.49,
+            "lowest_price": 28.04,
+            "highest_price": 148.44,
+            "standard_deviation": "55.68"
+          }
+        }
+      },
+      "firstSaleDate": "1632434400",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_fiveseven_cu_vertigo_fiveseven_light_large.8d09586ce7da49599697204b4b7fc32930b47836.png",
+      "minFloat": 0.01,
+      "maxFloat": 0.52,
+      "stattrak": false
+    },
+    {
+      "id": "skin-2298068",
+      "name": "Nova | Interlock",
+      "type": "Weapon",
+      "weaponType": "Shotgun",
+      "gunType": "Nova",
+      "rarity": "Mil-Spec Grade",
+      "rarityColor": "4b69ff",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "5",
+            "median": 1.42,
+            "average": 1.43,
+            "lowest_price": 1.06,
+            "highest_price": 1.8,
+            "standard_deviation": "16.79"
+          },
+          "30_days": {
+            "sold": "26",
+            "median": 1.66,
+            "average": 1.59,
+            "lowest_price": 0.95,
+            "highest_price": 2,
+            "standard_deviation": "15.75"
+          },
+          "all_time": {
+            "sold": "503",
+            "median": 1.23,
+            "average": 1.4,
+            "lowest_price": 0.41,
+            "highest_price": 20.25,
+            "standard_deviation": "80.47"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "16",
+            "median": 4.14,
+            "average": 3.79,
+            "lowest_price": 1,
+            "highest_price": 5.33,
+            "standard_deviation": "30.26"
+          },
+          "30_days": {
+            "sold": "88",
+            "median": 4.34,
+            "average": 4.15,
+            "lowest_price": 0.94,
+            "highest_price": 6.31,
+            "standard_deviation": "28.16"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 4.07,
+            "average": 4.07,
+            "lowest_price": 4.07,
+            "highest_price": 4.07,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "1469",
+            "median": 4.24,
+            "average": 4.34,
+            "lowest_price": 0.94,
+            "highest_price": 11.7,
+            "standard_deviation": "30.65"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "44",
+            "median": 0.78,
+            "average": 0.79,
+            "lowest_price": 0.64,
+            "highest_price": 1.08,
+            "standard_deviation": "11.11"
+          },
+          "30_days": {
+            "sold": "194",
+            "median": 0.87,
+            "average": 0.88,
+            "lowest_price": 0.48,
+            "highest_price": 1.39,
+            "standard_deviation": "18.52"
+          },
+          "all_time": {
+            "sold": "3072",
+            "median": 0.93,
+            "average": 1.03,
+            "lowest_price": 0.11,
+            "highest_price": 32.6,
+            "standard_deviation": "115.96"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "19",
+            "median": 2.34,
+            "average": 2.33,
+            "lowest_price": 2.04,
+            "highest_price": 2.81,
+            "standard_deviation": "8.45"
+          },
+          "30_days": {
+            "sold": "105",
+            "median": 2.72,
+            "average": 2.57,
+            "lowest_price": 0.81,
+            "highest_price": 3.95,
+            "standard_deviation": "23.83"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 2.4,
+            "average": 2.4,
+            "lowest_price": 2.4,
+            "highest_price": 2.4,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "1749",
+            "median": 2.52,
+            "average": 2.57,
+            "lowest_price": 0.81,
+            "highest_price": 6.6,
+            "standard_deviation": "28.51"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "5",
+            "median": 1.42,
+            "average": 1.41,
+            "lowest_price": 1.27,
+            "highest_price": 1.5,
+            "standard_deviation": "6.98"
+          },
+          "30_days": {
+            "sold": "38",
+            "median": 1.23,
+            "average": 1.26,
+            "lowest_price": 1.12,
+            "highest_price": 1.5,
+            "standard_deviation": "6.96"
+          },
+          "all_time": {
+            "sold": "349",
+            "median": 1.33,
+            "average": 1.64,
+            "lowest_price": 0.64,
+            "highest_price": 15.13,
+            "standard_deviation": "72.67"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_nova_hy_vertigoillusion_yellow_light_large.73fdfc85585fff74804a6f22179406a48ce74947.png",
+      "minFloat": 0,
+      "maxFloat": 0.5,
+      "stattrak": false
+    },
+    {
+      "id": "skin-2363620",
+      "name": "P250 | Digital Architect",
+      "type": "Weapon",
+      "weaponType": "Pistol",
+      "gunType": "P250",
+      "rarity": "Restricted",
+      "rarityColor": "8847ff",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "2",
+            "median": 7.86,
+            "average": 7.86,
+            "lowest_price": 7.84,
+            "highest_price": 7.88,
+            "standard_deviation": "0.28"
+          },
+          "30_days": {
+            "sold": "8",
+            "median": 8.12,
+            "average": 8.49,
+            "lowest_price": 7.48,
+            "highest_price": 11.04,
+            "standard_deviation": "12.72"
+          },
+          "all_time": {
+            "sold": "145",
+            "median": 7.5,
+            "average": 7.57,
+            "lowest_price": 2.14,
+            "highest_price": 19.47,
+            "standard_deviation": "31.02"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "8",
+            "median": 23.16,
+            "average": 25.03,
+            "lowest_price": 21.33,
+            "highest_price": 31.84,
+            "standard_deviation": "15.57"
+          },
+          "30_days": {
+            "sold": "27",
+            "median": 26,
+            "average": 26,
+            "lowest_price": 21.33,
+            "highest_price": 32.05,
+            "standard_deviation": "11.13"
+          },
+          "all_time": {
+            "sold": "438",
+            "median": 24.64,
+            "average": 26.31,
+            "lowest_price": 0.05,
+            "highest_price": 87.69,
+            "standard_deviation": "33.98"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "13",
+            "median": 6.86,
+            "average": 7,
+            "lowest_price": 5.85,
+            "highest_price": 8.09,
+            "standard_deviation": "8.27"
+          },
+          "30_days": {
+            "sold": "92",
+            "median": 7.65,
+            "average": 7.77,
+            "lowest_price": 5.33,
+            "highest_price": 13.41,
+            "standard_deviation": "14.19"
+          },
+          "all_time": {
+            "sold": "1522",
+            "median": 7.28,
+            "average": 7.53,
+            "lowest_price": 4.13,
+            "highest_price": 14.79,
+            "standard_deviation": "24.49"
+          }
+        },
+        "Minimal Wear": {
+          "30_days": {
+            "sold": "21",
+            "median": 16.93,
+            "average": 17.38,
+            "lowest_price": 13.26,
+            "highest_price": 20.85,
+            "standard_deviation": "11.87"
+          },
+          "all_time": {
+            "sold": "596",
+            "median": 14.6,
+            "average": 15.06,
+            "lowest_price": 8.03,
+            "highest_price": 32.89,
+            "standard_deviation": "23.48"
+          }
+        },
+        "Battle-Scarred": {
+          "30_days": {
+            "sold": "1",
+            "median": 15.32,
+            "average": 15.32,
+            "lowest_price": 15.32,
+            "highest_price": 15.32,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "53",
+            "median": 11.95,
+            "average": 12.64,
+            "lowest_price": 5.6,
+            "highest_price": 26.84,
+            "standard_deviation": "37.05"
+          }
+        }
+      },
+      "firstSaleDate": "1632434400",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_p250_aa_vertigogeo_neon_light_large.e1e7730f0d6716a372cda4b973f71cdbb7a074cd.png",
+      "minFloat": 0,
+      "maxFloat": 0.49,
+      "stattrak": false
+    },
+    {
+      "id": "skin-2560240",
+      "name": "SG 553 | Hazard Pay",
+      "type": "Weapon",
+      "weaponType": "Rifle",
+      "gunType": "SG 553",
+      "rarity": "Classified",
+      "rarityColor": "d32ce6",
+      "prices": {
+        "Well-Worn": {
+          "all_time": {
+            "sold": "29",
+            "median": 80.07,
+            "average": 103.16,
+            "lowest_price": 28.56,
+            "highest_price": 569.6,
+            "standard_deviation": "97.96"
+          }
+        },
+        "Factory New": {
+          "30_days": {
+            "sold": "2",
+            "median": 359.21,
+            "average": 359.21,
+            "lowest_price": 302.87,
+            "highest_price": 415.56,
+            "standard_deviation": "15.69"
+          },
+          "all_time": {
+            "sold": "41",
+            "median": 299.24,
+            "average": 331.91,
+            "lowest_price": 173.52,
+            "highest_price": 732.26,
+            "standard_deviation": "42.79"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "1",
+            "median": 77.89,
+            "average": 77.89,
+            "lowest_price": 77.89,
+            "highest_price": 77.89,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "6",
+            "median": 89.9,
+            "average": 91.52,
+            "lowest_price": 65.94,
+            "highest_price": 131.26,
+            "standard_deviation": "25.93"
+          },
+          "all_time": {
+            "sold": "147",
+            "median": 87.28,
+            "average": 92.45,
+            "lowest_price": 45.88,
+            "highest_price": 573.49,
+            "standard_deviation": "55.41"
+          }
+        },
+        "Minimal Wear": {
+          "30_days": {
+            "sold": "2",
+            "median": 189.17,
+            "average": 189.17,
+            "lowest_price": 159.52,
+            "highest_price": 218.81,
+            "standard_deviation": "15.67"
+          },
+          "all_time": {
+            "sold": "53",
+            "median": 170.74,
+            "average": 172.67,
+            "lowest_price": 97.24,
+            "highest_price": 372.63,
+            "standard_deviation": "32.75"
+          }
+        },
+        "Battle-Scarred": {
+          "30_days": {
+            "sold": "1",
+            "median": 167.96,
+            "average": 167.96,
+            "lowest_price": 167.96,
+            "highest_price": 167.96,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "11",
+            "median": 74.68,
+            "average": 78.19,
+            "lowest_price": 34.76,
+            "highest_price": 167.96,
+            "standard_deviation": "46.01"
+          }
+        }
+      },
+      "firstSaleDate": "1632607200",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_sg556_cu_sg553_caution_light_large.48fe10aaedc4fbba77afd76c31a5ab86da42461b.png",
+      "minFloat": 0,
+      "maxFloat": 0.48,
+      "stattrak": false
+    },
+    {
+      "id": "skin-2621720",
+      "name": "SSG 08 | Carbon Fiber",
+      "type": "Weapon",
+      "weaponType": "Sniper Rifle",
+      "gunType": "SSG 08",
+      "rarity": "Industrial Grade",
+      "rarityColor": "5e98d9",
+      "prices": {
+        "Factory New": {
+          "7_days": {
+            "sold": "454",
+            "median": 1.41,
+            "average": 1.43,
+            "lowest_price": 0.76,
+            "highest_price": 6.53,
+            "standard_deviation": "32.06"
+          },
+          "30_days": {
+            "sold": "2120",
+            "median": 1.53,
+            "average": 1.58,
+            "lowest_price": 0.76,
+            "highest_price": 12.32,
+            "standard_deviation": "36.55"
+          },
+          "24_hours": {
+            "sold": "5",
+            "median": 1.53,
+            "average": 1.53,
+            "lowest_price": 1.53,
+            "highest_price": 1.53,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "31319",
+            "median": 1.62,
+            "average": 1.8,
+            "lowest_price": 0.76,
+            "highest_price": 12.32,
+            "standard_deviation": "32.12"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "98",
+            "median": 1.4,
+            "average": 1.38,
+            "lowest_price": 0.92,
+            "highest_price": 1.72,
+            "standard_deviation": "10.32"
+          },
+          "30_days": {
+            "sold": "403",
+            "median": 1.54,
+            "average": 1.59,
+            "lowest_price": 0.75,
+            "highest_price": 4.48,
+            "standard_deviation": "25.34"
+          },
+          "24_hours": {
+            "sold": "3",
+            "median": 1.53,
+            "average": 1.52,
+            "lowest_price": 1.51,
+            "highest_price": 1.53,
+            "standard_deviation": "0.72"
+          },
+          "all_time": {
+            "sold": "6329",
+            "median": 1.7,
+            "average": 1.86,
+            "lowest_price": 0.75,
+            "highest_price": 7.19,
+            "standard_deviation": "28.24"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ssg08_am_carbon_fiber_light_large.90255a5b4940cc078005493430f0a73761b990e4.png",
+      "minFloat": 0,
+      "maxFloat": 0.12,
+      "stattrak": false
+    },
+    {
+      "id": "skin-266460",
+      "name": "Glock-18 | Red Tire",
+      "type": "Weapon",
+      "weaponType": "Pistol",
+      "gunType": "Glock-18",
+      "rarity": "Industrial Grade",
+      "rarityColor": "5e98d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "47",
+            "median": 0.95,
+            "average": 0.97,
+            "lowest_price": 0.84,
+            "highest_price": 1.27,
+            "standard_deviation": "8.99"
+          },
+          "30_days": {
+            "sold": "194",
+            "median": 1.15,
+            "average": 1.21,
+            "lowest_price": 0.84,
+            "highest_price": 3.3,
+            "standard_deviation": "23.42"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 1,
+            "average": 1,
+            "lowest_price": 1,
+            "highest_price": 1,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "3327",
+            "median": 1.31,
+            "average": 1.42,
+            "lowest_price": 0.72,
+            "highest_price": 5.49,
+            "standard_deviation": "32.31"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "127",
+            "median": 1.91,
+            "average": 1.81,
+            "lowest_price": 1.02,
+            "highest_price": 2.36,
+            "standard_deviation": "13.25"
+          },
+          "30_days": {
+            "sold": "612",
+            "median": 2.05,
+            "average": 2.05,
+            "lowest_price": 0.74,
+            "highest_price": 7.25,
+            "standard_deviation": "23.94"
+          },
+          "all_time": {
+            "sold": "9382",
+            "median": 2.28,
+            "average": 2.64,
+            "lowest_price": 0.74,
+            "highest_price": 7.25,
+            "standard_deviation": "26.86"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "360",
+            "median": 0.51,
+            "average": 0.5,
+            "lowest_price": 0.36,
+            "highest_price": 0.64,
+            "standard_deviation": "8.7"
+          },
+          "30_days": {
+            "sold": "1760",
+            "median": 0.58,
+            "average": 0.59,
+            "lowest_price": 0.36,
+            "highest_price": 2.47,
+            "standard_deviation": "20.37"
+          },
+          "all_time": {
+            "sold": "29689",
+            "median": 0.68,
+            "average": 0.87,
+            "lowest_price": 0.36,
+            "highest_price": 2.47,
+            "standard_deviation": "26.25"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "98",
+            "median": 1.16,
+            "average": 1.11,
+            "lowest_price": 0.96,
+            "highest_price": 1.36,
+            "standard_deviation": "7.84"
+          },
+          "30_days": {
+            "sold": "836",
+            "median": 1.26,
+            "average": 1.26,
+            "lowest_price": 0.75,
+            "highest_price": 2,
+            "standard_deviation": "14.78"
+          },
+          "all_time": {
+            "sold": "15185",
+            "median": 1.36,
+            "average": 1.53,
+            "lowest_price": 0.75,
+            "highest_price": 2.82,
+            "standard_deviation": "22.14"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "45",
+            "median": 0.8,
+            "average": 0.81,
+            "lowest_price": 0.53,
+            "highest_price": 1.17,
+            "standard_deviation": "13.51"
+          },
+          "30_days": {
+            "sold": "183",
+            "median": 0.91,
+            "average": 0.93,
+            "lowest_price": 0.53,
+            "highest_price": 2.77,
+            "standard_deviation": "23.53"
+          },
+          "24_hours": {
+            "sold": "5",
+            "median": 0.78,
+            "average": 0.79,
+            "lowest_price": 0.7,
+            "highest_price": 0.9,
+            "standard_deviation": "9.72"
+          },
+          "all_time": {
+            "sold": "3336",
+            "median": 1.07,
+            "average": 1.27,
+            "lowest_price": 0.53,
+            "highest_price": 64.07,
+            "standard_deviation": "182.76"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_glock_sp_tire_tread_red_light_large.bf06d5ba0f2b746eff6a66aa7020acd7a87eddc4.png",
+      "minFloat": 0,
+      "maxFloat": 0.55,
+      "stattrak": false
+    },
+    {
+      "id": "skin-3936452",
+      "name": "M4A1-S | Imminent Danger",
+      "type": "Weapon",
+      "weaponType": "Rifle",
+      "gunType": "M4A1-S",
+      "rarity": "Covert",
+      "rarityColor": "eb4b4b",
+      "prices": {
+        "Field-Tested": {
+          "all_time": {
+            "sold": "29",
+            "median": 1596.24,
+            "average": 1375.49,
+            "lowest_price": 620.33,
+            "highest_price": 1865.31,
+            "standard_deviation": "31.37"
+          }
+        },
+        "Minimal Wear": {
+          "30_days": {
+            "sold": "1",
+            "median": 1910.12,
+            "average": 1910.12,
+            "lowest_price": 1910.12,
+            "highest_price": 1910.12,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "6",
+            "median": 1848.7,
+            "average": 1833.85,
+            "lowest_price": 1730.27,
+            "highest_price": 1910.12,
+            "standard_deviation": "3.08"
+          }
+        },
+        "Battle-Scarred": {
+          "all_time": {
+            "sold": "10",
+            "median": 670.66,
+            "average": 856.71,
+            "lowest_price": 369.99,
+            "highest_price": 1786.52,
+            "standard_deviation": "58.17"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_m4a1_silencer_gs_m4a1_vertigo_light_large.a144750a6903c3bdd9808e740d274648ae26c71e.png",
+      "minFloat": 0,
+      "maxFloat": 0.8,
+      "stattrak": false
+    },
+    {
+      "id": "skin-4133072",
+      "name": "CZ75-Auto | Framework",
+      "type": "Weapon",
+      "weaponType": "Pistol",
+      "gunType": "CZ75-Auto",
+      "rarity": "Consumer Grade",
+      "rarityColor": "b0c3d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "67",
+            "median": 0.07,
+            "average": 0.14,
+            "lowest_price": 0.03,
+            "highest_price": 3.81,
+            "standard_deviation": "369.23"
+          },
+          "30_days": {
+            "sold": "336",
+            "median": 0.07,
+            "average": 0.09,
+            "lowest_price": 0.03,
+            "highest_price": 3.81,
+            "standard_deviation": "275"
+          },
+          "24_hours": {
+            "sold": "2",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.03,
+            "highest_price": 0.05,
+            "standard_deviation": "25"
+          },
+          "all_time": {
+            "sold": "5117",
+            "median": 0.1,
+            "average": 0.37,
+            "lowest_price": 0.03,
+            "highest_price": 28.13,
+            "standard_deviation": "447.06"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "84",
+            "median": 0.24,
+            "average": 1.51,
+            "lowest_price": 0.14,
+            "highest_price": 53.64,
+            "standard_deviation": "461.59"
+          },
+          "30_days": {
+            "sold": "423",
+            "median": 0.27,
+            "average": 0.87,
+            "lowest_price": 0.07,
+            "highest_price": 53.64,
+            "standard_deviation": "522.5"
+          },
+          "all_time": {
+            "sold": "5844",
+            "median": 0.32,
+            "average": 0.7,
+            "lowest_price": 0.03,
+            "highest_price": 65.99,
+            "standard_deviation": "521.88"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "1073",
+            "median": 0.03,
+            "average": 0.03,
+            "lowest_price": 0.03,
+            "highest_price": 0.05,
+            "standard_deviation": "0"
+          },
+          "30_days": {
+            "sold": "4980",
+            "median": 0.03,
+            "average": 0.03,
+            "lowest_price": 0.03,
+            "highest_price": 0.16,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "77365",
+            "median": 0.03,
+            "average": 0.08,
+            "lowest_price": 0.03,
+            "highest_price": 21.72,
+            "standard_deviation": "814.29"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "169",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.03,
+            "highest_price": 0.09,
+            "standard_deviation": "25"
+          },
+          "30_days": {
+            "sold": "1910",
+            "median": 0.05,
+            "average": 0.05,
+            "lowest_price": 0.03,
+            "highest_price": 0.1,
+            "standard_deviation": "20"
+          },
+          "all_time": {
+            "sold": "34031",
+            "median": 0.07,
+            "average": 0.13,
+            "lowest_price": 0.03,
+            "highest_price": 22.01,
+            "standard_deviation": "475"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "273",
+            "median": 0.03,
+            "average": 0.96,
+            "lowest_price": 0.03,
+            "highest_price": 67.85,
+            "standard_deviation": "1057.95"
+          },
+          "30_days": {
+            "sold": "1197",
+            "median": 0.03,
+            "average": 0.47,
+            "lowest_price": 0.03,
+            "highest_price": 67.85,
+            "standard_deviation": "1153.49"
+          },
+          "24_hours": {
+            "sold": "5",
+            "median": 0.03,
+            "average": 0.03,
+            "lowest_price": 0.03,
+            "highest_price": 0.03,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "21382",
+            "median": 0.03,
+            "average": 0.51,
+            "lowest_price": 0.03,
+            "highest_price": 67.85,
+            "standard_deviation": "757.45"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_cz75a_hy_vertigoillusion_light_large.1e2ff66fbdd2d5aea56659a7ede1cc3fd570f00d.png",
+      "minFloat": 0,
+      "maxFloat": 0.8,
+      "stattrak": false
+    },
+    {
+      "id": "skin-463032",
+      "name": "AK-47 | Green Laminate",
+      "type": "Weapon",
+      "weaponType": "Rifle",
+      "gunType": "AK-47",
+      "rarity": "Mil-Spec Grade",
+      "rarityColor": "4b69ff",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "3",
+            "median": 30.49,
+            "average": 28.94,
+            "lowest_price": 25.21,
+            "highest_price": 31.13,
+            "standard_deviation": "9.17"
+          },
+          "30_days": {
+            "sold": "8",
+            "median": 28.5,
+            "average": 28.48,
+            "lowest_price": 22.39,
+            "highest_price": 35.99,
+            "standard_deviation": "14.33"
+          },
+          "all_time": {
+            "sold": "174",
+            "median": 24.33,
+            "average": 26.32,
+            "lowest_price": 8.89,
+            "highest_price": 93.42,
+            "standard_deviation": "38.66"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "20",
+            "median": 27.43,
+            "average": 26.82,
+            "lowest_price": 19.04,
+            "highest_price": 39.18,
+            "standard_deviation": "16.73"
+          },
+          "30_days": {
+            "sold": "96",
+            "median": 28.51,
+            "average": 28.38,
+            "lowest_price": 19.04,
+            "highest_price": 58.76,
+            "standard_deviation": "16.92"
+          },
+          "all_time": {
+            "sold": "1894",
+            "median": 27.42,
+            "average": 30.58,
+            "lowest_price": 14.66,
+            "highest_price": 97.35,
+            "standard_deviation": "32.17"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "82",
+            "median": 11,
+            "average": 11.35,
+            "lowest_price": 9.91,
+            "highest_price": 15.47,
+            "standard_deviation": "8.27"
+          },
+          "30_days": {
+            "sold": "396",
+            "median": 11.56,
+            "average": 11.72,
+            "lowest_price": 8,
+            "highest_price": 31.85,
+            "standard_deviation": "21.04"
+          },
+          "24_hours": {
+            "sold": "2",
+            "median": 11.92,
+            "average": 11.92,
+            "lowest_price": 10.88,
+            "highest_price": 12.97,
+            "standard_deviation": "8.7"
+          },
+          "all_time": {
+            "sold": "6582",
+            "median": 11.95,
+            "average": 13.15,
+            "lowest_price": 8,
+            "highest_price": 31.85,
+            "standard_deviation": "23.98"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "43",
+            "median": 13.21,
+            "average": 13.73,
+            "lowest_price": 10.77,
+            "highest_price": 24.49,
+            "standard_deviation": "17.09"
+          },
+          "30_days": {
+            "sold": "221",
+            "median": 14.22,
+            "average": 14.55,
+            "lowest_price": 10.77,
+            "highest_price": 24.49,
+            "standard_deviation": "16.8"
+          },
+          "all_time": {
+            "sold": "3664",
+            "median": 15.01,
+            "average": 16.28,
+            "lowest_price": 9.34,
+            "highest_price": 32.74,
+            "standard_deviation": "25.62"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_ak47_hy_ak47lam_green_light_large.ecbaf85e35ca08156cc305017d4dc4276a742a8f.png",
+      "minFloat": 0.02,
+      "maxFloat": 0.4,
+      "stattrak": false
+    },
+    {
+      "id": "skin-659624",
+      "name": "FAMAS | Faulty Wiring",
+      "type": "Weapon",
+      "weaponType": "Rifle",
+      "gunType": "FAMAS",
+      "rarity": "Consumer Grade",
+      "rarityColor": "b0c3d9",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "116",
+            "median": 0.08,
+            "average": 0.08,
+            "lowest_price": 0.05,
+            "highest_price": 0.13,
+            "standard_deviation": "14.29"
+          },
+          "30_days": {
+            "sold": "491",
+            "median": 0.1,
+            "average": 0.11,
+            "lowest_price": 0.03,
+            "highest_price": 0.53,
+            "standard_deviation": "40"
+          },
+          "24_hours": {
+            "sold": "5",
+            "median": 0.09,
+            "average": 0.09,
+            "lowest_price": 0.09,
+            "highest_price": 0.09,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "7786",
+            "median": 0.15,
+            "average": 0.31,
+            "lowest_price": 0.03,
+            "highest_price": 29.46,
+            "standard_deviation": "360.71"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "468",
+            "median": 0.22,
+            "average": 0.23,
+            "lowest_price": 0.16,
+            "highest_price": 0.37,
+            "standard_deviation": "14.29"
+          },
+          "30_days": {
+            "sold": "2084",
+            "median": 0.28,
+            "average": 0.28,
+            "lowest_price": 0.03,
+            "highest_price": 1.03,
+            "standard_deviation": "34.62"
+          },
+          "all_time": {
+            "sold": "30038",
+            "median": 0.34,
+            "average": 0.44,
+            "lowest_price": 0.03,
+            "highest_price": 1.03,
+            "standard_deviation": "30"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "746",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.03,
+            "highest_price": 0.07,
+            "standard_deviation": "25"
+          },
+          "30_days": {
+            "sold": "3711",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.03,
+            "highest_price": 2.7,
+            "standard_deviation": "225"
+          },
+          "24_hours": {
+            "sold": "19",
+            "median": 0.04,
+            "average": 0.04,
+            "lowest_price": 0.03,
+            "highest_price": 0.05,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "60818",
+            "median": 0.05,
+            "average": 0.12,
+            "lowest_price": 0.03,
+            "highest_price": 9.19,
+            "standard_deviation": "236.36"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "388",
+            "median": 0.1,
+            "average": 0.1,
+            "lowest_price": 0.05,
+            "highest_price": 0.15,
+            "standard_deviation": "22.22"
+          },
+          "30_days": {
+            "sold": "1904",
+            "median": 0.11,
+            "average": 0.11,
+            "lowest_price": 0.03,
+            "highest_price": 0.21,
+            "standard_deviation": "20"
+          },
+          "24_hours": {
+            "sold": "8",
+            "median": 0.11,
+            "average": 0.11,
+            "lowest_price": 0.07,
+            "highest_price": 0.14,
+            "standard_deviation": "20"
+          },
+          "all_time": {
+            "sold": "32959",
+            "median": 0.14,
+            "average": 0.24,
+            "lowest_price": 0.03,
+            "highest_price": 7.52,
+            "standard_deviation": "127.27"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "65",
+            "median": 0.1,
+            "average": 0.1,
+            "lowest_price": 0.07,
+            "highest_price": 0.28,
+            "standard_deviation": "33.33"
+          },
+          "30_days": {
+            "sold": "315",
+            "median": 0.11,
+            "average": 0.2,
+            "lowest_price": 0.07,
+            "highest_price": 17.42,
+            "standard_deviation": "627.78"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 0.12,
+            "average": 0.12,
+            "lowest_price": 0.12,
+            "highest_price": 0.12,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "4713",
+            "median": 0.16,
+            "average": 0.37,
+            "lowest_price": 0.05,
+            "highest_price": 41.57,
+            "standard_deviation": "464.71"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_famas_aa_wiring_yellow_light_large.c232a36fb8d6a691893132a0baf126d250d8d35e.png",
+      "minFloat": 0,
+      "maxFloat": 0.5,
+      "stattrak": false
+    },
+    {
+      "id": "skin-856252",
+      "name": "Galil AR | CAUTION!",
+      "type": "Weapon",
+      "weaponType": "Rifle",
+      "gunType": "Galil AR",
+      "rarity": "Restricted",
+      "rarityColor": "8847ff",
+      "prices": {
+        "Well-Worn": {
+          "7_days": {
+            "sold": "3",
+            "median": 12.86,
+            "average": 12.56,
+            "lowest_price": 11.95,
+            "highest_price": 13.78,
+            "standard_deviation": "7.21"
+          },
+          "30_days": {
+            "sold": "11",
+            "median": 12.39,
+            "average": 12.29,
+            "lowest_price": 9.98,
+            "highest_price": 13.78,
+            "standard_deviation": "7.82"
+          },
+          "all_time": {
+            "sold": "136",
+            "median": 10.39,
+            "average": 11.21,
+            "lowest_price": 5.48,
+            "highest_price": 28.97,
+            "standard_deviation": "32.52"
+          }
+        },
+        "Factory New": {
+          "7_days": {
+            "sold": "3",
+            "median": 46.23,
+            "average": 50.64,
+            "lowest_price": 26.43,
+            "highest_price": 79.24,
+            "standard_deviation": "43.03"
+          },
+          "30_days": {
+            "sold": "12",
+            "median": 43.63,
+            "average": 44.3,
+            "lowest_price": 26.43,
+            "highest_price": 79.24,
+            "standard_deviation": "27.13"
+          },
+          "all_time": {
+            "sold": "345",
+            "median": 34.02,
+            "average": 36.37,
+            "lowest_price": 16.91,
+            "highest_price": 174.1,
+            "standard_deviation": "40.88"
+          }
+        },
+        "Field-Tested": {
+          "7_days": {
+            "sold": "18",
+            "median": 10.19,
+            "average": 9.69,
+            "lowest_price": 7.53,
+            "highest_price": 10.93,
+            "standard_deviation": "10.47"
+          },
+          "30_days": {
+            "sold": "98",
+            "median": 10.7,
+            "average": 10.87,
+            "lowest_price": 7.11,
+            "highest_price": 21.21,
+            "standard_deviation": "17.97"
+          },
+          "all_time": {
+            "sold": "1532",
+            "median": 10.46,
+            "average": 10.63,
+            "lowest_price": 5.4,
+            "highest_price": 21.57,
+            "standard_deviation": "24.44"
+          }
+        },
+        "Minimal Wear": {
+          "7_days": {
+            "sold": "10",
+            "median": 17.75,
+            "average": 18.43,
+            "lowest_price": 15.68,
+            "highest_price": 23.64,
+            "standard_deviation": "11.43"
+          },
+          "30_days": {
+            "sold": "39",
+            "median": 21.15,
+            "average": 22.05,
+            "lowest_price": 15.68,
+            "highest_price": 30.85,
+            "standard_deviation": "17.52"
+          },
+          "all_time": {
+            "sold": "563",
+            "median": 18.78,
+            "average": 20.25,
+            "lowest_price": 11.31,
+            "highest_price": 94.37,
+            "standard_deviation": "34.72"
+          }
+        },
+        "Battle-Scarred": {
+          "7_days": {
+            "sold": "3",
+            "median": 10.22,
+            "average": 10.25,
+            "lowest_price": 9.69,
+            "highest_price": 10.84,
+            "standard_deviation": "4.58"
+          },
+          "30_days": {
+            "sold": "14",
+            "median": 11.9,
+            "average": 11.58,
+            "lowest_price": 6.14,
+            "highest_price": 15.33,
+            "standard_deviation": "18.1"
+          },
+          "24_hours": {
+            "sold": "1",
+            "median": 10.84,
+            "average": 10.84,
+            "lowest_price": 10.84,
+            "highest_price": 10.84,
+            "standard_deviation": "0"
+          },
+          "all_time": {
+            "sold": "179",
+            "median": 9.7,
+            "average": 10.35,
+            "lowest_price": 3.08,
+            "highest_price": 55.99,
+            "standard_deviation": "46.1"
+          }
+        }
+      },
+      "firstSaleDate": "1632348000",
+      "knifeType": null,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_galilar_sp_galil_caution_light_large.f70544059dd7c3ff5709c8a1493643d1ef2a5dde.png",
+      "minFloat": 0,
+      "maxFloat": 0.55,
+      "stattrak": false
+    }
+  ]
+}

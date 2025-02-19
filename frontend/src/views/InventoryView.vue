@@ -8,10 +8,10 @@ import { getSkinPrice } from '@/utils/balance';
 import { computed, ref } from 'vue';
 
 const inventory = useInventoryStore();
-const selectedSort = ref('date');
+const selectedSort = ref('latest');
 
 const selectOptions = [
-  { value: 'date', label: 'Date' },
+  { value: 'latest', label: 'Latest' },
   { value: 'price', label: 'Price' },
   { value: 'name', label: 'Name' },
   { value: 'rarity', label: 'Rarity' },
@@ -20,7 +20,7 @@ const selectOptions = [
 const sortedSkins = computed(() => {
   if (!inventory.skins || inventory.skins.length === 0) return [];
   switch (selectedSort.value) {
-    case 'date':
+    case 'latest':
       return [...inventory.skins].reverse();
     case 'price':
       return [...inventory.skins].sort((a, b) => getSkinPrice(b) - getSkinPrice(a));
@@ -32,6 +32,8 @@ const sortedSkins = computed(() => {
       return 0;
   }
 });
+
+console.log(sortedSkins.value);
 
 const onChange = (event: Event) => {
   selectedSort.value = (event.target as HTMLSelectElement).value;
