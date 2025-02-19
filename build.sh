@@ -2,14 +2,16 @@
 set -e
 
 build_backend() {
-  echo "Building backend..."
+  echo "Building backend image..."
   docker build --network=host -t 10.10.10.46:5000/cs2-case-unboxer-be ./backend
+  echo "Pushing image to registry..."
   docker push 10.10.10.46:5000/cs2-case-unboxer-be:latest
 }
 
 build_frontend() {
-  echo "Building frontend..."
+  echo "Building frontend image..."
   docker build -t 10.10.10.46:5000/cs2-case-unboxer-fe ./frontend
+  echo "Pushing image to registry..."
   docker push 10.10.10.46:5000/cs2-case-unboxer-fe:latest
 }
 
