@@ -1,0 +1,17 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      network: host
+    ports:
+      - '5015:8080'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '5173:80'

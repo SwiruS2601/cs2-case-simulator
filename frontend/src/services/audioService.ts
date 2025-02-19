@@ -5,8 +5,8 @@ import revealSoundLegendary from '../assets/audio/case_reveal_legendary_01.wav';
 import revealSoundAncient from '../assets/audio/case_reveal_ancient_01.wav';
 import unlockSound from '../assets/audio/case_unlock_01.wav';
 import unlockImmidiateSound from '../assets/audio/case_unlock_immediate_01.wav';
-import { useOptionsStore } from '@/store/optionsStore';
-import { RARITY_MAPPED } from '@/constants';
+import { useOptionsStore } from '../store/optionsStore';
+import { RARITY_MAPPED } from '../constants';
 
 const revealSoundMapping = {
   rare: revealSoundRare,

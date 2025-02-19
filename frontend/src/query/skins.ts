@@ -1,4 +1,4 @@
-import type { Skin } from '@/types';
+import type { Skin } from '../types';
 import { useQuery } from '@tanstack/vue-query';
 
 export function useSkins() {

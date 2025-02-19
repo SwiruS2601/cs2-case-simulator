@@ -1,4 +1,4 @@
-import type { Skin } from '@/types';
+import type { Skin } from '../types';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 

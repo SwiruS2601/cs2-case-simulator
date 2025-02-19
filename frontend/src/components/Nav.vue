@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInventoryStore } from '@/store/inventoryStore';
+import { useInventoryStore } from '../store/inventoryStore';
 import Button from './Button.vue';
 const inventory = useInventoryStore();
 </script>

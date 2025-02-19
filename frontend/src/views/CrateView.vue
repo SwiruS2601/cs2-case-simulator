@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import Backbutton from '@/components/Backbutton.vue';
-import Button from '@/components/Button.vue';
-import SkinGrid from '@/components/SkinGrid.vue';
-import { useCreate } from '@/query/crate';
-import { useOptionsStore } from '@/store/optionsStore';
+import Backbutton from '../components/Backbutton.vue';
+import Button from '../components/Button.vue';
+import SkinGrid from '../components/SkinGrid.vue';
+import { useCreate } from '../query/crate';
+import { useOptionsStore } from '../store/optionsStore';
 import {
   filterOnlyGlovesAndKnives,
   filterSkinsByOnlyGuns,
   sortSkinByName,
   sortSkinByRarity,
-} from '@/utils/sortAndfilters';
+} from '../utils/sortAndfilters';
 import { computed, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useCaseOpeningStore } from '@/store/caseOpeningStore';
-import CaseOpeningSlider from '@/components/CaseOpeningSlider.vue';
-import { crateOpeningService } from '@/services/crateOpeningService';
-import { FUN_ODDS, REAL_RARITY_ODDS } from '@/constants';
-import { audioService } from '@/services/audioService';
-import { useInventoryStore } from '@/store/inventoryStore';
-import { getSkinPrice } from '@/utils/balance';
-import OptionsIcon from '@/components/OptionsIcon.vue';
-import type { Skin } from '@/types';
+import { useCaseOpeningStore } from '../store/caseOpeningStore';
+import CaseOpeningSlider from '../components/CaseOpeningSlider.vue';
+import { crateOpeningService } from '../services/crateOpeningService';
+import { FUN_ODDS, REAL_RARITY_ODDS } from '../constants';
+import { audioService } from '../services/audioService';
+import { useInventoryStore } from '../store/inventoryStore';
+import { getSkinPrice } from '../utils/balance';
+import OptionsIcon from '../components/OptionsIcon.vue';
+import type { Skin } from '../types';
 
 const router = useRouter();
 const crateId = router.currentRoute.value.params.id as string;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import SliderItem from './SliderItem.vue';
-import { useOptionsStore } from '@/store/optionsStore';
-import { audioService } from '@/services/audioService';
-import type { Crate, Skin } from '@/types';
+import { useOptionsStore } from '../store/optionsStore';
+import { audioService } from '../services/audioService';
+import type { Crate, Skin } from '../types';
 
 const props = defineProps<{
   skins: Skin[];

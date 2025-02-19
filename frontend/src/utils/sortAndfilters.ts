@@ -1,5 +1,5 @@
-import { RARITY_INDEX } from '@/constants';
-import type { Skin } from '@/query/skins';
+import type { Skin } from '../types';
+import { RARITY_INDEX } from '../constants';
 
 export function sortSkinByRarity(a: Skin, b: Skin) {
   return RARITY_INDEX[a.rarity] - RARITY_INDEX[b.rarity];

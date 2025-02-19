@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Skin } from '@/query/skins';
-import { getSkinRarityColor } from '@/utils/color';
+import type { Skin } from '../types';
+import { getSkinRarityColor } from '../utils/color';
 const props = defineProps<{
   skin: Skin;
 }>();

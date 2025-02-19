@@ -3,7 +3,7 @@ import { crateOpeningService, generateSkinWearCategory } from '../services/crate
 import { FUN_ODDS, REAL_RARITY_ODDS } from '../constants';
 import mockCrateData from './mockCrateData.json';
 import mockSouvenirData from './mockSouvenirData.json';
-import type { Skin } from '@/types';
+import type { Skin } from '../types';
 
 describe('crateOpeningService', () => {
   describe('openCrate with normal crate', () => {

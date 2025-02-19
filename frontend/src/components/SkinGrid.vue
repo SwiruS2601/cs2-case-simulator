@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Skin } from '@/types';
-import { getSkinPrice } from '@/utils/balance';
-import { getSkinRarityColor } from '@/utils/color';
+import type { Skin } from '../types';
+import { getSkinPrice } from '../utils/balance';
+import { getSkinRarityColor } from '../utils/color';
 const props = defineProps<{
   skins: Skin[];
   inventoryView?: boolean;

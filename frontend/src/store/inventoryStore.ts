@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import type { Skin } from '@/types';
+import type { Skin } from '../types';
 
 export const useInventoryStore = defineStore(
   'inventory',

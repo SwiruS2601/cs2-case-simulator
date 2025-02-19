@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/vue-query';
-import type { Crate } from '@/types';
+import type { Crate } from '../types';
 
 export function useCreates() {
   return useQuery<Crate[]>({

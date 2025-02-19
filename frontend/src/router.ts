@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/inventory',
       name: 'inventory',
-      component: () => import('@/views/InventoryView.vue'),
+      component: () => import('./views/InventoryView.vue'),
     },
     {
       path: '/crate/:id',
       name: 'crate',
-      component: () => import('@/views/CrateView.vue'),
+      component: () => import('./views/CrateView.vue'),
     },
   ],
 });

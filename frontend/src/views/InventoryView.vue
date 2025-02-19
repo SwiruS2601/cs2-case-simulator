@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Backbutton from '@/components/Backbutton.vue';
-import Button from '@/components/Button.vue';
-import SkinGrid from '@/components/SkinGrid.vue';
-import { RARITY_INDEX } from '@/constants';
-import { useInventoryStore } from '@/store/inventoryStore';
-import { getSkinPrice } from '@/utils/balance';
+import Backbutton from '../components/Backbutton.vue';
+import Button from '../components/Button.vue';
+import SkinGrid from '../components/SkinGrid.vue';
+import { RARITY_INDEX } from '../constants';
+import { useInventoryStore } from '../store/inventoryStore';
+import { getSkinPrice } from '../utils/balance';
 import { computed, ref } from 'vue';
 
 const inventory = useInventoryStore();
