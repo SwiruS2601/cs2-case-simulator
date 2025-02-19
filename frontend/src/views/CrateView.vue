@@ -50,8 +50,6 @@ const knivesAndGloves = computed(() => {
 const handleOpenCase = async () => {
   if (!crate.value) return;
 
-  console.log(crate.value);
-
   handleCloseWonSkinView();
 
   showOptions.value = false;
@@ -86,7 +84,7 @@ const handleCloseWonSkinView = () => {
 };
 
 onUnmounted(() => {
-  if (wonSkin.value) {
+  if (wonSkin.value && !caseOpeningStore.wonSkin) {
     handleCaseOpeningFinished(wonSkin.value);
   }
   handleCloseWonSkinView();

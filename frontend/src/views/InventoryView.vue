@@ -33,8 +33,6 @@ const sortedSkins = computed(() => {
   }
 });
 
-console.log(sortedSkins.value);
-
 const onChange = (event: Event) => {
   selectedSort.value = (event.target as HTMLSelectElement).value;
 };
