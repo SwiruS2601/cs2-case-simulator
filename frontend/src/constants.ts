@@ -28,7 +28,7 @@ export const RARITY = {
   mythical: ['Restricted'],
   legendary: ['Classified'],
   ancient: ['Covert', 'Extraordinary'],
-  exceedinglyRare: ['Knife', 'Gloves', 'Contraband'],
+  exceedinglyRare: ['Contraband', 'Knife', 'Gloves'],
 };
 
 export const RARITY_MAPPED = {
@@ -39,9 +39,9 @@ export const RARITY_MAPPED = {
   Classified: 'legendary',
   Covert: 'ancient',
   Extraordinary: 'ancient',
-  Knife: 'exceedinglyRare',
-  Gloves: 'exceedinglyRare',
   Contraband: 'exceedinglyRare',
+  Gloves: 'exceedinglyRare',
+  Knife: 'exceedinglyRare',
 };
 
 export const RARITY_INDEX = {

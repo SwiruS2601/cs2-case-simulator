@@ -10,9 +10,9 @@ export const crateOpeningService = {
 function openCrate(crate: Crate, odds: Record<string, number>) {
   if (!crate.skins) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
-  const sliderSkins = getRandomSkinsFromCrate(crate, SLIDER_SIZE, odds);
   const wonSkin = getRandomWonSkinFromCrateByOdds(crate, odds);
   wonSkin.wearCategory = generateSkinWearCategory(wonSkin);
+  const sliderSkins = getRandomSkinsFromCrate(crate, SLIDER_SIZE, odds, wonSkin);
 
   if (!sliderSkins.length || !wonSkin) throw new CrateServiceError(ERROR_MESSAGES.NO_SKINS_GENERATED);
 
@@ -63,7 +63,7 @@ function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Record<string, nu
   return 'rare';
 }
 
-function getRandomSkinsFromCrate(crate: Crate, count: number, odds: Record<string, number>) {
+function getRandomSkinsFromCrate(crate: Crate, count: number, odds: Record<string, number>, wonSkin: Skin) {
   const crateSkins = crate.skins;
 
   if (!crateSkins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
@@ -85,6 +85,9 @@ function getRandomSkinsFromCrate(crate: Crate, count: number, odds: Record<strin
   let previousSkin: string | undefined;
 
   for (let i = 0; i < count; i++) {
+    if (i === WON_SKIN_INDEX - 1 || i === WON_SKIN_INDEX + 1) {
+      previousSkin = wonSkin.id;
+    }
     const randomSkin = getRandomSkinRecursive(previousSkin);
     previousSkin = randomSkin.id;
     randomSkins.push(randomSkin);

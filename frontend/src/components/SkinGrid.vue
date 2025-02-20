@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="p-5 my-5 rounded-sm gap-5 bg-slate-800 responsive-grid sm:mb-0">
+  <div class="p-5 my-5 rounded-sm gap-5 bg-slate-800 responsive-grid-skins sm:mb-0">
     <div v-for="(skin, i) in props.skins" :key="i">
       <img
         :src="skin?.image ?? '/images/placeholder.webp'"

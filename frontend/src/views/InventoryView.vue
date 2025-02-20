@@ -27,11 +27,19 @@ const sortedSkins = computed(() => {
     case 'name':
       return [...inventory.skins].sort((a, b) => a.name.split('|')[1].localeCompare(b.name.split('|')[1]));
     case 'rarity':
-      return [...inventory.skins].sort((a, b) => RARITY_INDEX[b.rarity] - RARITY_INDEX[a.rarity]);
+      return [...inventory.skins].sort((a, b) => {
+        const aIsYellow = a.weaponType === 'Knife' || a.type === 'Gloves';
+        const bIsYellow = b.weaponType === 'Knife' || b.type === 'Gloves';
+        return (
+          RARITY_INDEX[bIsYellow ? 'Extraordinary' : b.rarity] - RARITY_INDEX[aIsYellow ? 'Extraordinary' : a.rarity]
+        );
+      });
     default:
       return 0;
   }
 });
+
+console.log(sortedSkins.value);
 
 const onChange = (event: Event) => {
   selectedSort.value = (event.target as HTMLSelectElement).value;
