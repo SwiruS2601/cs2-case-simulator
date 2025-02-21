@@ -36,7 +36,7 @@ watch(searchTerm, (newValue) => {
       <div class="gap-2 sm:gap-0 responsive-grid">
         <router-link v-for="crate in crates" :key="crate.id" :to="`/crate/${crate.id}`" class="max-w-[122.5px] mx-auto">
           <div class="transition-transform duration-75 cursor-pointer hover:scale-105">
-            <img :src="crate.image || '/images/placeholder.webp'" alt="" />
+            <img :src="crate.image || '/images/placeholder.webp'" alt="" width="122.5" height="95" />
             <p class="mt-2 text-sm text-center">{{ crate.name }}</p>
           </div>
         </router-link>
