@@ -1,5 +1,3 @@
-using Cs2CaseOpener.DB;
-using Cs2CaseOpener.DTOs;
 using Cs2CaseOpener.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,28 +7,25 @@ namespace Cs2CaseOpener.Controllers;
 [Route("api/skin")]
 public class SkinController : ControllerBase
 {
-    private readonly ApplicationDbContext _dbContext;
+
     private readonly SkinService _skinService;
 
-    public SkinController(ApplicationDbContext dbContext, SkinService skinService)
+    public SkinController(SkinService skinService)
     {
-        _dbContext = dbContext;
         _skinService = skinService;
     }
 
     [HttpGet]
-    [ResponseCache(Duration = 300)] // 5 minutes cache
-    public async Task<ActionResult<IEnumerable<SkinDTO>>> GetAll()
+    public async Task<IActionResult> Get()
     {
-        var skins = await _skinService.GetAllSkinsAsync();
+        var skins = await _skinService.GetAll();
         return Ok(skins);
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetSkinById(string id)
+    public async Task<IActionResult> GetById(string id)
     {
-        var skin = _skinService.GetSkinByIdAsync(id);
+        var skin = await _skinService.GetById(id);
         return Ok(skin);
     }
-
 }

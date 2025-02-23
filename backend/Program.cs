@@ -5,7 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -20,9 +23,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddHttpClient();
 builder.Services.AddTransient<DatabaseInitializationService>();
-builder.Services.AddTransient<MigrationService>();
 builder.Services.AddTransient<SkinService>();
-builder.Services.AddTransient<CaseService>();
+builder.Services.AddTransient<CrateService>();
+builder.Services.AddTransient<ApiScraper>();
 
 builder.Services.AddMemoryCache();
 builder.Services.AddResponseCompression(options =>
@@ -60,10 +63,14 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+
     var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
     await dbInitializer.InitializeAsync();
-    // var migrationService = scope.ServiceProvider.GetRequiredService<MigrationService>();
-    // await migrationService.MigrateDataFromApiAsync();
+
+    // var scraperService = scope.ServiceProvider.GetRequiredService<ApiScraper>();
+    // await scraperService.ScrapeApi();
 }
 
 app.Run();

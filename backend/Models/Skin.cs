@@ -1,69 +1,37 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
-namespace Cs2CaseOpener.Models;
-
-public class Skin
+namespace Cs2CaseOpener.Models
 {
-    [Key]
-    public required string Id { get; set; }
-    
-    public string? Name { get; set; }
-    public string? Classid { get; set; }
-    public string? Type { get; set; }
-    public string? WeaponType { get; set; }
-    public string? GunType { get; set; }
-    public string? Rarity { get; set; }
-    public string? RarityColor { get; set; }
-    
-    private string? _prices;
-    public string? Prices
+    public class Skin
     {
-        get => _prices;
-        set
-        {
-            _prices = value;
-            if (value != null)
-            {
-                try
-                {
-                    _parsedPrices = JsonSerializer.Deserialize<SkinPrice>(value);
-                }
-                catch
-                {
-                    _parsedPrices = null;
-                }
-            }
-        }
-    }
+        [Key]
+        [Column("id")]
+        [JsonPropertyName("id")]
+        public required string Id { get; set; }
 
-    private SkinPrice? _parsedPrices;
-    public SkinPrice? ParsedPrices
-    {
-        get
-        {
-            if (_parsedPrices == null && Prices != null)
-            {
-                try
-                {
-                    _parsedPrices = JsonSerializer.Deserialize<SkinPrice>(Prices);
-                }
-                catch
-                {
-                    _parsedPrices = null;
-                }
-            }
-            return _parsedPrices;
-        }
-    }
+        [Column("name")]
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
 
-    public string? FirstSaleDate { get; set; }
-    public string? KnifeType { get; set; }
-    public string? Image { get; set; }
-    public double? MinFloat { get; set; }
-    public double? MaxFloat { get; set; }
-    public bool? Stattrak { get; set; }
-    
-    // Many-to-many relationship with Cases
-    public ICollection<Case> Cases { get; set; } = new List<Case>();
+        [Column("rarity_id")]
+        [JsonPropertyName("rarity_id")]
+        public string? RarityId { get; set; }
+
+        [Column("paint_index")]
+        [JsonPropertyName("paint_index")]
+        public string? PaintIndex { get; set; }
+
+        [Column("image")]
+        [JsonPropertyName("image")]
+        public string? Image { get; set; }
+        
+        public ICollection<Price>? Prices { get; set; }
+
+        [JsonIgnore]
+        public ICollection<Crate>? Crates { get; set; }
+        
+        public Rarity? Rarity { get; set; }
+    }
 }
