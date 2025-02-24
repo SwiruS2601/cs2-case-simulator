@@ -10,10 +10,12 @@ const props = defineProps<{
 
 <template>
   <div class="rounded-sm gap-4 responsive-grid">
-    <div v-for="(skin, i) in props.skins" :key="i">
+    <div v-for="(skin, i) in props.skins" :key="i" class="max-w-[133px]">
       <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
         <div class="border-b-5 p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
           <img
+            width="118"
+            height="88.5"
             :src="skin?.image ?? '/images/placeholder.webp'"
             :alt="skin?.name"
             class="transition-transform duration-75 hover:scale-[133%]"

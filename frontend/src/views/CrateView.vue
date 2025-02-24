@@ -10,7 +10,7 @@ import { useRouter } from 'vue-router';
 import { useCaseOpeningStore } from '../store/caseOpeningStore';
 import CaseOpeningSlider from '../components/CaseOpeningSlider.vue';
 import { crateOpeningService } from '../services/crateOpeningService';
-import { FUN_ODDS, REAL_RARITY_ODDS } from '../constants';
+import { FUN_ODDS, REAL_ODDS } from '../constants';
 import { audioService } from '../services/audioService';
 import { useInventoryStore } from '../store/inventoryStore';
 import { getSkinPrice } from '../utils/balance';
@@ -57,7 +57,7 @@ const handleOpenCase = async () => {
 
   await new Promise((resolve) => setTimeout(resolve, 0.1));
 
-  const odds = optionsStore.moreRareSkins ? FUN_ODDS : REAL_RARITY_ODDS;
+  const odds = optionsStore.moreRareSkins ? FUN_ODDS : REAL_ODDS;
   const opnenedCrate = crateOpeningService.openCrate(crate.value, odds);
 
   crateSliderSkins.value = opnenedCrate.sliderSkins;

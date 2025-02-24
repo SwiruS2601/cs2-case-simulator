@@ -26,7 +26,6 @@ function openCrate(crate: Crate, odds: Record<string, number>) {
 
 function getRandomSkinByOdds(crate: Crate, odds: Record<string, number>) {
   const skins = crate.skins;
-
   if (!skins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
   const rarity = getRandomSkinRarityForCrateByOdds(crate, odds);
@@ -37,7 +36,7 @@ function getRandomSkinByOdds(crate: Crate, odds: Record<string, number>) {
   }
 
   const eligibleSkins = skins.filter((skin) => {
-    return gunSkinFilter(skin) && skin.rarity_id.includes(rarity.replace('_weapon', ''));
+    return gunSkinFilter(skin) && skin.rarity_id === rarity;
   });
 
   if (!eligibleSkins.length) {
@@ -52,19 +51,27 @@ function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Record<string, nu
     delete odds.exceedingly_rare;
   }
 
-  const rand = Math.random();
-  let cumulative = 0;
+  const availableRarities = new Set(crate.skins.map((skin) => skin.rarity_id));
 
-  for (let [oddsRarity, probability] of Object.entries(odds)) {
+  const filteredOddsEntries = Object.entries(odds).filter(([bucketKey]) => {
+    const bucketRarities = ODDS_TO_RARITY[bucketKey];
+    return bucketRarities.some((rarity) => availableRarities.has(rarity));
+  });
+
+  const totalProbability = filteredOddsEntries.reduce((sum, [, prob]) => sum + prob, 0);
+
+  const rand = Math.random() * totalProbability;
+  let cumulative = 0;
+  for (const [oddsRarity, probability] of filteredOddsEntries) {
     cumulative += probability;
     if (rand <= cumulative) {
-      const mappedRarity = ODDS_TO_RARITY[oddsRarity];
-      if (mappedRarity) {
-        return mappedRarity[Math.floor(Math.random() * mappedRarity.length)];
+      const mappedRarities = ODDS_TO_RARITY[oddsRarity];
+      const availableMapped = mappedRarities.filter((rarity) => availableRarities.has(rarity));
+      if (availableMapped.length) {
+        return availableMapped[Math.floor(Math.random() * availableMapped.length)];
       }
     }
   }
-
   return ODDS_TO_RARITY.rare[Math.floor(Math.random() * ODDS_TO_RARITY.rare.length)];
 }
 

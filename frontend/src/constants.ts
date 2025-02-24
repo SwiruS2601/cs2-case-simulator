@@ -1,13 +1,7 @@
 export const SLIDER_SIZE = 50;
 export const WON_SKIN_INDEX = 42;
 
-export const ERROR_MESSAGES = {
-  CRATE_HAS_NO_SKINS: 'Crate has no skins',
-  NO_SKINS_GENERATED: 'No skins generated for case opening',
-  NO_SKIN_GENERATED: 'No skin generated for case opening',
-};
-
-export const REAL_RARITY_ODDS = {
+export const REAL_ODDS = {
   rare: 0.7992, // 79.92%
   mythical: 0.1598, // 15.98%
   legendary: 0.032, // 3.2%
@@ -29,7 +23,7 @@ export const ODDS_TO_RARITY = {
   legendary: ['rarity_legendary_weapon', 'rarity_legendary'],
   ancient: ['rarity_ancient_weapon', 'rarity_ancient'],
   exceedingly_rare: ['exceedingly_rare'],
-} as const;
+};
 
 export const GRADE_TO_RARITY = {
   'Consumer Grade': 'rarity_common_weapon',
@@ -107,12 +101,12 @@ export const BACKGROUNDS = [
   'de_dust2_3.webp',
   //   'de_inferno.webp',
   'de_inferno_1.webp',
-  'de_inferno_2.webp',
+  //   'de_inferno_2.webp',
   //   'de_inferno_3.webp',
   'de_lake.webp',
   'de_mirage.webp',
   'de_mirage_1.webp',
-  'de_mirage_2.webp',
+  //   'de_mirage_2.webp',
   'de_mirage_3.webp',
   //   'de_mirage_4.webp',
   'de_nuke.webp',
@@ -120,15 +114,21 @@ export const BACKGROUNDS = [
   'de_nuke_2.webp',
   'de_nuke_3.webp',
   'de_nuke_4.webp',
-  'de_overpass_2.webp',
+  //   'de_overpass_2.webp',
   'de_overpass_3.webp',
   'de_overpass_4.webp',
   'de_overpass_5.webp',
   'de_shortdust.webp',
-  'de_train.webp',
+  //   'de_train.webp',
   'de_vertigo_0.webp',
   'de_vertigo_1.webp',
   'de_vertigo_2.webp',
   'de_vertigo_3.webp',
   'de_vertigo_4.webp',
 ];
+
+export const ERROR_MESSAGES = {
+  CRATE_HAS_NO_SKINS: 'Crate has no skins',
+  NO_SKINS_GENERATED: 'No skins generated for case opening',
+  NO_SKIN_GENERATED: 'No skin generated for case opening',
+};
