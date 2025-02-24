@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { Skin } from '../types';
 import { getSkinRarityColor } from '../utils/color';
+import rareSpecial from '../assets/images/rare_special.png';
+import { knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
+
 const props = defineProps<{
   skin: Skin;
 }>();
@@ -17,7 +20,7 @@ const props = defineProps<{
   >
     <img
       v-if="skin?.image"
-      :src="skin.image"
+      :src="knivesAndGlovesSkinFilter(skin) ? rareSpecial : skin.image"
       :alt="skin.name"
       class="size-full object-contain"
       @error="console.error('Image failed to load:', skin.image)"

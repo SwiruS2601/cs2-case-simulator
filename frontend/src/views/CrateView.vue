@@ -7,7 +7,7 @@ import { useOptionsStore } from '../store/optionsStore';
 import { gunSkinFilter, knivesAndGlovesSkinFilter, sortSkinByName, sortSkinByRarity } from '../utils/sortAndfilters';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useCaseOpeningStore } from '../store/caseOpeningStore';
+import { useCrateOpeningStore } from '../store/crateOpeningStore';
 import CaseOpeningSlider from '../components/CaseOpeningSlider.vue';
 import { crateOpeningService } from '../services/crateOpeningService';
 import { FUN_ODDS, REAL_ODDS } from '../constants';
@@ -23,7 +23,7 @@ const { data: crate } = useCreate(crateId);
 const inventory = useInventoryStore();
 
 const optionsStore = useOptionsStore();
-const caseOpeningStore = useCaseOpeningStore();
+const caseOpeningStore = useCrateOpeningStore();
 
 const crateSliderSkins = ref<Skin[]>([]);
 const wonSkinIndex = ref(0);

@@ -19,7 +19,6 @@ public class ApplicationDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         
-        // Configure Crate
         modelBuilder.Entity<Crate>(entity =>
         {
             entity.HasKey(e => e.Id);
@@ -33,7 +32,6 @@ public class ApplicationDbContext : DbContext
             entity.HasIndex(e => e.Name);
         });
         
-        // Configure Skin
         modelBuilder.Entity<Skin>(entity =>
         {
             entity.HasKey(e => e.Id);
@@ -49,7 +47,6 @@ public class ApplicationDbContext : DbContext
                   .HasForeignKey(s => s.RarityId);
         });
         
-        // Configure Rarity
         modelBuilder.Entity<Rarity>(entity =>
         {
             entity.HasKey(e => e.Id);
@@ -59,7 +56,6 @@ public class ApplicationDbContext : DbContext
             entity.HasIndex(e => e.Name);
         });
         
-        // Configure Price
         modelBuilder.Entity<Price>(entity =>
         {
             entity.HasKey(e => e.Id);
@@ -72,7 +68,6 @@ public class ApplicationDbContext : DbContext
                   .HasForeignKey(e => e.SkinId);
         });
         
-        // Configure many-to-many between Crate and Skin using a join table
         modelBuilder.Entity<Crate>()
             .HasMany(c => c.Skins)
             .WithMany(s => s.Crates)

@@ -87,8 +87,6 @@ function getSkinsForSlider(crate: Crate, count: number, odds: Record<string, num
   let previousSkinId: string | undefined;
 
   while (randomSkins.length < count) {
-    console.log('hej');
-
     const idx = randomSkins.length; // current index being filled
     const randomSkin = (function selectSkin(_prevId: string | undefined, index: number): Skin {
       const randomRarity = getRandomSkinRarityForCrateByOdds(crate, odds);
