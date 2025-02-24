@@ -5,17 +5,22 @@ import SkinGrid from '../components/SkinGrid.vue';
 import { useCreate } from '../query/crate';
 import { useOptionsStore } from '../store/optionsStore';
 import { gunSkinFilter, knivesAndGlovesSkinFilter, sortSkinByName, sortSkinByRarity } from '../utils/sortAndfilters';
-import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { computed, effect, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useCrateOpeningStore } from '../store/crateOpeningStore';
 import CaseOpeningSlider from '../components/CaseOpeningSlider.vue';
 import { crateOpeningService } from '../services/crateOpeningService';
-import { FUN_ODDS, REAL_ODDS } from '../constants';
+import { REAL_ODDS } from '../constants';
 import { audioService } from '../services/audioService';
 import { useInventoryStore } from '../store/inventoryStore';
 import { getSkinPrice } from '../utils/balance';
 import OptionsIcon from '../components/OptionsIcon.vue';
 import type { Skin } from '../types';
+import SoundIcon from '../components/SoundIcon.vue';
+import MuteIcon from '../components/MuteIcon.vue';
+import CheckMarkIcon from '../components/CheckMarkIcon.vue';
+import BackIcon from '../components/BackIcon.vue';
+import { getSkinRarityColor } from '../utils/color';
 
 const router = useRouter();
 const crateId = router.currentRoute.value.params.id as string;
@@ -31,12 +36,23 @@ const showOptions = ref(false);
 const wonSkin = ref<Skin | null>(null);
 const showWonSkin = ref(false);
 const showSlider = ref(false);
+const timout = ref(false);
 
 const guns = computed(() => {
   const skins = crate?.value?.skins;
   if (!skins?.length) return [];
   return skins.filter(gunSkinFilter).sort(sortSkinByRarity);
 });
+
+// onMounted(() => {
+//   const interval = setInterval(() => {
+//     if (!timout.value) {
+//       handleQuickOpen();
+//     }
+//   }, 100);
+
+//   return () => clearInterval(interval);
+// });
 
 const knivesAndGloves = computed(() => {
   const skins = crate?.value?.skins;
@@ -48,6 +64,12 @@ const handleOpenCase = async () => {
   if (!crate.value) return;
 
   handleCloseWonSkinView();
+
+  if (optionsStore.quickOpen) {
+    handleQuickOpen();
+    return;
+  }
+
   caseOpeningStore.startCaseOpening();
 
   showOptions.value = false;
@@ -57,14 +79,37 @@ const handleOpenCase = async () => {
 
   await new Promise((resolve) => setTimeout(resolve, 0.1));
 
-  const odds = optionsStore.moreRareSkins ? FUN_ODDS : REAL_ODDS;
-  const opnenedCrate = crateOpeningService.openCrate(crate.value, odds);
+  const opnenedCrate = crateOpeningService.openCrate(crate.value, REAL_ODDS);
 
   crateSliderSkins.value = opnenedCrate.sliderSkins;
   wonSkinIndex.value = opnenedCrate.wonSkinIndex;
   wonSkin.value = opnenedCrate.wonSkin;
 
   showSlider.value = true;
+  inventory.incrementOpenCount();
+  inventory.setBalance(inventory.balance - 2.5);
+};
+
+const handleQuickOpen = () => {
+  if (!crate.value) return;
+
+  showSlider.value = false;
+  showOptions.value = false;
+  document.body.style.overflow = 'hidden';
+
+  audioService.playUnlockImmidiateSound();
+
+  const _wonSkin = crateOpeningService.getWinningSkin(crate.value, REAL_ODDS);
+  wonSkin.value = _wonSkin;
+
+  if (_wonSkin.rarity_id.includes('ancient') || knivesAndGlovesSkinFilter(_wonSkin)) {
+    timout.value = true;
+    setTimeout(() => {
+      timout.value = false;
+    }, 2500);
+  }
+
+  handleCaseOpeningFinished(_wonSkin);
   inventory.incrementOpenCount();
   inventory.setBalance(inventory.balance - 2.5);
 };
@@ -125,9 +170,9 @@ onUnmounted(() => {
       <Button @click="optionsStore.toggleFastAnimation">
         {{ optionsStore.fastAnimation ? 'Disable' : 'Enable' }} Fast Animation
       </Button>
-      <Button @click="optionsStore.toggleMoreRareSkins">
+      <!-- <Button @click="optionsStore.toggleMoreRareSkins">
         {{ optionsStore.moreRareSkins ? 'Disable' : 'Enable' }} More Rare Skins
-      </Button>
+      </Button> -->
       <Button @click="optionsStore.toggleSound"> {{ optionsStore.soundOn ? 'Disable' : 'Enable' }} Sound </Button>
     </dialog>
 
@@ -158,22 +203,45 @@ onUnmounted(() => {
     v-if="showWonSkin && wonSkin"
     class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-100 fade-scale-up backdrop-blur-xs"
   >
-    <div class="flex items-center flex-col gap-6 rounded-xl">
+    <div class="flex items-center flex-col gap-6 rounded-xl pt-[15dvh] sm:pt-0">
       <img :src="wonSkin?.image" class="size-full select-none" />
-      <div class="flex flex-col gap-4 items-center radial-fade p-6 pt-2">
-        <div>
-          <p class="text-lg font-semibold">{{ wonSkin.name }}</p>
-          <div class="flex gap-4 justify-between items-center">
-            <p class="text-sm text-white/80">{{ wonSkin.wear_category }}</p>
-            <p class="text-sm text-white/80">
-              Price: <span class="text-green-400 text-md font-semibold">€ {{ getSkinPrice(wonSkin).toFixed(2) }} </span>
+      <div class="flex flex-col gap-4 items-center pb-6 pt-2">
+        <div
+          class="sm:mb-6 relative overflow-hidden bg-black/50 rounded-xl border border-black/10 sm:justify-normal justify-center w-fit"
+        >
+          <div class="absolute bottom-0 w-full h-2" :style="{ background: getSkinRarityColor(wonSkin) }"></div>
+          <div class="flex items-center gap-x-4 gap-y-1.5 flex-col sm:flex-row p-5 pb-6">
+            <p class="text-md font-semibold text-white border border-white/30 rounded px-2">
+              {{ wonSkin.name }}
             </p>
+            <div class="flex gap-1 justify-between items-center">
+              <p class="text-sm translate-y-[1px] sm:translate-y-0 text-white/80">{{ wonSkin.wear_category }}</p>
+              <p class="text-sm text-white/80">
+                <span class="text-green-400 font-semibold text-lg">€ {{ getSkinPrice(wonSkin).toFixed(2) }} </span>
+              </p>
+            </div>
           </div>
         </div>
-        <div class="flex flex-wrap gap-4">
-          <Button @click="handleCloseWonSkinView">Close</Button>
-          <Button variant="success" :disabled="caseOpeningStore.isOpeningCase" @click="handleOpenCase"
-            >Open Another</Button
+        <div class="flex flex-wrap gap-4 justify-center sm:justify-normal">
+          <Button class="pl-3 flex items-center" @click="handleCloseWonSkinView"><BackIcon class="mr-1" /> Back</Button>
+          <Button size="icon" @click="optionsStore.toggleSound">
+            <MuteIcon v-if="!optionsStore.soundOn" fill="#fb2c36" class="size-5" />
+            <SoundIcon v-if="optionsStore.soundOn" fill="#f0f0f0" class="size-5" />
+          </Button>
+          <Button
+            :style="{
+              border: optionsStore.quickOpen ? '1px solid #05df72' : '1px solid #0000001a',
+              paddingRight: optionsStore.quickOpen ? '0.75rem' : '',
+              color: optionsStore.quickOpen ? '#05df72' : '',
+            }"
+            :disabled="caseOpeningStore.isOpeningCase"
+            @click="optionsStore.toggleQuickOpen()"
+          >
+            Quick Open
+            <CheckMarkIcon v-if="optionsStore.quickOpen" class="size-5 ml-2" />
+          </Button>
+          <Button variant="success" :disabled="caseOpeningStore.isOpeningCase || timout" @click="handleOpenCase"
+            >Open Again</Button
           >
         </div>
       </div>

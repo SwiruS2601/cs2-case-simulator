@@ -2,18 +2,30 @@ import { ERROR_MESSAGES, ODDS_TO_RARITY, SKIN_WEAR_AND_FLOAT, SLIDER_SIZE, WON_S
 import type { Crate, Skin } from '../types';
 import { gunSkinFilter, knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
 
+type Odds = Record<string, number>;
+
 export const crateOpeningService = {
   openCrate,
+  getRandomSkinByOdds,
+  getSkinWearCategory,
+  getSkinsForSlider,
+  getWinningSkin,
 };
 
-function openCrate(crate: Crate, odds: Record<string, number>) {
-  if (!crate.skins) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
-
+function getWinningSkin(crate: Crate, odds: Odds) {
   let wonSkin = getRandomSkinByOdds(crate, odds);
 
   if (!['Sticker Capsule', 'Autograph Capsule'].includes(crate.type)) {
-    wonSkin = { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) };
+    wonSkin = { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) }; // Vue doesnt like mutating proxy objects
   }
+
+  return wonSkin;
+}
+
+function openCrate(crate: Crate, odds: Odds) {
+  if (!crate.skins) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
+
+  const wonSkin = getWinningSkin(crate, odds);
   const sliderSkins = getSkinsForSlider(crate, SLIDER_SIZE, odds, wonSkin);
 
   if (!sliderSkins.length || !wonSkin) throw new CrateServiceError(ERROR_MESSAGES.NO_SKINS_GENERATED);
@@ -22,7 +34,7 @@ function openCrate(crate: Crate, odds: Record<string, number>) {
   return { sliderSkins, wonSkin, wonSkinIndex: WON_SKIN_INDEX };
 }
 
-function getRandomSkinByOdds(crate: Crate, odds: Record<string, number>): Skin {
+function getRandomSkinByOdds(crate: Crate, odds: Odds) {
   const skins = crate.skins;
   if (!skins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
@@ -30,13 +42,15 @@ function getRandomSkinByOdds(crate: Crate, odds: Record<string, number>): Skin {
 
   if (rarity === 'exceedingly_rare') {
     const eligibleSkins = skins.filter(knivesAndGlovesSkinFilter);
+
     if (!eligibleSkins.length) {
       return getRandomSkinByOdds(crate, { ...odds, exceedingly_rare: 0 });
     }
+
     return eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
   }
 
-  let eligibleSkins = skins.filter((skin) => skin.rarity_id === rarity);
+  let eligibleSkins = skins.filter((skin) => gunSkinFilter(skin) && skin.rarity_id === rarity);
 
   while (!eligibleSkins.length) {
     eligibleSkins = skins.filter((skin) => skin.rarity_id === rarity);
@@ -44,7 +58,7 @@ function getRandomSkinByOdds(crate: Crate, odds: Record<string, number>): Skin {
   return eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
 }
 
-function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Record<string, number>): string {
+function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Odds): string {
   if (crate.type === 'Souvenir') {
     delete odds.exceedingly_rare;
   }
@@ -55,6 +69,7 @@ function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Record<string, nu
     if (bucketKey === 'exceedingly_rare' && odds.exceedingly_rare) {
       return true;
     }
+
     const bucketRarities = ODDS_TO_RARITY[bucketKey];
     return bucketRarities.some((rarity) => availableRarities.has(rarity));
   });
@@ -63,14 +78,19 @@ function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Record<string, nu
   const rand = Math.random() * totalProbability;
 
   let cumulative = 0;
+
   for (const [oddsRarity, probability] of filteredOddsEntries) {
     cumulative += probability;
+
     if (rand <= cumulative) {
       const mappedRarities = ODDS_TO_RARITY[oddsRarity];
+
       if (oddsRarity === 'exceedingly_rare') {
         return 'exceedingly_rare';
       }
+
       const availableMapped = mappedRarities.filter((rarity) => availableRarities.has(rarity));
+
       if (availableMapped.length) {
         return availableMapped[Math.floor(Math.random() * availableMapped.length)];
       }
@@ -79,7 +99,7 @@ function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Record<string, nu
   return ODDS_TO_RARITY.rare[Math.floor(Math.random() * ODDS_TO_RARITY.rare.length)];
 }
 
-function getSkinsForSlider(crate: Crate, count: number, odds: Record<string, number>, wonSkin: Skin): Skin[] {
+function getSkinsForSlider(crate: Crate, count: number, odds: Odds, wonSkin: Skin): Skin[] {
   const crateSkins = crate.skins;
   if (!crateSkins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
@@ -88,9 +108,11 @@ function getSkinsForSlider(crate: Crate, count: number, odds: Record<string, num
 
   while (randomSkins.length < count) {
     const idx = randomSkins.length; // current index being filled
+
     const randomSkin = (function selectSkin(_prevId: string | undefined, index: number): Skin {
       const randomRarity = getRandomSkinRarityForCrateByOdds(crate, odds);
       const candidate = crateSkins[Math.floor(Math.random() * crateSkins.length)];
+
       if (
         candidate.id === _prevId ||
         !gunSkinFilter(candidate) ||
@@ -99,6 +121,7 @@ function getSkinsForSlider(crate: Crate, count: number, odds: Record<string, num
       ) {
         return selectSkin(_prevId, index);
       }
+
       return candidate;
     })(previousSkinId, idx);
 
@@ -110,8 +133,8 @@ function getSkinsForSlider(crate: Crate, count: number, odds: Record<string, num
 }
 
 export function getSkinWearCategory(skin: Skin): keyof typeof SKIN_WEAR_AND_FLOAT {
-  const diceRoll = Math.random();
   let cumulative = 0;
+  const diceRoll = Math.random();
 
   const validWearEntries = Object.entries(SKIN_WEAR_AND_FLOAT).filter(([wearKey]) =>
     skin.prices.find((price) => price.wear_category === wearKey),

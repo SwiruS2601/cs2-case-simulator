@@ -5,8 +5,8 @@ import SkinGrid from '../components/SkinGrid.vue';
 import { RARITY_INDEX } from '../constants';
 import { useInventoryStore } from '../store/inventoryStore';
 import { getSkinPrice } from '../utils/balance';
-import { computed, ref } from 'vue';
-import { gunSkinFilter, knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
+import { computed, effect, ref } from 'vue';
+import { knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
 
 const inventory = useInventoryStore();
 const selectedSort = ref('latest');
