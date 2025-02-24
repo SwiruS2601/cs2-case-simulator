@@ -132,6 +132,11 @@ const escListener = (event: KeyboardEvent) => {
   if (event.key === 'Escape') handleCloseWonSkinView();
 };
 
+const handleClickQuickOpen = () => {
+  optionsStore.quickOpen = !optionsStore.quickOpen;
+  autoOpen.value = false;
+};
+
 watch(autoOpen, (newVal) => {
   if (newVal) {
     autoOpenInterval = setInterval(() => {
@@ -252,12 +257,7 @@ onUnmounted(() => {
               color: optionsStore.quickOpen ? '#05df72' : '',
             }"
             :disabled="caseOpeningStore.isOpeningCase"
-            @click="
-              {
-                optionsStore.toggleQuickOpen();
-                autoOpen = false;
-              }
-            "
+            @click="handleClickQuickOpen"
           >
             Quick Open
             <CheckMarkIcon v-if="optionsStore.quickOpen" class="size-5 ml-2" />
