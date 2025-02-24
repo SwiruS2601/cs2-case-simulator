@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 export const useOptionsStore = defineStore(
-  'options',
+  'options-store',
   () => {
     const showKnivesAndGloves = ref(false);
     const autoOpen = ref(false);

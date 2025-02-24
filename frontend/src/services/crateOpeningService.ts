@@ -10,7 +10,10 @@ function openCrate(crate: Crate, odds: Record<string, number>) {
   if (!crate.skins) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
   const wonSkin = getRandomSkinByOdds(crate, odds);
-  wonSkin.wear_category = getSkinWearCategory(wonSkin);
+
+  if (!['Sticker Capsule', 'Autograph Capsule'].includes(crate.type)) {
+    wonSkin.wear_category = getSkinWearCategory(wonSkin);
+  }
   const sliderSkins = getSkinsForSlider(crate, SLIDER_SIZE, odds, wonSkin);
 
   if (!sliderSkins.length || !wonSkin) throw new CrateServiceError(ERROR_MESSAGES.NO_SKINS_GENERATED);

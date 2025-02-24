@@ -29,7 +29,9 @@ const props = defineProps<{
 
         <div v-if="inventoryView" class="flex flex-col">
           <span class="text-nowrap text-[10px] text-slate-100">{{ skin.wear_category }} </span>
-          <span class="text-green-400 text-nowrap text-[11px] ml-auto">€ {{ getSkinPrice(skin).toFixed(2) }} </span>
+          <span v-if="getSkinPrice(skin) > 0" class="text-green-400 text-nowrap text-[11px] ml-auto"
+            >€ {{ getSkinPrice(skin).toFixed(2) }}
+          </span>
         </div>
       </div>
     </div>

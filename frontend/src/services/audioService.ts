@@ -11,6 +11,7 @@ const revealSoundMapping = {
   rarity_common_weapon: revealSoundRare,
   rarity_uncommon_weapon: revealSoundRare,
   rarity_rare_weapon: revealSoundRare,
+  rarity_rare: revealSoundRare,
   rarity_mythical_weapon: revealSoundMythical,
   rarity_mythical: revealSoundMythical,
   rarity_legendary_weapon: revealSoundLegendary,

@@ -57,12 +57,9 @@ watch(type, (newValue) => {
         <Button @click="type = 'Autograph Capsule'" :variant="type === 'Autograph Capsule' ? 'cta' : 'text'" size="pill"
           >Autographs</Button
         >
-        <!-- <Button @click="type = 'Patch Capsule'" :variant="type === 'Patch Capsule' ? 'cta' : 'text'" size="pill"
-          >Patches</Button
-        > -->
       </div>
     </div>
-    <div class="gap-3 sm:gap-4 mt-8 responsive-grid justify-between">
+    <div class="gap-3 sm:gap-4 mt-8 sm:mt-6 responsive-grid justify-between">
       <router-link v-for="crate in crates" :key="crate.id" :to="`/crate/${crate.id}`" class="mx-auto">
         <div class="transition-transform flex flex-col h-full duration-75 cursor-pointer hover:scale-105 items-center">
           <p class="text-xs text-center mt-auto mb-1">{{ crate.name }}</p>
