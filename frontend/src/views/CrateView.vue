@@ -120,7 +120,7 @@ onUnmounted(() => {
 
     <dialog
       v-if="showOptions"
-      class="absolute inset-0 z-50 left-[18%] top-20 flex p-4 rounded-lg shadow-2xl flex-col gap-4"
+      class="absolute bg-gray-800/95 inset-0 z-50 left-[20%] border border-black/20 top-[74px] flex p-4 rounded-lg shadow-2xl flex-col gap-4"
     >
       <Button @click="optionsStore.toggleFastAnimation">
         {{ optionsStore.fastAnimation ? 'Disable' : 'Enable' }} Fast Animation
