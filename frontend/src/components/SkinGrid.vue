@@ -11,15 +11,14 @@ const props = defineProps<{
 <template>
   <div class="rounded-sm gap-4 responsive-grid">
     <div v-for="(skin, i) in props.skins" :key="i">
-      <div
-        class="border-b-5 bg-black/40 p-1 rounded-sm duration-75 hover:shadow-xl"
-        :style="{ borderColor: getSkinRarityColor(skin) }"
-      >
-        <img
-          :src="skin?.image ?? '/images/placeholder.webp'"
-          :alt="skin?.name"
-          class="transition-transform duration-75 hover:scale-[133%]"
-        />
+      <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
+        <div class="border-b-5 p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
+          <img
+            :src="skin?.image ?? '/images/placeholder.webp'"
+            :alt="skin?.name"
+            class="transition-transform duration-75 hover:scale-[133%]"
+          />
+        </div>
       </div>
       <div class="flex justify-between mt-1.5 gap-2">
         <div class="flex flex-col text-slate-100">

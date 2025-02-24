@@ -105,7 +105,7 @@ onUnmounted(() => {
 <template>
   <div
     v-if="!caseOpeningStore.isOpeningCase && !showWonSkin"
-    className="relative w-full max-w-5xl px-4 py-4 mx-auto backdrop-blur-xs bg-black/30 sm:my-4 sm:rounded-sm"
+    className="relative w-full max-w-5xl px-4 py-4 mx-auto backdrop-blur-xs bg-black/40 sm:my-4 sm:rounded-xl shadow-2xl border border-black/10"
   >
     <div class="flex gap-4 flex-wrap items-center">
       <Backbutton />
@@ -160,13 +160,13 @@ onUnmounted(() => {
   >
     <div class="flex items-center flex-col gap-6 rounded-xl">
       <img :src="wonSkin?.image" class="size-full select-none" />
-      <div class="flex flex-col gap-4 items-center">
+      <div class="flex flex-col gap-4 items-center radial-fade p-6 pt-2">
         <div>
           <p class="text-lg font-semibold">{{ wonSkin.name }}</p>
-          <div class="flex gap-4 justify-between">
-            <p class="text-sm text-white">{{ wonSkin.wear_category }}</p>
-            <p class="text-sm text-white">
-              Price <span class="text-green-400">€ {{ getSkinPrice(wonSkin).toFixed(2) }} </span>
+          <div class="flex gap-4 justify-between items-center">
+            <p class="text-sm text-white/80">{{ wonSkin.wear_category }}</p>
+            <p class="text-sm text-white/80">
+              Price: <span class="text-green-400 text-md font-semibold">€ {{ getSkinPrice(wonSkin).toFixed(2) }} </span>
             </p>
           </div>
         </div>
@@ -195,5 +195,9 @@ onUnmounted(() => {
 
 .fade-scale-up {
   animation: fadeScaleUp 0.18s ease-out forwards;
+}
+
+.radial-fade {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5), transparent 70%);
 }
 </style>

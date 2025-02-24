@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 export const useOptionsStore = defineStore(
   'options-store',
   () => {
-    const showKnivesAndGloves = ref(false);
+    const showKnivesAndGloves = ref(true);
     const autoOpen = ref(false);
     const fastAnimation = ref(false);
     const moreRareSkins = ref(false);

@@ -38,32 +38,43 @@ watch(type, (newValue) => {
 </script>
 
 <template>
-  <div class="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/30 sm:my-4 sm:rounded-sm py-4">
+  <div
+    class="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/40 sm:my-4 sm:rounded-xl py-4 shadow-xl border border-black/10"
+  >
     <div class="flex gap-4 flex-col">
       <input
         type="text"
         v-model="search"
         placeholder="Search..."
-        class="w-full p-2 border rounded-md px-4 flex text-white placeholder:text-white/70"
+        class="w-full p-2 border border-black/20 bg-black/30 rounded-lg px-4 flex text-white placeholder:text-white/80"
       />
       <div class="flex gap-2 flex-wrap">
-        <Button @click="type = 'Case'" :variant="type === 'Case' ? 'cta' : 'text'" size="pill">Cases</Button>
-        <Button @click="type = 'Souvenir'" :variant="type === 'Souvenir' ? 'cta' : 'text'" size="pill"
+        <Button @click="type = 'Case'" :variant="type === 'Case' ? 'cta' : 'primary'" size="pill">Cases</Button>
+        <Button @click="type = 'Souvenir'" :variant="type === 'Souvenir' ? 'cta' : 'primary'" size="pill"
           >Souvenirs</Button
         >
-        <Button @click="type = 'Sticker Capsule'" :variant="type === 'Sticker Capsule' ? 'cta' : 'text'" size="pill"
+        <Button @click="type = 'Sticker Capsule'" :variant="type === 'Sticker Capsule' ? 'cta' : 'primary'" size="pill"
           >Stickers</Button
         >
-        <Button @click="type = 'Autograph Capsule'" :variant="type === 'Autograph Capsule' ? 'cta' : 'text'" size="pill"
+        <Button
+          @click="type = 'Autograph Capsule'"
+          :variant="type === 'Autograph Capsule' ? 'cta' : 'primary'"
+          size="pill"
           >Autographs</Button
         >
       </div>
     </div>
-    <div class="gap-3 sm:gap-4 mt-8 sm:mt-6 responsive-grid justify-between">
+    <div class="gap-3 sm:gap-4 mt-4 responsive-grid justify-between">
       <router-link v-for="crate in crates" :key="crate.id" :to="`/crate/${crate.id}`" class="mx-auto">
-        <div class="transition-transform flex flex-col h-full duration-75 cursor-pointer hover:scale-105 items-center">
-          <p class="text-xs text-center mt-auto mb-1">{{ crate.name }}</p>
-          <img :src="crate.image || '/images/placeholder.webp'" alt="" />
+        <div
+          class="flex flex-col h-full cursor-pointer items-center bg-black/10 transition-shadow duration-150 rounded-lg px-2 py-2 border border-black/10 hover:shadow-xl"
+        >
+          <p class="text-xs text-center my-auto text-white/95">{{ crate.name }}</p>
+          <img
+            class="transition-transform duration-75 hover:scale-[120%]"
+            :src="crate.image || '/images/placeholder.webp'"
+            alt=""
+          />
         </div>
       </router-link>
     </div>

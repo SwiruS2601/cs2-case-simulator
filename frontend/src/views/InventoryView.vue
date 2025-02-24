@@ -47,12 +47,14 @@ const onChange = (event: Event) => {
 </script>
 
 <template>
-  <div className="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/30 sm:rounded-sm py-4 my-0 sm:my-4">
+  <div
+    className="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/40 sm:rounded-xl py-4 my-0 sm:my-4 border border-black/10"
+  >
     <div class="flex justify-between items-center flex-wrap gap-4 pb-6">
       <div class="flex gap-4 items-center flex-wrap">
         <Backbutton />
         <select
-          class="rounded py-2 w-fit border pr-4 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-white/20 select:outline-none"
+          class="rounded-lg py-2 w-fit border pr-4 h-[42px] border-black/10 bg-black/20 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-black/10 select:outline-none"
           @input="onChange"
           @change="onChange"
         >
@@ -60,7 +62,7 @@ const onChange = (event: Event) => {
             v-for="option in selectOptions"
             :value="option.value"
             :selected="option.value === selectedSort"
-            class="bg-gray-600"
+            class="bg-black/50"
           >
             {{ option.label }}
           </option>
@@ -69,7 +71,7 @@ const onChange = (event: Event) => {
 
       <Button @click="inventory.clearInventory" variant="danger"> Reset </Button>
     </div>
-    <p class="text-xl font-semibold pb-4">Items: {{ inventory.skins.length }}</p>
+    <p class="text-lg pb-4 text-white/90">Items: {{ inventory.skins.length }}</p>
 
     <SkinGrid v-if="sortedSkins" :skins="sortedSkins" inventoryView />
   </div>

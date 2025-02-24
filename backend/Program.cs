@@ -9,6 +9,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
 });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -59,22 +60,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseHttpsRedirection();
 }
-else
-{
-    app.UseHttpsRedirection();
-}
 
-app.UseHttpsRedirection();
 app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
     // var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     // dbContext.Database.Migrate();
-
     var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
     await dbInitializer.InitializeAsync();
-
     // var scraperService = scope.ServiceProvider.GetRequiredService<ApiScraper>();
     // await scraperService.ScrapeApi();
 }

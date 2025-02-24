@@ -7,9 +7,12 @@ const backgroundImage = BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.lengt
 </script>
 
 <template>
-  <img :src="`/backgrounds/${backgroundImage}`" class="fixed inset-0 object-cover w-full h-full z-0" />
-  <Nav />
-  <RouterView />
+  <main class="min-h-[calc(100dvh+0.5px)]">
+    <img :src="`/backgrounds/${backgroundImage}`" class="fixed inset-0 object-cover w-full h-full z-0" />
+    <div class="fixed inset-0 object-cover w-full h-full z-0 backdrop-blur-xs" />
+    <Nav />
+    <RouterView />
+  </main>
 </template>
 
 <style scoped></style>

@@ -5,7 +5,7 @@ const inventory = useInventoryStore();
 </script>
 
 <template>
-  <header class="sticky top-0 z-[101] backdrop-blur-xs bg-black/50">
+  <header class="sticky top-0 z-[101] backdrop-blur-xs bg-black/50 shadow-2xl border-b border-black/10">
     <nav class="flex items-center justify-between w-full max-w-5xl p-4 sm:px-0 mx-auto">
       <router-link to="/">
         <Button>Home</Button>

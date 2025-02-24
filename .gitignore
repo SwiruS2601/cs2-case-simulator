@@ -26,7 +26,6 @@ msbuild.err
 msbuild.wrn
 
 # Visual Studio Code
-.vscode/
 *.code-workspace
 
 # JetBrains Rider

@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "coreclr",
+      "request": "launch",
+      "name": "Launch Backend",
+      "program": "${workspaceFolder}/backend/bin/Debug/net8.0/Cs2CaseOpener.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/backend",
+      "stopAtEntry": false,
+      "preLaunchTask": "build"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "programPath",
+      "description": "Path to the program"
+    }
+  ]
+}
