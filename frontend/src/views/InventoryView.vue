@@ -6,6 +6,7 @@ import { RARITY_INDEX } from '../constants';
 import { useInventoryStore } from '../store/inventoryStore';
 import { getSkinPrice } from '../utils/balance';
 import { computed, ref } from 'vue';
+import { gunSkinFilter, knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
 
 const inventory = useInventoryStore();
 const selectedSort = ref('latest');
@@ -28,10 +29,11 @@ const sortedSkins = computed(() => {
       return [...inventory.skins].sort((a, b) => a.name.split('|')[1].localeCompare(b.name.split('|')[1]));
     case 'rarity':
       return [...inventory.skins].sort((a, b) => {
-        const aIsYellow = a.weaponType === 'Knife' || a.type === 'Gloves';
-        const bIsYellow = b.weaponType === 'Knife' || b.type === 'Gloves';
+        const aIsYellow = knivesAndGlovesSkinFilter(a) || knivesAndGlovesSkinFilter(a);
+        const bIsYellow = knivesAndGlovesSkinFilter(b) || knivesAndGlovesSkinFilter(b);
         return (
-          RARITY_INDEX[bIsYellow ? 'Extraordinary' : b.rarity] - RARITY_INDEX[aIsYellow ? 'Extraordinary' : a.rarity]
+          RARITY_INDEX[bIsYellow ? 'rarity_ancient' : b.rarity_id] -
+          RARITY_INDEX[aIsYellow ? 'rarity_ancient' : a.rarity_id]
         );
       });
     default:
@@ -39,30 +41,36 @@ const sortedSkins = computed(() => {
   }
 });
 
-console.log(sortedSkins.value);
-
 const onChange = (event: Event) => {
   selectedSort.value = (event.target as HTMLSelectElement).value;
 };
 </script>
 
 <template>
-  <div class="flex justify-between items-center mt-5 mb-6 flex-wrap gap-4">
-    <div class="flex gap-4 items-center flex-wrap">
-      <Backbutton />
-      <select
-        class="bg-slate-600 rounded py-2 w-fit border pr-4 border-slate-600 focus:outline-none px-4 text-slate-300 font-semibold cursor-pointer hover:bg-slate-500 hover:text-slate-200 select:outline-none"
-        @input="onChange"
-        @change="onChange"
-      >
-        <option v-for="option in selectOptions" :value="option.value" :selected="option.value === selectedSort">
-          {{ option.label }}
-        </option>
-      </select>
-      <p class="text-xl font-semibold">{{ inventory.skins.length }} skins</p>
-    </div>
+  <div className="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/30 sm:rounded-sm py-4 my-0 sm:my-4">
+    <div class="flex justify-between items-center flex-wrap gap-4 pb-6">
+      <div class="flex gap-4 items-center flex-wrap">
+        <Backbutton />
+        <select
+          class="rounded py-2 w-fit border pr-4 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-white/20 select:outline-none"
+          @input="onChange"
+          @change="onChange"
+        >
+          <option
+            v-for="option in selectOptions"
+            :value="option.value"
+            :selected="option.value === selectedSort"
+            class="bg-gray-600"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+      </div>
 
-    <Button @click="inventory.clearInventory" variant="danger"> Clear Inventory </Button>
+      <Button @click="inventory.clearInventory" variant="danger"> Reset </Button>
+    </div>
+    <p class="text-xl font-semibold pb-4">Items: {{ inventory.skins.length }}</p>
+
+    <SkinGrid v-if="sortedSkins" :skins="sortedSkins" inventoryView />
   </div>
-  <SkinGrid v-if="sortedSkins" :skins="sortedSkins" inventoryView />
 </template>

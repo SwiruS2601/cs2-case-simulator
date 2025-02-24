@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
-[Route("api/price")]
+[Route("api/prices")]
 public class PriceController : ControllerBase
 {
     private readonly PriceService _priceService;

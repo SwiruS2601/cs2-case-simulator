@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
-[Route("api/crate")]
+[Route("api/crates")]
 public class CrateController : ControllerBase
 {
     private readonly CrateService _caseService;

@@ -6,13 +6,18 @@ import revealSoundAncient from '../assets/audio/case_reveal_ancient_01.wav';
 import unlockSound from '../assets/audio/case_unlock_01.wav';
 import unlockImmidiateSound from '../assets/audio/case_unlock_immediate_01.wav';
 import { useOptionsStore } from '../store/optionsStore';
-import { RARITY_MAPPED } from '../constants';
 
 const revealSoundMapping = {
-  rare: revealSoundRare,
-  mythical: revealSoundMythical,
-  legendary: revealSoundLegendary,
-  ancient: revealSoundAncient,
+  rarity_common_weapon: revealSoundRare,
+  rarity_uncommon_weapon: revealSoundRare,
+  rarity_rare_weapon: revealSoundRare,
+  rarity_mythical_weapon: revealSoundMythical,
+  rarity_mythical: revealSoundMythical,
+  rarity_legendary_weapon: revealSoundLegendary,
+  rarity_legendary: revealSoundLegendary,
+  rarity_ancient_weapon: revealSoundAncient,
+  rarity_ancient: revealSoundAncient,
+  exceedingly_rare: revealSoundAncient,
 };
 
 const volume = 0.07;
@@ -33,10 +38,10 @@ function playItemScrollSound() {
   audio.onended = () => audio.remove();
 }
 
-function playRevealSound(rarity: keyof typeof RARITY_MAPPED) {
+function playRevealSound(rarity: string) {
   const options = useOptionsStore();
   if (options.soundOn === false) return;
-  const audio = new Audio(revealSoundMapping[RARITY_MAPPED[rarity]]);
+  const audio = new Audio(revealSoundMapping[rarity]);
   audio.volume = volume;
   audio.play();
   audio.onended = () => audio.remove();

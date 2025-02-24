@@ -1,52 +1,52 @@
-import type { RARITY_MAPPED } from './constants';
-
 export type Crate = {
   id: string;
   name: string;
+  description: string;
   type: string;
-  firstSaleDate: string;
-  marketHashName: string;
+  first_sale_date: string;
+  market_hash_name: string;
   rental: boolean;
   image: string;
-  modelPlayer: string;
-  skins?: Skin[];
+  model_player: string;
+  skins: Skin[];
 };
-
-type Price = {
-  sold: string;
-  median: number;
-  average: number;
-  lowest_price: number;
-  highest_price: number;
-  standard_deviation: string;
-};
-
-type Prices = {
-  '7_days': Price;
-  '30_days': Price;
-  '24_hours'?: Price;
-  all_time: Price;
-};
-
-export type Wear = 'Battle-Scarred' | 'Well-Worn' | 'Field-Tested' | 'Minimal Wear' | 'Factory New';
 
 export type Skin = {
   id: string;
   name: string;
-  classid: string;
-  type: string;
-  weaponType: string;
-  gunType: string;
-  rarity: keyof typeof RARITY_MAPPED;
-  rarityColor: string;
-  prices: Record<Wear, Prices>;
-  parsedPrices: string;
-  firstSaleDate: string;
-  knifeType: string;
+  rarity_id: RarityId;
+  paint_index: string;
   image: string;
-  minFloat: number;
-  maxFloat: number;
-  stattrak: boolean;
-  caseId: string;
-  wearCategory?: Wear;
+  prices: Price[];
+  rarity: Rarity;
+  wear_category: string;
 };
+
+export type Price = {
+  id: number;
+  skin_id: string;
+  wear_category: string;
+  steam_last_24h: number;
+  steam_last_7d: number;
+  steam_last_30d: number;
+  steam_last_90d: number;
+  steam_last_ever: number;
+};
+
+export type Rarity = {
+  id: RarityId;
+  name: string;
+  color: string;
+};
+
+export type RarityId =
+  | 'rarity_ancient'
+  | 'rarity_ancient_weapon'
+  | 'rarity_common_weapon'
+  | 'rarity_legendary'
+  | 'rarity_legendary_weapon'
+  | 'rarity_mythical'
+  | 'rarity_mythical_weapon'
+  | 'rarity_rare'
+  | 'rarity_rare_weapon'
+  | 'rarity_uncommon_weapon';

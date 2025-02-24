@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
-[Route("api/skin")]
+[Route("api/skins")]
 public class SkinController : ControllerBase
 {
 

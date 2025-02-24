@@ -4,12 +4,7 @@ import Button from '../components/Button.vue';
 import SkinGrid from '../components/SkinGrid.vue';
 import { useCreate } from '../query/crate';
 import { useOptionsStore } from '../store/optionsStore';
-import {
-  filterOnlyGlovesAndKnives,
-  filterSkinsByOnlyGuns,
-  sortSkinByName,
-  sortSkinByRarity,
-} from '../utils/sortAndfilters';
+import { gunSkinFilter, knivesAndGlovesSkinFilter, sortSkinByName, sortSkinByRarity } from '../utils/sortAndfilters';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useCaseOpeningStore } from '../store/caseOpeningStore';
@@ -40,26 +35,27 @@ const showSlider = ref(false);
 const guns = computed(() => {
   const skins = crate?.value?.skins;
   if (!skins?.length) return [];
-  return skins.filter(filterSkinsByOnlyGuns).sort(sortSkinByRarity);
+  return skins.filter(gunSkinFilter).sort(sortSkinByRarity);
 });
 
 const knivesAndGloves = computed(() => {
   const skins = crate?.value?.skins;
   if (!skins?.length) return [];
-  return skins.filter(filterOnlyGlovesAndKnives).sort(sortSkinByName);
+  return skins.filter(knivesAndGlovesSkinFilter).sort(sortSkinByName);
 });
 
 const handleOpenCase = async () => {
   if (!crate.value) return;
 
   handleCloseWonSkinView();
+  caseOpeningStore.startCaseOpening();
 
   showOptions.value = false;
   document.body.style.overflow = 'hidden';
 
   audioService.playUnlockSound();
 
-  await new Promise((resolve) => setTimeout(resolve, 100));
+  await new Promise((resolve) => setTimeout(resolve, 0.1));
 
   const odds = optionsStore.moreRareSkins ? FUN_ODDS : REAL_RARITY_ODDS;
   const opnenedCrate = crateOpeningService.openCrate(crate.value, odds);
@@ -68,7 +64,6 @@ const handleOpenCase = async () => {
   wonSkinIndex.value = opnenedCrate.wonSkinIndex;
   wonSkin.value = opnenedCrate.wonSkin;
 
-  caseOpeningStore.startCaseOpening();
   showSlider.value = true;
   inventory.incrementOpenCount();
   inventory.setBalance(inventory.balance - 2.5);
@@ -79,14 +74,15 @@ const handleCaseOpeningFinished = (skin: Skin) => {
   caseOpeningStore.endCaseOpening(skin);
   inventory.setBalance(inventory.balance + getSkinPrice(skin));
   inventory.addSkin(skin);
-  audioService.playRevealSound(skin.rarity);
+  audioService.playRevealSound(skin.rarity_id);
 };
 
 const handleCloseWonSkinView = () => {
-  if (caseOpeningStore.isOpeningCase) return;
   document.body.style.overflow = '';
   showWonSkin.value = false;
   showSlider.value = false;
+  wonSkin.value = null;
+  caseOpeningStore.isOpeningCase = false;
 };
 
 const escListener = (event: KeyboardEvent) => {
@@ -107,7 +103,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="pt-5 pb-16 relative">
+  <div
+    v-if="!caseOpeningStore.isOpeningCase && !showWonSkin"
+    className="relative w-full max-w-5xl px-4 py-4 mx-auto backdrop-blur-xs bg-black/30 sm:my-4 sm:rounded-sm"
+  >
     <div class="flex gap-4 flex-wrap items-center">
       <Backbutton />
       <Button variant="success" @click="handleOpenCase" :disabled="caseOpeningStore.isOpeningCase">
@@ -115,13 +114,13 @@ onUnmounted(() => {
       </Button>
 
       <Button size="icon" @click="showOptions = !showOptions">
-        <OptionsIcon fill="#f0f0f0" class="size-4.5 text-gray-400" />
+        <OptionsIcon fill="#f0f0f0" class="size-4.5 text-white" />
       </Button>
     </div>
 
     <dialog
       v-if="showOptions"
-      class="absolute inset-0 z-50 left-[18%] top-20 flex p-4 bg-gray-700/95 rounded-lg shadow-2xl flex-col gap-4"
+      class="absolute inset-0 z-50 left-[18%] top-20 flex p-4 rounded-lg shadow-2xl flex-col gap-4"
     >
       <Button @click="optionsStore.toggleFastAnimation">
         {{ optionsStore.fastAnimation ? 'Disable' : 'Enable' }} Fast Animation
@@ -132,53 +131,53 @@ onUnmounted(() => {
       <Button @click="optionsStore.toggleSound"> {{ optionsStore.soundOn ? 'Disable' : 'Enable' }} Sound </Button>
     </dialog>
 
-    <div
-      v-if="(caseOpeningStore.isOpeningCase || caseOpeningStore?.wonSkin) && showSlider"
-      class="fixed inset-0 bg-black/20 backdrop-blur-xs flex items-center justify-center z-50"
-    >
-      <div v-if="crate" class="w-full max-w-5xl">
-        <CaseOpeningSlider
-          :crate="crate"
-          :skins="crateSliderSkins"
-          :wonSkinIndex="wonSkinIndex"
-          @finished="handleCaseOpeningFinished"
-        />
-      </div>
-    </div>
-
-    <div
-      v-if="showWonSkin && caseOpeningStore.wonSkin"
-      class="absolute inset-0 h-[90dvh] flex items-center justify-center p-4 z-100 fade-scale-up backdrop-blur-xs"
-    >
-      <div class="flex items-center flex-col gap-6 rounded-xl backdrop-blur-xs">
-        <img :src="caseOpeningStore.wonSkin.image" class="size-full select-none" />
-        <div class="flex flex-col gap-4 items-center">
-          <div>
-            <p class="text-lg font-semibold">{{ caseOpeningStore.wonSkin.name }}</p>
-            <div class="flex gap-4 justify-between">
-              <p class="text-sm text-gray-400">{{ caseOpeningStore.wonSkin.wearCategory }}</p>
-              <p class="text-sm text-gray-400">
-                Price <span class="text-green-400">€ {{ getSkinPrice(caseOpeningStore.wonSkin) }} </span>
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-4">
-            <Button @click="handleCloseWonSkinView">Close</Button>
-            <Button variant="success" :disabled="caseOpeningStore.isOpeningCase" @click="handleOpenCase"
-              >Open Another</Button
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
     <SkinGrid v-if="guns.length" :skins="guns" class="mt-6" />
 
     <Button v-if="knivesAndGloves.length" @click="optionsStore.toggleShowKnivesAndGloves" class="mt-8">
       {{ optionsStore.showKnivesAndGloves ? 'Hide' : 'Show' }} Knives & Gloves
     </Button>
 
-    <SkinGrid v-if="knivesAndGloves.length && optionsStore.showKnivesAndGloves" :skins="knivesAndGloves" />
+    <SkinGrid class="mt-6" v-if="knivesAndGloves.length && optionsStore.showKnivesAndGloves" :skins="knivesAndGloves" />
+  </div>
+
+  <div
+    v-if="(caseOpeningStore.isOpeningCase || wonSkin) && showSlider"
+    class="fixed inset-0 h-dvh flex items-center justify-center z-50 backdrop-blur-xs"
+  >
+    <div v-if="crate" class="w-full max-w-5xl">
+      <CaseOpeningSlider
+        :crate="crate"
+        :skins="crateSliderSkins"
+        :wonSkinIndex="wonSkinIndex"
+        @finished="handleCaseOpeningFinished"
+      />
+    </div>
+  </div>
+
+  <div
+    v-if="showWonSkin && wonSkin"
+    class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-100 fade-scale-up backdrop-blur-xs"
+  >
+    <div class="flex items-center flex-col gap-6 rounded-xl">
+      <img :src="wonSkin?.image" class="size-full select-none" />
+      <div class="flex flex-col gap-4 items-center">
+        <div>
+          <p class="text-lg font-semibold">{{ wonSkin.name }}</p>
+          <div class="flex gap-4 justify-between">
+            <p class="text-sm text-white">{{ wonSkin.wear_category }}</p>
+            <p class="text-sm text-white">
+              Price <span class="text-green-400">€ {{ getSkinPrice(wonSkin).toFixed(2) }} </span>
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <Button @click="handleCloseWonSkinView">Close</Button>
+          <Button variant="success" :disabled="caseOpeningStore.isOpeningCase" @click="handleOpenCase"
+            >Open Another</Button
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

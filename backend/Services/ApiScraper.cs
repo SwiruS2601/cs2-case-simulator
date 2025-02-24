@@ -26,7 +26,8 @@ public class ApiScraper
         [property: JsonPropertyName("rental")] bool? rental,
         [property: JsonPropertyName("image")] string? image,
         [property: JsonPropertyName("model_player")] string? model_player,
-        [property: JsonPropertyName("contains")] List<SkinDto>? contains
+        [property: JsonPropertyName("contains")] List<SkinDto>? contains,
+        [property: JsonPropertyName("contains_rare")] List<SkinDto>? contains_rare
     );
 
     public record SkinDto(
@@ -110,19 +111,31 @@ public class ApiScraper
                 _dbContext.Crates.Add(crate);
             }
 
-            // If the crate contains skins, process them.
+            var skins = new List<SkinDto>();
+
             if (crateDto.contains != null && crateDto.contains.Any())
             {
-                foreach (var skinDto in crateDto.contains)
+                skins.AddRange(crateDto.contains);
+            }
+
+            if (crateDto.contains_rare != null && crateDto.contains_rare.Any())
+            {
+                skins.AddRange(crateDto.contains_rare);
+            }
+
+            // If the crate contains skins, process them.
+            if (skins.Any())
+            {
+                foreach (var skinDto in skins)
                 {
                     // First check if the skin is already tracked locally.
                     var skin = _dbContext.Skins.Local.FirstOrDefault(s => s.Id == skinDto.id)
                         ?? _dbContext.Skins.FirstOrDefault(s => s.Id == skinDto.id);
+
                     if (skin == null)
                     {
                         if (skinDto.rarity != null)
                         {
-                            // First, check if the rarity is already tracked.
                             var rarity = _dbContext.ChangeTracker.Entries<Rarity>()
                                 .Select(e => e.Entity)
                                 .FirstOrDefault(r => r.Id == skinDto.rarity.id)
@@ -138,6 +151,7 @@ public class ApiScraper
                                 };
                                 _dbContext.Rarities.Add(rarity);
                             }
+                            
                             skin = new Skin
                             {
                                 Id = skinDto.id,
@@ -159,9 +173,13 @@ public class ApiScraper
                         }
                         _dbContext.Skins.Add(skin);
                     }
+
                     // Establish the relationship between crate and skin if not already linked.
                     if (crate.Skins == null)
+                    {
                         crate.Skins = new List<Skin>();
+                    }
+
                     if (!crate.Skins.Any(s => s.Id == skin.Id))
                     {
                         crate.Skins.Add(skin);

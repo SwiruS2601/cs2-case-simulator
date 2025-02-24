@@ -26,6 +26,7 @@ builder.Services.AddTransient<DatabaseInitializationService>();
 builder.Services.AddTransient<SkinService>();
 builder.Services.AddTransient<CrateService>();
 builder.Services.AddTransient<ApiScraper>();
+builder.Services.AddTransient<RarityService>();
 
 builder.Services.AddMemoryCache();
 builder.Services.AddResponseCompression(options =>
@@ -63,8 +64,8 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
+    // var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    // dbContext.Database.Migrate();
 
     var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
     await dbInitializer.InitializeAsync();

@@ -9,23 +9,27 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="p-5 my-5 rounded-sm gap-5 bg-slate-800 responsive-grid-skins sm:mb-0">
+  <div class="rounded-sm gap-4 responsive-grid">
     <div v-for="(skin, i) in props.skins" :key="i">
-      <img
-        :src="skin?.image ?? '/images/placeholder.webp'"
-        :alt="skin?.name"
+      <div
+        class="border-b-5 bg-black/40 p-1 rounded-sm duration-75 hover:shadow-xl"
         :style="{ borderColor: getSkinRarityColor(skin) }"
-        class="border-b-5 bg-slate-600 p-1 rounded-xs"
-      />
+      >
+        <img
+          :src="skin?.image ?? '/images/placeholder.webp'"
+          :alt="skin?.name"
+          class="transition-transform duration-75 hover:scale-[133%]"
+        />
+      </div>
       <div class="flex justify-between mt-1.5 gap-2">
-        <div class="flex flex-col text-slate-300">
-          <p class="text-xs font-semibold text-left">{{ skin.name.split('|')[0] }}</p>
-          <p class="text-[11px] text-left text-slate-300/80">{{ skin.name.split('|')[1] }}</p>
+        <div class="flex flex-col text-slate-100">
+          <p class="text-[11px] font-semibold text-left">{{ skin.name.split('|')[0] }}</p>
+          <p class="text-[10px] text-left text-slate-100/80">{{ skin.name.split('|')[1] }}</p>
         </div>
 
         <div v-if="inventoryView" class="flex flex-col">
-          <span class="text-nowrap text-[10px]">{{ skin.wearCategory }} </span>
-          <span class="text-green-400 text-nowrap text-sm ml-auto">€ {{ getSkinPrice(skin) }} </span>
+          <span class="text-nowrap text-[10px] text-slate-100">{{ skin.wear_category }} </span>
+          <span class="text-green-400 text-nowrap text-[11px] ml-auto">€ {{ getSkinPrice(skin).toFixed(2) }} </span>
         </div>
       </div>
     </div>
