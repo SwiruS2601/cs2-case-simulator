@@ -1,3 +1,4 @@
+using Cs2CaseOpener.BackgroundServices;
 using Cs2CaseOpener.DB;
 using Cs2CaseOpener.Services;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -29,6 +30,8 @@ builder.Services.AddTransient<CrateService>();
 builder.Services.AddTransient<ApiScraper>();
 builder.Services.AddTransient<RarityService>();
 
+builder.Services.AddHostedService<ScrapeApiBackgroundService>();
+
 builder.Services.AddMemoryCache();
 builder.Services.AddResponseCompression(options =>
 {
@@ -36,7 +39,6 @@ builder.Services.AddResponseCompression(options =>
     options.Providers.Add<BrotliCompressionProvider>();
     options.Providers.Add<GzipCompressionProvider>();
 });
-
 
 builder.Services.AddCors(options =>
 {
