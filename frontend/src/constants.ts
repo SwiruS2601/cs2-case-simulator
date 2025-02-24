@@ -10,11 +10,11 @@ export const REAL_ODDS = {
 } as const;
 
 export const FUN_ODDS = {
-  rare: 0.05,
-  mythical: 0.1,
-  legendary: 0.4,
-  ancient: 0.3,
-  exceedingly_rare: 0.15,
+  rare: 0, // 0%
+  mythical: 0.0952381, // ~9.52%
+  legendary: 0.2857143, // ~28.57%
+  ancient: 0.2380952, // ~23.81%
+  exceedingly_rare: 0.3809524, // ~38.10%
 } as const;
 
 export const ODDS_TO_RARITY = {
