@@ -5,7 +5,7 @@ import SkinGrid from '../components/SkinGrid.vue';
 import { useCreate } from '../query/crate';
 import { useOptionsStore } from '../store/optionsStore';
 import { gunSkinFilter, knivesAndGlovesSkinFilter, sortSkinByName, sortSkinByRarity } from '../utils/sortAndfilters';
-import { computed, effect, onMounted, onUnmounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { useCrateOpeningStore } from '../store/crateOpeningStore';
 import CaseOpeningSlider from '../components/CaseOpeningSlider.vue';
@@ -21,12 +21,12 @@ import MuteIcon from '../components/MuteIcon.vue';
 import CheckMarkIcon from '../components/CheckMarkIcon.vue';
 import BackIcon from '../components/BackIcon.vue';
 import { getSkinRarityColor } from '../utils/color';
+import AutomaticIcon from '../components/AutomaticIcon.vue';
 
 const router = useRouter();
 const crateId = router.currentRoute.value.params.id as string;
 const { data: crate } = useCreate(crateId);
 const inventory = useInventoryStore();
-
 const optionsStore = useOptionsStore();
 const caseOpeningStore = useCrateOpeningStore();
 
@@ -37,22 +37,15 @@ const wonSkin = ref<Skin | null>(null);
 const showWonSkin = ref(false);
 const showSlider = ref(false);
 const timout = ref(false);
+const autoOpen = ref(false);
+
+let autoOpenInterval: ReturnType<typeof setInterval> | null = null;
 
 const guns = computed(() => {
   const skins = crate?.value?.skins;
   if (!skins?.length) return [];
   return skins.filter(gunSkinFilter).sort(sortSkinByRarity);
 });
-
-// onMounted(() => {
-//   const interval = setInterval(() => {
-//     if (!timout.value) {
-//       handleQuickOpen();
-//     }
-//   }, 100);
-
-//   return () => clearInterval(interval);
-// });
 
 const knivesAndGloves = computed(() => {
   const skins = crate?.value?.skins;
@@ -122,6 +115,11 @@ const handleCaseOpeningFinished = (skin: Skin) => {
   audioService.playRevealSound(skin.rarity_id);
 };
 
+const handleBack = () => {
+  handleCloseWonSkinView();
+  autoOpen.value = false;
+};
+
 const handleCloseWonSkinView = () => {
   document.body.style.overflow = '';
   showWonSkin.value = false;
@@ -134,11 +132,25 @@ const escListener = (event: KeyboardEvent) => {
   if (event.key === 'Escape') handleCloseWonSkinView();
 };
 
+watch(autoOpen, (newVal) => {
+  if (newVal) {
+    autoOpenInterval = setInterval(() => {
+      if (!caseOpeningStore.isOpeningCase && !timout.value) {
+        handleOpenCase();
+      }
+    }, 200);
+  } else if (autoOpenInterval) {
+    clearInterval(autoOpenInterval);
+    autoOpenInterval = null;
+  }
+});
+
 onMounted(() => {
   document.addEventListener('keyup', escListener);
 });
 
 onUnmounted(() => {
+  if (autoOpenInterval) clearInterval(autoOpenInterval);
   if (wonSkin.value && !caseOpeningStore.wonSkin) {
     handleCaseOpeningFinished(wonSkin.value);
   }
@@ -158,9 +170,9 @@ onUnmounted(() => {
         Unlock Container
       </Button>
 
-      <Button size="icon" @click="showOptions = !showOptions">
+      <!-- <Button size="icon" @click="showOptions = !showOptions">
         <OptionsIcon fill="#f0f0f0" class="size-4.5 text-white" />
-      </Button>
+      </Button> -->
     </div>
 
     <dialog
@@ -170,9 +182,6 @@ onUnmounted(() => {
       <Button @click="optionsStore.toggleFastAnimation">
         {{ optionsStore.fastAnimation ? 'Disable' : 'Enable' }} Fast Animation
       </Button>
-      <!-- <Button @click="optionsStore.toggleMoreRareSkins">
-        {{ optionsStore.moreRareSkins ? 'Disable' : 'Enable' }} More Rare Skins
-      </Button> -->
       <Button @click="optionsStore.toggleSound"> {{ optionsStore.soundOn ? 'Disable' : 'Enable' }} Sound </Button>
     </dialog>
 
@@ -223,10 +232,18 @@ onUnmounted(() => {
           </div>
         </div>
         <div class="flex flex-wrap gap-4 justify-center sm:justify-normal">
-          <Button class="pl-3 flex items-center" @click="handleCloseWonSkinView"><BackIcon class="mr-1" /> Back</Button>
+          <Button class="pl-3 flex items-center" @click="handleBack"><BackIcon class="mr-1" /> Back</Button>
           <Button size="icon" @click="optionsStore.toggleSound">
             <MuteIcon v-if="!optionsStore.soundOn" fill="#fb2c36" class="size-5" />
             <SoundIcon v-if="optionsStore.soundOn" fill="#f0f0f0" class="size-5" />
+          </Button>
+          <Button
+            :style="{ border: autoOpen ? '1px solid #05df72' : '1px solid #0000001a' }"
+            size="icon"
+            v-if="optionsStore.quickOpen"
+            @click="autoOpen = !autoOpen"
+          >
+            <AutomaticIcon :fill="autoOpen ? '#05df72' : '#f0f0f0'" class="size-6" />
           </Button>
           <Button
             :style="{
@@ -235,14 +252,22 @@ onUnmounted(() => {
               color: optionsStore.quickOpen ? '#05df72' : '',
             }"
             :disabled="caseOpeningStore.isOpeningCase"
-            @click="optionsStore.toggleQuickOpen()"
+            @click="
+              {
+                optionsStore.toggleQuickOpen();
+                autoOpen = false;
+              }
+            "
           >
             Quick Open
             <CheckMarkIcon v-if="optionsStore.quickOpen" class="size-5 ml-2" />
           </Button>
-          <Button variant="success" :disabled="caseOpeningStore.isOpeningCase || timout" @click="handleOpenCase"
-            >Open Again</Button
-          >
+          <Button
+            :variant="autoOpen ? 'danger' : 'success'"
+            :disabled="caseOpeningStore.isOpeningCase || timout"
+            @click="autoOpen ? (autoOpen = false) : handleOpenCase()"
+            >{{ autoOpen ? 'Stop' : 'Open Again' }}
+          </Button>
         </div>
       </div>
     </div>
