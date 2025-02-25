@@ -4,6 +4,7 @@ using Cs2CaseOpener.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -15,15 +16,19 @@ namespace Cs2CaseOpener.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("CrateSkin", b =>
                 {
                     b.Property<string>("CratesId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("SkinsId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("CratesId", "SkinsId");
 
@@ -36,46 +41,55 @@ namespace Cs2CaseOpener.Migrations
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("id");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("id")
+                        .HasAnnotation("Relational:JsonPropertyName", "id");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("description");
+                        .HasMaxLength(1000)
+                        .HasColumnType("varchar(1000)")
+                        .HasColumnName("description")
+                        .HasAnnotation("Relational:JsonPropertyName", "description");
 
                     b.Property<DateTime?>("First_Sale_Date")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("first_sale_date");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("first_sale_date")
+                        .HasAnnotation("Relational:JsonPropertyName", "first_sale_date");
 
                     b.Property<string>("Image")
-                        .HasMaxLength(300)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("image");
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)")
+                        .HasColumnName("image")
+                        .HasAnnotation("Relational:JsonPropertyName", "image");
 
                     b.Property<string>("Market_Hash_Name")
                         .HasMaxLength(100)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("market_hash_name");
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("market_hash_name")
+                        .HasAnnotation("Relational:JsonPropertyName", "market_hash_name");
 
                     b.Property<string>("Model_Player")
                         .HasMaxLength(150)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("model_player");
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("model_player")
+                        .HasAnnotation("Relational:JsonPropertyName", "model_player");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name");
+                        .HasMaxLength(120)
+                        .HasColumnType("character varying(120)")
+                        .HasColumnName("name")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
 
                     b.Property<bool?>("Rental")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("rental");
+                        .HasColumnType("boolean")
+                        .HasColumnName("rental")
+                        .HasAnnotation("Relational:JsonPropertyName", "rental");
 
                     b.Property<string>("Type")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("type");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("type")
+                        .HasAnnotation("Relational:JsonPropertyName", "type");
 
                     b.HasKey("Id");
 
@@ -88,39 +102,49 @@ namespace Cs2CaseOpener.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("id");
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Relational:JsonPropertyName", "id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("SkinId")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("skinId");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("skinId")
+                        .HasAnnotation("Relational:JsonPropertyName", "skin_id");
 
                     b.Property<double?>("Steam_Last_24h")
-                        .HasColumnType("REAL")
-                        .HasColumnName("steam_last_24h");
+                        .HasColumnType("double precision")
+                        .HasColumnName("steam_last_24h")
+                        .HasAnnotation("Relational:JsonPropertyName", "steam_last_24h");
 
                     b.Property<double?>("Steam_Last_30d")
-                        .HasColumnType("REAL")
-                        .HasColumnName("steam_last_30d");
+                        .HasColumnType("double precision")
+                        .HasColumnName("steam_last_30d")
+                        .HasAnnotation("Relational:JsonPropertyName", "steam_last_30d");
 
                     b.Property<double?>("Steam_Last_7d")
-                        .HasColumnType("REAL")
-                        .HasColumnName("steam_last_7d");
+                        .HasColumnType("double precision")
+                        .HasColumnName("steam_last_7d")
+                        .HasAnnotation("Relational:JsonPropertyName", "steam_last_7d");
 
                     b.Property<double?>("Steam_Last_90d")
-                        .HasColumnType("REAL")
-                        .HasColumnName("steam_last_90d");
+                        .HasColumnType("double precision")
+                        .HasColumnName("steam_last_90d")
+                        .HasAnnotation("Relational:JsonPropertyName", "steam_last_90d");
 
                     b.Property<double?>("Steam_Last_Ever")
-                        .HasColumnType("REAL")
-                        .HasColumnName("steam_last_ever");
+                        .HasColumnType("double precision")
+                        .HasColumnName("steam_last_ever")
+                        .HasAnnotation("Relational:JsonPropertyName", "steam_last_ever");
 
                     b.Property<string>("Wear_Category")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("wear_category");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("wear_category")
+                        .HasAnnotation("Relational:JsonPropertyName", "wear_category");
 
                     b.HasKey("Id");
 
@@ -134,18 +158,21 @@ namespace Cs2CaseOpener.Migrations
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("id");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("id")
+                        .HasAnnotation("Relational:JsonPropertyName", "id");
 
                     b.Property<string>("Color")
                         .HasMaxLength(7)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("color");
+                        .HasColumnType("character varying(7)")
+                        .HasColumnName("color")
+                        .HasAnnotation("Relational:JsonPropertyName", "color");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name");
+                        .HasMaxLength(120)
+                        .HasColumnType("character varying(120)")
+                        .HasColumnName("name")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
 
                     b.HasKey("Id");
 
@@ -158,28 +185,33 @@ namespace Cs2CaseOpener.Migrations
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("id");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("id")
+                        .HasAnnotation("Relational:JsonPropertyName", "id");
 
                     b.Property<string>("Image")
-                        .HasMaxLength(300)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("image");
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)")
+                        .HasColumnName("image")
+                        .HasAnnotation("Relational:JsonPropertyName", "image");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name");
+                        .HasMaxLength(120)
+                        .HasColumnType("character varying(120)")
+                        .HasColumnName("name")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
 
                     b.Property<string>("PaintIndex")
                         .HasMaxLength(10)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("paint_index");
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("paint_index")
+                        .HasAnnotation("Relational:JsonPropertyName", "paint_index");
 
                     b.Property<string>("RarityId")
                         .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("rarity_id");
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("rarity_id")
+                        .HasAnnotation("Relational:JsonPropertyName", "rarity_id");
 
                     b.HasKey("Id");
 

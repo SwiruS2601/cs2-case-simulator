@@ -7,5 +7,5 @@ This is a case opening simulator for cs2, it uses the same probabilities as the 
 ## Stack
 
 - **Backend:** ASP.NET Core, C#
-- **Database:** SQLite
+- **Database:** PostgreSQL
 - **Frontend:** Vue, Bun, TypeScript, Tanstack Query, Tailwind CSS

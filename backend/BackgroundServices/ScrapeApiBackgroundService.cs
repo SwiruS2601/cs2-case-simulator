@@ -25,7 +25,7 @@ public class ScrapeApiBackgroundService : BackgroundService
         var initialDelay = targetTime - now;
 
         _logger.LogInformation("Delaying initial API scrape by {Delay} until {RunTime}", initialDelay, targetTime);
-        
+                
         await Task.Delay(initialDelay, stoppingToken);
         
         while (!stoppingToken.IsCancellationRequested)

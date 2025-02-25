@@ -98,7 +98,7 @@ const handleQuickOpen = () => {
     timout.value = true;
     setTimeout(() => {
       timout.value = false;
-    }, 2500);
+    }, 2000);
   }
 
   handleCaseOpeningFinished(_wonSkin);

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:17.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: casedb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8888:8080
+
+volumes:
+  postgres:

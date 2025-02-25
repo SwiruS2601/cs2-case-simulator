@@ -15,7 +15,7 @@ namespace Cs2CaseOpener.Models
         [JsonPropertyName("name")]
         public string? Name { get; set; }
 
-        [Column("description")]
+        [Column("description", TypeName = "varchar(1000)")] 
         [JsonPropertyName("description")]
         public string? Description { get; set; }
 
@@ -44,5 +44,10 @@ namespace Cs2CaseOpener.Models
         public string? Model_Player { get; set; }
 
         public ICollection<Skin> Skins { get; set; } = new List<Skin>();
+
+        public void SetFirstSaleDate(DateTime? date)
+        {
+            First_Sale_Date = date?.ToUniversalTime();
+        }
     }
 }

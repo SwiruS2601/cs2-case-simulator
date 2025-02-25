@@ -3,6 +3,7 @@ using Cs2CaseOpener.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cs2CaseOpener.Converters;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cs2CaseOpener.Services;
 public class ApiScraper
@@ -85,63 +86,101 @@ public class ApiScraper
 
     public async Task ScrapeApi() 
     {
-        // Retrieve data from API endpoints.
         var crates = await GetCrates();
         var prices = await GetPrices();
 
-        // Process crates and contained skins.
-        foreach (var crateDto in crates)
+        _dbContext.ChangeTracker.Clear();
+        var existingRarities = await _dbContext.Rarities.ToDictionaryAsync(r => r.Id);
+
+        await using var transaction = await _dbContext.Database.BeginTransactionAsync();
+        try
         {
-            // Check if crate exists by id.
-            var crate = _dbContext.Crates.FirstOrDefault(c => c.Id == crateDto.id);
-            if (crate == null)
+            var uniqueRarities = crates
+                .SelectMany(c => c.contains?.Select(s => s.rarity) ?? Enumerable.Empty<RarityDto>())
+                .Concat(crates.SelectMany(c => c.contains_rare?.Select(s => s.rarity) ?? Enumerable.Empty<RarityDto>()))
+                .Where(r => r != null)
+                .DistinctBy(r => r!.id)
+                .ToList();
+
+            Console.WriteLine($"Found {uniqueRarities.Count} unique rarities");
+
+            foreach (var rarityDto in uniqueRarities)
             {
-                crate = new Crate
+                if (!existingRarities.ContainsKey(rarityDto!.id))
                 {
-                    Id = crateDto.id,
-                    Name = crateDto.name,
-                    Description = crateDto.description,
-                    Type = crateDto.type,
-                    First_Sale_Date = crateDto.first_sale_date,
-                    Market_Hash_Name = crateDto.market_hash_name,
-                    Rental = crateDto.rental,
-                    Image = crateDto.image,
-                    Model_Player = crateDto.model_player
-                };
-                _dbContext.Crates.Add(crate);
+                    var rarity = new Rarity
+                    {
+                        Id = rarityDto!.id,
+                        Name = rarityDto.name,
+                        Color = rarityDto.color
+                    };
+                    _dbContext.Rarities.Add(rarity);
+                    existingRarities[rarity.Id] = rarity;
+                }
             }
 
-            var skins = new List<SkinDto>();
+            await _dbContext.SaveChangesAsync();
+            await transaction.CommitAsync();
+            
+            var savedCount = await _dbContext.Rarities.CountAsync();
+            Console.WriteLine($"Saved {savedCount} rarities to database");
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            throw new Exception($"Failed to process rarities: {ex.Message}", ex);
+        }
 
-            if (crateDto.contains != null && crateDto.contains.Any())
+        await using var mainTransaction = await _dbContext.Database.BeginTransactionAsync();
+        try
+        {
+            _dbContext.ChangeTracker.Clear();
+            
+            foreach (var crateDto in crates)
             {
-                skins.AddRange(crateDto.contains);
-            }
-
-            if (crateDto.contains_rare != null && crateDto.contains_rare.Any())
-            {
-                skins.AddRange(crateDto.contains_rare);
-            }
-
-            // If the crate contains skins, process them.
-            if (skins.Any())
-            {
-                foreach (var skinDto in skins)
+                var crate = await _dbContext.Crates.Include(c => c.Skins)
+                    .FirstOrDefaultAsync(c => c.Id == crateDto.id);
+                    
+                if (crate == null)
                 {
-                    // First check if the skin is already tracked locally.
-                    var skin = _dbContext.Skins.Local.FirstOrDefault(s => s.Id == skinDto.id)
-                        ?? _dbContext.Skins.FirstOrDefault(s => s.Id == skinDto.id);
+                    crate = new Crate
+                    {
+                        Id = crateDto.id,
+                        Name = crateDto.name,
+                        Description = crateDto.description,
+                        Type = crateDto.type,
+                        Market_Hash_Name = crateDto.market_hash_name,
+                        Rental = crateDto.rental,
+                        Image = crateDto.image,
+                        Model_Player = crateDto.model_player
+                    };
+                    crate.SetFirstSaleDate(crateDto.first_sale_date);
+                    _dbContext.Crates.Add(crate);
+                }
+
+                var skins = new List<SkinDto>();
+                if (crateDto.contains != null) skins.AddRange(crateDto.contains);
+                if (crateDto.contains_rare != null) skins.AddRange(crateDto.contains_rare);
+
+                foreach (var skinDto in skins.Where(s => s != null))
+                {
+                    var skin = await _dbContext.Skins
+                        .FirstOrDefaultAsync(s => s.Id == skinDto.id);
 
                     if (skin == null)
                     {
+                        skin = new Skin
+                        {
+                            Id = skinDto.id,
+                            Name = skinDto.name,
+                            RarityId = skinDto.rarity?.id,
+                            PaintIndex = skinDto.paint_index,
+                            Image = skinDto.image
+                        };
+
                         if (skinDto.rarity != null)
                         {
-                            var rarity = _dbContext.ChangeTracker.Entries<Rarity>()
-                                .Select(e => e.Entity)
-                                .FirstOrDefault(r => r.Id == skinDto.rarity.id)
-                                ?? _dbContext.Rarities.FirstOrDefault(r => r.Id == skinDto.rarity.id);
-                            
-                            if (rarity == null)
+                            if (!existingRarities.TryGetValue(skinDto.rarity.id, out var rarity))
                             {
                                 rarity = new Rarity
                                 {
@@ -149,35 +188,12 @@ public class ApiScraper
                                     Name = skinDto.rarity.name,
                                     Color = skinDto.rarity.color
                                 };
+                                existingRarities[rarity.Id] = rarity;
                                 _dbContext.Rarities.Add(rarity);
                             }
-                            
-                            skin = new Skin
-                            {
-                                Id = skinDto.id,
-                                Name = skinDto.name,
-                                RarityId = skinDto.rarity.id,
-                                PaintIndex = skinDto.paint_index,
-                                Image = skinDto.image
-                            };
                         }
-                        else
-                        {
-                            skin = new Skin
-                            {
-                                Id = skinDto.id,
-                                Name = skinDto.name,
-                                PaintIndex = skinDto.paint_index,
-                                Image = skinDto.image
-                            };
-                        }
-                        _dbContext.Skins.Add(skin);
-                    }
 
-                    // Establish the relationship between crate and skin if not already linked.
-                    if (crate.Skins == null)
-                    {
-                        crate.Skins = new List<Skin>();
+                        _dbContext.Skins.Add(skin);
                     }
 
                     if (!crate.Skins.Any(s => s.Id == skin.Id))
@@ -185,55 +201,81 @@ public class ApiScraper
                         crate.Skins.Add(skin);
                     }
                 }
+
+                await _dbContext.SaveChangesAsync();
             }
-        }
 
-        // Process price entries.
-        foreach (var kvp in prices)
-        {
-            // Expected key format: "Skin Name (Wear)"
-            var key = kvp.Key;
-            var idxOpen = key.LastIndexOf('(');
-            var idxClose = key.LastIndexOf(')');
-            if (idxOpen > 0 && idxClose > idxOpen)
+            const int batchSize = 100;
+            var currentBatch = new List<Price>();
+
+            foreach (var kvp in prices)
             {
-                var skinName = key.Substring(0, idxOpen).Trim();
-                var wear = key.Substring(idxOpen + 1, idxClose - idxOpen - 1).Trim();
-
-                // Find the skin by Name (assuming unique names here)
-                var skin = _dbContext.Skins.FirstOrDefault(s => s.Name == skinName);
-                if (skin != null)
+                var key = kvp.Key;
+                var idxOpen = key.LastIndexOf('(');
+                var idxClose = key.LastIndexOf(')');
+                if (idxOpen > 0 && idxClose > idxOpen)
                 {
-                    // Try to find an existing price record.
-                    var existingPrice = _dbContext.Prices.FirstOrDefault(p => p.SkinId == skin.Id && p.Wear_Category == wear);
-                    if (existingPrice != null)
+                    var skinName = key.Substring(0, idxOpen).Trim();
+                    var wear = key.Substring(idxOpen + 1, idxClose - idxOpen - 1).Trim();
+
+                    var skin = await _dbContext.Skins
+                        .FirstOrDefaultAsync(s => s.Name == skinName);
+
+                    if (skin != null)
                     {
-                        // Update the fields.
-                        existingPrice.Steam_Last_24h = kvp.Value.steam.last_24h;
-                        existingPrice.Steam_Last_7d = kvp.Value.steam.last_7d;
-                        existingPrice.Steam_Last_30d = kvp.Value.steam.last_30d;
-                        existingPrice.Steam_Last_90d = kvp.Value.steam.last_90d;
-                        existingPrice.Steam_Last_Ever = kvp.Value.steam.last_ever;
-                    }
-                    else
-                    {
-                        // Create and add a new price.
-                        var price = new Price
+                        var existingPrice = await _dbContext.Prices
+                            .FirstOrDefaultAsync(p => p.SkinId == skin.Id && p.Wear_Category == wear);
+
+                        if (existingPrice != null)
                         {
-                            SkinId = skin.Id,
-                            Wear_Category = wear,
-                            Steam_Last_24h = kvp.Value.steam.last_24h,
-                            Steam_Last_7d = kvp.Value.steam.last_7d,
-                            Steam_Last_30d = kvp.Value.steam.last_30d,
-                            Steam_Last_90d = kvp.Value.steam.last_90d,
-                            Steam_Last_Ever = kvp.Value.steam.last_ever
-                        };
-                        _dbContext.Prices.Add(price);
+                            existingPrice.Steam_Last_24h = kvp.Value.steam.last_24h;
+                            existingPrice.Steam_Last_7d = kvp.Value.steam.last_7d;
+                            existingPrice.Steam_Last_30d = kvp.Value.steam.last_30d;
+                            existingPrice.Steam_Last_90d = kvp.Value.steam.last_90d;
+                            existingPrice.Steam_Last_Ever = kvp.Value.steam.last_ever;
+                            currentBatch.Add(existingPrice);
+                        }
+                        else
+                        {
+                            var price = new Price
+                            {
+                                SkinId = skin.Id,
+                                Wear_Category = wear,
+                                Steam_Last_24h = kvp.Value.steam.last_24h,
+                                Steam_Last_7d = kvp.Value.steam.last_7d,
+                                Steam_Last_30d = kvp.Value.steam.last_30d,
+                                Steam_Last_90d = kvp.Value.steam.last_90d,
+                                Steam_Last_Ever = kvp.Value.steam.last_ever
+                            };
+                            _dbContext.Prices.Add(price);
+                            currentBatch.Add(price);
+                        }
+
+                        if (currentBatch.Count >= batchSize)
+                        {
+                            await _dbContext.SaveChangesAsync();
+                            _dbContext.ChangeTracker.Clear();
+                            currentBatch.Clear();
+                        }
                     }
                 }
             }
+
+            if (currentBatch.Any())
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+
+            await mainTransaction.CommitAsync();
+        }
+        catch (Exception ex)
+        {
+            await mainTransaction.RollbackAsync();
+            throw new Exception($"Failed to process main data: {ex.Message}", ex);
         }
 
-        await _dbContext.SaveChangesAsync();
+        var finalRaritiesCount = await _dbContext.Rarities.CountAsync();
+        var finalPricesCount = await _dbContext.Prices.CountAsync();
+        Console.WriteLine($"Final counts - Rarities: {finalRaritiesCount}, Prices: {finalPricesCount}");
     }
 }

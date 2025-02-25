@@ -30,16 +30,6 @@ ENV APP_UID=1000
 # Create data directory and copy files
 RUN mkdir -p /app/data
 COPY --link --from=build /app .
-COPY --link --from=build /source/cs2cases.db /app/data/cs2cases.db
-
-# Set permissions
-RUN chown -R $APP_UID:$APP_UID /app && \
-    chmod 755 /app && \
-    chmod 777 /app/data && \
-    chmod 666 /app/data/cs2cases.db
-
-ENV SQLITE_TMPDIR=/app/data
-ENV ConnectionStrings__DefaultConnection="Data Source=/app/data/cs2cases.db"
 
 USER $APP_UID
 ENTRYPOINT ["./Cs2CaseOpener"]
