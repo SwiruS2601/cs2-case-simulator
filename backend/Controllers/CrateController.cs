@@ -37,9 +37,7 @@ public class CrateController : ControllerBase
     [HttpGet("name/{name}")]
     public async Task<IActionResult> GetByName(string name)
     {
-        Console.WriteLine(name);
         var decoded = Uri.UnescapeDataString(name);
-        Console.WriteLine(decoded);
         string cacheKey = $"Crate_{decoded}";
 
         if (!_cache.TryGetValue(cacheKey, out object? crate))
