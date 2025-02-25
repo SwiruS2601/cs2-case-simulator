@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { watch, computed, onMounted } from 'vue';
+import { watch, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useCreates } from '../query/crate';
 
 const route = useRoute();
-
 const { data: crates } = useCreates();
 
 const pageType = computed(() => {
@@ -16,30 +15,92 @@ const pageType = computed(() => {
 
 const crate = computed(() => crates?.value?.find((c) => c.name === decodeURIComponent(route.params.id as string)));
 
-const schemaData = computed(() => {
-  if (!crate.value) return null;
+const baseSchema = {
+  '@context': 'https://schema.org',
+  name: 'Counter-Strike 2 Case Simulator',
+  description: 'Open Counter-Strike 2 cases for free in this case unboxing simulator.',
+  url: 'https://case.oki.gg/',
+  image: 'https://case.oki.gg/preview.webp',
+};
 
-  const base = {
-    '@context': 'https://schema.org',
-  };
-
-  if (pageType.value === 'crate' && crate.value) {
-    return {
-      ...base,
-      '@type': 'Product',
-      name: `${crate.value.name} - CS2 Case Simulator`,
-      description: `Open the ${crate.value.name} for free in this Counter-Strike 2 case unboxing simulator`,
-      image: crate.value.image,
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-      },
-    };
+const updateOrCreateSchemaScript = (id: string, schema: any) => {
+  const existingScript = document.head.querySelector(`script[data-schema-id="${id}"]`);
+  if (existingScript) {
+    existingScript.remove();
   }
 
-  return null;
-});
+  const scriptElement = document.createElement('script');
+  scriptElement.setAttribute('type', 'application/ld+json');
+  scriptElement.setAttribute('data-vue-router-controlled', '');
+  scriptElement.setAttribute('data-schema-id', id);
+  scriptElement.textContent = JSON.stringify(schema);
+  document.head.appendChild(scriptElement);
+
+  return scriptElement;
+};
+
+const removeAllSchemaScripts = () => {
+  const scripts = document.head.querySelectorAll('script[data-vue-router-controlled]');
+  scripts.forEach((script) => script.remove());
+};
+
+const updateSchemas = () => {
+  removeAllSchemaScripts();
+
+  switch (pageType.value) {
+    case 'home':
+      updateOrCreateSchemaScript('website-schema', {
+        ...baseSchema,
+        '@type': 'WebSite',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://case.oki.gg/search?q={search_term_string}',
+          queryInput: 'required name=search_term_string',
+        },
+      });
+      updateOrCreateSchemaScript('app-schema', {
+        ...baseSchema,
+        '@type': 'SoftwareApplication',
+        applicationCategory: 'GameApplication',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        operatingSystem: 'Web',
+        screenshot: 'https://case.oki.gg/preview.webp',
+      });
+      break;
+
+    case 'inventory':
+      updateOrCreateSchemaScript('inventory-schema', {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Counter-Strike 2 Inventory',
+        description: 'View your unboxed CS2 skins in your personal inventory.',
+        url: 'https://case.oki.gg/inventory',
+      });
+      break;
+
+    case 'crate':
+      if (crate.value) {
+        updateOrCreateSchemaScript('crate-schema', {
+          ...baseSchema,
+          '@type': 'Product',
+          name: `${crate.value.name} - CS2 Case Simulator`,
+          description: `Open the ${crate.value.name} for free in this Counter-Strike 2 case unboxing simulator`,
+          image: crate.value.image,
+          url: `https://case.oki.gg/crate/${encodeURIComponent(crate.value.name)}`,
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+          },
+        });
+      }
+      break;
+  }
+};
 
 const updateMetaTags = () => {
   let title = 'Counter-Strike 2 Case Simulator';
@@ -61,22 +122,32 @@ const updateMetaTags = () => {
 };
 
 watch(
-  () => route,
+  () => route.path,
   () => {
     updateMetaTags();
+    updateSchemas();
   },
-  { immediate: true, deep: true },
+  { immediate: true },
 );
+
+watch(
+  () => crate.value,
+  () => {
+    if (pageType.value === 'crate') {
+      updateMetaTags();
+      updateSchemas();
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  removeAllSchemaScripts();
+});
 
 onMounted(() => {
   updateMetaTags();
-  if (schemaData.value && pageType.value !== 'home') {
-    const script = document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.textContent = JSON.stringify(schemaData.value);
-    script.setAttribute('data-vue-router-controlled', '');
-    document.head.appendChild(script);
-  }
+  updateSchemas();
 });
 </script>
 
