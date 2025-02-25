@@ -27,42 +27,6 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Gift Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-1210</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/gift1player_png.png</image:loc>
-      <image:title>Gift Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Pallet of Presents -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-1211</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/gift9players_png.png</image:loc>
-      <image:title>Pallet of Presents</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Audience Participation Parcel -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-1215</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/gift25spectators_png.png</image:loc>
-      <image:title>Audience Participation Parcel</image:title>
-    </image:image>
-  </url>
-  
   <!-- CS:GO Weapon Case -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4001</loc>
@@ -747,6 +711,18 @@
     </image:image>
   </url>
   
+  <!-- Slid3 Capsule -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4184</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_sticker_pack_slid3_capsule_png.png</image:loc>
+      <image:title>Slid3 Capsule</image:title>
+    </image:image>
+  </url>
+  
   <!-- Autograph Capsule | Natus Vincere | Cologne 2015 -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4117</loc>
@@ -864,6 +840,18 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/cologne2015_ebettle_png.png</image:loc>
       <image:title>Autograph Capsule | Team eBettle | Cologne 2015</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Team Roles Capsule -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4185</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_sticker_pack_team_roles_capsule_png.png</image:loc>
+      <image:title>Team Roles Capsule</image:title>
     </image:image>
   </url>
   
@@ -1047,6 +1035,18 @@
     </image:image>
   </url>
   
+  <!-- Revolver Case -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4186</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_10_png.png</image:loc>
+      <image:title>Revolver Case</image:title>
+    </image:image>
+  </url>
+  
   <!-- Autograph Capsule | Legends (Foil) | Cluj-Napoca 2015 -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4159</loc>
@@ -1164,6 +1164,18 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/cluj2015_vp_png.png</image:loc>
       <image:title>Autograph Capsule | Virtus.Pro | Cluj-Napoca 2015</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Operation Wildfire Case -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4187</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_11_png.png</image:loc>
+      <image:title>Operation Wildfire Case</image:title>
     </image:image>
   </url>
   
@@ -1347,54 +1359,6 @@
     </image:image>
   </url>
   
-  <!-- Slid3 Capsule -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4184</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_sticker_pack_slid3_capsule_png.png</image:loc>
-      <image:title>Slid3 Capsule</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Team Roles Capsule -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4185</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_sticker_pack_team_roles_capsule_png.png</image:loc>
-      <image:title>Team Roles Capsule</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Revolver Case -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4186</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_10_png.png</image:loc>
-      <image:title>Revolver Case</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Operation Wildfire Case -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4187</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_11_png.png</image:loc>
-      <image:title>Operation Wildfire Case</image:title>
-    </image:image>
-  </url>
-  
   <!-- MLG Columbus 2016 Legends (Holo/Foil) -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4205</loc>
@@ -1512,6 +1476,18 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/columbus2016_liq_png.png</image:loc>
       <image:title>Autograph Capsule | Team Liquid | MLG Columbus 2016</image:title>
+    </image:image>
+  </url>
+  
+  <!-- MLG Columbus 2016 Mirage Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4226</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_columbus2016_promo_de_mirage_png.png</image:loc>
+      <image:title>MLG Columbus 2016 Mirage Souvenir Package</image:title>
     </image:image>
   </url>
   
@@ -1647,18 +1623,6 @@
     </image:image>
   </url>
   
-  <!-- MLG Columbus 2016 Mirage Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4226</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_columbus2016_promo_de_mirage_png.png</image:loc>
-      <image:title>MLG Columbus 2016 Mirage Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
   <!-- MLG Columbus 2016 Inferno Souvenir Package -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4227</loc>
@@ -1743,30 +1707,6 @@
     </image:image>
   </url>
   
-  <!-- Community Graffiti Box 1 -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4234</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_spray_pack_community_1_png.png</image:loc>
-      <image:title>Community Graffiti Box 1</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Collectible Pins Capsule Series 1 -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4235</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_pins_series_1_png.png</image:loc>
-      <image:title>Collectible Pins Capsule Series 1</image:title>
-    </image:image>
-  </url>
-  
   <!-- Gamma Case -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4236</loc>
@@ -1848,6 +1788,18 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/cologne2016_optc_png.png</image:loc>
       <image:title>Autograph Capsule | OpTic Gaming | Cologne 2016</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Atlanta 2017 Cobblestone Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4346</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_cbble_png.png</image:loc>
+      <image:title>Atlanta 2017 Cobblestone Souvenir Package</image:title>
     </image:image>
   </url>
   
@@ -1968,6 +1920,30 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/cologne2016_faze_png.png</image:loc>
       <image:title>Autograph Capsule | FaZe Clan | Cologne 2016</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Atlanta 2017 Overpass Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4347</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_overpass_png.png</image:loc>
+      <image:title>Atlanta 2017 Overpass Souvenir Package</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Atlanta 2017 Cache Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4348</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_cache_png.png</image:loc>
+      <image:title>Atlanta 2017 Cache Souvenir Package</image:title>
     </image:image>
   </url>
   
@@ -2139,54 +2115,6 @@
     </image:image>
   </url>
   
-  <!-- Collectible Pins Capsule Series 2 -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4284</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_pins_series_2_png.png</image:loc>
-      <image:title>Collectible Pins Capsule Series 2</image:title>
-    </image:image>
-  </url>
-  
-  <!-- CS:GO Graffiti Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4285</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_spray_pack_valve_1_png.png</image:loc>
-      <image:title>CS:GO Graffiti Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Perfect World Graffiti Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4286</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_spray_pack_illuminate_1_png.png</image:loc>
-      <image:title>Perfect World Graffiti Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- StatTrak™ Radicals Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4287</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_radicals_capsule_png.png</image:loc>
-      <image:title>StatTrak™ Radicals Box</image:title>
-    </image:image>
-  </url>
-  
   <!-- Glove Case -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4288</loc>
@@ -2196,6 +2124,18 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_15_png.png</image:loc>
       <image:title>Glove Case</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Atlanta 2017 Train Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4349</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_train_png.png</image:loc>
+      <image:title>Atlanta 2017 Train Souvenir Package</image:title>
     </image:image>
   </url>
   
@@ -2316,6 +2256,30 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/atlanta2017_g2_png.png</image:loc>
       <image:title>Autograph Capsule | G2 Esports | Atlanta 2017</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Atlanta 2017 Nuke Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4350</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_nuke_png.png</image:loc>
+      <image:title>Atlanta 2017 Nuke Souvenir Package</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Spectrum Case -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4351</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_16_png.png</image:loc>
+      <image:title>Spectrum Case</image:title>
     </image:image>
   </url>
   
@@ -2460,78 +2424,6 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_mirage_png.png</image:loc>
       <image:title>Atlanta 2017 Mirage Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Atlanta 2017 Cobblestone Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4346</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_cbble_png.png</image:loc>
-      <image:title>Atlanta 2017 Cobblestone Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Atlanta 2017 Overpass Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4347</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_overpass_png.png</image:loc>
-      <image:title>Atlanta 2017 Overpass Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Atlanta 2017 Cache Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4348</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_cache_png.png</image:loc>
-      <image:title>Atlanta 2017 Cache Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Atlanta 2017 Train Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4349</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_train_png.png</image:loc>
-      <image:title>Atlanta 2017 Train Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Atlanta 2017 Nuke Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4350</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_atlanta2017_promo_de_nuke_png.png</image:loc>
-      <image:title>Atlanta 2017 Nuke Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Spectrum Case -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4351</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_16_png.png</image:loc>
-      <image:title>Spectrum Case</image:title>
     </image:image>
   </url>
   
@@ -2955,18 +2847,6 @@
     </image:image>
   </url>
   
-  <!-- Collectible Pins Capsule Series 3 -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4481</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_pins_series_3_png.png</image:loc>
-      <image:title>Collectible Pins Capsule Series 3</image:title>
-    </image:image>
-  </url>
-  
   <!-- Horizon Case -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4482</loc>
@@ -3363,42 +3243,6 @@
     </image:image>
   </url>
   
-  <!-- CS:GO Patch Pack -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4610</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack01_png.png</image:loc>
-      <image:title>CS:GO Patch Pack</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Metal Skill Group Patch Collection -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4614</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack02_png.png</image:loc>
-      <image:title>Metal Skill Group Patch Collection</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Half-Life: Alyx Patch Pack -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4615</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack_hlalyx_png.png</image:loc>
-      <image:title>Half-Life: Alyx Patch Pack</image:title>
-    </image:image>
-  </url>
-  
   <!-- Warhammer 40,000 Sticker Capsule -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4616</loc>
@@ -3579,18 +3423,6 @@
     </image:image>
   </url>
   
-  <!-- X-Ray P250 Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4668</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_xray_p250_png.png</image:loc>
-      <image:title>X-Ray P250 Package</image:title>
-    </image:image>
-  </url>
-  
   <!-- CS20 Case -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4669</loc>
@@ -3615,18 +3447,6 @@
     </image:image>
   </url>
   
-  <!-- Half-Life: Alyx Collectible Pins Capsule -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4693</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_pins_hlalyx_png.png</image:loc>
-      <image:title>Half-Life: Alyx Collectible Pins Capsule</image:title>
-    </image:image>
-  </url>
-  
   <!-- Half-Life: Alyx Sticker Capsule -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4694</loc>
@@ -3648,30 +3468,6 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_25_png.png</image:loc>
       <image:title>Prisma 2 Case</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Masterminds Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4696</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_masterminds_capsule_png.png</image:loc>
-      <image:title>Masterminds Music Kit Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- StatTrak™ Masterminds Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4697</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_masterminds_stattrak_capsule_png.png</image:loc>
-      <image:title>StatTrak™ Masterminds Music Kit Box</image:title>
     </image:image>
   </url>
   
@@ -3747,6 +3543,18 @@
     </image:image>
   </url>
   
+  <!-- Antwerp 2022 Dust II Souvenir Package -->
+  <url>
+    <loc>https://case.oki.gg/crate/crate-4837</loc>
+    <lastmod>2025-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_antwerp2022_promo_de_dust2_png.png</image:loc>
+      <image:title>Antwerp 2022 Dust II Souvenir Package</image:title>
+    </image:image>
+  </url>
+  
   <!-- 2020 RMR Contenders -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4745</loc>
@@ -3780,30 +3588,6 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_28_png.png</image:loc>
       <image:title>Snakebite Case</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Tacticians Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4754</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_tacticians_capsule_png.png</image:loc>
-      <image:title>Tacticians Music Kit Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- StatTrak™ Tacticians Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4755</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_tacticians_stattrak_capsule_png.png</image:loc>
-      <image:title>StatTrak™ Tacticians Music Kit Box</image:title>
     </image:image>
   </url>
   
@@ -3879,18 +3663,6 @@
     </image:image>
   </url>
   
-  <!-- Operation Riptide Patch Collection -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4795</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack03_png.png</image:loc>
-      <image:title>Operation Riptide Patch Collection</image:title>
-    </image:image>
-  </url>
-  
   <!-- Stockholm 2021 Legends Sticker Capsule -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4803</loc>
@@ -3927,39 +3699,15 @@
     </image:image>
   </url>
   
-  <!-- Stockholm 2021 Legends Patch Pack -->
+  <!-- Antwerp 2022 Overpass Souvenir Package -->
   <url>
-    <loc>https://case.oki.gg/crate/crate-4806</loc>
+    <loc>https://case.oki.gg/crate/crate-4838</loc>
     <lastmod>2025-02-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack_stockh2021_legends_png.png</image:loc>
-      <image:title>Stockholm 2021 Legends Patch Pack</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Stockholm 2021 Challengers Patch Pack -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4807</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack_stockh2021_challengers_png.png</image:loc>
-      <image:title>Stockholm 2021 Challengers Patch Pack</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Stockholm 2021 Contenders Patch Pack -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4808</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_patch_pack_stockh2021_contenders_png.png</image:loc>
-      <image:title>Stockholm 2021 Contenders Patch Pack</image:title>
+      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_antwerp2022_promo_de_overpass_png.png</image:loc>
+      <image:title>Antwerp 2022 Overpass Souvenir Package</image:title>
     </image:image>
   </url>
   
@@ -4143,30 +3891,6 @@
     </image:image>
   </url>
   
-  <!-- Antwerp 2022 Dust II Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4837</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_antwerp2022_promo_de_dust2_png.png</image:loc>
-      <image:title>Antwerp 2022 Dust II Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Antwerp 2022 Overpass Souvenir Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4838</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_antwerp2022_promo_de_overpass_png.png</image:loc>
-      <image:title>Antwerp 2022 Overpass Souvenir Package</image:title>
-    </image:image>
-  </url>
-  
   <!-- Antwerp 2022 Ancient Souvenir Package -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4839</loc>
@@ -4272,30 +3996,6 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_sticker_pack_csgo10_capsule_png.png</image:loc>
       <image:title>10 Year Birthday Sticker Capsule</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Initiators Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4848</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_initiators_capsule_png.png</image:loc>
-      <image:title>Initiators Music Kit Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- StatTrak™ Initiators Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4849</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_initiators_stattrak_capsule_png.png</image:loc>
-      <image:title>StatTrak™ Initiators Music Kit Box</image:title>
     </image:image>
   </url>
   
@@ -4467,30 +4167,6 @@
     </image:image>
   </url>
   
-  <!-- Rio 2022 Storage Unit with Paper Stickers -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4871</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/tools/casket_rio2022_0_png.png</image:loc>
-      <image:title>Rio 2022 Storage Unit with Paper Stickers</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Rio 2022 Storage Unit with Glitter Stickers -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4872</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/tools/casket_rio2022_1_png.png</image:loc>
-      <image:title>Rio 2022 Storage Unit with Glitter Stickers</image:title>
-    </image:image>
-  </url>
-  
   <!-- Espionage Sticker Capsule -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4879</loc>
@@ -4512,18 +4188,6 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_32_png.png</image:loc>
       <image:title>Revolution Case</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Anubis Collection Package -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4882</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_anubis_storepromo_png.png</image:loc>
-      <image:title>Anubis Collection Package</image:title>
     </image:image>
   </url>
   
@@ -4719,30 +4383,6 @@
     </image:image>
   </url>
   
-  <!-- NIGHTMODE Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4914</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_nightmode_capsule_png.png</image:loc>
-      <image:title>NIGHTMODE Music Kit Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- StatTrak™ NIGHTMODE Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4915</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_nightmode_stattrak_capsule_png.png</image:loc>
-      <image:title>StatTrak™ NIGHTMODE Music Kit Box</image:title>
-    </image:image>
-  </url>
-  
   <!-- Copenhagen 2024 Legends Sticker Capsule -->
   <url>
     <loc>https://case.oki.gg/crate/crate-4923</loc>
@@ -4908,30 +4548,6 @@
     <image:image>
       <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_sticker_pack_cph2024_group_champions_png.png</image:loc>
       <image:title>Copenhagen 2024 Champions Autograph Capsule</image:title>
-    </image:image>
-  </url>
-  
-  <!-- Masterminds 2 Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4946</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_masterminds2_capsule_png.png</image:loc>
-      <image:title>Masterminds 2 Music Kit Box</image:title>
-    </image:image>
-  </url>
-  
-  <!-- StatTrak™ Masterminds 2 Music Kit Box -->
-  <url>
-    <loc>https://case.oki.gg/crate/crate-4947</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://case.oki.gghttps://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_musickit_masterminds2_stattrak_capsule_png.png</image:loc>
-      <image:title>StatTrak™ Masterminds 2 Music Kit Box</image:title>
     </image:image>
   </url>
   
