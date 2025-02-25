@@ -18,6 +18,7 @@ RUN bun install --frozen-lockfile
 # Copy source files
 COPY src/ ./src/
 COPY public/ ./public/
+COPY scripts/ ./scripts/
 COPY index.html ./
 COPY .env.production ./.env
 

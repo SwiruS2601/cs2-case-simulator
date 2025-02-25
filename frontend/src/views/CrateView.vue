@@ -203,7 +203,10 @@ onUnmounted(() => {
       />
     </div>
 
-    <div class="max-w-5xl px-4 sm:px-0 py-4 mx-auto relative z-100">
+    <div
+      v-if="(showWonSkin && wonSkin) || caseOpeningStore.isOpeningCase"
+      class="max-w-5xl px-4 sm:px-0 py-4 mx-auto relative z-100"
+    >
       <Button class="flex items-center gap-2" @click="handleBack"><BackIcon /> Back </Button>
     </div>
 
