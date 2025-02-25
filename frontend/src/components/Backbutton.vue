@@ -7,5 +7,5 @@ const router = useRouter();
 </script>
 
 <template>
-  <Button @click="router.go(-1)" class="flex items-center gap-3"> <BackIcon /> Back </Button>
+  <Button @click="router.go(-1)" class="flex items-center gap-2"> <BackIcon /> Back </Button>
 </template>

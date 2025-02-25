@@ -65,7 +65,12 @@ watch(type, (newValue) => {
       </div>
     </div>
     <div class="gap-3 sm:gap-4 mt-4 responsive-grid justify-between">
-      <router-link v-for="crate in crates" :key="crate.id" :to="`/crate/${crate.id}`" class="mx-auto">
+      <router-link
+        v-for="crate in crates"
+        :key="crate.id"
+        :to="`/crate/${encodeURIComponent(crate.name)}`"
+        class="mx-auto"
+      >
         <div
           class="flex flex-col h-full cursor-pointer items-center bg-black/20 transition-shadow duration-150 rounded-lg px-2 py-2 border border-black/10 hover:shadow-xl"
         >
@@ -73,7 +78,7 @@ watch(type, (newValue) => {
           <img
             class="transition-transform duration-75 hover:scale-[120%]"
             :src="crate.image || '/images/placeholder.webp'"
-            alt=""
+            :alt="`${crate.name} - CS2 Case`"
             width="110"
             :height="type === 'Case' ? 85 : 82.5"
           />

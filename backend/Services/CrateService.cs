@@ -48,4 +48,26 @@ public class CrateService
 
         return crate;
     }
+
+    public async Task<Crate> GetByName(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            throw new ArgumentException("Name cannot be null or empty", nameof(name));
+        }
+
+        var crate = await _dbContext.Crates
+            .Include(c => c.Skins)
+                .ThenInclude(s => s.Rarity)
+            .Include(c => c.Skins)
+                .ThenInclude(s => s.Prices)
+            .FirstOrDefaultAsync(c => c.Name == name);
+
+        if (crate == null)
+        {
+            throw new DomainException($"No crate found for name {name}", HttpStatusCode.NotFound);
+        }
+
+        return crate;
+    }
 }

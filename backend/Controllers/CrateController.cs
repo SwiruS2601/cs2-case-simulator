@@ -33,6 +33,28 @@ public class CrateController : ControllerBase
         return Ok(crates);
     }
 
+    
+    [HttpGet("name/{name}")]
+    public async Task<IActionResult> GetByName(string name)
+    {
+        Console.WriteLine(name);
+        var decoded = Uri.UnescapeDataString(name);
+        Console.WriteLine(decoded);
+        string cacheKey = $"Crate_{decoded}";
+
+        if (!_cache.TryGetValue(cacheKey, out object? crate))
+        {
+            crate = await _caseService.GetByName(decoded);
+            Console.WriteLine(crate);
+            var cacheOptions = new MemoryCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(60));
+
+            _cache.Set(cacheKey, crate, cacheOptions);
+        }
+
+        return Ok(crate);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(string id)
     {

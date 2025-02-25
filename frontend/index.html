@@ -2,42 +2,106 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico?v=2" />
+    <link rel="preconnect" href="https://case.oki.gg" />
+    <link rel="dns-prefetch" href="https://case.oki.gg" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="rgb(2,6,23)" />
+    <meta name="theme-color" content="#1a1c20" />
 
-    <title>Counter-Strike 2 Case Opening Simulator</title>
+    <title>Counter-Strike 2 Case Simulator</title>
 
-    <meta name="description" content="Open Counter-Strike 2 cases for free in this Opening simulator" />
-    <meta name="keywords" content="counter strike 2, case opening, unboxing, cs2, csgo, cases, simulator, skins" />
+    <meta name="description" content="Open Counter-Strike 2 cases for free in this case unboxing simulator." />
+    <meta name="keywords" content="counter strike 2, cs2, case, opening, unboxing, simulator, skins" />
 
     <link rel="canonical" href="https://case.oki.gg/" />
 
-    <meta property="og:image" content="https://case.oki.gg/case.png" />
+    <meta property="og:image" content="https://case.oki.gg/preview.webp" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <meta property="og:title" content="Counter-Strike 2 Case Opening Simulator" />
-    <meta property="og:description" content="Open Counter-Strike 2 cases for free in this Opening simulator" />
+    <meta property="og:title" content="Counter-Strike 2 Case Simulator" />
+    <meta property="og:description" content="Open Counter-Strike 2 cases for free in this case unboxing simulator." />
     <meta property="og:url" content="https://case.oki.gg/" />
 
-    <meta name="twitter:title" content="Counter-Strike 2 Case Opening Simulator" />
-    <meta name="twitter:description" content="Open Counter-Strike 2 cases for free in this Opening simulator" />
+    <meta name="twitter:title" content="Counter-Strike 2 Case Simulator" />
+    <meta name="twitter:description" content="Open Counter-Strike 2 cases for free in this case unboxing simulator." />
 
-    <meta name="author" content="oki" />
-
-    <!-- <link rel="preconnect" href="https://steamcdn-a.akamaihd.net" /> -->
+    <meta name="author" content="Oki" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Counter-Strike 2 Case Opening Simulator",
-        "url": "https://case.oki.gg/"
+        "name": "Counter-Strike 2 Case Simulator",
+        "url": "https://case.oki.gg/",
+        "description": "Open Counter-Strike 2 cases for free in this case unboxing simulator.",
+        "image": "https://case.oki.gg/preview.webp",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://case.oki.gg/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Counter-Strike 2 Case Simulator",
+        "applicationCategory": "GameApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "operatingSystem": "Web",
+        "description": "Open Counter-Strike 2 cases for free in this case unboxing simulator.",
+        "image": "https://case.oki.gg/preview.webp",
+        "screenshot": "https://case.oki.gg/preview.webp",
+        "author": {
+          "@type": "Person",
+          "name": "Oki"
+        }
+      }
+    </script>
+
     <style>
+      :root {
+        color-scheme: light dark;
+      }
+      html,
+      dialog {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+          'Open Sans', 'Helvetica Neue', sans-serif;
+        color: white;
+      }
       body {
-        background: rgb(56, 56, 56);
+        background: #1a1c20;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        user-select: none;
+      }
+      .min-h-\[calc\(100dvh\+0\.5px\)\] {
+        min-height: calc(100dvh + 0.5px);
+      }
+      .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+      }
+      @media screen and (max-width: 720px) {
+        .responsive-grid {
+          grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        }
       }
     </style>
   </head>

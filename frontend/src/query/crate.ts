@@ -15,3 +15,10 @@ export function useCreate(id: string) {
     queryFn: async () => fetch(`${config.apiBaseUrl}/api/crates/${id}`).then((res) => res.json()),
   });
 }
+
+export function useCreateByName(name: string) {
+  return useQuery<Crate>({
+    queryKey: ['crate', name],
+    queryFn: async () => fetch(`${config.apiBaseUrl}/api/crates/name/${name}`).then((res) => res.json()),
+  });
+}
