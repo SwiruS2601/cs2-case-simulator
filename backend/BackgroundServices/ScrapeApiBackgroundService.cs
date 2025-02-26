@@ -36,7 +36,7 @@ public class ScrapeApiBackgroundService : BackgroundService
                 try
                 {
                     _logger.LogInformation("Scraping API...");
-                    await scraper.ScrapeApi();
+                    // await scraper.ScrapeApi();
                     _logger.LogInformation("API scraped successfully");
                 }
                 catch (Exception ex)

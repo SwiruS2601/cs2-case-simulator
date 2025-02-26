@@ -2,7 +2,7 @@
 import Backbutton from '../components/Backbutton.vue';
 import Button from '../components/Button.vue';
 import SkinGrid from '../components/SkinGrid.vue';
-import { useCreate, useCreateByName } from '../query/crate';
+import { useCreateByName } from '../query/crate';
 import { useOptionsStore } from '../store/optionsStore';
 import { gunSkinFilter, knivesAndGlovesSkinFilter, sortSkinByName, sortSkinByRarity } from '../utils/sortAndfilters';
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
@@ -13,7 +13,7 @@ import { crateOpeningService } from '../services/crateOpeningService';
 import { REAL_ODDS } from '../constants';
 import { audioService } from '../services/audioService';
 import { useInventoryStore } from '../store/inventoryStore';
-import { getSkinPrice } from '../utils/balance';
+import { getCratePrice, getSkinPrice } from '../utils/balance';
 import type { Skin } from '../types';
 import SoundIcon from '../components/SoundIcon.vue';
 import MuteIcon from '../components/MuteIcon.vue';
@@ -21,6 +21,8 @@ import CheckMarkIcon from '../components/CheckMarkIcon.vue';
 import BackIcon from '../components/BackIcon.vue';
 import { getSkinRarityColor } from '../utils/color';
 import AutomaticIcon from '../components/AutomaticIcon.vue';
+
+const KEY_PRICE = 2.5;
 
 const router = useRouter();
 const crateName = router.currentRoute.value.params.id as string;
@@ -79,7 +81,7 @@ const handleOpenCase = async () => {
 
   showSlider.value = true;
   inventory.incrementOpenCount();
-  inventory.setBalance(inventory.balance - 2.5);
+  inventory.setBalance(inventory.balance - (getCratePrice(crate.value) + KEY_PRICE));
 };
 
 const handleQuickOpen = () => {
@@ -103,7 +105,7 @@ const handleQuickOpen = () => {
 
   handleCaseOpeningFinished(_wonSkin);
   inventory.incrementOpenCount();
-  inventory.setBalance(inventory.balance - 2.5);
+  inventory.setBalance(inventory.balance - (getCratePrice(crate.value) + KEY_PRICE));
 };
 
 const handleCaseOpeningFinished = (skin: Skin) => {
@@ -142,7 +144,7 @@ watch(autoOpen, (newVal) => {
       if (!caseOpeningStore.isOpeningCase && !timout.value) {
         handleOpenCase();
       }
-    }, 200);
+    }, 150);
   } else if (autoOpenInterval) {
     clearInterval(autoOpenInterval);
     autoOpenInterval = null;
@@ -174,10 +176,6 @@ onUnmounted(() => {
         <Button variant="success" @click="handleOpenCase" :disabled="caseOpeningStore.isOpeningCase">
           Unlock Container
         </Button>
-
-        <!-- <Button size="icon" @click="showOptions = !showOptions">
-        <OptionsIcon fill="#f0f0f0" class="size-4.5 text-white" />
-      </Button> -->
       </div>
 
       <dialog

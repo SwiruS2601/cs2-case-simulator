@@ -80,3 +80,5 @@ dist-ssr
 .nitro
 .cache
 .temp
+
+logs/

@@ -26,7 +26,11 @@ const sortedSkins = computed(() => {
     case 'price':
       return [...inventory.skins].sort((a, b) => getSkinPrice(b) - getSkinPrice(a));
     case 'name':
-      return [...inventory.skins].sort((a, b) => a.name.split('|')[1].localeCompare(b.name.split('|')[1]));
+      return [...inventory.skins].sort((a, b) => {
+        const aName = a.name.split('|')[1] || a.name;
+        const bName = b.name.split('|')[1] || b.name;
+        return aName.localeCompare(bName);
+      });
     case 'rarity':
       return [...inventory.skins].sort((a, b) => {
         const aIsYellow = knivesAndGlovesSkinFilter(a) || knivesAndGlovesSkinFilter(a);

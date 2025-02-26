@@ -62,8 +62,8 @@ export const RARITY_INDEX = {
   rarity_mythical: 5,
   rarity_legendary_weapon: 6,
   rarity_legendary: 7,
-  rarity_ancient_weapon: 8,
-  rarity_ancient: 9,
+  rarity_ancient: 8,
+  rarity_ancient_weapon: 9,
 } as const;
 
 export const SKIN_WEAR_AND_FLOAT = {
@@ -72,7 +72,7 @@ export const SKIN_WEAR_AND_FLOAT = {
   'Field-Tested': { floatRange: [0.15, 0.38], odds: 0.725 }, // ~70-75%
   'Well-Worn': { floatRange: [0.38, 0.45], odds: 0.06 }, // ~5-7%
   'Battle-Scarred': { floatRange: [0.45, 1], odds: 0.005 }, // ~0.3-1%
-} as const;
+};
 
 export const BACKGROUNDS = [
   'ar_baggage.webp',

@@ -33,7 +33,7 @@ public class PriceService
             throw new ArgumentException("Id cannot be null or empty", nameof(id));
         }
 
-        var prices = await _dbContext.Prices.FindAsync(id);
+        var prices = await _dbContext.Prices.FirstOrDefaultAsync(x => x.SkinId == id);
 
         if (prices == null)
         {

@@ -52,7 +52,13 @@ namespace Cs2CaseOpener.Migrations
                     name = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: true),
                     rarity_id = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     paint_index = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: true),
-                    image = table.Column<string>(type: "character varying(400)", maxLength: 400, nullable: true)
+                    image = table.Column<string>(type: "character varying(400)", maxLength: 400, nullable: true),
+                    min_float = table.Column<double>(type: "double precision", nullable: true),
+                    max_float = table.Column<double>(type: "double precision", nullable: true),
+                    stat_trak = table.Column<bool>(type: "boolean", nullable: true),
+                    souvenir = table.Column<bool>(type: "boolean", nullable: true),
+                    category = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    pattern = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -94,7 +100,9 @@ namespace Cs2CaseOpener.Migrations
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    skinId = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    skin_id = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    crate_id = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    name = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: true),
                     wear_category = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     steam_last_24h = table.Column<double>(type: "double precision", nullable: true),
                     steam_last_7d = table.Column<double>(type: "double precision", nullable: true),
@@ -106,11 +114,15 @@ namespace Cs2CaseOpener.Migrations
                 {
                     table.PrimaryKey("PK_Prices", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Prices_Skins_skinId",
-                        column: x => x.skinId,
+                        name: "FK_Prices_Crates_crate_id",
+                        column: x => x.crate_id,
+                        principalTable: "Crates",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_Prices_Skins_skin_id",
+                        column: x => x.skin_id,
                         principalTable: "Skins",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -124,10 +136,23 @@ namespace Cs2CaseOpener.Migrations
                 column: "SkinsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prices_skinId_wear_category",
+                name: "IX_Prices_crate_id",
                 table: "Prices",
-                columns: new[] { "skinId", "wear_category" },
-                unique: true);
+                column: "crate_id",
+                unique: true,
+                filter: "crate_id IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prices_name",
+                table: "Prices",
+                column: "name");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prices_skin_id_wear_category",
+                table: "Prices",
+                columns: new[] { "skin_id", "wear_category" },
+                unique: true,
+                filter: "skin_id IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rarities_name",

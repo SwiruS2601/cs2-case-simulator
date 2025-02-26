@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import type { Skin } from '../types';
 
 export const useInventoryStore = defineStore(
-  'inventory-store-v3',
+  'inventory-store-v4',
   () => {
     const balance = ref(0);
     const skins = ref<Skin[]>([]);

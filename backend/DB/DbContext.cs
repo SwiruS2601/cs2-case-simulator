@@ -30,6 +30,10 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.Image).HasMaxLength(400).HasColumnName("image");
             entity.Property(e => e.Model_Player).HasMaxLength(150).HasColumnName("model_player");
             entity.HasIndex(e => e.Name);
+
+            entity.HasMany(c => c.Skins)
+                .WithMany(s => s.Crates)
+                .UsingEntity(j => j.ToTable("CrateSkins"));
         });
         
         modelBuilder.Entity<Skin>(entity =>
@@ -40,6 +44,12 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.RarityId).HasMaxLength(50).HasColumnName("rarity_id");
             entity.Property(e => e.PaintIndex).HasMaxLength(10).HasColumnName("paint_index");
             entity.Property(e => e.Image).HasMaxLength(400).HasColumnName("image");
+            entity.Property(e => e.MinFloat).HasColumnName("min_float");
+            entity.Property(e => e.MaxFloat).HasColumnName("max_float");
+            entity.Property(e => e.Category).HasMaxLength(100).HasColumnName("category");
+            entity.Property(e => e.StatTrak).HasColumnName("stat_trak");
+            entity.Property(e => e.Souvenir).HasColumnName("souvenir");
+            entity.Property(e => e.Pattern).HasMaxLength(100).HasColumnName("pattern");
             entity.HasIndex(e => e.Name);
             
             entity.HasOne(s => s.Rarity)
@@ -59,19 +69,29 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Price>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.SkinId).HasMaxLength(50).HasColumnName("skinId");
+            entity.Property(e => e.SkinId).HasMaxLength(50).HasColumnName("skin_id");
+            entity.Property(e => e.CrateId).HasMaxLength(50).HasColumnName("crate_id");
+            entity.Property(e => e.Name).HasMaxLength(150).HasColumnName("name");
             entity.Property(e => e.Wear_Category).HasMaxLength(50).HasColumnName("wear_category");
-            entity.HasIndex(e => new { e.SkinId, e.Wear_Category }).IsUnique();
             
+            entity.HasIndex(e => new { e.SkinId, e.Wear_Category })
+                  .IsUnique()
+                  .HasFilter("skin_id IS NOT NULL");
+
+            entity.HasIndex(e => e.CrateId)
+                  .IsUnique()
+                  .HasFilter("crate_id IS NOT NULL");
+            entity.HasIndex(e => e.Name);
+
             entity.HasOne(e => e.Skin)
                   .WithMany(s => s.Prices)
                   .HasForeignKey(e => e.SkinId);
+            
+            entity.HasOne(e => e.Crate)
+                  .WithOne(c => c.Price)
+                  .HasForeignKey<Price>(e => e.CrateId);
         });
-        
-        modelBuilder.Entity<Crate>()
-            .HasMany(c => c.Skins)
-            .WithMany(s => s.Crates)
-            .UsingEntity(j => j.ToTable("CrateSkins"));
+       
     }
 }
 

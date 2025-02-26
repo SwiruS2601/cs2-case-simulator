@@ -14,11 +14,7 @@ export const crateOpeningService = {
 
 function getWinningSkin(crate: Crate, odds: Odds) {
   let wonSkin = getRandomSkinByOdds(crate, odds);
-
-  if (!['Sticker Capsule', 'Autograph Capsule'].includes(crate.type)) {
-    wonSkin = { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) }; // Vue doesnt like mutating proxy objects
-  }
-
+  wonSkin = { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) }; // Vue doesnt like mutating proxy objects
   return wonSkin;
 }
 
@@ -132,7 +128,11 @@ function getSkinsForSlider(crate: Crate, count: number, odds: Odds, wonSkin: Ski
   return randomSkins;
 }
 
-export function getSkinWearCategory(skin: Skin): keyof typeof SKIN_WEAR_AND_FLOAT {
+export function getSkinWearCategory(skin: Skin) {
+  if (skin.paint_index === null) {
+    return 'Default';
+  }
+
   let cumulative = 0;
   const diceRoll = Math.random();
 

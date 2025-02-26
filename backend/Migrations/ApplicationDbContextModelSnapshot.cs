@@ -108,11 +108,22 @@ namespace Cs2CaseOpener.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("SkinId")
-                        .IsRequired()
+                    b.Property<string>("CrateId")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)")
-                        .HasColumnName("skinId")
+                        .HasColumnName("crate_id")
+                        .HasAnnotation("Relational:JsonPropertyName", "crate_id");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("name")
+                        .HasAnnotation("Relational:JsonPropertyName", "name");
+
+                    b.Property<string>("SkinId")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("skin_id")
                         .HasAnnotation("Relational:JsonPropertyName", "skin_id");
 
                     b.Property<double?>("Steam_Last_24h")
@@ -148,8 +159,15 @@ namespace Cs2CaseOpener.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CrateId")
+                        .IsUnique()
+                        .HasFilter("crate_id IS NOT NULL");
+
+                    b.HasIndex("Name");
+
                     b.HasIndex("SkinId", "Wear_Category")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("skin_id IS NOT NULL");
 
                     b.ToTable("Prices");
                 });
@@ -189,11 +207,27 @@ namespace Cs2CaseOpener.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("Relational:JsonPropertyName", "id");
 
+                    b.Property<string>("Category")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("category")
+                        .HasAnnotation("Relational:JsonPropertyName", "category");
+
                     b.Property<string>("Image")
                         .HasMaxLength(400)
                         .HasColumnType("character varying(400)")
                         .HasColumnName("image")
                         .HasAnnotation("Relational:JsonPropertyName", "image");
+
+                    b.Property<double?>("MaxFloat")
+                        .HasColumnType("double precision")
+                        .HasColumnName("max_float")
+                        .HasAnnotation("Relational:JsonPropertyName", "max_float");
+
+                    b.Property<double?>("MinFloat")
+                        .HasColumnType("double precision")
+                        .HasColumnName("min_float")
+                        .HasAnnotation("Relational:JsonPropertyName", "min_float");
 
                     b.Property<string>("Name")
                         .HasMaxLength(120)
@@ -207,11 +241,27 @@ namespace Cs2CaseOpener.Migrations
                         .HasColumnName("paint_index")
                         .HasAnnotation("Relational:JsonPropertyName", "paint_index");
 
+                    b.Property<string>("Pattern")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("pattern")
+                        .HasAnnotation("Relational:JsonPropertyName", "pattern");
+
                     b.Property<string>("RarityId")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)")
                         .HasColumnName("rarity_id")
                         .HasAnnotation("Relational:JsonPropertyName", "rarity_id");
+
+                    b.Property<bool?>("Souvenir")
+                        .HasColumnType("boolean")
+                        .HasColumnName("souvenir")
+                        .HasAnnotation("Relational:JsonPropertyName", "souvenir");
+
+                    b.Property<bool?>("StatTrak")
+                        .HasColumnType("boolean")
+                        .HasColumnName("stat_trak")
+                        .HasAnnotation("Relational:JsonPropertyName", "stattrak");
 
                     b.HasKey("Id");
 
@@ -239,11 +289,15 @@ namespace Cs2CaseOpener.Migrations
 
             modelBuilder.Entity("Cs2CaseOpener.Models.Price", b =>
                 {
+                    b.HasOne("Cs2CaseOpener.Models.Crate", "Crate")
+                        .WithOne("Price")
+                        .HasForeignKey("Cs2CaseOpener.Models.Price", "CrateId");
+
                     b.HasOne("Cs2CaseOpener.Models.Skin", "Skin")
                         .WithMany("Prices")
-                        .HasForeignKey("SkinId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SkinId");
+
+                    b.Navigation("Crate");
 
                     b.Navigation("Skin");
                 });
@@ -255,6 +309,11 @@ namespace Cs2CaseOpener.Migrations
                         .HasForeignKey("RarityId");
 
                     b.Navigation("Rarity");
+                });
+
+            modelBuilder.Entity("Cs2CaseOpener.Models.Crate", b =>
+                {
+                    b.Navigation("Price");
                 });
 
             modelBuilder.Entity("Cs2CaseOpener.Models.Rarity", b =>

@@ -4,6 +4,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Cs2CaseOpener.Converters;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Npgsql;
 
 namespace Cs2CaseOpener.Services;
 public class ApiScraper
@@ -27,22 +29,33 @@ public class ApiScraper
         [property: JsonPropertyName("rental")] bool? rental,
         [property: JsonPropertyName("image")] string? image,
         [property: JsonPropertyName("model_player")] string? model_player,
-        [property: JsonPropertyName("contains")] List<SkinDto>? contains,
-        [property: JsonPropertyName("contains_rare")] List<SkinDto>? contains_rare
+        [property: JsonPropertyName("contains")] List<ItemDto>? contains,
+        [property: JsonPropertyName("contains_rare")] List<ItemDto>? contains_rare
     );
 
-    public record SkinDto(
+    public record ItemDto(
         [property: JsonPropertyName("id")] string id,
         [property: JsonPropertyName("name")] string? name,
         [property: JsonPropertyName("rarity")] RarityDto? rarity,
         [property: JsonPropertyName("paint_index")] string? paint_index,
-        [property: JsonPropertyName("image")] string? image
+        [property: JsonPropertyName("image")] string? image,
+        [property: JsonPropertyName("stattrak")] bool? stattrak,
+        [property: JsonPropertyName("souvenir")] bool? souvenir,
+        [property: JsonPropertyName("min_float")] string? min_float,
+        [property: JsonPropertyName("max_float")] string? max_float,
+        [property: JsonPropertyName("category")] IdNameDto? category,
+        [property: JsonPropertyName("pattern")] IdNameDto? pattern
+    );
+
+    public record IdNameDto(
+        [property: JsonPropertyName("id")] string id,
+        [property: JsonPropertyName("name")] string name
     );
 
     public record RarityDto(
         [property: JsonPropertyName("id")] string id,
-        [property: JsonPropertyName("name")] string? name,
-        [property: JsonPropertyName("color")] string? color
+        [property: JsonPropertyName("name")] string name,
+        [property: JsonPropertyName("color")] string color
     );
 
     public record SteamPriceDto(
@@ -52,6 +65,10 @@ public class ApiScraper
         [property: JsonPropertyName("last_90d")] double? last_90d,
         [property: JsonPropertyName("last_ever")] double? last_ever
     );
+
+    private readonly string[] validWears = ["Minimal Wear", "Field-Tested", "Battle-Scarred", "Well-Worn", "Factory New"];
+    private readonly string[] allowedTypes = ["Case", "Souvenir", "Sticker Capsule", "Autograph Capsule"];
+
 
     public record PriceDetailDto(
         [property: JsonPropertyName("steam")] SteamPriceDto steam
@@ -84,6 +101,21 @@ public class ApiScraper
         return prices;
     }
 
+    private static string NormalizeAncientName(string name)
+    {
+        return name.Replace("Sticker | ", "")
+            .Replace("Autograph | ", "")
+            .Replace("Ancient ", "")
+            .Trim();
+    }
+
+    private static string NormalizePriceName(string name)
+    {
+        return name.Replace("Sticker | ", "")
+            .Replace("Autograph | ", "")
+            .Trim();
+    }
+
     public async Task ScrapeApi() 
     {
         var crates = await GetCrates();
@@ -101,8 +133,6 @@ public class ApiScraper
                 .Where(r => r != null)
                 .DistinctBy(r => r!.id)
                 .ToList();
-
-            Console.WriteLine($"Found {uniqueRarities.Count} unique rarities");
 
             foreach (var rarityDto in uniqueRarities)
             {
@@ -123,7 +153,6 @@ public class ApiScraper
             await transaction.CommitAsync();
             
             var savedCount = await _dbContext.Rarities.CountAsync();
-            Console.WriteLine($"Saved {savedCount} rarities to database");
         }
         catch (Exception ex)
         {
@@ -138,6 +167,11 @@ public class ApiScraper
             
             foreach (var crateDto in crates)
             {
+                if (!allowedTypes.Contains(crateDto.type ?? string.Empty))
+                {
+                    continue; 
+                }
+                
                 var crate = await _dbContext.Crates.Include(c => c.Skins)
                     .FirstOrDefaultAsync(c => c.Id == crateDto.id);
                     
@@ -158,47 +192,53 @@ public class ApiScraper
                     _dbContext.Crates.Add(crate);
                 }
 
-                var skins = new List<SkinDto>();
-                if (crateDto.contains != null) skins.AddRange(crateDto.contains);
-                if (crateDto.contains_rare != null) skins.AddRange(crateDto.contains_rare);
+                var items = new List<ItemDto>();
+                if (crateDto.contains != null) items.AddRange(crateDto.contains);
+                if (crateDto.contains_rare != null) items.AddRange(crateDto.contains_rare);
 
-                foreach (var skinDto in skins.Where(s => s != null))
+                foreach (var ItemDto in items.Where(s => s != null))
                 {
-                    var skin = await _dbContext.Skins
-                        .FirstOrDefaultAsync(s => s.Id == skinDto.id);
+                    var item = await _dbContext.Skins
+                        .FirstOrDefaultAsync(s => s.Id == ItemDto.id);
 
-                    if (skin == null)
+                    if (item == null)
                     {
-                        skin = new Skin
+                        item = new Skin
                         {
-                            Id = skinDto.id,
-                            Name = skinDto.name,
-                            RarityId = skinDto.rarity?.id,
-                            PaintIndex = skinDto.paint_index,
-                            Image = skinDto.image
+                            Id = ItemDto.id,
+                            Name = ItemDto.name,
+                            RarityId = ItemDto.rarity?.id,
+                            PaintIndex = ItemDto.paint_index,
+                            Image = ItemDto.image,
+                            MinFloat = double.TryParse(ItemDto.min_float, out var minFloat) ? minFloat : (double?)null,
+                            MaxFloat = double.TryParse(ItemDto.max_float, out var maxFloat) ? maxFloat : (double?)null,
+                            Souvenir = ItemDto.souvenir,
+                            StatTrak = ItemDto.stattrak,
+                            Category = ItemDto.category?.id,
+                            Pattern = ItemDto.pattern?.id
                         };
 
-                        if (skinDto.rarity != null)
+                        if (ItemDto.rarity != null)
                         {
-                            if (!existingRarities.TryGetValue(skinDto.rarity.id, out var rarity))
+                            if (!existingRarities.TryGetValue(ItemDto.rarity.id, out var rarity))
                             {
                                 rarity = new Rarity
                                 {
-                                    Id = skinDto.rarity.id,
-                                    Name = skinDto.rarity.name,
-                                    Color = skinDto.rarity.color
+                                    Id = ItemDto.rarity.id,
+                                    Name = ItemDto.rarity.name,
+                                    Color = ItemDto.rarity.color
                                 };
                                 existingRarities[rarity.Id] = rarity;
                                 _dbContext.Rarities.Add(rarity);
                             }
                         }
 
-                        _dbContext.Skins.Add(skin);
+                        _dbContext.Skins.Add(item);
                     }
 
-                    if (!crate.Skins.Any(s => s.Id == skin.Id))
+                    if (!crate.Skins.Any(s => s.Id == item.Id))
                     {
-                        crate.Skins.Add(skin);
+                        crate.Skins.Add(item);
                     }
                 }
 
@@ -207,59 +247,161 @@ public class ApiScraper
 
             const int batchSize = 100;
             var currentBatch = new List<Price>();
+            int exactMatches = 0;
+            int substringMatches = 0;
+            int noMatches = 0;
+
+            var processedCombinations = new HashSet<(string SkinId, string Wear)>();
+
+            var allSkins = await _dbContext.Skins.ToListAsync();
+            
+            var existingPrices = await _dbContext.Prices
+                .Select(p => new { p.SkinId, p.Wear_Category })
+                .ToListAsync();
+                
+            foreach (var existing in existingPrices)
+            {
+                processedCombinations.Add((existing.SkinId, existing.Wear_Category));
+            }
 
             foreach (var kvp in prices)
             {
                 var key = kvp.Key;
-                var idxOpen = key.LastIndexOf('(');
-                var idxClose = key.LastIndexOf(')');
-                if (idxOpen > 0 && idxClose > idxOpen)
+
+                // If the key indicates a sticker or autograph, use normalization.
+                if (key.Contains("Sticker", StringComparison.OrdinalIgnoreCase) ||
+                    key.Contains("Autograph", StringComparison.OrdinalIgnoreCase))
                 {
-                    var skinName = key.Substring(0, idxOpen).Trim();
-                    var wear = key.Substring(idxOpen + 1, idxClose - idxOpen - 1).Trim();
+                    key = NormalizePriceName(key);
+                }
 
-                    var skin = await _dbContext.Skins
-                        .FirstOrDefaultAsync(s => s.Name == skinName);
+                string wear = validWears.FirstOrDefault(x => key.IndexOf(x, StringComparison.OrdinalIgnoreCase) >= 0) ?? "Default";
+                string skinName = (wear != "Default")
+                    ? (key.IndexOf('(') >= 0 ? key.Substring(0, key.IndexOf('(')).Trim() : key.Replace(wear, "", StringComparison.OrdinalIgnoreCase).Trim())
+                    : key.Trim();
+                
+                // Try exact then substring matching
+                var skin = allSkins.FirstOrDefault(s => string.Equals(s.Name, skinName, StringComparison.OrdinalIgnoreCase))
+                         ?? allSkins.FirstOrDefault(s => s.Name != null && (s.Name.Contains(skinName, StringComparison.OrdinalIgnoreCase) || 
+                                                                           skinName.Contains(s.Name, StringComparison.OrdinalIgnoreCase)));
+                string matchType = skin == null ? "none" : (string.Equals(skin?.Name, skinName, StringComparison.OrdinalIgnoreCase) ? "exact" : "substring");
 
-                    if (skin != null)
+                // If skin found and its rarity is ancient, try normalized matching if initial match seems off
+                if (skin != null && skin.RarityId.Equals("rarity_ancient", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Compare normalized names
+                    if (!string.Equals(NormalizeAncientName(skin.Name), NormalizeAncientName(skinName), StringComparison.OrdinalIgnoreCase))
                     {
-                        var existingPrice = await _dbContext.Prices
-                            .FirstOrDefaultAsync(p => p.SkinId == skin.Id && p.Wear_Category == wear);
-
-                        if (existingPrice != null)
+                        // Attempt to find an alternative match using normalized names
+                        var altSkin = allSkins.FirstOrDefault(s => s.Name != null && 
+                                            string.Equals(NormalizeAncientName(s.Name), NormalizeAncientName(skinName), StringComparison.OrdinalIgnoreCase));
+                        if (altSkin != null)
                         {
-                            existingPrice.Steam_Last_24h = kvp.Value.steam.last_24h;
-                            existingPrice.Steam_Last_7d = kvp.Value.steam.last_7d;
-                            existingPrice.Steam_Last_30d = kvp.Value.steam.last_30d;
-                            existingPrice.Steam_Last_90d = kvp.Value.steam.last_90d;
-                            existingPrice.Steam_Last_Ever = kvp.Value.steam.last_ever;
-                            currentBatch.Add(existingPrice);
+                            skin = altSkin;
+                            matchType = "ancient-normalized";
                         }
-                        else
+                    }
+                }
+                
+                if (skin != null)
+                {
+                    // Check for duplicates in tracking sets (unchanged)
+                    if (processedCombinations.Contains((skin.Id, wear)) ||
+                        currentBatch.Any(p => p.SkinId == skin.Id && p.Wear_Category == wear))
+                    {
+                        continue;
+                    }
+                    
+                    processedCombinations.Add((skin.Id, wear));
+                    
+                    if (matchType == "exact") exactMatches++;
+                    else substringMatches++;
+                    
+                    var existingPrice = await _dbContext.Prices.FirstOrDefaultAsync(p => p.SkinId == skin.Id && p.Wear_Category == wear);
+                    if (existingPrice != null)
+                    {
+                        existingPrice.Steam_Last_24h = kvp.Value.steam.last_24h;
+                        existingPrice.Steam_Last_7d = kvp.Value.steam.last_7d;
+                        existingPrice.Steam_Last_30d = kvp.Value.steam.last_30d;
+                        existingPrice.Steam_Last_90d = kvp.Value.steam.last_90d;
+                        existingPrice.Steam_Last_Ever = kvp.Value.steam.last_ever;
+                        currentBatch.Add(existingPrice);
+                    }
+                    else
+                    {
+                        var price = new Price
                         {
-                            var price = new Price
-                            {
-                                SkinId = skin.Id,
-                                Wear_Category = wear,
-                                Steam_Last_24h = kvp.Value.steam.last_24h,
-                                Steam_Last_7d = kvp.Value.steam.last_7d,
-                                Steam_Last_30d = kvp.Value.steam.last_30d,
-                                Steam_Last_90d = kvp.Value.steam.last_90d,
-                                Steam_Last_Ever = kvp.Value.steam.last_ever
-                            };
-                            _dbContext.Prices.Add(price);
-                            currentBatch.Add(price);
-                        }
-
-                        if (currentBatch.Count >= batchSize)
+                            SkinId = skin.Id,
+                            Wear_Category = wear,
+                            Name = key,
+                            Steam_Last_24h = kvp.Value.steam.last_24h,
+                            Steam_Last_7d = kvp.Value.steam.last_7d,
+                            Steam_Last_30d = kvp.Value.steam.last_30d,
+                            Steam_Last_90d = kvp.Value.steam.last_90d,
+                            Steam_Last_Ever = kvp.Value.steam.last_ever
+                        };
+                        _dbContext.Prices.Add(price);
+                        currentBatch.Add(price);
+                    }
+                    
+                    if (currentBatch.Count >= batchSize)
+                    {
+                        try
                         {
                             await _dbContext.SaveChangesAsync();
                             _dbContext.ChangeTracker.Clear();
                             currentBatch.Clear();
                         }
+                        catch (DbUpdateException ex) when (ex.InnerException is PostgresException pgEx && pgEx.SqlState == "23505")
+                        {
+                            _dbContext.ChangeTracker.Clear();
+                            currentBatch.Clear();
+                        }
                     }
                 }
+                else
+                {
+                    noMatches++;
+                }
             }
+
+            foreach (var kvp in prices)
+            {
+                var key = kvp.Key;
+                var crate = await _dbContext.Crates.FirstOrDefaultAsync(c => c.Name == key);
+                if (crate == null)
+                {
+                    continue;
+                }
+                
+                var cratePrice = await _dbContext.Prices.FirstOrDefaultAsync(p => p.CrateId == crate.Id);
+                if (cratePrice != null)
+                {
+                    cratePrice.Steam_Last_24h = kvp.Value.steam.last_24h;
+                    cratePrice.Steam_Last_7d = kvp.Value.steam.last_7d;
+                    cratePrice.Steam_Last_30d = kvp.Value.steam.last_30d;
+                    cratePrice.Steam_Last_90d = kvp.Value.steam.last_90d;
+                    cratePrice.Steam_Last_Ever = kvp.Value.steam.last_ever;
+                }
+                else
+                {
+                    var newPrice = new Price
+                    {
+                        CrateId = crate.Id,
+                        Name = crate.Name,
+                        Steam_Last_24h = kvp.Value.steam.last_24h,
+                        Steam_Last_7d = kvp.Value.steam.last_7d,
+                        Steam_Last_30d = kvp.Value.steam.last_30d,
+                        Steam_Last_90d = kvp.Value.steam.last_90d,
+                        Steam_Last_Ever = kvp.Value.steam.last_ever,
+                    };
+                    _dbContext.Prices.Add(newPrice);
+                }
+            }
+            
+            await _dbContext.SaveChangesAsync();
+
+            Console.WriteLine($"Price matching summary - Exact: {exactMatches}, Substring: {substringMatches}, Not Found: {noMatches}");
 
             if (currentBatch.Any())
             {

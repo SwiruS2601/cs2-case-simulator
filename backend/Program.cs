@@ -15,67 +15,60 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-try
+builder.Services.AddMemoryCache();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    builder.Services.AddMemoryCache();
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+    o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
+});
+
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<DatabaseInitializationService>();
+builder.Services.AddScoped<SkinService>();
+builder.Services.AddScoped<CrateService>();
+builder.Services.AddScoped<ApiScraper>();
+builder.Services.AddScoped<RarityService>();
+builder.Services.AddScoped<PriceService>();
+
+builder.Services.AddHostedService<ScrapeApiBackgroundService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
     {
-        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
-        o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
+        policy.WithOrigins("http://localhost:5173", "http://10.10.10.46:5020", "https://case.oki.gg")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
+});
 
-    builder.Services.AddHttpClient();
-    builder.Services.AddTransient<DatabaseInitializationService>();
-    builder.Services.AddTransient<SkinService>();
-    builder.Services.AddTransient<CrateService>();
-    builder.Services.AddTransient<ApiScraper>();
-    builder.Services.AddTransient<RarityService>();
+var app = builder.Build();
 
-    builder.Services.AddHostedService<ScrapeApiBackgroundService>();
+app.UseRequestLogging();
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseCors("AllowLocalhost");
 
-    builder.Services.AddCors(options =>
-    {
-        options.AddPolicy("AllowLocalhost", policy =>
-        {
-            policy.WithOrigins("http://localhost:5173", "http://10.10.10.46:5020", "https://case.oki.gg")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-    });
-
-    var app = builder.Build();
-
-    app.UseRequestLogging();
-    app.UseMiddleware<ExceptionMiddleware>();
-    app.UseCors("AllowLocalhost");
-
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.MapControllers();
-
-    using (var scope = app.Services.CreateScope())
-    {
-        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-        dbContext.Database.Migrate();
-
-        var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
-        await dbInitializer.InitializeAsync();
-    }
-
-    app.Run();
-}
-catch (Exception ex)
+if (app.Environment.IsDevelopment())
 {
-    Log.Fatal(ex, "Application terminated unexpectedly");
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-finally
+
+app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
 {
-    Log.CloseAndFlush();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+
+    var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializationService>();
+    await dbInitializer.InitializeAsync();
+
+    // var scraper = scope.ServiceProvider.GetRequiredService<ApiScraper>();
+    // await scraper.ScrapeApi();
 }
+
+app.Run();

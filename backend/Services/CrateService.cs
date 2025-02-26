@@ -31,6 +31,7 @@ public class CrateService
     
     private IQueryable<Crate> GetCrateQuery() =>
         _dbContext.Crates.AsNoTracking()
+            .Include(c => c.Price)
             .Include(c => c.Skins)
                 .ThenInclude(s => s.Rarity)
             .Include(c => c.Skins)
@@ -45,7 +46,11 @@ public class CrateService
             return cached;
         }
 
-        var crates = await _dbContext.Crates.ToListAsync();
+        var crates = await _dbContext.Crates
+            .AsNoTracking()
+            .Include(c => c.Price)
+            .ToListAsync();
+            
         if (crates is null || crates.Count == 0)
         {
             throw new DomainException("No crates found", HttpStatusCode.NotFound);
@@ -67,6 +72,7 @@ public class CrateService
 
         var crates = await _dbContext.Crates.AsNoTracking()
             .Where(c => AllowedTypes.Contains(c.Type))
+            .Include(c => c.Price)
             .ToListAsync();
 
         if (crates is null || crates.Count == 0)

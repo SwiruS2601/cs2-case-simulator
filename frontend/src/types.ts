@@ -8,6 +8,7 @@ export type Crate = {
   rental: boolean;
   image: string;
   model_player: string;
+  price?: Price;
   skins: Skin[];
 };
 
@@ -25,6 +26,8 @@ export type Skin = {
 export type Price = {
   id: number;
   skin_id: string;
+  crate_id: string;
+  name: string;
   wear_category: string;
   steam_last_24h: number;
   steam_last_7d: number;

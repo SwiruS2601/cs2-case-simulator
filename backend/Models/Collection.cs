@@ -1,0 +1,25 @@
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace Cs2CaseOpener.Models;
+public class Collection
+{
+    // [Key]
+    // [Column("id")]
+    // [JsonPropertyName("id")]
+    // public required string Id { get; set; }
+
+    // [Column("name")]
+    // [JsonPropertyName("name")]
+    // public string? Name { get; set; }
+
+    // [Column("image")]
+    // [JsonPropertyName("image")]
+    // public string? Image { get; set; }
+
+    // public ICollection<Crate>? Crates { get; set; } = [];
+    // public ICollection<Charm>? Charms { get; set; } = [];
+
+}
