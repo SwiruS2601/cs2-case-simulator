@@ -62,8 +62,9 @@ export const RARITY_INDEX = {
   rarity_mythical: 5,
   rarity_legendary_weapon: 6,
   rarity_legendary: 7,
-  rarity_ancient: 8,
-  rarity_ancient_weapon: 9,
+  rarity_ancient_weapon: 8,
+  rarity_ancient: 9,
+  exceedingly_rare: 10,
 } as const;
 
 export const SKIN_WEAR_AND_FLOAT = {

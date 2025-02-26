@@ -36,8 +36,8 @@ const sortedSkins = computed(() => {
         const aIsYellow = knivesAndGlovesSkinFilter(a) || knivesAndGlovesSkinFilter(a);
         const bIsYellow = knivesAndGlovesSkinFilter(b) || knivesAndGlovesSkinFilter(b);
         return (
-          RARITY_INDEX[bIsYellow ? 'rarity_ancient' : b.rarity_id] -
-          RARITY_INDEX[aIsYellow ? 'rarity_ancient' : a.rarity_id]
+          RARITY_INDEX[bIsYellow ? 'exceedingly_rare' : b.rarity_id] -
+          RARITY_INDEX[aIsYellow ? 'exceedingly_rare' : a.rarity_id]
         );
       });
     default:
