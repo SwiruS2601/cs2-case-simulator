@@ -7,6 +7,7 @@ import { useInventoryStore } from '../store/inventoryStore';
 import { getSkinPrice } from '../utils/balance';
 import { computed, effect, ref } from 'vue';
 import { knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
+import Container from '../components/Container.vue';
 
 const inventory = useInventoryStore();
 const selectedSort = ref('latest');
@@ -51,10 +52,8 @@ const onChange = (event: Event) => {
 </script>
 
 <template>
-  <div
-    className="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/40 sm:rounded-xl py-4 my-0 sm:my-4 border border-black/10"
-  >
-    <div class="flex justify-between items-center flex-wrap gap-4 pb-6">
+  <Container>
+    <div class="flex justify-between items-center flex-wrap gap-4 pb-5">
       <div class="flex gap-4 items-center flex-wrap">
         <Backbutton />
         <select
@@ -78,5 +77,5 @@ const onChange = (event: Event) => {
     <p class="text-lg pb-4 text-white/90">Items: {{ inventory.skins.length }}</p>
 
     <SkinGrid v-if="sortedSkins" :skins="sortedSkins" inventoryView />
-  </div>
+  </Container>
 </template>

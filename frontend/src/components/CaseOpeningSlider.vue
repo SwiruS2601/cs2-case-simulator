@@ -105,12 +105,10 @@ onMounted(() => {
 
 <template>
   <div class="relative h-32 sm:h-48 select-none fast-fade-scale-up">
-    <!-- Outer container with radial mask -->
     <div
       :style="{ maskImage: maskCircle, WebkitMaskImage: maskCircle }"
       class="overflow-hidden relative slider-blur slider-mask w-full h-full"
     >
-      <!-- Inner container with linear fade -->
       <div class="slider-fade h-full">
         <div
           ref="bgSlider"
@@ -124,7 +122,6 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Magnifying lens container -->
     <div
       class="magnifying-lens"
       :style="{
@@ -133,7 +130,6 @@ onMounted(() => {
       }"
     >
       <div :style="{ scale: magnifiedSliderScale }" class="magnified-wrapper overflow-hidden relative w-full h-full">
-        <!-- The magnified slider uses the extra delta offset -->
         <div
           ref="magSlider"
           class="flex absolute left-0 top-1/2 -translate-y-1/2 will-change-transform origin-center"
@@ -146,8 +142,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Center indicator (optional) -->
-    <div class="absolute left-1/2 top-1/2 -translate-y-1/2 z-100">
+    <div class="absolute left-1/2 top-1/2 -translate-y-1/2 z-[60]">
       <div
         class="w-1 bg-yellow-300/80"
         :style="`height: calc(${isMobile ? '8rem' : '12rem'}* ${magnifiedSliderScale})`"

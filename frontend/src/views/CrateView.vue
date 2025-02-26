@@ -21,6 +21,7 @@ import CheckMarkIcon from '../components/CheckMarkIcon.vue';
 import BackIcon from '../components/BackIcon.vue';
 import { getSkinRarityColor } from '../utils/color';
 import AutomaticIcon from '../components/AutomaticIcon.vue';
+import Container from '../components/Container.vue';
 
 const KEY_PRICE = 2.5;
 
@@ -167,10 +168,7 @@ onUnmounted(() => {
 
 <template>
   <div v-bind="$attrs">
-    <div
-      v-if="!caseOpeningStore.isOpeningCase && !showWonSkin"
-      className="relative w-full max-w-5xl px-4 py-4 mx-auto backdrop-blur-xs bg-black/40 sm:my-4 sm:rounded-xl shadow-2xl border border-black/10"
-    >
+    <Container v-if="!caseOpeningStore.isOpeningCase && !showWonSkin">
       <div class="flex gap-4 flex-wrap items-center">
         <Backbutton />
         <Button variant="success" @click="handleOpenCase" :disabled="caseOpeningStore.isOpeningCase">
@@ -199,11 +197,11 @@ onUnmounted(() => {
         v-if="knivesAndGloves.length && optionsStore.showKnivesAndGloves"
         :skins="knivesAndGloves"
       />
-    </div>
+    </Container>
 
     <div
       v-if="(showWonSkin && wonSkin) || caseOpeningStore.isOpeningCase"
-      class="max-w-5xl px-4 sm:px-0 py-4 mx-auto relative z-100"
+      class="max-w-5xl px-4 py-4 mx-auto relative z-100"
     >
       <Button class="flex items-center gap-2" @click="handleBack"><BackIcon /> Back </Button>
     </div>
@@ -224,7 +222,7 @@ onUnmounted(() => {
 
     <div
       v-if="showWonSkin && wonSkin"
-      class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-50 fade-scale-up backdrop-blur-xs"
+      class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-[70] fade-scale-up backdrop-blur-xs"
     >
       <div class="flex items-center flex-col gap-6 rounded-xl pt-[15dvh] sm:pt-0">
         <img :src="wonSkin?.image" class="size-full select-none" />

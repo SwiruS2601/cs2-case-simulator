@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useCreates } from '../query/crate';
 import Button from '../components/Button.vue';
+import Container from '../components/Container.vue';
 
 const { data } = useCreates();
 
@@ -38,9 +39,7 @@ watch(type, (newValue) => {
 </script>
 
 <template>
-  <div
-    class="relative w-full max-w-5xl px-4 mx-auto backdrop-blur-xs bg-black/40 sm:my-4 sm:rounded-xl py-4 shadow-xl border border-black/10"
-  >
+  <Container>
     <div class="flex gap-4 flex-col">
       <input
         type="text"
@@ -64,7 +63,7 @@ watch(type, (newValue) => {
         >
       </div>
     </div>
-    <div class="gap-3 sm:gap-4 mt-4 responsive-grid justify-between">
+    <div class="gap-3 mt-4 responsive-grid justify-between">
       <router-link
         v-for="crate in crates"
         :key="crate.id"
@@ -85,5 +84,5 @@ watch(type, (newValue) => {
         </div>
       </router-link>
     </div>
-  </div>
+  </Container>
 </template>

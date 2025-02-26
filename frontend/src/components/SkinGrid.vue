@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="rounded-sm gap-4 responsive-grid">
+  <div class="rounded-sm gap-3 gap-y-2 sm:gap-y-3 responsive-grid">
     <div v-for="(skin, i) in props.skins" :key="i" class="max-w-[133px]">
       <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
         <div class="border-b-5 p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
@@ -22,7 +22,7 @@ const props = defineProps<{
           />
         </div>
       </div>
-      <div class="flex justify-between mt-1.5 gap-2">
+      <div class="flex justify-between mt-1 gap-2">
         <div class="flex flex-col text-slate-100">
           <p class="text-[11px] font-semibold text-left">{{ skin.name.split('|')[0] }}</p>
           <p class="text-[10px] text-left text-slate-100/80">{{ skin.name.split('|')[1] }}</p>

@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
   <nav
     v-if="breadcrumbs.length > 1"
     aria-label="Breadcrumb"
-    class="w-full max-w-5xl px-4 mx-auto mt-4 mb-6 breadcrumbs-container"
+    class="w-full max-w-5xl px-4 mx-auto breadcrumbs-container"
   >
     <ol class="flex items-center text-sm text-white/80">
       <li v-for="(crumb, index) in breadcrumbs" :key="index" class="flex items-center">
@@ -91,7 +91,6 @@ onBeforeUnmount(() => {
 <style scoped>
 .breadcrumbs-container {
   min-height: auto;
-  padding: 0.5rem 0;
 }
 
 .breadcrumbs-container:empty,
