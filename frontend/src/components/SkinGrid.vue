@@ -7,11 +7,15 @@ const props = defineProps<{
   skins: Skin[];
   inventoryView?: boolean;
 }>();
+
+const getSkinKey = (skin: Skin, index: number) => {
+  return `${skin.id || ''}${skin.name}${skin.wear_category || ''}${index}`;
+};
 </script>
 
 <template>
   <div class="rounded-sm gap-3 gap-y-2 sm:gap-y-3 responsive-grid">
-    <div v-for="(skin, i) in props.skins" :key="i" class="max-w-[133px]">
+    <div v-for="(skin, i) in props.skins" :key="getSkinKey(skin, i)" class="max-w-[133px]">
       <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
         <div class="border-b-5 p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
           <Image
@@ -20,6 +24,7 @@ const props = defineProps<{
             :src="skin?.image ?? '/images/placeholder.webp'"
             :alt="skin?.name"
             className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
+            :key="getSkinKey(skin, i) + '-img'"
           />
         </div>
       </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { config } from '../config';
+import { computed } from 'vue';
 
 const { src, width, height, quality, format, alt, className, skipResize } = defineProps<{
   src: string;
@@ -14,15 +15,19 @@ const { src, width, height, quality, format, alt, className, skipResize } = defi
 
 if (!src) throw new Error('src is required');
 
-const url = new URL(config.imageOptimizationUrl);
+const imageUrl = computed(() => {
+  const url = new URL(config.imageOptimizationUrl);
 
-url.searchParams.set('url', src);
-if (format) url.searchParams.set('f', format);
-if (quality) url.searchParams.set('q', quality.toString());
-if (width && !skipResize) url.searchParams.set('w', width.toString());
-if (height && !skipResize) url.searchParams.set('h', height.toString());
+  url.searchParams.set('url', src);
+  if (format) url.searchParams.set('f', format);
+  if (quality) url.searchParams.set('q', quality.toString());
+  if (width && !skipResize) url.searchParams.set('w', width.toString());
+  if (height && !skipResize) url.searchParams.set('h', height.toString());
+
+  return url.toString();
+});
 </script>
 
 <template>
-  <img :src="url.toString()" :alt="alt" :width="width" :height="height" :class="className" />
+  <img :src="imageUrl" :alt="alt" :width="width" :height="height" :class="className" />
 </template>
