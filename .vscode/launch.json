@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "type": "coreclr",
+      "request": "launch",
+      "name": "Launch Backend",
+      "program": "${workspaceFolder}/backend/bin/Debug/net8.0/Cs2CaseOpener.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/backend",
+      "stopAtEntry": false,
+      "preLaunchTask": "build"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "executableName",
+      "description": "Name of your executable"
+    }
+  ]
+}

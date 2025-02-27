@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useCreates } from '../query/crate';
 import Button from '../components/Button.vue';
 import Container from '../components/Container.vue';
+import Image from '../components/Image.vue';
 
 const { data } = useCreates();
 
@@ -74,12 +75,12 @@ watch(type, (newValue) => {
           class="flex flex-col h-full cursor-pointer items-center bg-black/20 transition-shadow duration-150 rounded-lg px-2 py-2 border border-black/10 hover:shadow-xl"
         >
           <p class="text-xs text-center my-auto text-white/95">{{ crate.name }}</p>
-          <img
+          <Image
             class="transition-transform duration-75 hover:scale-[120%]"
             :src="crate.image || '/images/placeholder.webp'"
             :alt="`${crate.name} - CS2 Case`"
-            width="110"
-            :height="type === 'Case' ? 85 : 82.5"
+            :width="256"
+            :height="type === 'Case' ? 198 : 192"
           />
         </div>
       </router-link>

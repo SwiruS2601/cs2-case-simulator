@@ -22,6 +22,7 @@ import BackIcon from '../components/BackIcon.vue';
 import { getSkinRarityColor } from '../utils/color';
 import AutomaticIcon from '../components/AutomaticIcon.vue';
 import Container from '../components/Container.vue';
+import Image from '../components/Image.vue';
 
 const KEY_PRICE = 2.5;
 

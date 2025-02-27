@@ -2,6 +2,7 @@
 import type { Skin } from '../types';
 import { getSkinPrice } from '../utils/balance';
 import { getSkinRarityColor } from '../utils/color';
+import Image from './Image.vue';
 const props = defineProps<{
   skins: Skin[];
   inventoryView?: boolean;
@@ -13,12 +14,12 @@ const props = defineProps<{
     <div v-for="(skin, i) in props.skins" :key="i" class="max-w-[133px]">
       <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
         <div class="border-b-5 p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
-          <img
-            width="118"
-            height="88.5"
+          <Image
+            :width="256"
+            :height="192"
             :src="skin?.image ?? '/images/placeholder.webp'"
             :alt="skin?.name"
-            class="transition-transform duration-75 hover:scale-[133%]"
+            className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
           />
         </div>
       </div>
