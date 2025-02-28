@@ -53,7 +53,6 @@ const onChange = (event: Event) => {
 </script>
 
 <template>
-  <CanonicalLink />
   <Container>
     <div class="flex justify-between items-center flex-wrap gap-4 pb-5">
       <div class="flex gap-4 items-center flex-wrap">

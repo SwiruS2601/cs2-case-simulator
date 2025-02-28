@@ -41,7 +41,6 @@ watch(type, (newValue) => {
 </script>
 
 <template>
-  <CanonicalLink />
   <Container>
     <div class="flex gap-4 flex-col">
       <input

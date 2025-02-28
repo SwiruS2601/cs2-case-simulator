@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, watchEffect } from 'vue';
+import { useRoute } from 'vue-router';
 
 const props = defineProps({
   path: {
@@ -8,19 +9,37 @@ const props = defineProps({
   },
 });
 
-let canonicalElement: HTMLLinkElement | null = null;
+const route = useRoute();
 
-onMounted(() => {
-  canonicalElement = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-  canonicalElement.setAttribute('rel', 'canonical');
+const updateCanonicalLink = () => {
+  let canonicalElement = document.querySelector('link[rel="canonical"]');
+
+  if (!canonicalElement) {
+    canonicalElement = document.createElement('link');
+    canonicalElement.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalElement);
+  }
 
   const baseUrl = window.location.origin;
-  const canonicalUrl = baseUrl + (props.path ? props.path : '/');
+  let canonicalPath = props.path || route.path;
 
-  canonicalElement.setAttribute('href', canonicalUrl);
+  if (canonicalPath === '/') {
+    canonicalElement.setAttribute('href', baseUrl);
+  } else {
+    if (!canonicalPath.startsWith('/')) {
+      canonicalPath = '/' + canonicalPath;
+    }
+    canonicalElement.setAttribute('href', baseUrl + canonicalPath);
+  }
+};
 
-  if (!document.querySelector('link[rel="canonical"]')) {
-    document.head.appendChild(canonicalElement);
+onMounted(() => {
+  updateCanonicalLink();
+});
+
+watchEffect(() => {
+  if (route.path) {
+    updateCanonicalLink();
   }
 });
 </script>

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <link rel="preconnect" href="https://case.oki.gg" />
     <link rel="preconnect" href="https://region1.google-analytics.com" />
     <link rel="dns-prefetch" href="https://region1.google-analytics.com" />
@@ -75,13 +76,12 @@
       }
     </style>
 
-    <script fetchpriority="low" nonce="<?= $csp_nonce ?>">
+    <script fetchpriority="low">
       window.addEventListener('load', function () {
         setTimeout(function () {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CRT4Q9N1C2';
           script.async = true;
-          script.nonce = '<?= $csp_nonce ?>';
           document.head.appendChild(script);
 
           script.onload = function () {
