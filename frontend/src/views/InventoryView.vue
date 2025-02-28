@@ -8,6 +8,7 @@ import { getSkinPrice } from '../utils/balance';
 import { computed, effect, ref } from 'vue';
 import { knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
 import Container from '../components/Container.vue';
+import CanonicalLink from '../components/CanonicalLink.vue';
 
 const inventory = useInventoryStore();
 const selectedSort = ref('latest');
@@ -52,24 +53,29 @@ const onChange = (event: Event) => {
 </script>
 
 <template>
+  <CanonicalLink />
   <Container>
     <div class="flex justify-between items-center flex-wrap gap-4 pb-5">
       <div class="flex gap-4 items-center flex-wrap">
         <Backbutton />
-        <select
-          class="rounded-lg py-2 w-fit border pr-4 h-[42px] border-black/10 bg-black/20 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-black/10 select:outline-none"
-          @input="onChange"
-          @change="onChange"
-        >
-          <option
-            v-for="option in selectOptions"
-            :value="option.value"
-            :selected="option.value === selectedSort"
-            class="bg-black/50"
+        <div class="flex flex-col">
+          <label for="inventory-sort" class="sr-only">Sort inventory by</label>
+          <select
+            id="inventory-sort"
+            class="rounded-lg py-2 w-fit border pr-4 h-[42px] border-black/10 bg-black/20 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-black/10 select:outline-none"
+            @input="onChange"
+            @change="onChange"
           >
-            {{ option.label }}
-          </option>
-        </select>
+            <option
+              v-for="option in selectOptions"
+              :value="option.value"
+              :selected="option.value === selectedSort"
+              class="bg-black/50"
+            >
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
       </div>
 
       <Button @click="inventory.clearInventory" variant="danger"> Reset </Button>

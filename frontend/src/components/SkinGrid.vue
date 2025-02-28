@@ -25,7 +25,6 @@ const getSkinKey = (skin: Skin, index: number) => {
             :alt="skin?.name"
             className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
             :key="getSkinKey(skin, i) + '-img'"
-            fetchpriority="high"
           />
 
           <span

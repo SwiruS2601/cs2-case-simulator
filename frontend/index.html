@@ -2,11 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://region1.google-analytics.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://case.oki.gg https://images.oki.gg https://raw.githubusercontent.com https://*.google-analytics.com; connect-src 'self' https://caseapi.oki.gg http://localhost:5015 https://*.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
-    />
-
     <link rel="preconnect" href="https://case.oki.gg" />
     <link rel="preconnect" href="https://region1.google-analytics.com" />
     <link rel="dns-prefetch" href="https://region1.google-analytics.com" />
@@ -80,12 +75,13 @@
       }
     </style>
 
-    <script fetchpriority="low">
+    <script fetchpriority="low" nonce="<?= $csp_nonce ?>">
       window.addEventListener('load', function () {
         setTimeout(function () {
           const script = document.createElement('script');
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CRT4Q9N1C2';
           script.async = true;
+          script.nonce = '<?= $csp_nonce ?>';
           document.head.appendChild(script);
 
           script.onload = function () {

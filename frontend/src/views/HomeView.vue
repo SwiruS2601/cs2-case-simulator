@@ -5,6 +5,7 @@ import { useCreates } from '../query/crate';
 import Button from '../components/Button.vue';
 import Container from '../components/Container.vue';
 import Image from '../components/Image.vue';
+import CanonicalLink from '../components/CanonicalLink.vue';
 
 const { data } = useCreates();
 
@@ -40,6 +41,7 @@ watch(type, (newValue) => {
 </script>
 
 <template>
+  <CanonicalLink />
   <Container>
     <div class="flex gap-4 flex-col">
       <input

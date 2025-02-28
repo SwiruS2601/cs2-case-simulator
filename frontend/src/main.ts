@@ -5,6 +5,7 @@ import App from './App.vue';
 import router from './router.ts';
 import { VueQueryPlugin } from '@tanstack/vue-query';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+import { CspNoncePlugin } from './csp-nonce';
 
 const app = createApp(App);
 
@@ -23,5 +24,6 @@ pinia.use(piniaPluginPersistedstate);
 
 app.use(pinia);
 app.use(router);
+app.use(CspNoncePlugin);
 
 app.mount('#app');
