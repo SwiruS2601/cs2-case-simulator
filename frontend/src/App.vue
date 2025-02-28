@@ -17,7 +17,7 @@ const backgroundImage = BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.lengt
       :src="`${config.baseUrl}/backgrounds/${backgroundImage}`"
       class="fixed inset-0 object-cover size-full -z-10"
       alt="CS2 background map"
-      :priority="true"
+      fetchpriority="high"
       :width="1280"
       :height="720"
     />
