@@ -17,7 +17,7 @@ const getSkinKey = (skin: Skin, index: number) => {
   <div class="rounded-sm gap-3 gap-y-2 sm:gap-y-3 responsive-grid">
     <div v-for="(skin, i) in props.skins" :key="getSkinKey(skin, i)" class="max-w-[133px]">
       <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
-        <div class="border-b-5 p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
+        <div class="border-b-5 relative p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
           <Image
             :width="256"
             :height="192"
@@ -25,23 +25,22 @@ const getSkinKey = (skin: Skin, index: number) => {
             :alt="skin?.name"
             className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
             :key="getSkinKey(skin, i) + '-img'"
+            :priority="true"
           />
-        </div>
-      </div>
-      <div class="flex justify-between mt-1 gap-2">
-        <div class="flex flex-col text-slate-100">
-          <p class="text-[11px] font-semibold text-left">{{ skin.name.split('|')[0] }}</p>
-          <p class="text-[10px] text-left text-slate-100/80">{{ skin.name.split('|')[1] }}</p>
-        </div>
 
-        <div v-if="inventoryView" class="flex flex-col">
-          <span v-if="skin.wear_category !== 'Default'" class="text-nowrap text-[10px] text-slate-100"
-            >{{ skin.wear_category }}
-          </span>
-          <span v-if="getSkinPrice(skin) > 0" class="text-green-400 text-nowrap text-[11px] ml-auto"
+          <span
+            v-if="getSkinPrice(skin) > 0"
+            class="absolute top-0 right-0.5 text-green-400 text-nowrap text-xs ml-auto"
             >€ {{ getSkinPrice(skin).toFixed(2) }}
           </span>
         </div>
+      </div>
+      <div class="flex flex-col justify-between mt-1">
+        <p class="text-xs font-semibold text-left text-white/80">{{ skin.name }}</p>
+
+        <span v-if="skin.wear_category !== 'Default'" class="text-nowrap text-xs text-white/70"
+          >{{ skin.wear_category }}
+        </span>
       </div>
     </div>
   </div>

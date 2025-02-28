@@ -11,6 +11,7 @@ const { src, width, height, quality, format, alt, className, skipResize } = defi
   format?: 'webp' | 'jpeg';
   className?: string;
   skipResize?: boolean;
+  priority?: boolean;
 }>();
 
 if (!src) throw new Error('src is required');
@@ -29,5 +30,5 @@ const imageUrl = computed(() => {
 </script>
 
 <template>
-  <img :src="imageUrl" :alt="alt" :width="width" :height="height" :class="className" />
+  <img :src="imageUrl" :alt="alt" :width="width" :height="height" :class="className" :fetchpriority="priority" />
 </template>

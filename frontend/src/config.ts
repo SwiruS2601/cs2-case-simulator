@@ -1,4 +1,5 @@
 export const config = {
+  baseUrl: import.meta.env.VITE_BASE_URL,
   apiBaseUrl: import.meta.env.VITE_API_URL,
   imageOptimizationUrl: import.meta.env.VITE_IMAGE_OPTIMIZATION_URL,
 };

@@ -22,7 +22,7 @@ import BackIcon from '../components/BackIcon.vue';
 import { getSkinRarityColor } from '../utils/color';
 import AutomaticIcon from '../components/AutomaticIcon.vue';
 import Container from '../components/Container.vue';
-import Image from '../components/Image.vue';
+import CanonicalLink from '../components/CanonicalLink.vue';
 
 const KEY_PRICE = 2.5;
 
@@ -169,6 +169,8 @@ onUnmounted(() => {
 
 <template>
   <div v-bind="$attrs">
+    <CanonicalLink />
+
     <Container v-if="!caseOpeningStore.isOpeningCase && !showWonSkin">
       <div class="flex gap-4 flex-wrap items-center">
         <Backbutton />

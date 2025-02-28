@@ -4,6 +4,8 @@ import Nav from './components/Nav.vue';
 import DynamicHeadTags from './components/DynamicHeadTags.vue';
 // import Breadcrumbs from './components/Breadcrumbs.vue';
 import { BACKGROUNDS } from './constants';
+import Image from './components/Image.vue';
+import { config } from './config';
 
 const backgroundImage = BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
 </script>
@@ -11,11 +13,13 @@ const backgroundImage = BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.lengt
 <template>
   <DynamicHeadTags />
   <main class="min-h-[calc(100vh+0.5px)]">
-    <img
-      :src="`/backgrounds/${backgroundImage}`"
+    <Image
+      :src="`${config.baseUrl}/backgrounds/${backgroundImage}`"
       class="fixed inset-0 object-cover size-full -z-10"
       alt="CS2 background map"
-      fetchpriority="high"
+      :priority="true"
+      :width="1280"
+      :height="720"
     />
     <div class="fixed inset-0 object-cover size-full z-0 backdrop-blur-xs" />
     <Nav />

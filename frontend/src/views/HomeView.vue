@@ -81,6 +81,7 @@ watch(type, (newValue) => {
             :alt="`${crate.name} - CS2 Case`"
             :width="256"
             :height="type === 'Case' ? 198 : 192"
+            :priority="true"
           />
         </div>
       </router-link>
