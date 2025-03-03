@@ -127,4 +127,26 @@ public class CrateService
 
         return crate;
     }
+
+    public async Task<Crate[]> Search(string searchKey)
+    {
+        if (string.IsNullOrEmpty(searchKey))
+        {
+            throw new ArgumentException("Search key cannot be null or empty", nameof(searchKey));
+        }
+
+        var crates = await _dbContext.Crates
+            .AsNoTracking()
+            .Where(c => AllowedTypes.Contains(c.Type))
+            .Where(c => c.Name.ToLower().Contains(searchKey.ToLower()))
+            .Take(20)
+            .ToArrayAsync();
+
+        if (crates is null || crates.Length == 0)
+        {
+            return [];
+        }
+
+        return crates;
+    }
 }

@@ -36,4 +36,11 @@ public class CrateController : ControllerBase
         return Ok(crate);
     }
 
+    [HttpGet("search/{searchKey}")]
+    public async Task<IActionResult> Search(string searchKey)
+    {
+        var decoded = Uri.UnescapeDataString(searchKey);
+        var crates = await _caseService.Search(decoded);
+        return Ok(crates);
+    }
 }

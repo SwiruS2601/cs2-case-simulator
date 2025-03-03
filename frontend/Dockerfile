@@ -1,41 +1,27 @@
-FROM oven/bun:1 AS build
+FROM oven/bun:1 AS base
 WORKDIR /app
 
-# Install required system dependencies
-RUN apt-get update && apt-get install -y \
-    procps \
-    && rm -rf /var/lib/apt/lists/*
+FROM base AS install
+RUN mkdir -p /temp/dev
+COPY package.json bun.lock /temp/dev/
+RUN cd /temp/dev && bun install --frozen-lockfile
 
-# Copy package files
-COPY package.json ./
-COPY bun.lock ./
-COPY tsconfig*.json ./
-COPY vite.config.ts ./
+RUN mkdir -p /temp/prod
+COPY package.json bun.lock /temp/prod/
+RUN cd /temp/prod && bun install --frozen-lockfile --production
 
-# Install dependencies
-RUN bun install --frozen-lockfile
+FROM base AS prerelease
+COPY --from=install /temp/dev/node_modules node_modules
+COPY . .
 
-# Copy source files
-COPY src/ ./src/
-COPY public/ ./public/
-COPY scripts/ ./scripts/
-COPY index.html ./
-COPY .env.production ./.env
-
-# Type check and build
+ENV NODE_ENV=production
+RUN bun test
 RUN bun run build
 
-# Production stage
-FROM nginx:stable-alpine
-WORKDIR /usr/share/nginx/html
+FROM base AS release
+COPY --from=install /temp/prod/node_modules node_modules
+COPY --from=prerelease /app/.output  /app/.output
 
-# Copy built files from build stage
-COPY --from=build /app/dist .
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+ENV NITRO_PORT=5173
+EXPOSE 5173
+CMD [ "bun", ".output/server/index.mjs" ]
