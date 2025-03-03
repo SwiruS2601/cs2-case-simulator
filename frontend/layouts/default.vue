@@ -4,10 +4,10 @@ import { clientConfig } from '~/config.client';
 import { BACKGROUNDS } from '~/constants';
 
 useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
   link: [
-    { rel: 'preconnect', href: 'https://case.oki.gg' },
-    { rel: 'preconnect', href: 'https://region1.google-analytics.com' },
-    { rel: 'dns-prefetch', href: 'https://region1.google-analytics.com' },
     { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
     { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
