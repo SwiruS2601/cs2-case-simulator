@@ -16,7 +16,7 @@ const props = defineProps<{
       borderColor: getSkinRarityColor(skin),
       boxShadow: 'inset 0px -0px 1px black',
     }"
-    class="size-full rounded-t-xs p-2 bg-gray-700 flex items-center justify-center border-b-[10px]"
+    class="size-full rounded-t-xs p-2 flex items-center justify-center border-b-[10px]"
   >
     <img
       v-if="skin?.image"

@@ -1,5 +1,4 @@
 import tailwindcss from '@tailwindcss/vite';
-import { serverConfig } from './config.server';
 import type { Crate } from './types';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -10,33 +9,47 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt'],
+  modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxtjs/sitemap'],
   piniaPluginPersistedstate: {
     storage: 'localStorage',
+  },
+  site: {
+    url: 'https://case.oki.gg',
+    name: 'CS2 Case Simulator',
   },
   ssr: true,
   nitro: {
     preset: 'bun',
     prerender: {
-      routes: ['/', '/inventory', '/stickers', '/autographs', '/souvenirs'],
-      ignore: ['/api'],
+      crawlLinks: true,
     },
   },
   routeRules: {
-    '/': { prerender: true },
-    '/stickers': { prerender: true },
-    '/souvenirs': { prerender: true },
+    '/': { prerender: true, isr: { expiration: 86400 } },
+    '/stickers': { prerender: true, isr: { expiration: 86400 } },
+    '/souvenirs': { prerender: true, isr: { expiration: 86400 } },
+    '/autographs': { prerender: true, isr: { expiration: 86400 } },
+    '/crate/**': { prerender: true, isr: { expiration: 86400 } },
     '/inventory': { prerender: true },
-    '/autographs': { prerender: true },
-    '/crate/**': { prerender: true },
   },
-  hooks: {
-    async 'prerender:routes'(ctx) {
-      const res = await fetch(serverConfig.apiUrl + '/api/crates');
-      const data = (await res.json()) as Crate[];
-      data.forEach((crate) => {
-        ctx.routes.add(`/crate/${encodeURIComponent(crate.name)}`);
-      });
+  runtimeConfig: {
+    public: {
+      imageUrl: 'https://images.oki.gg/',
+      baseUrl: 'https://case.oki.gg/',
+    },
+  },
+  $development: {
+    runtimeConfig: {
+      public: {
+        apiUrl: 'http://localhost:5015',
+      },
+    },
+  },
+  $production: {
+    runtimeConfig: {
+      public: {
+        apiUrl: 'https://caseapi.oki.gg',
+      },
     },
   },
 });

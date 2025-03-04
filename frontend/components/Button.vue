@@ -10,7 +10,7 @@ const base = 'flex items-center border rounded w-fit focus:outline-none font-sem
 
 const sizes = {
   icon: 'rounded-full flex items-center justify-center max-w-10 max-h-10 min-w-10 min-h-10',
-  pill: 'text-sm rounded-full px-3 py-1',
+  pill: 'text-sm rounded-full px-2.5 py-1',
   small: 'text-sm px-4 py-2',
   medium: 'text-base px-4 py-2 rounded-lg',
   large: 'text-lg px-4 py-2',

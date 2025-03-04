@@ -23,8 +23,8 @@ defineProps<{
           class="transition-transform duration-75 hover:scale-[120%]"
           :src="crate.image || '/images/placeholder.webp'"
           :alt="`${crate.name} - CS2 Case`"
-          :width="256"
-          :height="imageHeight ?? 198"
+          :width="128"
+          :height="97"
         />
       </div>
     </NuxtLink>

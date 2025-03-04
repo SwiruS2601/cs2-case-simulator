@@ -24,4 +24,4 @@ COPY --from=prerelease /app/.output  /app/.output
 
 ENV NITRO_PORT=5173
 EXPOSE 5173
-CMD [ "bun", ".output/server/index.mjs" ]
+CMD [ "bun", "run", ".output/server/index.mjs" ]

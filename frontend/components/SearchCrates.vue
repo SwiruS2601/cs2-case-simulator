@@ -25,7 +25,9 @@ watch(searchInput, async (newValue) => {
 
   debounceTimeout = setTimeout(async () => {
     try {
-      const results = await $fetch<Crate[]>(`/api/crates/search/${encodeURIComponent(newValue)}`);
+      const results = await $fetch<Crate[]>(
+        `${useRuntimeConfig().public.apiUrl}/api/crates/search/${encodeURIComponent(newValue)}`,
+      );
       emit('update:modelValue', results || []);
     } catch (error) {
       console.error('Error fetching search results:', error);

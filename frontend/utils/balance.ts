@@ -19,8 +19,8 @@ export function getSkinPrice(skin: Skin) {
   return foundSkin.steam_last_ever || 0;
 }
 
-export function getCratePrice(crate: Crate) {
-  if (!crate.price) return 0;
+export function getCratePrice(crate: Crate | null) {
+  if (!crate?.price) return 0;
 
   const lastDay = crate.price.steam_last_24h;
   if (lastDay) return lastDay;

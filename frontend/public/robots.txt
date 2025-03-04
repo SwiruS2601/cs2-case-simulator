@@ -1,1 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /api
+
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: bingbot
+Crawl-delay: 1
+
+Sitemap: https://case.oki.gg/sitemap.xml
 

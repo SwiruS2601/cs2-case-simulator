@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import 'assets/main.css';
-import { clientConfig } from '~/config.client';
 import { BACKGROUNDS } from '~/constants';
 
 useHead({
@@ -16,7 +15,7 @@ useHead({
   ],
 });
 
-const title = 'Counter-Strike 2 Case Simulator';
+const title = 'CS2 Case Simulator';
 const description = 'Open Counter-Strike 2 cases for free in this case unboxing simulator.';
 
 useSeoMeta({
@@ -42,7 +41,9 @@ useSeoMeta({
   <main class="min-h-[calc(100vh+0.5px)]">
     <ClientOnly>
       <Image
-        :src="`${clientConfig.baseUrl}/backgrounds/${BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)]}`"
+        :src="`${useRuntimeConfig().public.baseUrl}/backgrounds/${
+          BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)]
+        }`"
         class="fixed inset-0 object-cover size-full -z-10"
         alt="CS2 background map"
         fetchpriority="high"
@@ -69,12 +70,12 @@ dialog {
 body {
   background: #1a1c20;
 }
-
+/* 
 img {
   display: block;
   max-width: 100%;
   user-select: none;
-}
+} */
 
 .responsive-grid {
   display: grid;

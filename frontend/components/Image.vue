@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
-import { clientConfig } from '~/config.client';
 
 const { src, width, height, quality, format, alt, className, skipResize, fetchpriority } = defineProps<{
   src: string;
@@ -17,7 +16,7 @@ const { src, width, height, quality, format, alt, className, skipResize, fetchpr
 if (!src) throw new Error('src is required');
 
 const imageUrl = computed(() => {
-  const url = new URL(clientConfig.imageOptimizationUrl);
+  const url = new URL(useRuntimeConfig().public.imageUrl);
 
   url.searchParams.set('url', src);
   if (format) url.searchParams.set('f', format);
@@ -29,46 +28,37 @@ const imageUrl = computed(() => {
 });
 
 const imageRef = ref<HTMLImageElement | null>(null);
-const isInViewport = ref(false);
-const { observe } = useIntersectionObserver();
-let unobserveFunc: (() => void) | null = null;
+// const isInViewport = ref(false);
+// const { observe } = useIntersectionObserver();
+// let unobserveFunc: (() => void) | null = null;
 
-onMounted(() => {
-  if (imageRef.value) {
-    const { unobserve } = observe(imageRef.value, (visible) => {
-      isInViewport.value = visible;
-    });
-    unobserveFunc = unobserve;
-  } else {
-    isInViewport.value = true;
-  }
-});
+// onMounted(() => {
+//   if (imageRef.value) {
+//     const { unobserve } = observe(imageRef.value, (visible) => {
+//       isInViewport.value = visible;
+//     });
+//     unobserveFunc = unobserve;
+//   } else {
+//     isInViewport.value = true;
+//   }
+// });
 
-onBeforeUnmount(() => {
-  if (unobserveFunc) {
-    unobserveFunc();
-  }
-});
+// onBeforeUnmount(() => {
+//   if (unobserveFunc) {
+//     unobserveFunc();
+//   }
+// });
 
-const effectiveFetchPriority = computed(() => {
-  if (fetchpriority) return fetchpriority;
-  return isInViewport.value ? 'high' : 'low';
-});
+// const effectiveFetchPriority = computed(() => {
+//   if (fetchpriority) return fetchpriority;
+//   return isInViewport.value ? 'high' : 'low';
+// });
 
-const loadingAttribute = computed(() => {
-  return isInViewport.value ? undefined : 'lazy';
-});
+// const loadingAttribute = computed(() => {
+//   return isInViewport.value ? undefined : 'lazy';
+// });
 </script>
 
 <template>
-  <img
-    ref="imageRef"
-    :src="imageUrl"
-    :alt="alt"
-    :width="width"
-    :height="height"
-    :class="className"
-    :fetchpriority="effectiveFetchPriority"
-    :loading="loadingAttribute"
-  />
+  <img ref="imageRef" :src="imageUrl" :alt="alt" :width="width" :height="height" :class="className" />
 </template>

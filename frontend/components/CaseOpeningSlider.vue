@@ -21,7 +21,7 @@ const FAST_DURATION = 1500;
 const NORMAL_DURATION = 6000;
 
 const duration = optionsStore.fastAnimation ? FAST_DURATION : NORMAL_DURATION;
-const isMobile = window.innerWidth < 640;
+const isMobile = window.innerWidth < 640 || window.innerHeight < 640;
 const skinWidth = isMobile ? 160 : 256;
 const magnifiedSliderScale = 1.15;
 const magnifyingGlassRadius = isMobile ? 160 : 256;

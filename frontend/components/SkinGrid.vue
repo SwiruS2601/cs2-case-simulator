@@ -19,8 +19,8 @@ const getSkinKey = (skin: Skin, index: number) => {
       <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
         <div class="border-b-5 relative p-1 rounded-[5px]" :style="{ borderColor: getSkinRarityColor(skin) }">
           <Image
-            :width="256"
-            :height="192"
+            :width="160"
+            :height="120"
             :src="skin?.image ?? '/images/placeholder.webp'"
             :alt="skin?.name"
             className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
