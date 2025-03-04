@@ -1,5 +1,4 @@
 import tailwindcss from '@tailwindcss/vite';
-import type { Crate } from './types';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -17,7 +16,6 @@ export default defineNuxtConfig({
     url: 'https://case.oki.gg',
     name: 'CS2 Case Simulator',
   },
-  ssr: true,
   nitro: {
     preset: 'bun',
     prerender: {
