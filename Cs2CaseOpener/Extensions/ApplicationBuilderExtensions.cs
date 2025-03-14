@@ -1,0 +1,69 @@
+using Cs2CaseOpener.Middleware;
+using Cs2CaseOpener.Data;
+using Microsoft.EntityFrameworkCore;
+using Serilog;
+using Cs2CaseOpener.Interfaces;
+
+namespace Cs2CaseOpener.Extensions;
+
+public static class ApplicationBuilderExtensions
+{
+    public static WebApplicationBuilder ConfigureSerilog(this WebApplicationBuilder builder)
+    {
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(builder.Configuration)
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .CreateLogger();
+
+        builder.Host.UseSerilog();
+        
+        return builder;
+    }
+
+    public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware<RequestLoggingMiddleware>();
+    }
+
+    public static WebApplication ConfigureMiddleware(this WebApplication app)
+    {
+        app.UseRequestLogging();
+        app.UseMiddleware<ExceptionMiddleware>();
+        app.UseCors("AllowLocalhost");
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        app.MapControllers();
+        
+        return app;
+    }
+    
+    public static async Task InitializeDatabaseAsync(this WebApplication app)
+    {
+        using var scope = app.Services.CreateScope();
+        var services = scope.ServiceProvider;
+        
+        try
+        {
+            var dbContext = services.GetRequiredService<ApplicationDbContext>();
+            await dbContext.Database.MigrateAsync();
+
+            var dbInitializer = services.GetRequiredService<DatabaseInitializationService>();
+            await dbInitializer.InitializeAsync();
+            
+            var apiScraper = services.GetRequiredService<IApiScraper>();
+            await apiScraper.ScrapeApiAsync();
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred while initializing the database");
+            throw;
+        }
+    }
+}

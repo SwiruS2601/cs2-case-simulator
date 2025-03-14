@@ -3,7 +3,7 @@ set -e
 
 build_backend() {
   echo "Building backend image..."
-  docker build --network=host -t 10.10.10.46:5000/cs2-case-unboxer-be ./backend
+  docker build --network=host -t 10.10.10.46:5000/cs2-case-unboxer-be ./Cs2CaseOpener
   echo "Pushing image to registry..."
   docker push 10.10.10.46:5000/cs2-case-unboxer-be:latest
 }

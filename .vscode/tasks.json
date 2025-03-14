@@ -4,7 +4,7 @@
       "label": "build",
       "command": "dotnet",
       "type": "process",
-      "args": ["build", "${workspaceFolder}/backend/Cs2CaseOpener.csproj"],
+      "args": ["build", "${workspaceFolder}/Cs2CaseOpener/Cs2CaseOpener.csproj"],
       "problemMatcher": "$msCompile"
     }
   ]

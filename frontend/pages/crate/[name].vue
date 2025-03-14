@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineWebPage, defineWebSite, useSchemaOrg } from 'nuxt-schema-org/schema';
 import Image from '~/components/Image.vue';
 import { useCrateOpeningStore } from '~/composables/crateOpeningStore';
 import { useInventoryStore } from '~/composables/inventoryStore';
@@ -7,6 +6,7 @@ import { useOptionsStore } from '~/composables/optionsStore';
 import { REAL_ODDS } from '~/constants';
 import { audioService } from '~/services/audioService';
 import { crateOpeningService } from '~/services/crateOpeningService';
+import { useCrateDetailSeo } from '~/services/metaSeoService';
 import type { Crate, Skin } from '~/types';
 
 const router = useRouter();
@@ -15,112 +15,9 @@ const { data: crate } = await useFetch<Crate>(
   `${useRuntimeConfig().public.apiUrl}/api/crates/name/${encodeURIComponent(name)}`,
 );
 
-const title = crate.value?.name ? `${crate.value?.name} - CS2 Case Simulator` : 'CS2 Case Simulator';
-const description = crate.value?.name
-  ? `Open ${crate.value?.name} for free in this case unboxing simulator.`
-  : 'Open Counter-Strike 2 cases for free in this case unboxing simulator.';
-
-const image = crate?.value?.image
-  ? `https://images.oki.gg/?url=${encodeURIComponent(crate?.value?.image)}&w=1200`
-  : 'https://case.oki.gg/preview.webp';
-
-useSeoMeta({
-  viewport: 'width=device-width, initial-scale=1.0',
-  title: title,
-  ogTitle: title,
-  description: description,
-  keywords: 'counter strike 2, cs2, case, opening, unboxing, simulator, skins',
-  ogDescription: description,
-  ogImage: image,
-  twitterCard: 'summary_large_image',
-  twitterTitle: title,
-  twitterDescription: description,
-  ogSiteName: title,
-  ogUrl: `https://case.oki.gg/crate/${name}`,
-  ogType: 'website',
-});
-
-const jsonld = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: title,
-  description: description,
-  image: image,
-  url: `https://case.oki.gg/crate/${name}`,
-  category: crate.value?.type || 'CS2 Case',
-  brand: {
-    '@type': 'Brand',
-    name: 'CS2 Case Simulator',
-  },
-  offers: {
-    '@type': 'Offer',
-    price: getCratePrice(crate.value).toFixed(2),
-    priceCurrency: 'EUR',
-    availability: 'https://schema.org/InStock',
-    seller: {
-      '@type': 'Organization',
-      name: 'CS2 Case Simulator',
-    },
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '124',
-  },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://case.oki.gg/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: crate.value?.type || 'Cases',
-        item: `https://case.oki.gg/${
-          crate.value?.type === 'Sticker Capsule'
-            ? 'stickers'
-            : crate.value?.type === 'Souvenir'
-            ? 'souvenirs'
-            : crate.value?.type === 'Autograph Capsule'
-            ? 'autographs'
-            : ''
-        }`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: crate.value?.name || '',
-        item: `https://case.oki.gg/crate/${name}`,
-      },
-    ],
-  },
-  hasPart:
-    crate.value?.skins?.slice(0, 5).map((skin) => ({
-      '@type': 'Product',
-      name: skin.name,
-      description: `${skin.name} - ${skin.wear_category || 'Skin'} from ${crate.value?.name}`,
-      image: skin.image,
-      offers: {
-        '@type': 'Offer',
-        price: getSkinPrice(skin).toFixed(2),
-        priceCurrency: 'EUR',
-      },
-    })) || [],
-};
-
-useHead({
-  script: [
-    {
-      hid: 'breadcrumbs-json-ld',
-      type: 'application/ld+json',
-      textContent: JSON.stringify(jsonld),
-    },
-  ],
-});
+if (name && crate.value) {
+  useCrateDetailSeo(crate.value, name);
+}
 
 const KEY_PRICE = 2.5;
 
@@ -161,14 +58,11 @@ const handleOpenCase = async () => {
   }
 
   caseOpeningStore.startCaseOpening();
-
   showOptions.value = false;
   document.body.style.overflow = 'hidden';
-
   audioService.playUnlockSound();
 
   await new Promise((resolve) => setTimeout(resolve, 0.1));
-
   const opnenedCrate = crateOpeningService.openCrate(crate?.value!, REAL_ODDS);
 
   crateSliderSkins.value = opnenedCrate.sliderSkins;
@@ -321,8 +215,8 @@ onUnmounted(() => {
       v-if="showWonSkin && wonSkin"
       class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-[70] fade-scale-up backdrop-blur-xs"
     >
-      <div class="flex items-center flex-col gap-6 rounded-xl pt-[15dvh] sm:pt-0">
-        <img :src="wonSkin?.image" class="select-none sm:max-w-[70%] lg:max-w-[85%] xl:max-w-[100%]" />
+      <div class="flex items-center flex-col gap-4 mt-2 rounded-xl pt-[15dvh] sm:pt-0">
+        <img :src="wonSkin?.image" class="select-none max-w-[400px] lg:max-w-full w-full" />
         <div class="flex flex-col gap-4 items-center pb-6 pt-2">
           <div
             class="sm:mb-6 relative overflow-hidden bg-black/50 rounded-xl border border-black/10 sm:justify-normal justify-center w-fit"

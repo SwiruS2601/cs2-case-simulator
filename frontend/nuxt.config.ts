@@ -23,11 +23,11 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/': { prerender: true, isr: { expiration: 86400 } },
-    '/stickers': { prerender: true, isr: { expiration: 86400 } },
-    '/souvenirs': { prerender: true, isr: { expiration: 86400 } },
-    '/autographs': { prerender: true, isr: { expiration: 86400 } },
-    '/crate/**': { prerender: true, isr: { expiration: 86400 } },
+    '/': { prerender: true },
+    '/stickers': { prerender: true },
+    '/souvenirs': { prerender: true },
+    '/autographs': { prerender: true },
+    '/crate/**': { prerender: true },
     '/inventory': { prerender: true },
   },
   runtimeConfig: {

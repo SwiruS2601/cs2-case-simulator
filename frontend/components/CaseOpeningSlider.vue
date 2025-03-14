@@ -21,10 +21,10 @@ const FAST_DURATION = 1500;
 const NORMAL_DURATION = 6000;
 
 const duration = optionsStore.fastAnimation ? FAST_DURATION : NORMAL_DURATION;
-const isMobile = window.innerWidth < 640 || window.innerHeight < 640;
-const skinWidth = isMobile ? 160 : 256;
+const isMobile = ref(window.innerWidth < 640);
+const skinWidth = isMobile.value ? 160 : 256;
 const magnifiedSliderScale = 1.15;
-const magnifyingGlassRadius = isMobile ? 160 : 256;
+const magnifyingGlassRadius = isMobile.value ? 160 : 256;
 
 const easing = `transform ${duration}ms cubic-bezier(0.1, 0.4, 0.4, 1)`;
 const maskCircle = `radial-gradient(circle at center, transparent ${magnifyingGlassRadius}px, black ${magnifyingGlassRadius}px)`;
@@ -100,6 +100,17 @@ onMounted(() => {
   setTimeout(() => {
     emit('finished', props.skins[props.wonSkinIndex]);
   }, duration);
+
+  const handleResize = () => {
+    isMobile.value = window.innerWidth < 640;
+  };
+  handleResize();
+
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
 });
 </script>
 

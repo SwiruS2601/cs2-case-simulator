@@ -2,11 +2,11 @@
 import type { Crate } from '~/types';
 
 defineProps<{
-  modelValue: Crate[];
+  modelValue: Crate[] | null;
 }>();
 
 const emit = defineEmits<{
-  'update:modelValue': [value: Crate[]];
+  'update:modelValue': [value: Crate[] | null];
 }>();
 
 const searchInput = ref('');
@@ -16,6 +16,11 @@ let debounceTimeout: ReturnType<typeof setTimeout> | null = null;
 watch(searchInput, async (newValue) => {
   if (debounceTimeout) {
     clearTimeout(debounceTimeout);
+  }
+
+  if (searchInput.value === '') {
+    emit('update:modelValue', null);
+    return;
   }
 
   if (!newValue || newValue.trim() === '') {

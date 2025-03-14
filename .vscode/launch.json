@@ -3,10 +3,10 @@
     {
       "type": "coreclr",
       "request": "launch",
-      "name": "Launch Backend",
-      "program": "${workspaceFolder}/backend/bin/Debug/net8.0/Cs2CaseOpener.dll",
+      "name": "Launch Cs2CaseOpener",
+      "program": "${workspaceFolder}/Cs2CaseOpener/bin/Debug/net8.0/Cs2CaseOpener.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/backend",
+      "cwd": "${workspaceFolder}/Cs2CaseOpener",
       "stopAtEntry": false,
       "preLaunchTask": "build"
     }

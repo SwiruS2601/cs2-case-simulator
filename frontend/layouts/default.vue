@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import 'assets/main.css';
 import { BACKGROUNDS } from '~/constants';
+import { useLayoutSeo } from '~/services/metaSeoService';
 
 useHead({
   htmlAttrs: {
@@ -15,26 +16,8 @@ useHead({
   ],
 });
 
-const title = 'CS2 Case Simulator';
-const description = 'Open Counter-Strike 2 cases for free in this case unboxing simulator.';
-
-useSeoMeta({
-  viewport: 'width=device-width, initial-scale=1.0',
-  title: title,
-  ogTitle: title,
-  description: description,
-  keywords: 'counter strike 2, cs2, case, opening, unboxing, simulator, skins',
-  themeColor: '#1a1c20',
-  ogDescription: description,
-  ogImage: 'https://case.oki.gg/preview.webp',
-  twitterCard: 'summary_large_image',
-  twitterTitle: title,
-  twitterDescription: description,
-  ogSiteName: title,
-  ogUrl: 'https://case.oki.gg',
-  ogType: 'website',
-  author: 'Oki',
-});
+// Apply layout SEO
+useLayoutSeo();
 </script>
 
 <template>
