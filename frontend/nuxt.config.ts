@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  css: ['~/assets/main.css'],
+  css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
   },
@@ -17,17 +17,17 @@ export default defineNuxtConfig({
     name: 'CS2 Case Simulator',
   },
   nitro: {
-    preset: 'bun',
+    preset: 'node-server',
     prerender: {
       crawlLinks: true,
     },
   },
   routeRules: {
-    '/': { prerender: true },
-    '/stickers': { prerender: true },
-    '/souvenirs': { prerender: true },
-    '/autographs': { prerender: true },
-    '/crate/**': { prerender: true },
+    '/': { isr: 86400 },
+    '/stickers': { isr: 86400 },
+    '/souvenirs': { isr: 86400 },
+    '/autographs': { isr: 86400 },
+    '/crate/**': { isr: 86400 },
     '/inventory': { prerender: true },
   },
   runtimeConfig: {

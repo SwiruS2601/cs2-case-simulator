@@ -1,27 +1,24 @@
-FROM oven/bun:1 AS base
+ARG NODE_VERSION=22.14.0
+
+FROM node:${NODE_VERSION}-slim AS build
+
+WORKDIR /app
+COPY ./package.json /app/
+RUN npm install
+COPY . ./
+
+RUN npm run build
+
+FROM node:${NODE_VERSION}-slim
+
 WORKDIR /app
 
-FROM base AS install
-RUN mkdir -p /temp/dev
-COPY package.json bun.lock /temp/dev/
-RUN cd /temp/dev && bun install --frozen-lockfile
-
-RUN mkdir -p /temp/prod
-COPY package.json bun.lock /temp/prod/
-RUN cd /temp/prod && bun install --frozen-lockfile --production
-
-FROM base AS prerelease
-COPY --from=install /temp/dev/node_modules node_modules
-COPY . .
-
-ENV NODE_ENV=production
-RUN bun test
-RUN bun run build
-
-FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /app/.output  /app/.output
+COPY --from=build /app/.output ./
 
 ENV NITRO_PORT=5173
+ENV NITRO_HOST=0.0.0.0
+ENV NODE_ENV=production
+
 EXPOSE 5173
-CMD [ "bun", "run", ".output/server/index.mjs" ]
+
+CMD ["node","/app/server/index.mjs"]

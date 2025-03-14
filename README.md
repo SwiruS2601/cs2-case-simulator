@@ -8,7 +8,7 @@ This is a case opening simulator for cs2, it uses the same probabilities as the 
 
 - **Backend:** ASP.NET Core, C#
 - **Database:** PostgreSQL
-- **Frontend:** Nuxt, Vue, Bun, TypeScript, Tailwind CSS
+- **Frontend:** Nuxt, Vue, TypeScript, Tailwind CSS
 
 ## Uses an image optimizer I built as well
 

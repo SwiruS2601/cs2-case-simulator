@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import 'assets/main.css';
+import '~/assets/css/main.css';
 import { BACKGROUNDS } from '~/constants';
 import { useLayoutSeo } from '~/services/metaSeoService';
 
@@ -16,7 +16,6 @@ useHead({
   ],
 });
 
-// Apply layout SEO
 useLayoutSeo();
 </script>
 
@@ -24,7 +23,7 @@ useLayoutSeo();
   <main class="min-h-[calc(100vh+0.5px)]">
     <ClientOnly>
       <Image
-        :src="`${useRuntimeConfig().public.baseUrl}/backgrounds/${
+        :src="`${useRuntimeConfig().public.baseUrl}backgrounds/${
           BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)]
         }`"
         class="fixed inset-0 object-cover size-full -z-10"
@@ -53,12 +52,6 @@ dialog {
 body {
   background: #1a1c20;
 }
-/* 
-img {
-  display: block;
-  max-width: 100%;
-  user-select: none;
-} */
 
 .responsive-grid {
   display: grid;
