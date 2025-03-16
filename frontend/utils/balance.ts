@@ -1,6 +1,8 @@
 import type { Crate, Skin } from '../types';
 
 export function getSkinPrice(skin: Skin) {
+  if (!skin || !skin.prices) return 0;
+
   const foundSkin = skin.prices?.find((price) => price.wear_category === skin.wear_category);
   if (!foundSkin) return 0;
 

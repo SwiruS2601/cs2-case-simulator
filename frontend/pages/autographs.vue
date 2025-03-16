@@ -3,15 +3,9 @@ import CrateGrid from '~/components/CrateGrid.vue';
 import CrateNav from '~/components/CrateNav.vue';
 import SearchCrates from '~/components/SearchCrates.vue';
 import { useAutographPageSeo } from '~/services/metaSeoService';
-import type { Crate } from '~/types';
+import { useCrateList } from '~/composables/useCrateList';
 
-const { data } = await useFetch<Crate[]>(`${useRuntimeConfig().public.apiUrl}/api/crates/autographs`);
-const searchData = ref<Crate[] | null>(null);
-
-const crates = computed(() => {
-  if (searchData?.value) return searchData.value;
-  return data.value?.length ? data.value : [];
-});
+const { data, searchData, crates } = useCrateList('autographs');
 
 if (data.value) {
   useAutographPageSeo(data.value);

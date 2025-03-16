@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Crate } from '~/types';
+import Image from '~/components/Image.vue';
 defineProps<{
   crates: Crate[];
   imageHeight?: number;

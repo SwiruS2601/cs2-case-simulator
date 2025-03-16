@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxtjs/sitemap'],
+  modules: ['@pinia/nuxt', '@pinia/colada-nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxtjs/sitemap'],
   piniaPluginPersistedstate: {
     storage: 'localStorage',
   },
@@ -16,19 +16,19 @@ export default defineNuxtConfig({
     url: 'https://case.oki.gg',
     name: 'CS2 Case Simulator',
   },
-  nitro: {
-    preset: 'node-server',
-    prerender: {
-      crawlLinks: true,
-    },
+  sitemap: {
+    sources: ['/api/__sitemap__/urls'],
+    autoLastmod: true,
+    xsl: '/sitemap.xsl',
   },
   routeRules: {
-    '/': { isr: 86400 },
-    '/stickers': { isr: 86400 },
-    '/souvenirs': { isr: 86400 },
-    '/autographs': { isr: 86400 },
-    '/crate/**': { isr: 86400 },
+    '/': { swr: 86400 },
+    '/stickers': { swr: 86400 },
+    '/souvenirs': { swr: 86400 },
+    '/autographs': { swr: 86400 },
+    '/crate/**': { swr: 86400 },
     '/inventory': { prerender: true },
+    '/case/**': { redirect: '/' },
   },
   runtimeConfig: {
     public: {

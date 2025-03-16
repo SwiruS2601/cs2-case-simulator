@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useInventoryStore } from '~/composables/inventoryStore';
 import { RARITY_INDEX } from '~/constants';
+import { knivesAndGlovesSkinFilter } from '~/utils/sortAndfilters';
 
 const inventory = useInventoryStore();
 const selectedSort = ref('latest');
@@ -14,28 +15,31 @@ const selectOptions = [
 
 const sortedSkins = computed(() => {
   if (!inventory.skins || inventory.skins.length === 0) return [];
+
+  const skins = [...inventory.skins];
+
   switch (selectedSort.value) {
     case 'latest':
-      return [...inventory.skins].reverse();
+      return skins.reverse();
     case 'price':
-      return [...inventory.skins].sort((a, b) => getSkinPrice(b) - getSkinPrice(a));
+      return skins.sort((a, b) => getSkinPrice(b) - getSkinPrice(a));
     case 'name':
-      return [...inventory.skins].sort((a, b) => {
+      return skins.sort((a, b) => {
         const aName = a.name.split('|')[1] || a.name;
         const bName = b.name.split('|')[1] || b.name;
         return aName.localeCompare(bName);
       });
     case 'rarity':
-      return [...inventory.skins].sort((a, b) => {
-        const aIsYellow = knivesAndGlovesSkinFilter(a) || knivesAndGlovesSkinFilter(a);
-        const bIsYellow = knivesAndGlovesSkinFilter(b) || knivesAndGlovesSkinFilter(b);
+      return skins.sort((a, b) => {
+        const aIsSpecial = knivesAndGlovesSkinFilter(a);
+        const bIsSpecial = knivesAndGlovesSkinFilter(b);
         return (
-          RARITY_INDEX[bIsYellow ? 'exceedingly_rare' : b.rarity_id] -
-          RARITY_INDEX[aIsYellow ? 'exceedingly_rare' : a.rarity_id]
+          RARITY_INDEX[bIsSpecial ? 'exceedingly_rare' : b.rarity_id] -
+          RARITY_INDEX[aIsSpecial ? 'exceedingly_rare' : a.rarity_id]
         );
       });
     default:
-      return 0;
+      return skins;
   }
 });
 

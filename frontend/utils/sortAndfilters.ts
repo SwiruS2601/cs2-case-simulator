@@ -5,22 +5,23 @@ export function sortSkinByRarity(a: Skin, b: Skin) {
   return RARITY_INDEX[a.rarity_id] - RARITY_INDEX[b.rarity_id];
 }
 
-export function gunSkinFilter(skin: Skin) {
-  return !['★'].includes(skin.name[0]);
+export function gunSkinFilter(skin: Skin): boolean {
+  return !skin.name.startsWith('★');
 }
 
-export function knivesAndGlovesSkinFilter(skin: Skin) {
-  return !gunSkinFilter(skin);
+export function knivesAndGlovesSkinFilter(skin: Skin): boolean {
+  return skin.name.startsWith('★');
 }
 
-export function filterSkinsByOnlyKnives(skin: Skin) {
+export function filterSkinsByOnlyKnives(skin: Skin): boolean {
   return skin.name.includes('Knife');
 }
 
-export function filterSkinsByOnlyGloves(skin: Skin) {
-  return ['Glove', 'Wrap'].some((word) => skin.name.includes(word));
+export function filterSkinsByOnlyGloves(skin: Skin): boolean {
+  const gloveKeywords = ['Glove', 'Wrap'];
+  return gloveKeywords.some((word) => skin.name.includes(word));
 }
 
-export function sortSkinByName(a: Skin, b: Skin) {
+export function sortSkinByName(a: Skin, b: Skin): number {
   return a.name.localeCompare(b.name);
 }

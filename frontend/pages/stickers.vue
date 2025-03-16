@@ -3,15 +3,9 @@ import CrateGrid from '~/components/CrateGrid.vue';
 import CrateNav from '~/components/CrateNav.vue';
 import SearchCrates from '~/components/SearchCrates.vue';
 import { useStickerPageSeo } from '~/services/metaSeoService';
-import type { Crate } from '~/types';
+import { useCrateList } from '~/composables/useCrateList';
 
-const { data } = await useFetch<Crate[]>(`${useRuntimeConfig().public.apiUrl}/api/crates/stickers`);
-const searchData = ref<Crate[] | null>(null);
-
-const crates = computed(() => {
-  if (searchData?.value) return searchData.value;
-  return data.value?.length ? data.value : [];
-});
+const { data, searchData, crates } = useCrateList('stickers');
 
 if (data.value) {
   useStickerPageSeo(data.value);

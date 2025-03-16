@@ -3,7 +3,7 @@ using Cs2CaseOpener.Data;
 using Cs2CaseOpener.Interfaces;
 using Cs2CaseOpener.Models;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace Cs2CaseOpener.Services;
 
@@ -12,15 +12,17 @@ public class ApiScraper : IApiScraper
     private readonly ApplicationDbContext _dbContext;
     private readonly IByMykelDataService _dataService;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ILogger<ApiScraper> _logger;
     private readonly string[] ValidWears = ["Minimal Wear", "Field-Tested", "Battle-Scarred", "Well-Worn", "Factory New"];
     private readonly string[] AllowedTypes = ["Case", "Souvenir", "Sticker Capsule", "Autograph Capsule"];
     private const int BatchSize = 100;
 
-    public ApiScraper(ApplicationDbContext dbContext, IByMykelDataService dataService, IUnitOfWork unitOfWork)
+    public ApiScraper(ApplicationDbContext dbContext, IByMykelDataService dataService, IUnitOfWork unitOfWork, ILogger<ApiScraper> logger)
     {
         _dbContext = dbContext;
         _dataService = dataService;
         _unitOfWork = unitOfWork;
+        _logger = logger;
     }
 
     public async Task ScrapeApiAsync()
@@ -283,7 +285,8 @@ public class ApiScraper : IApiScraper
             await SavePriceBatchAsync(currentBatch);
         }
                 
-        Log.Information($"Price processing summary - Exact matches: {exactMatches}, Substring: {substringMatches}, Not Found: {noMatches}, Updated: {updatedPrices}, New: {newPrices}");
+        _logger.LogInformation("Price processing summary - Exact matches: {ExactMatches}, Substring: {SubstringMatches}, Not Found: {NoMatches}, Updated: {UpdatedPrices}, New: {NewPrices}", 
+            exactMatches, substringMatches, noMatches, updatedPrices, newPrices);
     }
 
     private async Task<(Price price, bool isNew)> GetOrCreateSkinPriceAsync(string skinId, string wear, string name, PriceDetailDto priceDetail)
@@ -329,7 +332,9 @@ public class ApiScraper : IApiScraper
         }
         
         await _unitOfWork.SaveChangesAsync();
-        Log.Information($"Crate prices processed - Updated: {updatedCrates}, New: {newCratePrices}");
+        
+        _logger.LogInformation("Crate prices processed - Updated: {UpdatedCrates}, New: {NewCratePrices}", 
+            updatedCrates, newCratePrices);
     }
 
     private async Task<bool> UpdateCratePriceAsync(string crateId, string name, PriceDetailDto priceDetail)
@@ -456,14 +461,14 @@ public class ApiScraper : IApiScraper
         }
         catch (DbUpdateException ex) when (ex.InnerException is Npgsql.PostgresException pgEx && pgEx.SqlState == "23505")
         {
-            Log.Warning("Duplicate key detected during price batch save: {Message}", ex.InnerException.Message);
+            _logger.LogWarning("Duplicate key detected during price batch save: {Message}", ex.InnerException.Message);
             
             _dbContext.ChangeTracker.Clear();
             batch.Clear();
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "Error saving price batch: {Message}", ex.Message);
+            _logger.LogError(ex, "Error saving price batch: {Message}", ex.Message);
             _dbContext.ChangeTracker.Clear();
             batch.Clear();
             throw;
@@ -473,19 +478,19 @@ public class ApiScraper : IApiScraper
     public async Task ScrapeApiWithMonitoringAsync()
     {
         var startTime = DateTime.UtcNow;
-        Log.Information("Starting API scrape at {Time}", startTime);
+        _logger.LogInformation("Starting API scrape at {Time}", startTime);
         
         try
         {
             await ScrapeApiAsync();
             
             var duration = DateTime.UtcNow - startTime;
-            Log.Information("API scrape completed successfully in {Duration}", duration);
+            _logger.LogInformation("API scrape completed successfully in {Duration}", duration);
         }
         catch (Exception ex)
         {
             var duration = DateTime.UtcNow - startTime;
-            Log.Error(ex, "API scrape failed after {Duration}: {Message}", duration, ex.Message);
+            _logger.LogError(ex, "API scrape failed after {Duration}: {Message}", duration, ex.Message);
             throw;
         }
     }

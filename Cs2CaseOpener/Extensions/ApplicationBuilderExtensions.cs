@@ -10,13 +10,14 @@ public static class ApplicationBuilderExtensions
 {
     public static WebApplicationBuilder ConfigureSerilog(this WebApplicationBuilder builder)
     {
+        builder.Logging.ClearProviders();
+        
         Log.Logger = new LoggerConfiguration()
             .ReadFrom.Configuration(builder.Configuration)
             .Enrich.FromLogContext()
-            .WriteTo.Console()
             .CreateLogger();
 
-        builder.Host.UseSerilog();
+        builder.Host.UseSerilog(dispose: true);
         
         return builder;
     }
@@ -29,6 +30,7 @@ public static class ApplicationBuilderExtensions
     public static WebApplication ConfigureMiddleware(this WebApplication app)
     {
         app.UseRequestLogging();
+        
         app.UseMiddleware<ExceptionMiddleware>();
         app.UseCors("AllowLocalhost");
 
@@ -56,8 +58,8 @@ public static class ApplicationBuilderExtensions
             var dbInitializer = services.GetRequiredService<DatabaseInitializationService>();
             await dbInitializer.InitializeAsync();
             
-            var apiScraper = services.GetRequiredService<IApiScraper>();
-            await apiScraper.ScrapeApiAsync();
+            // var apiScraper = services.GetRequiredService<IApiScraper>();
+            // await apiScraper.ScrapeApiAsync();
         }
         catch (Exception ex)
         {
