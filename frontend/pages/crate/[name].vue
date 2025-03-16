@@ -31,6 +31,7 @@ const {
   handleBack,
   handleCloseWonSkinView,
   toggleAutoOpen,
+  toggleQuickOpen,
   handleCaseOpeningFinished,
 } = useCrateOpening(crate);
 
@@ -119,7 +120,7 @@ onUnmounted(() => {
       @close="handleBack"
       @open-again="handleOpenCase"
       @toggle-auto-open="toggleAutoOpen"
-      @quick-open-toggle="optionsStore.toggleQuickOpen"
+      @quick-open-toggle="toggleQuickOpen"
     />
   </div>
 </template>

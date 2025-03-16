@@ -103,6 +103,17 @@ export function useCrateOpening(crate: ShallowRef<Crate | undefined>) {
     autoOpen.value = !autoOpen.value;
   };
 
+  const toggleQuickOpen = () => {
+    optionsStore.toggleQuickOpen();
+    if (autoOpen.value) {
+      autoOpen.value = false;
+      if (autoOpenInterval) {
+        clearInterval(autoOpenInterval);
+        autoOpenInterval = null;
+      }
+    }
+  };
+
   watch(autoOpen, (newVal) => {
     if (newVal) {
       autoOpenInterval = setInterval(() => {
@@ -138,5 +149,6 @@ export function useCrateOpening(crate: ShallowRef<Crate | undefined>) {
     handleBack,
     handleCloseWonSkinView,
     toggleAutoOpen,
+    toggleQuickOpen,
   };
 }
