@@ -44,9 +44,9 @@ watch(searchInput, async (newValue) => {
 
 <template>
   <input
+    v-model="searchInput"
     type="text"
     placeholder="Search..."
     class="w-full p-2 border border-black/20 bg-black/30 rounded-lg px-4 flex text-white placeholder:text-white/80"
-    v-model="searchInput"
   />
 </template>

@@ -13,7 +13,7 @@ export const crateOpeningService = {
 };
 
 function getWinningSkin(crate: Crate, odds: Odds) {
-    let wonSkin = getRandomSkinByOdds(crate, odds);
+    const wonSkin = getRandomSkinByOdds(crate, odds);
     return { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) }; // Vue doesnt like mutating proxy objects
 }
 
@@ -33,7 +33,7 @@ function getRandomSkinByOdds(crate: Crate, odds: Odds): Skin {
     const skins = crate.skins;
     if (!skins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
-    let oddsToUse = { ...odds };
+    const oddsToUse = { ...odds };
 
     if (crate.type === 'Souvenir' || crate.type.includes('Capsule')) {
         delete oddsToUse.exceedingly_rare;
@@ -47,7 +47,7 @@ function getRandomSkinByOdds(crate: Crate, odds: Odds): Skin {
 
     for (const skin of skins) {
         for (const [category, rarities] of Object.entries(ODDS_TO_RARITY)) {
-            if (rarities.includes(skin.rarity_id as any)) {
+            if (rarities.includes(skin.rarity_id)) {
                 skinsByCategory[category].push(skin);
                 break;
             }

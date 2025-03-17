@@ -11,11 +11,11 @@ const props = withDefaults(
 
 <template>
   <svg
+    id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     :fill="props.fill"
     version="1.1"
-    id="Capa_1"
     width="800px"
     height="800px"
     viewBox="0 0 340.274 340.274"

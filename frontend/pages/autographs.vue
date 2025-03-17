@@ -16,9 +16,9 @@ if (data.value) {
     <Container>
         <h1 class="text-xl pb-4">Counter-Strike 2 Autograph Capsules</h1>
         <div class="flex gap-4 flex-col">
-            <SearchCrates v-model="searchData" />
-            <CrateNav activeLink="Autographs" />
+            <SearchCrates v-model="searchData" ></SearchCrates>
+            <CrateNav active-link="Autographs" ></CrateNav>
         </div>
-        <CrateGrid v-bind="{ crates }" />
+        <CrateGrid v-bind="{ crates }" ></CrateGrid>
     </Container>
 </template>

@@ -92,7 +92,7 @@ onMounted(() => {
     <Container>
         <div class="flex justify-between items-center flex-wrap gap-4 pb-5">
             <div class="flex gap-4 items-center flex-wrap">
-                <Backbutton />
+                <BackButton></BackButton>
                 <div class="flex flex-col">
                     <label for="inventory-sort" class="sr-only">Sort inventory by</label>
                     <select
@@ -113,7 +113,7 @@ onMounted(() => {
                 </div>
             </div>
 
-            <Button @click="handleReset" variant="danger">Reset</Button>
+            <Button variant="danger" @click="handleReset">Reset</Button>
         </div>
 
         <div class="my-4 flex justify-between items-center">
@@ -121,17 +121,17 @@ onMounted(() => {
 
             <div v-if="pagination.totalPages > 1" class="flex gap-2 items-center">
                 <Button
-                    @click="prevPage"
                     :disabled="currentPage <= 1"
                     :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
+                    @click="prevPage"
                 >
                     Previous
                 </Button>
                 <span class="text-white/90"> {{ currentPage }} / {{ pagination.totalPages }} </span>
                 <Button
-                    @click="nextPage"
                     :disabled="currentPage >= pagination.totalPages"
                     :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
+                    @click="nextPage"
                 >
                     Next
                 </Button>
@@ -142,7 +142,7 @@ onMounted(() => {
             <div v-if="isLoading"></div>
 
             <div v-else-if="items.length > 0">
-                <InventoryGrid :items="items" inventoryView />
+                <InventoryGrid :items="items" inventory-view></InventoryGrid>
             </div>
 
             <div v-else class="text-center py-10">
@@ -152,17 +152,17 @@ onMounted(() => {
 
         <div v-if="pagination.totalPages > 1" class="mt-4 flex justify-center gap-2 items-center">
             <Button
-                @click="prevPage"
                 :disabled="currentPage <= 1"
                 :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
+                @click="prevPage"
             >
                 Previous
             </Button>
             <span class="text-white/90"> {{ currentPage }} / {{ pagination.totalPages }} </span>
             <Button
-                @click="nextPage"
                 :disabled="currentPage >= pagination.totalPages"
                 :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
+                @click="nextPage"
             >
                 Next
             </Button>

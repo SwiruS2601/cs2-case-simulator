@@ -65,16 +65,16 @@ const toggleQuickOpen = () => {
                 <div class="flex flex-wrap gap-4 justify-center sm:justify-normal">
                     <Button @click="handleBack">Close</Button>
                     <Button size="icon" @click="optionsStore.toggleSound">
-                        <MuteIcon v-if="!optionsStore.soundOn" fill="#fb2c36" class="size-5" />
-                        <SoundIcon v-if="optionsStore.soundOn" fill="#f0f0f0" class="size-5" />
+                        <MuteIcon v-if="!optionsStore.soundOn" fill="#fb2c36" class="size-5" ></MuteIcon>
+                        <SoundIcon v-if="optionsStore.soundOn" fill="#f0f0f0" class="size-5" ></SoundIcon>
                     </Button>
                     <Button
+                        v-if="optionsStore.quickOpen"
                         :style="{ border: autoOpen ? '1px solid #05df72' : '1px solid #0000001a' }"
                         size="icon"
-                        v-if="optionsStore.quickOpen"
                         @click="toggleAutoOpen"
                     >
-                        <AutomaticIcon :fill="autoOpen ? '#05df72' : '#f0f0f0'" class="size-6" />
+                        <AutomaticIcon :fill="autoOpen ? '#05df72' : '#f0f0f0'" class="size-6" ></AutomaticIcon>
                     </Button>
                     <Button
                         :style="{
@@ -85,7 +85,7 @@ const toggleQuickOpen = () => {
                         @click="toggleQuickOpen"
                     >
                         Quick Open
-                        <CheckMarkIcon v-if="optionsStore.quickOpen" class="size-5 ml-2" />
+                        <CheckMarkIcon v-if="optionsStore.quickOpen" class="size-5 ml-2" ></CheckMarkIcon>
                     </Button>
                     <Button
                         :variant="autoOpen ? 'danger' : 'success'"

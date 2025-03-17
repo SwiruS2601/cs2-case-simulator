@@ -1,4 +1,4 @@
-import { describe, test, expect, beforeEach, vi } from 'vitest';
+import { describe, test, expect, beforeEach } from 'vitest';
 import { crateOpeningService } from '../services/crateOpeningService';
 import galleryCase from './mocks/galleryCase.json';
 import revolutionCase from './mocks/revolutionCase.json';
@@ -28,7 +28,7 @@ beforeEach(() => {
 });
 
 describe('Crate Opening Service Probability Tests', () => {
-    function runSimulations(crate: Crate, odds: Record<string, number>, iterations = 100000) {
+    function runSimulations(crate: Crate, odds: Record<string, number>, iterations = 200000) {
         const results: Record<string, number> = {};
 
         for (let i = 0; i < iterations; i++) {
@@ -73,7 +73,7 @@ describe('Crate Opening Service Probability Tests', () => {
     describe('Gallery Case tests', () => {
         test('should distribute rarities according to odds', () => {
             const results = runSimulations(galleryCaseData, ODDS);
-            verifyOddsDistribution(results, ODDS, RARITY_MAP, 100000);
+            verifyOddsDistribution(results, ODDS, RARITY_MAP, 200000);
         });
 
         test('should select skins within appropriate rarity', () => {
@@ -93,7 +93,7 @@ describe('Crate Opening Service Probability Tests', () => {
     describe('Revolution Case tests', () => {
         test('should distribute rarities according to odds', () => {
             const results = runSimulations(revolutionCaseData, ODDS);
-            verifyOddsDistribution(results, ODDS, RARITY_MAP, 100000);
+            verifyOddsDistribution(results, ODDS, RARITY_MAP, 200000);
         });
 
         test('should select skins within appropriate rarity', () => {
@@ -110,7 +110,7 @@ describe('Crate Opening Service Probability Tests', () => {
     describe('Shanghai Souvenir tests', () => {
         test('should distribute rarities according to odds', () => {
             const results = runSimulations(shanghaiSouvenirData, ODDS);
-            verifyOddsDistribution(results, ODDS, RARITY_MAP, 100000);
+            verifyOddsDistribution(results, ODDS, RARITY_MAP, 200000);
         });
 
         test('should select skins within appropriate rarity', () => {
@@ -127,7 +127,7 @@ describe('Crate Opening Service Probability Tests', () => {
     describe('Shanghai Sticker Capsule tests', () => {
         test('should distribute rarities according to odds', () => {
             const results = runSimulations(shanghaiStickerCapsuleData, ODDS);
-            verifyOddsDistribution(results, ODDS, RARITY_MAP, 100000);
+            verifyOddsDistribution(results, ODDS, RARITY_MAP, 200000);
         });
 
         test('should select skins within appropriate rarity', () => {
@@ -143,7 +143,7 @@ describe('Crate Opening Service Probability Tests', () => {
 
     describe('Edge cases', () => {
         test('should handle custom odds', () => {
-            const customOdds = { ...ODDS } as any;
+            const customOdds = { ...ODDS };
             const weights = [50, 30, 15, 4, 1];
             const total = weights.reduce((sum, w) => sum + w, 0);
 
@@ -165,7 +165,7 @@ describe('Crate Opening Service Probability Tests', () => {
 
     describe('Distribution visualization', () => {
         test('should log rarity distribution statistics for all cases', () => {
-            const iterations = 100000;
+            const iterations = 200000;
             const cases = [
                 { name: 'Gallery Case', data: galleryCaseData },
                 { name: 'Revolution Case', data: revolutionCaseData },
@@ -210,7 +210,7 @@ describe('Crate Opening Service Probability Tests', () => {
     });
 
     test('should verify exceedingly rare drop rates', () => {
-        const highIterations = 100000;
+        const highIterations = 200000;
         const cases = [
             { name: 'Gallery Case', data: galleryCaseData },
             { name: 'Revolution Case', data: revolutionCaseData },

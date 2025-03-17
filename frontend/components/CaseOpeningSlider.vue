@@ -127,7 +127,7 @@ onMounted(() => {
           :style="{ transform: backgroundTransform }"
         >
           <div v-for="(skin, index) in props.skins" :key="index" class="sm:w-64 w-40 h-32 sm:h-48 flex-shrink-0 px-2">
-            <SliderItem :skin="skin" />
+            <SliderItem :skin="skin" ></SliderItem>
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@ onMounted(() => {
           :style="{ transform: magnifiedTransform }"
         >
           <div v-for="(skin, index) in props.skins" :key="index" class="sm:w-64 w-40 h-32 sm:h-48 flex-shrink-0 px-2">
-            <SliderItem :skin="skin" />
+            <SliderItem :skin="skin" ></SliderItem>
           </div>
         </div>
       </div>

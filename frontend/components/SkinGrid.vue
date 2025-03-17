@@ -18,13 +18,13 @@ const getSkinKey = (skin: Skin, index: number) => {
             <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
                 <div class="border-b-5 relative p-1 rounded-[5px]" :style="{ borderColor: getItemRarityColor(skin) }">
                     <Image
+                        :key="getSkinKey(skin, i) + '-img'"
                         :width="160"
                         :height="120"
                         :src="skin?.image ?? '/images/placeholder.webp'"
                         :alt="skin?.name"
-                        className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
-                        :key="getSkinKey(skin, i) + '-img'"
-                    />
+                        class-name="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
+                    ></Image>
 
                     <span
                         v-if="getItemPrice(skin) > 0"

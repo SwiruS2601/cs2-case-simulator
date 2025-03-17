@@ -26,7 +26,7 @@ defineProps<{
           :alt="`${crate.name} - CS2 Case`"
           :width="128"
           :height="97"
-        />
+        ></Image>
       </div>
     </NuxtLink>
   </div>

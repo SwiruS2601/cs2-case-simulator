@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useInventoryStore } from '~/composables/inventoryStore';
 import Button from './Button.vue';
+defineOptions({ name: 'NavigationBar' });
 const inventory = useInventoryStore();
 </script>
 

@@ -14,7 +14,9 @@ export default defineNuxtConfig({
         'pinia-plugin-persistedstate/nuxt',
         '@nuxtjs/sitemap',
         '@nuxt/test-utils/module',
+        '@nuxt/eslint',
     ],
+    eslint: {},
     piniaPluginPersistedstate: {
         storage: 'localStorage',
     },

@@ -31,10 +31,10 @@ useLayoutSeo();
         fetchpriority="high"
         :width="1280"
         :height="720"
-      />
+      ></Image>
     </ClientOnly>
-    <div class="fixed inset-0 object-cover size-full z-0 backdrop-blur-xs" />
-    <Nav />
-    <slot />
+    <div class="fixed inset-0 object-cover size-full z-0 backdrop-blur-xs" ></div>
+    <Nav ></Nav>
+    <slot ></slot>
   </main>
 </template>

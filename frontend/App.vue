@@ -4,7 +4,7 @@ import '~/assets/css/main.css';
 
 <template>
   <NuxtLayout>
-    <NuxtPage />
+    <NuxtPage ></NuxtPage>
   </NuxtLayout>
 </template>
 

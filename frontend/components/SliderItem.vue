@@ -4,7 +4,7 @@ import { getItemRarityColor } from '../utils/color';
 import rareSpecial from '../assets/images/rare_special.png';
 import { knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
 
-const props = defineProps<{
+defineProps<{
     skin: Skin;
 }>();
 </script>

@@ -65,8 +65,8 @@ onUnmounted(() => {
         <Container v-if="!crateOpeningStore.isOpeningCase && !showWonSkin && crate">
             <h1 class="text-xl pb-4">{{ crate?.name }}</h1>
             <div class="flex gap-4 flex-wrap items-center">
-                <Backbutton />
-                <Button variant="success" @click="handleOpenCase" :disabled="crateOpeningStore.isOpeningCase">
+                <BackButton></BackButton>
+                <Button variant="success" :disabled="crateOpeningStore.isOpeningCase" @click="handleOpenCase">
                     Unlock Container
                 </Button>
                 <Image
@@ -74,29 +74,29 @@ onUnmounted(() => {
                     :height="96"
                     :src="crate?.image"
                     :alt="crate?.name"
-                    className="h-10 sm:h-11 w-auto"
-                />
+                    class-name="h-10 sm:h-11 w-auto"
+                ></Image>
             </div>
 
-            <SkinGrid v-if="guns.length" :skins="guns" class="mt-6" />
+            <SkinGrid v-if="guns.length" :skins="guns" class="mt-6"></SkinGrid>
 
-            <Button v-if="knivesAndGloves.length" @click="optionsStore.toggleShowKnivesAndGloves" class="mt-8">
+            <Button v-if="knivesAndGloves.length" class="mt-8" @click="optionsStore.toggleShowKnivesAndGloves">
                 {{ optionsStore.showKnivesAndGloves ? 'Hide' : 'Show' }} Knives & Gloves
             </Button>
 
             <SkinGrid
-                class="mt-6"
                 v-if="knivesAndGloves.length && optionsStore.showKnivesAndGloves"
+                class="mt-6"
                 :skins="knivesAndGloves"
-            />
+            ></SkinGrid>
         </Container>
 
         <div
             v-if="(showWonSkin && wonSkin) || crateOpeningStore.isOpeningCase"
             class="max-w-5xl px-4 py-4 mx-auto relative z-100 flex gap-4"
         >
-            <Button class="flex items-center gap-2" @click="handleBack"><BackIcon /> Back </Button>
-            <CountOpened />
+            <Button class="flex items-center gap-2" @click="handleBack"><BackIcon></BackIcon> Back </Button>
+            <CountOpened></CountOpened>
         </div>
 
         <div
@@ -107,9 +107,9 @@ onUnmounted(() => {
                 <CaseOpeningSlider
                     :crate="crate"
                     :skins="crateSliderSkins"
-                    :wonSkinIndex="wonSkinIndex"
+                    :won-skin-index="wonSkinIndex"
                     @finished="handleCaseOpeningFinished"
-                />
+                ></CaseOpeningSlider>
             </div>
         </div>
 
@@ -123,7 +123,7 @@ onUnmounted(() => {
             @open-again="handleOpenCase"
             @toggle-auto-open="toggleAutoOpen"
             @quick-open-toggle="toggleQuickOpen"
-        />
+        ></WonSkinDisplay>
     </div>
 </template>
 

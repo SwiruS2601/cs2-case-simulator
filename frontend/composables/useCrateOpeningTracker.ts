@@ -1,4 +1,4 @@
-import type { Crate, Rarity, Skin } from '~/types';
+import type { Crate, Skin } from '~/types';
 import { getClientId } from '~/utils/clientId';
 
 type CrateOpeningEntry = {

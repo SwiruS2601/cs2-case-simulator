@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import type { InventoryItem } from '~/services/inventoryDb';
-import type { Skin } from '../types';
-import { getItemPrice } from '../utils/balance';
 import Image from './Image.vue';
 const props = defineProps<{
     items: InventoryItem[];
@@ -19,13 +17,13 @@ const getSkinKey = (item: InventoryItem, index: number) => {
             <div class="bg-black/30 rounded-md duration-75 hover:shadow-xl border border-black/10">
                 <div class="border-b-5 relative p-1 rounded-[5px]" :style="{ borderColor: getItemRarityColor(item) }">
                     <Image
+                        :key="getSkinKey(item, i) + '-img'"
                         :width="160"
                         :height="120"
                         :src="item?.image ?? '/images/placeholder.webp'"
                         :alt="item?.name"
-                        className="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
-                        :key="getSkinKey(item, i) + '-img'"
-                    />
+                        class-name="transition-transform duration-75 hover:scale-[133%] p-0 m-0"
+                    ></Image>
 
                     <span
                         v-if="item.price && item.price > 0"

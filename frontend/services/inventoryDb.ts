@@ -123,7 +123,7 @@ async function getItems({
 
     const totalCount = await db.count('items');
 
-    let items: InventoryDB['items']['value'][] = [];
+    const items: InventoryDB['items']['value'][] = [];
 
     switch (sortBy) {
         case 'latest': {
@@ -171,7 +171,7 @@ async function getItems({
             break;
         }
 
-        case 'price':
+        case 'price': {
             const index = db.transaction('items').store.index('by-price');
             let cursor = await index.openCursor(null, 'prev');
 
@@ -184,6 +184,7 @@ async function getItems({
                 cursor = await cursor.continue();
             }
             break;
+        }
     }
 
     return {
