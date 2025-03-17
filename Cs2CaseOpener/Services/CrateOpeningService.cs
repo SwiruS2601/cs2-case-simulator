@@ -13,9 +13,7 @@ public class CrateOpeningService : BackgroundService
     private readonly ILogger<CrateOpeningService> _logger;
     private readonly TimeSpan _flushInterval = TimeSpan.FromSeconds(10);
     private readonly int _batchSize = 100;
-    private static DateTime _lastCountUpdate = DateTime.MinValue;
-    private static int _cachedTotalCount = 0;
-    private static readonly SemaphoreSlim _cacheLock = new SemaphoreSlim(1, 1);
+    private static readonly SemaphoreSlim _counterSemaphore = new(1, 1);
 
     public CrateOpeningService(
         IServiceScopeFactory scopeFactory,
@@ -25,30 +23,16 @@ public class CrateOpeningService : BackgroundService
         _logger = logger;
     }
 
-    public async Task<int> GetTotalOpeningCountAsync()
+    public async Task<long> GetTotalOpeningCountAsync()
     {
-        if (DateTime.UtcNow - _lastCountUpdate > TimeSpan.FromSeconds(30))
-        {
-            await _cacheLock.WaitAsync();
-            try
-            {
-                if (DateTime.UtcNow - _lastCountUpdate > TimeSpan.FromSeconds(30))
-                {
-                    using (var scope = _scopeFactory.CreateScope())
-                    {
-                        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                        _cachedTotalCount = await dbContext.CrateOpenings.CountAsync();
-                        _lastCountUpdate = DateTime.UtcNow;
-                    }
-                }
-            }
-            finally
-            {
-                _cacheLock.Release();
-            }
-        }
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         
-        return _cachedTotalCount;
+        var counter = await dbContext.CounterStats
+            .AsNoTracking()
+            .FirstOrDefaultAsync(c => c.Name == "TotalOpenings");
+            
+        return counter?.Value ?? 0;
     }
 
     public void TrackOpening(CrateOpening opening)
@@ -59,7 +43,7 @@ public class CrateOpeningService : BackgroundService
             dbContext.CrateOpenings.Add(opening);
             dbContext.SaveChanges();
             
-            Interlocked.Increment(ref _cachedTotalCount);
+            IncrementOpeningCounter(1);
         }
     }
 
@@ -68,11 +52,35 @@ public class CrateOpeningService : BackgroundService
         using (var scope = _scopeFactory.CreateScope())
         {
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            var count = 0;
+            
             dbContext.CrateOpenings.AddRange(openings);
             dbContext.SaveChanges();
             
-            Interlocked.Add(ref _cachedTotalCount, openings.Count());
+            foreach (var _ in openings)
+            {
+                count++;
+            }
+            
+            IncrementOpeningCounter(count);
         }
+    }
+
+    public void TrackOpeningBatch(IEnumerable<CrateOpening> openings)
+    {
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var count = 0;
+        
+        dbContext.CrateOpenings.AddRange(openings);
+        dbContext.SaveChanges();
+        
+        foreach (var _ in openings)
+        {
+            count++;
+        }
+        
+        IncrementOpeningCounter(count);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -122,6 +130,8 @@ public class CrateOpeningService : BackgroundService
             dbContext.CrateOpenings.AddRange(batch);
             await unitOfWork.SaveChangesAsync();
             dbContext.ChangeTracker.Clear();
+            
+            await IncrementOpeningCounterAsync(batch.Count);
         }
         catch (Exception ex)
         {
@@ -131,4 +141,96 @@ public class CrateOpeningService : BackgroundService
         }
     }
 
+    public async Task IncrementOpeningCounterAsync(int count)
+    {
+        await _counterSemaphore.WaitAsync();
+        try
+        {
+            using var scope = _scopeFactory.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            
+            var counter = await dbContext.CounterStats
+                .FirstOrDefaultAsync(c => c.Name == "TotalOpenings");
+                
+            if (counter == null)
+            {
+                counter = new CounterStat 
+                { 
+                    Name = "TotalOpenings", 
+                    Value = count,
+                    LastUpdated = DateTime.UtcNow
+                };
+                dbContext.CounterStats.Add(counter);
+            }
+            else
+            {
+                counter.Value += count;
+                counter.LastUpdated = DateTime.UtcNow;
+            }
+            
+            await dbContext.SaveChangesAsync();
+        }
+        finally
+        {
+            _counterSemaphore.Release();
+        }
+    }
+    
+    public void IncrementOpeningCounter(int count)
+    {
+        _counterSemaphore.Wait();
+        try
+        {
+            using var scope = _scopeFactory.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            
+            var counter = dbContext.CounterStats
+                .FirstOrDefault(c => c.Name == "TotalOpenings");
+                
+            if (counter == null)
+            {
+                counter = new CounterStat 
+                { 
+                    Name = "TotalOpenings", 
+                    Value = count,
+                    LastUpdated = DateTime.UtcNow
+                };
+                dbContext.CounterStats.Add(counter);
+            }
+            else
+            {
+                counter.Value += count;
+                counter.LastUpdated = DateTime.UtcNow;
+            }
+            
+            dbContext.SaveChanges();
+        }
+        finally
+        {
+            _counterSemaphore.Release();
+        }
+    }
+
+    public async Task InitializeCounterAsync()
+    {
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        
+        if (!await dbContext.CounterStats.AnyAsync(c => c.Name == "TotalOpenings"))
+        {
+            _logger.LogInformation("Initializing counter from database count");
+            var count = await dbContext.CrateOpenings.CountAsync();
+            _logger.LogInformation($"Found {count} existing openings");
+            
+            var counter = new CounterStat
+            {
+                Name = "TotalOpenings",
+                Value = count,
+                LastUpdated = DateTime.UtcNow
+            };
+            
+            dbContext.CounterStats.Add(counter);
+            await dbContext.SaveChangesAsync();
+        }
+    }
 }

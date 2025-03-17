@@ -40,45 +40,13 @@ public class CrateOpeningController : ControllerBase
     {
         try
         {
-            int totalCount = await _crateOpeningService.GetTotalOpeningCountAsync();
+            long totalCount = await _crateOpeningService.GetTotalOpeningCountAsync();
             return Ok(new { totalCount });
         }
         catch (Exception ex)
         {
             return StatusCode(500, "Failed to retrieve opening count: " + ex.Message);
         }
-    }
-
-    [HttpPost]
-    public IActionResult TrackOpening([FromHeader(Name = "Authorization")] string authHeader, CrateOpeningRequest request)
-    {
-        if (!IsAuthorized(authHeader))
-        {
-            return Unauthorized();
-        }
-
-        if (string.IsNullOrEmpty(request.CrateId) || string.IsNullOrEmpty(request.SkinId) || string.IsNullOrEmpty(request.ClientId))
-            return BadRequest("CrateId, SkinId and ClientId are required");
-
-        var clientIp = HttpContext.Request.Headers["CF-Connecting-IP"].FirstOrDefault() ??
-            HttpContext.Connection.RemoteIpAddress?.ToString();
-            
-        var opening = new CrateOpening
-        {
-            CrateId = request.CrateId,
-            SkinId = request.SkinId,
-            ClientId = request.ClientId,
-            ClientIp = clientIp,
-            Rarity = request.Rarity,
-            WearCategory = request.WearCategory,
-            CrateName = request.CrateName,
-            SkinName = request.SkinName,
-            OpenedAt = DateTimeOffset.FromUnixTimeMilliseconds(request.Timestamp).UtcDateTime
-
-        };
-
-        _crateOpeningService.TrackOpening(opening);
-        return Ok();
     }
 
     [HttpPost("batch")]
@@ -98,6 +66,7 @@ public class CrateOpeningController : ControllerBase
         var clientIp = HttpContext.Request.Headers["CF-Connecting-IP"].FirstOrDefault() ??
             HttpContext.Connection.RemoteIpAddress?.ToString();
 
+        var openings = new List<CrateOpening>(request.Openings.Count);
         foreach (var item in request.Openings)
         {
             var opening = new CrateOpening
@@ -112,9 +81,11 @@ public class CrateOpeningController : ControllerBase
                 SkinName = item.SkinName,
                 OpenedAt = DateTimeOffset.FromUnixTimeMilliseconds(item.Timestamp).UtcDateTime
             };
-
-            _crateOpeningService.TrackOpening(opening);
+            
+            openings.Add(opening);
         }
+        
+        _crateOpeningService.TrackOpeningBatch(openings);
         
         return Ok(new { ProcessedCount = request.Openings.Count });
     }

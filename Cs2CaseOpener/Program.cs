@@ -10,5 +10,6 @@ var app = builder.Build();
 app.ConfigureMiddleware();
 
 await app.InitializeDatabaseAsync();
+await app.InitializeCountersAsync();
 
 app.Run();

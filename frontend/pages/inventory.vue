@@ -158,7 +158,7 @@ onMounted(() => {
             class="mb-4 flex justify-between items-center flex-col sm:flex-row sm:gap-4"
         >
             <div
-                class="flex gap-x-2 items-center bg-white/10 border border-black/15 rounded-lg py-1 px-2 mr-auto mt-auto flex-wrap"
+                class="flex gap-x-2 items-center bg-white/15 border border-black/15 rounded-lg py-1 px-2 mr-auto mt-auto flex-wrap"
             >
                 <div
                     v-for="stat in rarityStats"
@@ -166,12 +166,12 @@ onMounted(() => {
                     class="flex font-semibold items-center drop-shadow-2xl gap-x-1"
                     :style="{ color: stat.color, textShadow: '0 1px 1px black' }"
                 >
-                    <span class="text-base sm:text-lg"> ({{ stat.count }}) </span>
-                    <span class="text-base sm:text-lg"> {{ stat.percent }}% </span>
+                    <span class="text-sm"> {{ stat.percent }}% </span>
+                    <span class="text-sm font-bold"> ({{ stat.count }}) </span>
                 </div>
             </div>
             <div
-                class="flex flex-wrap gap-4 items-center sm:mt-auto sm:mb-0 mt-4 mb-2 justify-between sm:justify-normal w-full sm:w-auto"
+                class="flex flex-wrap sm:flex-nowrap gap-4 items-center sm:mt-auto sm:mb-0 mt-4 mb-2 justify-between sm:justify-normal w-full sm:w-auto"
             >
                 <div class="flex flex-col">
                     <label for="inventory-sort" class="sr-only">Sort inventory by</label>

@@ -2,7 +2,7 @@ using Cs2CaseOpener.Middleware;
 using Cs2CaseOpener.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using Cs2CaseOpener.Interfaces;
+using Cs2CaseOpener.Services;
 
 namespace Cs2CaseOpener.Extensions;
 
@@ -68,4 +68,26 @@ public static class ApplicationBuilderExtensions
             throw;
         }
     }
+
+    public static async Task InitializeCountersAsync(this WebApplication app)
+{
+    using var scope = app.Services.CreateScope();
+    var services = scope.ServiceProvider;
+    
+    try
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogInformation("Initializing crate opening counter...");
+        
+        var crateOpeningService = services.GetRequiredService<CrateOpeningService>();
+        await crateOpeningService.InitializeCounterAsync();
+        
+        logger.LogInformation("Crate opening counter initialized successfully");
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while initializing the crate opening counter");
+    }
+}
 }
