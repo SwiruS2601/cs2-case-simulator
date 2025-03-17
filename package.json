@@ -1,0 +1,7 @@
+{
+    "name": "cs2-case-unboxer",
+    "private": true,
+    "devDependencies": {
+        "husky": "^9.1.7"
+    }
+}
