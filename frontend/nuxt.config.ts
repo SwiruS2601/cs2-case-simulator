@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     },
     $development: {
         runtimeConfig: {
+            apiSecret: import.meta.env.NUXT_API_SECRET,
             public: {
                 apiUrl: 'http://localhost:5015',
             },
@@ -51,6 +52,7 @@ export default defineNuxtConfig({
     },
     $production: {
         runtimeConfig: {
+            apiSecret: import.meta.env.NUXT_API_SECRET,
             public: {
                 apiUrl: 'https://caseapi.oki.gg',
             },

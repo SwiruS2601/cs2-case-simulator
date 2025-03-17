@@ -14,8 +14,7 @@ export const crateOpeningService = {
 
 function getWinningSkin(crate: Crate, odds: Odds) {
     let wonSkin = getRandomSkinByOdds(crate, odds);
-    wonSkin = { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) }; // Vue doesnt like mutating proxy objects
-    return wonSkin;
+    return { ...wonSkin, wear_category: getSkinWearCategory(wonSkin) }; // Vue doesnt like mutating proxy objects
 }
 
 function openCrate(crate: Crate, odds: Odds) {
@@ -34,70 +33,147 @@ function getRandomSkinByOdds(crate: Crate, odds: Odds): Skin {
     const skins = crate.skins;
     if (!skins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
-    const rarity = getRandomSkinRarityForCrateByOdds(crate, odds);
+    let oddsToUse = { ...odds };
 
-    if (rarity === 'exceedingly_rare') {
-        const eligibleSkins = skins.filter(knivesAndGlovesSkinFilter);
+    if (crate.type === 'Souvenir' || crate.type.includes('Capsule')) {
+        delete oddsToUse.exceedingly_rare;
+    }
 
-        if (!eligibleSkins.length) {
-            const skin = getRandomSkinByOdds(crate, { ...odds, exceedingly_rare: 0 });
-            skin.rarity_id = 'exceedingly_rare';
-            return skin;
+    const skinsByCategory: Record<string, Skin[]> = {};
+
+    Object.keys(ODDS_TO_RARITY).forEach((category) => {
+        skinsByCategory[category] = [];
+    });
+
+    for (const skin of skins) {
+        for (const [category, rarities] of Object.entries(ODDS_TO_RARITY)) {
+            if (rarities.includes(skin.rarity_id as any)) {
+                skinsByCategory[category].push(skin);
+                break;
+            }
         }
-
-        const skin = eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
-        skin.rarity_id = 'exceedingly_rare';
-        return skin;
     }
 
-    let eligibleSkins = skins.filter((skin) => gunSkinFilter(skin) && skin.rarity_id === rarity);
-
-    while (!eligibleSkins.length) {
-        eligibleSkins = skins.filter((skin) => skin.rarity_id === rarity);
+    if (skinsByCategory.exceedingly_rare.length === 0 && oddsToUse.exceedingly_rare) {
+        const knivesAndGloves = skins.filter(knivesAndGlovesSkinFilter);
+        skinsByCategory.exceedingly_rare = knivesAndGloves;
     }
-    return eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
+
+    const availableCategories = Object.entries(skinsByCategory)
+        .filter(([_, categorySkins]) => categorySkins.length > 0)
+        .map(([category]) => category);
+
+    const filteredOdds: Odds = {};
+    let totalOdds = 0;
+
+    for (const category of availableCategories) {
+        if (oddsToUse[category]) {
+            filteredOdds[category] = oddsToUse[category];
+            totalOdds += oddsToUse[category];
+        }
+    }
+
+    if (totalOdds === 0) {
+        availableCategories.forEach((category) => {
+            filteredOdds[category] = 1 / availableCategories.length;
+        });
+        totalOdds = 1;
+    }
+
+    const random = Math.random();
+    let cumulativeProbability = 0;
+    let selectedCategory = availableCategories[0];
+
+    for (const [category, probability] of Object.entries(filteredOdds)) {
+        cumulativeProbability += probability / totalOdds;
+
+        if (random <= cumulativeProbability) {
+            selectedCategory = category;
+            break;
+        }
+    }
+
+    const eligibleSkins = skinsByCategory[selectedCategory];
+
+    if (selectedCategory === 'exceedingly_rare') {
+        return { ...eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)], rarity_id: 'exceedingly_rare' };
+    }
+
+    const gunSkins = eligibleSkins.filter(gunSkinFilter);
+
+    if (gunSkins.length > 0) {
+        return gunSkins[Math.floor(Math.random() * gunSkins.length)];
+    }
+
+    if (eligibleSkins.length > 0) {
+        return eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
+    }
+
+    return skins[Math.floor(Math.random() * skins.length)];
 }
 
-function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Odds): string {
-    if (crate.type === 'Souvenir') {
+function getRandomSkinRarityForCrateByOdds(crate: Crate, _odds: Odds): string {
+    const odds = { ..._odds };
+
+    if (crate.type === 'Souvenir' || crate.type.includes('Capsule')) {
         delete odds.exceedingly_rare;
+    }
+
+    if (!Object.keys(odds).length) {
+        throw new Error('No valid odds provided');
     }
 
     const availableRarities = new Set(crate.skins.map((skin) => skin.rarity_id));
 
-    const filteredOddsEntries = Object.entries(odds).filter(([bucketKey]) => {
-        if (bucketKey === 'exceedingly_rare' && odds.exceedingly_rare) {
+    const validBuckets = Object.entries(odds).filter(([bucket]) => {
+        if (bucket === 'exceedingly_rare' && odds.exceedingly_rare) {
             return true;
         }
-        const bucketRarities = ODDS_TO_RARITY[bucketKey as BaseRarity];
-        return bucketRarities.some((rarity) => availableRarities.has(rarity as RarityId));
+
+        const mappedRarities = ODDS_TO_RARITY[bucket as BaseRarity];
+        return mappedRarities.some((rarity) => availableRarities.has(rarity as RarityId));
     });
 
-    const totalProbability = filteredOddsEntries.reduce((sum, [, prob]) => sum + prob, 0);
+    if (!validBuckets.length) {
+        throw new Error('No valid rarities found for odds configuration');
+    }
 
-    const normalizedOdds = filteredOddsEntries.map(([key, value]) => [key, value / totalProbability]);
+    const totalProbability = validBuckets.reduce((sum, [, probability]) => sum + probability, 0);
 
-    const rand = Math.random();
-    let cumulative = 0;
+    const random = Math.random();
 
-    for (const [oddsRarity, probability] of normalizedOdds) {
-        cumulative += +probability;
+    let cumulativeProbability = 0;
+    let selectedBucket: string | null = null;
 
-        if (rand <= cumulative) {
-            const mappedRarities = ODDS_TO_RARITY[oddsRarity as BaseRarity];
+    for (const [bucket, probability] of validBuckets) {
+        const normalizedProbability = probability / totalProbability;
+        cumulativeProbability += normalizedProbability;
 
-            if (oddsRarity === 'exceedingly_rare') {
-                return 'exceedingly_rare';
-            }
-
-            const availableMapped = mappedRarities.filter((rarity) => availableRarities.has(rarity as RarityId));
-
-            if (availableMapped.length) {
-                return availableMapped[Math.floor(Math.random() * availableMapped.length)];
-            }
+        if (random <= cumulativeProbability) {
+            selectedBucket = bucket;
+            break;
         }
     }
-    return ODDS_TO_RARITY.rare[Math.floor(Math.random() * ODDS_TO_RARITY.rare.length)];
+
+    if (!selectedBucket) {
+        selectedBucket = 'rare';
+    }
+
+    if (selectedBucket === 'exceedingly_rare') {
+        return 'exceedingly_rare';
+    }
+
+    const rarityOptions = ODDS_TO_RARITY[selectedBucket as BaseRarity].filter((rarity) =>
+        availableRarities.has(rarity as RarityId),
+    );
+
+    if (rarityOptions.length) {
+        return rarityOptions[Math.floor(Math.random() * rarityOptions.length)];
+    }
+
+    const rareRarities = ODDS_TO_RARITY.rare.filter((rarity) => availableRarities.has(rarity as RarityId));
+
+    return rareRarities[Math.floor(Math.random() * rareRarities.length)];
 }
 
 function getSkinsForSlider(crate: Crate, count: number, odds: Odds, wonSkin: Skin): Skin[] {

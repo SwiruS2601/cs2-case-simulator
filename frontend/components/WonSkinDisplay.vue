@@ -3,7 +3,6 @@ import { useOptionsStore } from '~/composables/optionsStore';
 import type { Crate, Skin } from '~/types';
 import { getItemRarityColor } from '~/utils/color';
 import { getItemPrice } from '~/utils/balance';
-import CountOpened from './CountOpened.vue';
 
 defineProps<{
     crate: Crate;
@@ -41,7 +40,7 @@ const toggleQuickOpen = () => {
 <template>
     <div class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-[70] fade-scale-up backdrop-blur-xs">
         <div class="flex items-center flex-col gap-4 mt-2 rounded-xl pt-[15dvh] sm:pt-0">
-            <img :src="skin?.image" class="select-none max-w-[400px] lg:max-w-full w-full" />
+            <img :src="skin?.image" class="select-none max-w-[380px] lg:max-w-[500px] w-full" />
             <div class="flex flex-col gap-4 items-center pb-6 pt-2">
                 <div
                     class="sm:mb-6 relative overflow-hidden bg-black/50 rounded-xl border border-black/10 sm:justify-normal justify-center w-fit"
@@ -53,7 +52,7 @@ const toggleQuickOpen = () => {
                         </p>
                         <div class="flex gap-1 justify-between items-center">
                             <p class="text-sm translate-y-[1px] sm:translate-y-0 text-white/80">
-                                {{ skin.wear_category }}
+                                {{ skin.wear_category === 'Default' ? '' : skin.wear_category }}
                             </p>
                             <p class="text-sm text-white/80">
                                 <span class="text-green-400 font-semibold text-lg"

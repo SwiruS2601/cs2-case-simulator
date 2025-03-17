@@ -15,8 +15,8 @@ export function useCrateOpeningTracker() {
     const openingQueue = ref<CrateOpeningEntry[]>([]);
     const isSending = ref(false);
 
-    const BATCH_SIZE = 30;
-    const BATCH_INTERVAL = 3000;
+    const BATCH_SIZE = 50;
+    const BATCH_INTERVAL = 2500;
     const MAX_QUEUE_SIZE = 500;
 
     const trackOpening = (crate: Crate, skin: Skin) => {

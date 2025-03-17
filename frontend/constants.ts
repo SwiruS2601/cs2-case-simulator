@@ -40,7 +40,7 @@ export const GRADE_TO_RARITY = {
     Knife: 'exceedingly_rare',
 } as const;
 
-export const RARITY_TO_GRADE = {
+export const RARITY_TO_GRADE: Record<string, string> = {
     rarity_common_weapon: 'Consumer Grade',
     rarity_uncommon_weapon: 'Industrial Grade',
     rarity_rare_weapon: 'Mil-Spec Grade',
@@ -51,9 +51,9 @@ export const RARITY_TO_GRADE = {
     rarity_ancient_weapon: 'Covert',
     rarity_ancient: 'Extraordinary',
     exceedingly_rare: 'Contraband',
-} as const;
+};
 
-export const RARITY_INDEX = {
+export const RARITY_INDEX: Record<string, number> = {
     rarity_common_weapon: 0,
     rarity_uncommon_weapon: 1,
     rarity_rare_weapon: 2,
@@ -65,7 +65,7 @@ export const RARITY_INDEX = {
     rarity_ancient_weapon: 8,
     rarity_ancient: 9,
     exceedingly_rare: 10,
-} as any;
+};
 
 export const SKIN_WEAR_AND_FLOAT = {
     'Factory New': { floatRange: [0, 0.07], odds: 0.025 }, // ~2-3%
@@ -134,14 +134,14 @@ export const ERROR_MESSAGES = {
     NO_SKIN_GENERATED: 'No skin generated for case opening',
 };
 
-export const KEY_PRICES = {
+export const KEY_PRICES: Record<string, number> = {
     Case: 2.35,
     'Sticker Capsule': 0.95,
     'Autograph Capsule': 0.95,
     Souvenir: 0,
-} as any;
+};
 
-export const RARITY_COLORS = {
+export const RARITY_COLORS: Record<string, string> = {
     rarity_common_weapon: '#b0c3d9',
     rarity_uncommon_weapon: '#5e98d9',
     rarity_rare_weapon: '#4b69ff',
@@ -153,4 +153,4 @@ export const RARITY_COLORS = {
     rarity_ancient_weapon: '#eb4b4b',
     rarity_ancient: '#eb4b4b',
     exceedingly_rare: '#eb4b4b',
-} as any;
+};
