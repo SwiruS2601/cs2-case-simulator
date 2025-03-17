@@ -8,17 +8,17 @@ import { useCrateList } from '~/composables/useCrateList';
 const { data, searchData, crates } = useCrateList('cases');
 
 if (data.value) {
-  useHomePageSeo(data.value);
+    useHomePageSeo(data.value);
 }
 </script>
 
 <template>
-  <Container>
-    <h1 class="text-xl pb-4">Counter-Strike 2 Cases</h1>
-    <div class="flex gap-4 flex-col">
-      <SearchCrates v-model="searchData" />
-      <CrateNav activeLink="Cases" />
-    </div>
-    <CrateGrid v-bind="{ crates, imageHeight: 192 }" />
-  </Container>
+    <Container>
+        <h1 class="text-xl pb-4">Counter-Strike 2 Cases</h1>
+        <div class="flex gap-4 flex-col">
+            <SearchCrates v-model="searchData" />
+            <CrateNav activeLink="Cases" />
+        </div>
+        <CrateGrid v-bind="{ crates, imageHeight: 192 }" />
+    </Container>
 </template>

@@ -1,6 +1,8 @@
+import { RARITY_COLORS } from '~/constants';
 import type { Skin } from '../types';
 import { knivesAndGlovesSkinFilter } from './sortAndfilters';
+import type { InventoryItem } from '~/services/inventoryDb';
 
-export function getSkinRarityColor(skin: Skin) {
-  return knivesAndGlovesSkinFilter(skin) ? '#FFD700' : skin?.rarity.color;
+export function getItemRarityColor(item: Skin | InventoryItem) {
+    return knivesAndGlovesSkinFilter(item) ? '#FFD700' : RARITY_COLORS[item.rarity_id];
 }

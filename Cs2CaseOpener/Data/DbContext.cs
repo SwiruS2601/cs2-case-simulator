@@ -9,6 +9,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Crate> Crates { get; set; }
     public DbSet<Price> Prices { get; set; }
     public DbSet<Rarity> Rarities { get; set; }
+    public DbSet<CrateOpening> CrateOpenings { get; set; }
+
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
@@ -90,6 +92,31 @@ public class ApplicationDbContext : DbContext
             entity.HasOne(e => e.Crate)
                   .WithOne(c => c.Price)
                   .HasForeignKey<Price>(e => e.CrateId);
+        });
+
+        modelBuilder.Entity<CrateOpening>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.CrateId).HasMaxLength(25).HasColumnName("crate_id");
+            entity.Property(e => e.SkinId).HasMaxLength(25).HasColumnName("skin_id");
+            entity.Property(e => e.ClientId).HasMaxLength(50).HasColumnName("client_id");
+            entity.Property(e => e.ClientIp).HasMaxLength(50).HasColumnName("client_ip");
+            entity.Property(e => e.OpenedAt).HasColumnName("opened_at");
+            entity.Property(e => e.Rarity).HasMaxLength(50).HasColumnName("rarity");
+            entity.Property(e => e.WearCategory).HasMaxLength(50).HasColumnName("wear_category");
+            entity.Property(e => e.CrateName).HasMaxLength(120).HasColumnName("crate_name");
+            entity.Property(e => e.SkinName).HasMaxLength(120).HasColumnName("skin_name");
+            
+            entity.HasOne(e => e.Crate)
+                  .WithMany()
+                  .HasForeignKey(e => e.CrateId);
+            
+            entity.HasOne(e => e.Skin)
+                  .WithMany()
+                  .HasForeignKey(e => e.SkinId);
+            
+            entity.HasIndex(e => e.ClientId);
+            entity.HasIndex(e => e.OpenedAt);
         });
        
     }

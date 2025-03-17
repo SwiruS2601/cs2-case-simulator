@@ -20,6 +20,9 @@ public static class ServiceCollectionExtensions
         services.AddControllers();
 
         services.AddHostedService<ScrapeApiBackgroundService>();
+        
+        services.AddSingleton<CrateOpeningService>();
+        services.AddHostedService(sp => sp.GetRequiredService<CrateOpeningService>());
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
