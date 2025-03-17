@@ -1,0 +1,1461 @@
+{
+    "id": "crate-4973",
+    "name": "Shanghai 2024 Vertigo Souvenir Package",
+    "description": null,
+    "type": "Souvenir",
+    "first_sale_date": null,
+    "market_hash_name": "Shanghai 2024 Vertigo Souvenir Package",
+    "rental": false,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/tournaments/sha2024/crate_sha2024_promo_de_vertigo_png.png",
+    "model_player": "models/props/crates/crate_sha2024_promo_de_vertigo.vmdl",
+    "price": {
+      "id": 13628,
+      "skin_id": null,
+      "crate_id": "crate-4973",
+      "name": "Shanghai 2024 Vertigo Souvenir Package",
+      "wear_category": null,
+      "steam_last_24h": 3.13269642857143,
+      "steam_last_7d": 3.23783754512635,
+      "steam_last_30d": 3.17206245059288,
+      "steam_last_90d": 3.09702860877142,
+      "steam_last_ever": 3.25
+    },
+    "skins": [
+      {
+        "id": "skin-1118412",
+        "name": "MAC-10 | Strats",
+        "rarity_id": "rarity_common_weapon",
+        "paint_index": "1075",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mac10_hy_vertigospray_blue_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2016,
+            "skin_id": "skin-1118412",
+            "crate_id": null,
+            "name": "MAC-10 | Strats (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.053,
+            "steam_last_7d": 0.0554161073825503,
+            "steam_last_30d": 0.0739810040705562,
+            "steam_last_90d": 0.0748088012139607,
+            "steam_last_ever": 0.04
+          },
+          {
+            "id": 2017,
+            "skin_id": "skin-1118412",
+            "crate_id": null,
+            "name": "MAC-10 | Strats (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.214285714285714,
+            "steam_last_7d": 0.237045685279188,
+            "steam_last_30d": 0.242325995807128,
+            "steam_last_90d": 0.234293498684705,
+            "steam_last_ever": 0.211
+          },
+          {
+            "id": 2018,
+            "skin_id": "skin-1118412",
+            "crate_id": null,
+            "name": "MAC-10 | Strats (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.0553453237410072,
+            "steam_last_7d": 0.05728,
+            "steam_last_30d": 0.0609346615880457,
+            "steam_last_90d": 0.0467418247880501,
+            "steam_last_ever": 0.06
+          },
+          {
+            "id": 2019,
+            "skin_id": "skin-1118412",
+            "crate_id": null,
+            "name": "MAC-10 | Strats (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.100137254901961,
+            "steam_last_7d": 0.100672025723473,
+            "steam_last_30d": 0.106973992197659,
+            "steam_last_90d": 0.0930852055955916,
+            "steam_last_ever": 0.114
+          },
+          {
+            "id": 2020,
+            "skin_id": "skin-1118412",
+            "crate_id": null,
+            "name": "MAC-10 | Strats (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.491,
+            "steam_last_7d": 0.496220779220779,
+            "steam_last_30d": 0.50415503875969,
+            "steam_last_90d": 0.802652804642167,
+            "steam_last_ever": 0.517
+          }
+        ],
+        "rarity": {
+          "id": "rarity_common_weapon",
+          "name": "Consumer Grade",
+          "color": "#b0c3d9"
+        }
+      },
+      {
+        "id": "skin-1249480",
+        "name": "P90 | Schematic",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1074",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_p90_hy_vertigogeo_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3071,
+            "skin_id": "skin-1249480",
+            "crate_id": null,
+            "name": "P90 | Schematic (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 6.003,
+            "steam_last_30d": 5.15128571428571,
+            "steam_last_90d": 6.75203225806451,
+            "steam_last_ever": 6.003
+          },
+          {
+            "id": 3072,
+            "skin_id": "skin-1249480",
+            "crate_id": null,
+            "name": "P90 | Schematic (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 3.269,
+            "steam_last_7d": 3.668,
+            "steam_last_30d": 3.34078048780488,
+            "steam_last_90d": 3.23293220338983,
+            "steam_last_ever": 3.269
+          },
+          {
+            "id": 3073,
+            "skin_id": "skin-1249480",
+            "crate_id": null,
+            "name": "P90 | Schematic (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 1.11817647058824,
+            "steam_last_7d": 1.03413636363636,
+            "steam_last_30d": 0.80431724137931,
+            "steam_last_90d": 0.686577142857143,
+            "steam_last_ever": 1.285
+          },
+          {
+            "id": 3074,
+            "skin_id": "skin-1249480",
+            "crate_id": null,
+            "name": "P90 | Schematic (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 2.4986,
+            "steam_last_30d": 2.04469444444444,
+            "steam_last_90d": 1.81301351351351,
+            "steam_last_ever": 2.179
+          },
+          {
+            "id": 3075,
+            "skin_id": "skin-1249480",
+            "crate_id": null,
+            "name": "P90 | Schematic (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 2.59,
+            "steam_last_30d": 2.8525,
+            "steam_last_90d": 3.04284615384615,
+            "steam_last_ever": 2.56
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-135416",
+        "name": "Dual Berettas | Oil Change",
+        "rarity_id": "rarity_common_weapon",
+        "paint_index": "1086",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_elite_sp_engine_dirty_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 789,
+            "skin_id": "skin-135416",
+            "crate_id": null,
+            "name": "Dual Berettas | Oil Change (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.212125,
+            "steam_last_7d": 0.27045,
+            "steam_last_30d": 0.364903614457831,
+            "steam_last_90d": 0.183134556574924,
+            "steam_last_ever": 0.23
+          },
+          {
+            "id": 790,
+            "skin_id": "skin-135416",
+            "crate_id": null,
+            "name": "Dual Berettas | Oil Change (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.111783333333333,
+            "steam_last_7d": 0.118876315789474,
+            "steam_last_30d": 0.116034717916925,
+            "steam_last_90d": 0.105356735856736,
+            "steam_last_ever": 0.12
+          },
+          {
+            "id": 791,
+            "skin_id": "skin-135416",
+            "crate_id": null,
+            "name": "Dual Berettas | Oil Change (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.0339430894308943,
+            "steam_last_7d": 0.035959479015919,
+            "steam_last_30d": 0.0366433923705723,
+            "steam_last_90d": 0.0339590697674419,
+            "steam_last_ever": 0.037
+          },
+          {
+            "id": 792,
+            "skin_id": "skin-135416",
+            "crate_id": null,
+            "name": "Dual Berettas | Oil Change (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.0553076923076923,
+            "steam_last_7d": 0.0602471264367816,
+            "steam_last_30d": 0.0584329571106095,
+            "steam_last_90d": 0.0451869337979095,
+            "steam_last_ever": 0.059
+          },
+          {
+            "id": 793,
+            "skin_id": "skin-135416",
+            "crate_id": null,
+            "name": "Dual Berettas | Oil Change (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.173684210526316,
+            "steam_last_7d": 0.192717948717949,
+            "steam_last_30d": 0.184124365482233,
+            "steam_last_90d": 0.130886672710789,
+            "steam_last_ever": 0.166
+          }
+        ],
+        "rarity": {
+          "id": "rarity_common_weapon",
+          "name": "Consumer Grade",
+          "color": "#b0c3d9"
+        }
+      },
+      {
+        "id": "skin-1577204",
+        "name": "UMP-45 | Mechanism",
+        "rarity_id": "rarity_uncommon_weapon",
+        "paint_index": "1085",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ump45_aa_engine_performance_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 4060,
+            "skin_id": "skin-1577204",
+            "crate_id": null,
+            "name": "Souvenir UMP-45 | Mechanism (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 6.106,
+            "steam_last_7d": 6.106,
+            "steam_last_30d": 5.76633333333333,
+            "steam_last_90d": 5.22978571428571,
+            "steam_last_ever": 6.106
+          },
+          {
+            "id": 4061,
+            "skin_id": "skin-1577204",
+            "crate_id": null,
+            "name": "Souvenir UMP-45 | Mechanism (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 5.4435,
+            "steam_last_7d": 5.39871428571429,
+            "steam_last_30d": 5.32178378378378,
+            "steam_last_90d": 4.9526862745098,
+            "steam_last_ever": 5.572
+          },
+          {
+            "id": 4062,
+            "skin_id": "skin-1577204",
+            "crate_id": null,
+            "name": "Souvenir UMP-45 | Mechanism (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 3.505,
+            "steam_last_7d": 4.4172,
+            "steam_last_30d": 4.45320454545455,
+            "steam_last_90d": 4.19376984126984,
+            "steam_last_ever": 3.505
+          },
+          {
+            "id": 4063,
+            "skin_id": "skin-1577204",
+            "crate_id": null,
+            "name": "Souvenir UMP-45 | Mechanism (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 4.3,
+            "steam_last_7d": 4.72975,
+            "steam_last_30d": 4.62025,
+            "steam_last_90d": 4.3873982300885,
+            "steam_last_ever": 4
+          },
+          {
+            "id": 4064,
+            "skin_id": "skin-1577204",
+            "crate_id": null,
+            "name": "Souvenir UMP-45 | Mechanism (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 3.85841666666667,
+            "steam_last_ever": 4.55
+          }
+        ],
+        "rarity": {
+          "id": "rarity_uncommon_weapon",
+          "name": "Industrial Grade",
+          "color": "#5e98d9"
+        }
+      },
+      {
+        "id": "skin-1642712",
+        "name": "XM1014 | Blue Tire",
+        "rarity_id": "rarity_common_weapon",
+        "paint_index": "1078",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_xm1014_sp_tire_tread_blue_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 4137,
+            "skin_id": "skin-1642712",
+            "crate_id": null,
+            "name": "Souvenir XM1014 | Blue Tire (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 1.95,
+            "steam_last_7d": 2.323,
+            "steam_last_30d": 6.59152459016393,
+            "steam_last_90d": 3.10565740740741,
+            "steam_last_ever": 1.95
+          },
+          {
+            "id": 4138,
+            "skin_id": "skin-1642712",
+            "crate_id": null,
+            "name": "Souvenir XM1014 | Blue Tire (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.27983333333333,
+            "steam_last_7d": 1.34791111111111,
+            "steam_last_30d": 1.52012755102041,
+            "steam_last_90d": 3.02079921259842,
+            "steam_last_ever": 1.285
+          },
+          {
+            "id": 4139,
+            "skin_id": "skin-1642712",
+            "crate_id": null,
+            "name": "Souvenir XM1014 | Blue Tire (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.984833333333333,
+            "steam_last_7d": 1.1965,
+            "steam_last_30d": 0.99621370967742,
+            "steam_last_90d": 0.860430429128739,
+            "steam_last_ever": 1.33
+          },
+          {
+            "id": 4140,
+            "skin_id": "skin-1642712",
+            "crate_id": null,
+            "name": "Souvenir XM1014 | Blue Tire (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.0205,
+            "steam_last_7d": 1.10218518518519,
+            "steam_last_30d": 1.03876100628931,
+            "steam_last_90d": 0.961045060658579,
+            "steam_last_ever": 0.889
+          },
+          {
+            "id": 4141,
+            "skin_id": "skin-1642712",
+            "crate_id": null,
+            "name": "Souvenir XM1014 | Blue Tire (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 1.191,
+            "steam_last_30d": 2.88271428571429,
+            "steam_last_90d": 1.51144565217391,
+            "steam_last_ever": 1.191
+          }
+        ],
+        "rarity": {
+          "id": "rarity_common_weapon",
+          "name": "Consumer Grade",
+          "color": "#b0c3d9"
+        }
+      },
+      {
+        "id": "skin-1708268",
+        "name": "PP-Bizon | Breaker Box",
+        "rarity_id": "rarity_uncommon_weapon",
+        "paint_index": "1083",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_bizon_aa_wiring_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3145,
+            "skin_id": "skin-1708268",
+            "crate_id": null,
+            "name": "PP-Bizon | Breaker Box (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.366285714285714,
+            "steam_last_7d": 0.408941176470588,
+            "steam_last_30d": 0.384661971830986,
+            "steam_last_90d": 0.376122807017544,
+            "steam_last_ever": 0.378
+          },
+          {
+            "id": 3146,
+            "skin_id": "skin-1708268",
+            "crate_id": null,
+            "name": "PP-Bizon | Breaker Box (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.269847826086957,
+            "steam_last_7d": 0.28044398340249,
+            "steam_last_30d": 0.266309375,
+            "steam_last_90d": 0.199503216911765,
+            "steam_last_ever": 0.272
+          },
+          {
+            "id": 3147,
+            "skin_id": "skin-1708268",
+            "crate_id": null,
+            "name": "PP-Bizon | Breaker Box (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.2513,
+            "steam_last_7d": 0.253523076923077,
+            "steam_last_30d": 0.222114058355438,
+            "steam_last_90d": 0.189840447154471,
+            "steam_last_ever": 0.279
+          },
+          {
+            "id": 3148,
+            "skin_id": "skin-1708268",
+            "crate_id": null,
+            "name": "PP-Bizon | Breaker Box (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 0.9042,
+            "steam_last_30d": 0.770054794520548,
+            "steam_last_90d": 0.598344827586207,
+            "steam_last_ever": 0.744
+          }
+        ],
+        "rarity": {
+          "id": "rarity_uncommon_weapon",
+          "name": "Industrial Grade",
+          "color": "#5e98d9"
+        }
+      },
+      {
+        "id": "skin-1773760",
+        "name": "MAG-7 | Prism Terrace",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1072",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mag7_hy_geometric_steps_pearl_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2137,
+            "skin_id": "skin-1773760",
+            "crate_id": null,
+            "name": "MAG-7 | Prism Terrace (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 26.87,
+            "steam_last_7d": 23.0133333333333,
+            "steam_last_30d": 24.2775,
+            "steam_last_90d": 21.7950612244898,
+            "steam_last_ever": 26.87
+          },
+          {
+            "id": 2138,
+            "skin_id": "skin-1773760",
+            "crate_id": null,
+            "name": "MAG-7 | Prism Terrace (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 5.2208,
+            "steam_last_7d": 5.19926315789474,
+            "steam_last_30d": 5.03992857142857,
+            "steam_last_90d": 4.2843984375,
+            "steam_last_ever": 5.279
+          },
+          {
+            "id": 2139,
+            "skin_id": "skin-1773760",
+            "crate_id": null,
+            "name": "MAG-7 | Prism Terrace (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 12,
+            "steam_last_7d": 10.3683333333333,
+            "steam_last_30d": 10.424125,
+            "steam_last_90d": 9.35057608695652,
+            "steam_last_ever": 12
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-1839328",
+        "name": "Negev | Infrastructure",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1080",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_negev_hy_vertigospray_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2497,
+            "skin_id": "skin-1839328",
+            "crate_id": null,
+            "name": "Negev | Infrastructure (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 3.55433333333333,
+            "steam_last_90d": 3.09352777777778,
+            "steam_last_ever": 1.81
+          },
+          {
+            "id": 2498,
+            "skin_id": "skin-1839328",
+            "crate_id": null,
+            "name": "Negev | Infrastructure (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.31,
+            "steam_last_7d": 2.268,
+            "steam_last_30d": 2.38974603174603,
+            "steam_last_90d": 2.39201754385965,
+            "steam_last_ever": 2.688
+          },
+          {
+            "id": 2499,
+            "skin_id": "skin-1839328",
+            "crate_id": null,
+            "name": "Negev | Infrastructure (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.94,
+            "steam_last_7d": 0.881985294117647,
+            "steam_last_30d": 0.778618497109827,
+            "steam_last_90d": 0.714907766990291,
+            "steam_last_ever": 0.94
+          },
+          {
+            "id": 2500,
+            "skin_id": "skin-1839328",
+            "crate_id": null,
+            "name": "Negev | Infrastructure (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.04975,
+            "steam_last_7d": 1.13392857142857,
+            "steam_last_30d": 1.22905172413793,
+            "steam_last_90d": 1.36446666666667,
+            "steam_last_ever": 0.9
+          },
+          {
+            "id": 2501,
+            "skin_id": "skin-1839328",
+            "crate_id": null,
+            "name": "Negev | Infrastructure (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 2.29625,
+            "steam_last_30d": 2.2125,
+            "steam_last_90d": 1.95757142857143,
+            "steam_last_ever": 2.76
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-200936",
+        "name": "Five-SeveN | Fall Hazard",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "1082",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_fiveseven_cu_vertigo_fiveseven_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1003,
+            "skin_id": "skin-200936",
+            "crate_id": null,
+            "name": "Five-SeveN | Fall Hazard (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 53.8003333333333,
+            "steam_last_90d": 48.9848333333333,
+            "steam_last_ever": 56.019
+          },
+          {
+            "id": 1004,
+            "skin_id": "skin-200936",
+            "crate_id": null,
+            "name": "Five-SeveN | Fall Hazard (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 108.925,
+            "steam_last_ever": 121.64
+          },
+          {
+            "id": 1005,
+            "skin_id": "skin-200936",
+            "crate_id": null,
+            "name": "Five-SeveN | Fall Hazard (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": null,
+            "steam_last_7d": 92.7915,
+            "steam_last_30d": 67.171625,
+            "steam_last_90d": 57.5041923076923,
+            "steam_last_ever": 112.163
+          },
+          {
+            "id": 1006,
+            "skin_id": "skin-200936",
+            "crate_id": null,
+            "name": "Five-SeveN | Fall Hazard (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 65.53,
+            "steam_last_ever": 66.635
+          },
+          {
+            "id": 1007,
+            "skin_id": "skin-200936",
+            "crate_id": null,
+            "name": "Five-SeveN | Fall Hazard (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 52.3866666666667,
+            "steam_last_90d": 44.6413333333333,
+            "steam_last_ever": 50.271
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-2298068",
+        "name": "Nova | Interlock",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1077",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_nova_hy_vertigoillusion_yellow_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2587,
+            "skin_id": "skin-2298068",
+            "crate_id": null,
+            "name": "Nova | Interlock (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 2.42,
+            "steam_last_7d": 2.812,
+            "steam_last_30d": 2.79644444444444,
+            "steam_last_90d": 2.37494285714286,
+            "steam_last_ever": 2.42
+          },
+          {
+            "id": 2588,
+            "skin_id": "skin-2298068",
+            "crate_id": null,
+            "name": "Nova | Interlock (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 3.8496,
+            "steam_last_7d": 4.06829411764706,
+            "steam_last_30d": 4.2236170212766,
+            "steam_last_90d": 3.96004790419162,
+            "steam_last_ever": 4.19
+          },
+          {
+            "id": 2589,
+            "skin_id": "skin-2298068",
+            "crate_id": null,
+            "name": "Nova | Interlock (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.77,
+            "steam_last_7d": 0.745645161290323,
+            "steam_last_30d": 0.715705035971223,
+            "steam_last_90d": 0.719682326621923,
+            "steam_last_ever": 0.758
+          },
+          {
+            "id": 2590,
+            "skin_id": "skin-2298068",
+            "crate_id": null,
+            "name": "Nova | Interlock (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 2.352,
+            "steam_last_7d": 2.26505263157895,
+            "steam_last_30d": 2.30725641025641,
+            "steam_last_90d": 2.18923880597015,
+            "steam_last_ever": 2.352
+          },
+          {
+            "id": 2591,
+            "skin_id": "skin-2298068",
+            "crate_id": null,
+            "name": "Nova | Interlock (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 1.99625,
+            "steam_last_30d": 2.15284615384615,
+            "steam_last_90d": 1.92265789473684,
+            "steam_last_ever": 1.656
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-2363620",
+        "name": "P250 | Digital Architect",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1081",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_p250_aa_vertigogeo_neon_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2824,
+            "skin_id": "skin-2363620",
+            "crate_id": null,
+            "name": "P250 | Digital Architect (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 13.604,
+            "steam_last_30d": 12.763,
+            "steam_last_90d": 13.9918461538462,
+            "steam_last_ever": 13.604
+          },
+          {
+            "id": 2825,
+            "skin_id": "skin-2363620",
+            "crate_id": null,
+            "name": "P250 | Digital Architect (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 30.7226666666667,
+            "steam_last_30d": 28.1048181818182,
+            "steam_last_90d": 25.39325,
+            "steam_last_ever": 32.034
+          },
+          {
+            "id": 2826,
+            "skin_id": "skin-2363620",
+            "crate_id": null,
+            "name": "P250 | Digital Architect (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 15.84,
+            "steam_last_7d": 15.2858181818182,
+            "steam_last_30d": 12.2578902439024,
+            "steam_last_90d": 10.3304827586207,
+            "steam_last_ever": 15.84
+          },
+          {
+            "id": 2827,
+            "skin_id": "skin-2363620",
+            "crate_id": null,
+            "name": "P250 | Digital Architect (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 17.8035,
+            "steam_last_7d": 16.7106666666667,
+            "steam_last_30d": 16.2338571428571,
+            "steam_last_90d": 15.3435102040816,
+            "steam_last_ever": 19.481
+          },
+          {
+            "id": 2828,
+            "skin_id": "skin-2363620",
+            "crate_id": null,
+            "name": "P250 | Digital Architect (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 10.413,
+            "steam_last_7d": 11.973,
+            "steam_last_30d": 10.8171111111111,
+            "steam_last_90d": 10.4839032258065,
+            "steam_last_ever": 10.413
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-2560240",
+        "name": "SG 553 | Hazard Pay",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "1084",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_sg556_cu_sg553_caution_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3565,
+            "skin_id": "skin-2560240",
+            "crate_id": null,
+            "name": "SG 553 | Hazard Pay (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 66.75
+          },
+          {
+            "id": 3566,
+            "skin_id": "skin-2560240",
+            "crate_id": null,
+            "name": "SG 553 | Hazard Pay (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 220.9215,
+            "steam_last_90d": 209.156,
+            "steam_last_ever": 271.823
+          },
+          {
+            "id": 3567,
+            "skin_id": "skin-2560240",
+            "crate_id": null,
+            "name": "SG 553 | Hazard Pay (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": null,
+            "steam_last_7d": 72.827,
+            "steam_last_30d": 67.8558,
+            "steam_last_90d": 63.695,
+            "steam_last_ever": 72.827
+          },
+          {
+            "id": 3568,
+            "skin_id": "skin-2560240",
+            "crate_id": null,
+            "name": "SG 553 | Hazard Pay (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 102.147,
+            "steam_last_90d": 92.583,
+            "steam_last_ever": 102.147
+          },
+          {
+            "id": 3569,
+            "skin_id": "skin-2560240",
+            "crate_id": null,
+            "name": "SG 553 | Hazard Pay (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 53.982,
+            "steam_last_90d": 50.6512,
+            "steam_last_ever": 53.967
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-2621720",
+        "name": "SSG 08 | Carbon Fiber",
+        "rarity_id": "rarity_uncommon_weapon",
+        "paint_index": "70",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ssg08_am_carbon_fiber_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3652,
+            "skin_id": "skin-2621720",
+            "crate_id": null,
+            "name": "SSG 08 | Carbon Fiber (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.61668493150685,
+            "steam_last_7d": 1.7303056768559,
+            "steam_last_30d": 1.74334488272921,
+            "steam_last_90d": 1.55041820191599,
+            "steam_last_ever": 1.734
+          },
+          {
+            "id": 3653,
+            "skin_id": "skin-2621720",
+            "crate_id": null,
+            "name": "SSG 08 | Carbon Fiber (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.83218181818182,
+            "steam_last_7d": 2.14830769230769,
+            "steam_last_30d": 1.92790532544379,
+            "steam_last_90d": 1.6615988909427,
+            "steam_last_ever": 1.917
+          }
+        ],
+        "rarity": {
+          "id": "rarity_uncommon_weapon",
+          "name": "Industrial Grade",
+          "color": "#5e98d9"
+        }
+      },
+      {
+        "id": "skin-266460",
+        "name": "Glock-18 | Red Tire",
+        "rarity_id": "rarity_uncommon_weapon",
+        "paint_index": "1079",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_glock_sp_tire_tread_red_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1425,
+            "skin_id": "skin-266460",
+            "crate_id": null,
+            "name": "Glock-18 | Red Tire (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 1.0422,
+            "steam_last_7d": 1.0342,
+            "steam_last_30d": 1.00063492063492,
+            "steam_last_90d": 0.774607476635514,
+            "steam_last_ever": 0.98
+          },
+          {
+            "id": 1426,
+            "skin_id": "skin-266460",
+            "crate_id": null,
+            "name": "Glock-18 | Red Tire (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.49526666666667,
+            "steam_last_7d": 2.39814678899083,
+            "steam_last_30d": 2.28118161925602,
+            "steam_last_90d": 2.13427409162718,
+            "steam_last_ever": 2.587
+          },
+          {
+            "id": 1427,
+            "skin_id": "skin-266460",
+            "crate_id": null,
+            "name": "Glock-18 | Red Tire (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.626791666666667,
+            "steam_last_7d": 0.672405263157895,
+            "steam_last_30d": 0.806176150121066,
+            "steam_last_90d": 0.691100773480664,
+            "steam_last_ever": 0.629
+          },
+          {
+            "id": 1428,
+            "skin_id": "skin-266460",
+            "crate_id": null,
+            "name": "Glock-18 | Red Tire (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.17206666666667,
+            "steam_last_7d": 1.25301990049751,
+            "steam_last_30d": 1.31001744186047,
+            "steam_last_90d": 1.1718735725938,
+            "steam_last_ever": 1.311
+          },
+          {
+            "id": 1429,
+            "skin_id": "skin-266460",
+            "crate_id": null,
+            "name": "Glock-18 | Red Tire (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 1.2991,
+            "steam_last_7d": 1.49918918918919,
+            "steam_last_30d": 2.05228282828283,
+            "steam_last_90d": 1.75007588075881,
+            "steam_last_ever": 1.28
+          }
+        ],
+        "rarity": {
+          "id": "rarity_uncommon_weapon",
+          "name": "Industrial Grade",
+          "color": "#5e98d9"
+        }
+      },
+      {
+        "id": "skin-3936452",
+        "name": "M4A1-S | Imminent Danger",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "1073",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_silencer_gs_m4a1_vertigo_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1644,
+            "skin_id": "skin-3936452",
+            "crate_id": null,
+            "name": "M4A1-S | Imminent Danger (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 529.61,
+            "steam_last_30d": 529.61,
+            "steam_last_90d": 529.61,
+            "steam_last_ever": 529.61
+          },
+          {
+            "id": 1645,
+            "skin_id": "skin-3936452",
+            "crate_id": null,
+            "name": "M4A1-S | Imminent Danger (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": null
+          },
+          {
+            "id": 1646,
+            "skin_id": "skin-3936452",
+            "crate_id": null,
+            "name": "M4A1-S | Imminent Danger (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 1191.41066666667,
+            "steam_last_ever": 1781.21
+          },
+          {
+            "id": 1647,
+            "skin_id": "skin-3936452",
+            "crate_id": null,
+            "name": "M4A1-S | Imminent Danger (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1961.78
+          },
+          {
+            "id": 1648,
+            "skin_id": "skin-3936452",
+            "crate_id": null,
+            "name": "M4A1-S | Imminent Danger (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 532.925
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-4133072",
+        "name": "CZ75-Auto | Framework",
+        "rarity_id": "rarity_common_weapon",
+        "paint_index": "1076",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_cz75a_hy_vertigoillusion_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 492,
+            "skin_id": "skin-4133072",
+            "crate_id": null,
+            "name": "CZ75-Auto | Framework (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.0314285714285714,
+            "steam_last_7d": 0.0346279069767442,
+            "steam_last_30d": 0.0727064935064937,
+            "steam_last_90d": 0.359557538750585,
+            "steam_last_ever": 0.03
+          },
+          {
+            "id": 493,
+            "skin_id": "skin-4133072",
+            "crate_id": null,
+            "name": "CZ75-Auto | Framework (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.2241,
+            "steam_last_7d": 0.25646511627907,
+            "steam_last_30d": 0.286201149425287,
+            "steam_last_90d": 0.285084231145936,
+            "steam_last_ever": 0.266
+          },
+          {
+            "id": 494,
+            "skin_id": "skin-4133072",
+            "crate_id": null,
+            "name": "CZ75-Auto | Framework (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.0326730769230769,
+            "steam_last_7d": 0.0331886178861788,
+            "steam_last_30d": 0.0350265927977842,
+            "steam_last_90d": 0.315546164255232,
+            "steam_last_ever": 0.04
+          },
+          {
+            "id": 495,
+            "skin_id": "skin-4133072",
+            "crate_id": null,
+            "name": "CZ75-Auto | Framework (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.0713833333333333,
+            "steam_last_7d": 0.401430446194226,
+            "steam_last_30d": 0.141566425792107,
+            "steam_last_90d": 0.303685219657483,
+            "steam_last_ever": 0.098
+          },
+          {
+            "id": 496,
+            "skin_id": "skin-4133072",
+            "crate_id": null,
+            "name": "CZ75-Auto | Framework (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.2825,
+            "steam_last_7d": 0.331875,
+            "steam_last_30d": 0.268157894736842,
+            "steam_last_90d": 0.177316770186335,
+            "steam_last_ever": 0.325
+          }
+        ],
+        "rarity": {
+          "id": "rarity_common_weapon",
+          "name": "Consumer Grade",
+          "color": "#b0c3d9"
+        }
+      },
+      {
+        "id": "skin-463032",
+        "name": "AK-47 | Green Laminate",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1070",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_hy_ak47lam_green_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 65,
+            "skin_id": "skin-463032",
+            "crate_id": null,
+            "name": "AK-47 | Green Laminate (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 32.9103333333333,
+            "steam_last_7d": 35.4943043478261,
+            "steam_last_30d": 34.2107228915663,
+            "steam_last_90d": 30.8526059322034,
+            "steam_last_ever": 33.761
+          },
+          {
+            "id": 66,
+            "skin_id": "skin-463032",
+            "crate_id": null,
+            "name": "AK-47 | Green Laminate (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 27.1088571428571,
+            "steam_last_7d": 25.561484375,
+            "steam_last_30d": 21.3219265306122,
+            "steam_last_90d": 17.9629484240688,
+            "steam_last_ever": 26.83
+          },
+          {
+            "id": 67,
+            "skin_id": "skin-463032",
+            "crate_id": null,
+            "name": "AK-47 | Green Laminate (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 27.6998333333333,
+            "steam_last_7d": 26.8633823529412,
+            "steam_last_30d": 22.6776060606061,
+            "steam_last_90d": 20.3408779956427,
+            "steam_last_ever": 27.739
+          },
+          {
+            "id": 68,
+            "skin_id": "skin-463032",
+            "crate_id": null,
+            "name": "AK-47 | Green Laminate (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 36.5065,
+            "steam_last_7d": 34.7748,
+            "steam_last_30d": 32.6083333333333,
+            "steam_last_90d": 27.3838709677419,
+            "steam_last_ever": 39.561
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-659624",
+        "name": "FAMAS | Faulty Wiring",
+        "rarity_id": "rarity_common_weapon",
+        "paint_index": "1066",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_famas_aa_wiring_yellow_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 882,
+            "skin_id": "skin-659624",
+            "crate_id": null,
+            "name": "FAMAS | Faulty Wiring (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.26875,
+            "steam_last_7d": 0.284,
+            "steam_last_30d": 0.407352697095436,
+            "steam_last_90d": 0.317253301320528,
+            "steam_last_ever": 0.302
+          },
+          {
+            "id": 883,
+            "skin_id": "skin-659624",
+            "crate_id": null,
+            "name": "FAMAS | Faulty Wiring (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.583436363636364,
+            "steam_last_7d": 0.606372093023256,
+            "steam_last_30d": 0.678091694352159,
+            "steam_last_90d": 0.512273865082733,
+            "steam_last_ever": 0.544
+          },
+          {
+            "id": 884,
+            "skin_id": "skin-659624",
+            "crate_id": null,
+            "name": "FAMAS | Faulty Wiring (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.105113636363636,
+            "steam_last_7d": 0.125141321044547,
+            "steam_last_30d": 0.160742311427646,
+            "steam_last_90d": 0.123326941115164,
+            "steam_last_ever": 0.107
+          },
+          {
+            "id": 885,
+            "skin_id": "skin-659624",
+            "crate_id": null,
+            "name": "FAMAS | Faulty Wiring (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.272851851851852,
+            "steam_last_7d": 0.29179575596817,
+            "steam_last_30d": 0.295661980082015,
+            "steam_last_90d": 0.220549929392777,
+            "steam_last_ever": 0.27
+          },
+          {
+            "id": 886,
+            "skin_id": "skin-659624",
+            "crate_id": null,
+            "name": "FAMAS | Faulty Wiring (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.309583333333333,
+            "steam_last_7d": 0.294235849056604,
+            "steam_last_30d": 0.321887871853547,
+            "steam_last_90d": 0.256161608497724,
+            "steam_last_ever": 0.25
+          }
+        ],
+        "rarity": {
+          "id": "rarity_common_weapon",
+          "name": "Consumer Grade",
+          "color": "#b0c3d9"
+        }
+      },
+      {
+        "id": "skin-856252",
+        "name": "Galil AR | CAUTION!",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1071",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_galilar_sp_galil_caution_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1211,
+            "skin_id": "skin-856252",
+            "crate_id": null,
+            "name": "Galil AR | CAUTION! (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 21.43975,
+            "steam_last_30d": 20.8395555555556,
+            "steam_last_90d": 20.1526216216216,
+            "steam_last_ever": 21.59
+          },
+          {
+            "id": 1212,
+            "skin_id": "skin-856252",
+            "crate_id": null,
+            "name": "Galil AR | CAUTION! (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 54.715,
+            "steam_last_30d": 55.2352222222222,
+            "steam_last_90d": 50.5138421052632,
+            "steam_last_ever": 62.34
+          },
+          {
+            "id": 1213,
+            "skin_id": "skin-856252",
+            "crate_id": null,
+            "name": "Galil AR | CAUTION! (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 24.1535,
+            "steam_last_7d": 25.3203846153846,
+            "steam_last_30d": 25.5568181818182,
+            "steam_last_90d": 22.0752573529412,
+            "steam_last_ever": 23
+          },
+          {
+            "id": 1214,
+            "skin_id": "skin-856252",
+            "crate_id": null,
+            "name": "Galil AR | CAUTION! (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 37.8,
+            "steam_last_30d": 38.4032631578947,
+            "steam_last_90d": 35.77134,
+            "steam_last_ever": 41.488
+          },
+          {
+            "id": 1215,
+            "skin_id": "skin-856252",
+            "crate_id": null,
+            "name": "Galil AR | CAUTION! (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 25.69,
+            "steam_last_30d": 22.0965,
+            "steam_last_90d": 19.6468,
+            "steam_last_ever": 25.69
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      }
+    ]
+  }

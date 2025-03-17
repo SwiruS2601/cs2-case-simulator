@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ['@pinia/nuxt', '@pinia/colada-nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxtjs/sitemap'],
+  modules: ['@pinia/nuxt', '@pinia/colada-nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxtjs/sitemap', '@nuxt/test-utils/module'],
   piniaPluginPersistedstate: {
     storage: 'localStorage',
   },

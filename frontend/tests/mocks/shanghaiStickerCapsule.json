@@ -1,0 +1,1177 @@
+{
+    "id": "crate-4966",
+    "name": "Shanghai 2024 Contenders Sticker Capsule",
+    "description": "This capsule contains a single Shanghai 2024 Contenders participant Paper, Glitter, Holo, or Gold sticker.\\n\\n50% of the proceeds from the sale of this capsule support the included organizations.\\n\\nThat sticker can be applied to any weapon you own and can be scraped to look more worn. You can scrape the same sticker multiple times, making it a bit more worn each time, until it is removed from the weapon.",
+    "type": "Sticker Capsule",
+    "first_sale_date": null,
+    "market_hash_name": "Shanghai 2024 Contenders Sticker Capsule",
+    "rental": false,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/tournaments/sha2024/crate_sticker_pack_sha2024_contenders_png.png",
+    "model_player": null,
+    "price": {
+      "id": 13621,
+      "skin_id": null,
+      "crate_id": "crate-4966",
+      "name": "Shanghai 2024 Contenders Sticker Capsule",
+      "wear_category": null,
+      "steam_last_24h": 0.275111009174312,
+      "steam_last_7d": 0.280176538154215,
+      "steam_last_30d": 0.27888744324002,
+      "steam_last_90d": 0.30574596678294,
+      "steam_last_ever": 0.282
+    },
+    "skins": [
+      {
+        "id": "sticker-7992",
+        "name": "GamerLegion | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/gl_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5780,
+            "skin_id": "sticker-7992",
+            "crate_id": null,
+            "name": "GamerLegion | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.0300154312960555,
+            "steam_last_30d": 0.0300115506283194,
+            "steam_last_90d": 0.0300104255903793,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-7993",
+        "name": "GamerLegion (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/gl_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5771,
+            "skin_id": "sticker-7993",
+            "crate_id": null,
+            "name": "GamerLegion (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.030455574912892,
+            "steam_last_30d": 0.0320419821059876,
+            "steam_last_90d": 0.0360297811993516,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-7994",
+        "name": "GamerLegion (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/gl_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5779,
+            "skin_id": "sticker-7994",
+            "crate_id": null,
+            "name": "GamerLegion (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.883155844155844,
+            "steam_last_7d": 0.942471819645733,
+            "steam_last_30d": 1.02987402190923,
+            "steam_last_90d": 1.04080614167295,
+            "steam_last_ever": 0.87
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-7995",
+        "name": "GamerLegion (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/gl_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5775,
+            "skin_id": "sticker-7995",
+            "crate_id": null,
+            "name": "GamerLegion (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 1.50214285714286,
+            "steam_last_7d": 1.89735537190083,
+            "steam_last_30d": 1.69271805273834,
+            "steam_last_90d": 1.91801506591337,
+            "steam_last_ever": 1.47
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-7996",
+        "name": "MIBR | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/mibr_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6646,
+            "skin_id": "sticker-7996",
+            "crate_id": null,
+            "name": "MIBR | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.0300885478158205,
+            "steam_last_7d": 0.0300114591291062,
+            "steam_last_30d": 0.0300083414920697,
+            "steam_last_90d": 0.0300043745250663,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-7997",
+        "name": "MIBR (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/mibr_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6638,
+            "skin_id": "sticker-7997",
+            "crate_id": null,
+            "name": "MIBR (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.0301389473684211,
+            "steam_last_30d": 0.0317642356548402,
+            "steam_last_90d": 0.0363584949215142,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-7998",
+        "name": "MIBR (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/mibr_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6645,
+            "skin_id": "sticker-7998",
+            "crate_id": null,
+            "name": "MIBR (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.472226190476191,
+            "steam_last_7d": 0.506950354609929,
+            "steam_last_30d": 0.538252525252525,
+            "steam_last_90d": 0.626600165734411,
+            "steam_last_ever": 0.46
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-7999",
+        "name": "MIBR (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/mibr_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6640,
+            "skin_id": "sticker-7999",
+            "crate_id": null,
+            "name": "MIBR (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 1.58373333333333,
+            "steam_last_7d": 1.73640740740741,
+            "steam_last_30d": 1.58004708097928,
+            "steam_last_90d": 1.73738305383937,
+            "steam_last_ever": 1.561
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8000",
+        "name": "Cloud9 | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/c9_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5085,
+            "skin_id": "sticker-8000",
+            "crate_id": null,
+            "name": "Cloud9 | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.0300964049653394,
+            "steam_last_30d": 0.0315893185639403,
+            "steam_last_90d": 0.0365068679160589,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8001",
+        "name": "Cloud9 (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/c9_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5065,
+            "skin_id": "sticker-8001",
+            "crate_id": null,
+            "name": "Cloud9 (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.550811946902655,
+            "steam_last_7d": 0.57281471917366,
+            "steam_last_30d": 0.509400890681455,
+            "steam_last_90d": 0.475494585434405,
+            "steam_last_ever": 0.55
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8002",
+        "name": "Cloud9 (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/c9_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5080,
+            "skin_id": "sticker-8002",
+            "crate_id": null,
+            "name": "Cloud9 (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 3.27024096385542,
+            "steam_last_7d": 3.39934319526627,
+            "steam_last_30d": 3.45123340874811,
+            "steam_last_90d": 3.4769579333217,
+            "steam_last_ever": 3.1
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8003",
+        "name": "Cloud9 (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/c9_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5069,
+            "skin_id": "sticker-8003",
+            "crate_id": null,
+            "name": "Cloud9 (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 4.47272727272727,
+            "steam_last_7d": 4.77290551181102,
+            "steam_last_30d": 4.99331223628692,
+            "steam_last_90d": 5.76691696113074,
+            "steam_last_ever": 3.91
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8004",
+        "name": "FlyQuest | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/fq_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5634,
+            "skin_id": "sticker-8004",
+            "crate_id": null,
+            "name": "FlyQuest | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.0301320962415474,
+            "steam_last_30d": 0.030393666577085,
+            "steam_last_90d": 0.032476609776425,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8005",
+        "name": "FlyQuest (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/fq_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5631,
+            "skin_id": "sticker-8005",
+            "crate_id": null,
+            "name": "FlyQuest (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.461266106442577,
+            "steam_last_7d": 0.520790564689064,
+            "steam_last_30d": 0.543255039363267,
+            "steam_last_90d": 0.508463511010496,
+            "steam_last_ever": 0.43
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8006",
+        "name": "FlyQuest (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/fq_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5633,
+            "skin_id": "sticker-8006",
+            "crate_id": null,
+            "name": "FlyQuest (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 7.51768085106383,
+            "steam_last_7d": 8.04897079276773,
+            "steam_last_30d": 8.63581812012216,
+            "steam_last_90d": 7.69688339768342,
+            "steam_last_ever": 7.51
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8007",
+        "name": "FlyQuest (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/fq_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 5632,
+            "skin_id": "sticker-8007",
+            "crate_id": null,
+            "name": "FlyQuest (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 4.10418181818182,
+            "steam_last_7d": 4.58230708661417,
+            "steam_last_30d": 4.59619015280136,
+            "steam_last_90d": 4.51035862619808,
+            "steam_last_ever": 3.57
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8008",
+        "name": "Passion UA | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/psnu_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7125,
+            "skin_id": "sticker-8008",
+            "crate_id": null,
+            "name": "Passion UA | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.03,
+            "steam_last_30d": 0.0300275222440055,
+            "steam_last_90d": 0.0325895091921065,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8009",
+        "name": "Passion UA (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/psnu_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7122,
+            "skin_id": "sticker-8009",
+            "crate_id": null,
+            "name": "Passion UA (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.0506818181818182,
+            "steam_last_7d": 0.0628450281425892,
+            "steam_last_30d": 0.0766829670329671,
+            "steam_last_90d": 0.0851605881783883,
+            "steam_last_ever": 0.05
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8010",
+        "name": "Passion UA (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/psnu_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7124,
+            "skin_id": "sticker-8010",
+            "crate_id": null,
+            "name": "Passion UA (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 2.68516853932584,
+            "steam_last_7d": 2.80167554076539,
+            "steam_last_30d": 3.02554958364875,
+            "steam_last_90d": 2.87361460306527,
+            "steam_last_ever": 2.64
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8011",
+        "name": "Passion UA (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/psnu_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7123,
+            "skin_id": "sticker-8011",
+            "crate_id": null,
+            "name": "Passion UA (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 3.42988888888889,
+            "steam_last_7d": 3.4576397515528,
+            "steam_last_30d": 3.54973357015986,
+            "steam_last_90d": 3.58021619293712,
+            "steam_last_ever": 3.382
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8012",
+        "name": "Wildcard | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/wcrd_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 8142,
+            "skin_id": "sticker-8012",
+            "crate_id": null,
+            "name": "Wildcard | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.030039662865642,
+            "steam_last_7d": 0.0300741594067248,
+            "steam_last_30d": 0.0303411558858545,
+            "steam_last_90d": 0.0318247725999051,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8013",
+        "name": "Wildcard (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/wcrd_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 8139,
+            "skin_id": "sticker-8013",
+            "crate_id": null,
+            "name": "Wildcard (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.141423982869379,
+            "steam_last_7d": 0.153080369843528,
+            "steam_last_30d": 0.16726319588559,
+            "steam_last_90d": 0.172254641312184,
+            "steam_last_ever": 0.146
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8014",
+        "name": "Wildcard (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/wcrd_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 8141,
+            "skin_id": "sticker-8014",
+            "crate_id": null,
+            "name": "Wildcard (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 3.39576666666667,
+            "steam_last_7d": 3.50340725244073,
+            "steam_last_30d": 3.72117424518006,
+            "steam_last_90d": 3.53739014960498,
+            "steam_last_ever": 3.27
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8015",
+        "name": "Wildcard (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/wcrd_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 8140,
+            "skin_id": "sticker-8015",
+            "crate_id": null,
+            "name": "Wildcard (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 3.27647826086957,
+            "steam_last_7d": 3.29147058823529,
+            "steam_last_30d": 3.45869105691057,
+            "steam_last_90d": 3.76629279700655,
+            "steam_last_ever": 3.409
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8016",
+        "name": "Rare Atom | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/ratm_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7279,
+            "skin_id": "sticker-8016",
+            "crate_id": null,
+            "name": "Rare Atom | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.0592433200682206,
+            "steam_last_7d": 0.0596592160932386,
+            "steam_last_30d": 0.0554392047290491,
+            "steam_last_90d": 0.0564886189166075,
+            "steam_last_ever": 0.05
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8017",
+        "name": "Rare Atom (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/ratm_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7276,
+            "skin_id": "sticker-8017",
+            "crate_id": null,
+            "name": "Rare Atom (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.851934322033898,
+            "steam_last_7d": 0.828513161072205,
+            "steam_last_30d": 0.81393947104634,
+            "steam_last_90d": 0.731651608226182,
+            "steam_last_ever": 0.84
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8018",
+        "name": "Rare Atom (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/ratm_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7278,
+            "skin_id": "sticker-8018",
+            "crate_id": null,
+            "name": "Rare Atom (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 10.8401,
+            "steam_last_7d": 11.2432670454546,
+            "steam_last_30d": 11.275208913649,
+            "steam_last_90d": 10.0048352334843,
+            "steam_last_ever": 10
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8019",
+        "name": "Rare Atom (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/ratm_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7277,
+            "skin_id": "sticker-8019",
+            "crate_id": null,
+            "name": "Rare Atom (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 29.9898571428571,
+            "steam_last_7d": 28.488918699187,
+            "steam_last_30d": 25.5162332214765,
+            "steam_last_90d": 22.7275047272727,
+            "steam_last_ever": 30.31
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8020",
+        "name": "Imperial Esports | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/imp_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6159,
+            "skin_id": "sticker-8020",
+            "crate_id": null,
+            "name": "Imperial Esports | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.03,
+            "steam_last_30d": 0.0300266351989211,
+            "steam_last_90d": 0.0303636481818519,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8021",
+        "name": "Imperial Esports (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/imp_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6150,
+            "skin_id": "sticker-8021",
+            "crate_id": null,
+            "name": "Imperial Esports (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.109073634204276,
+            "steam_last_7d": 0.123318681318681,
+            "steam_last_30d": 0.128915429723291,
+            "steam_last_90d": 0.128731653837182,
+            "steam_last_ever": 0.11
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8022",
+        "name": "Imperial Esports (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/imp_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6158,
+            "skin_id": "sticker-8022",
+            "crate_id": null,
+            "name": "Imperial Esports (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 1.33839344262295,
+            "steam_last_7d": 1.37303901734104,
+            "steam_last_30d": 1.41724003189793,
+            "steam_last_90d": 1.33246691658857,
+            "steam_last_ever": 1.367
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8023",
+        "name": "Imperial Esports (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/imp_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 6154,
+            "skin_id": "sticker-8023",
+            "crate_id": null,
+            "name": "Imperial Esports (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 1.86983333333333,
+            "steam_last_7d": 1.903296875,
+            "steam_last_30d": 1.86089566929134,
+            "steam_last_90d": 1.88393447293447,
+            "steam_last_ever": 1.853
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "sticker-8024",
+        "name": "Perfect World | Shanghai 2024",
+        "rarity_id": "rarity_rare",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/pw_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7145,
+            "skin_id": "sticker-8024",
+            "crate_id": null,
+            "name": "Perfect World | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.03,
+            "steam_last_7d": 0.03,
+            "steam_last_30d": 0.03,
+            "steam_last_90d": 0.0305311384074635,
+            "steam_last_ever": 0.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare",
+          "name": "High Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "sticker-8025",
+        "name": "Perfect World (Glitter) | Shanghai 2024",
+        "rarity_id": "rarity_mythical",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/pw_glitter_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7142,
+            "skin_id": "sticker-8025",
+            "crate_id": null,
+            "name": "Perfect World (Glitter) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 0.10598812553011,
+            "steam_last_7d": 0.111460675417929,
+            "steam_last_30d": 0.103000114721657,
+            "steam_last_90d": 0.110199354782959,
+            "steam_last_ever": 0.109
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical",
+          "name": "Remarkable",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "sticker-8026",
+        "name": "Perfect World (Holo) | Shanghai 2024",
+        "rarity_id": "rarity_legendary",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/pw_holo_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7144,
+            "skin_id": "sticker-8026",
+            "crate_id": null,
+            "name": "Perfect World (Holo) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 3.19344866071429,
+            "steam_last_7d": 3.3785154080596,
+            "steam_last_30d": 3.38637518343388,
+            "steam_last_90d": 3.31178771291866,
+            "steam_last_ever": 3.208
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary",
+          "name": "Exotic",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "sticker-8027",
+        "name": "Perfect World (Gold) | Shanghai 2024",
+        "rarity_id": "rarity_ancient",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/stickers/sha2024/pw_gold_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 7143,
+            "skin_id": "sticker-8027",
+            "crate_id": null,
+            "name": "Perfect World (Gold) | Shanghai 2024",
+            "wear_category": "Default",
+            "steam_last_24h": 5.45267826086957,
+            "steam_last_7d": 5.62281583476764,
+            "steam_last_30d": 5.30469444444444,
+            "steam_last_90d": 5.75113858645507,
+            "steam_last_ever": 5.24
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      }
+    ]
+  }

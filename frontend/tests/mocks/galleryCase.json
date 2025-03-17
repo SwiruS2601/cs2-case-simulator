@@ -1,0 +1,2317 @@
+{
+    "id": "crate-7003",
+    "name": "Gallery Case",
+    "description": null,
+    "type": "Case",
+    "first_sale_date": "2024-07-01T00:00:00Z",
+    "market_hash_name": "Gallery Case",
+    "rental": true,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_34_png.png",
+    "model_player": "models/props/crates/csgo_drop_crate_community_34.vmdl",
+    "price": {
+      "id": 13520,
+      "skin_id": null,
+      "crate_id": "crate-7003",
+      "name": "Gallery Case",
+      "wear_category": null,
+      "steam_last_24h": 0.927488534445145,
+      "steam_last_7d": 0.956951630176107,
+      "steam_last_30d": 0.976278883774974,
+      "steam_last_90d": 0.987881112312079,
+      "steam_last_ever": 0.94
+    },
+    "skins": [
+      {
+        "id": "skin-1049048",
+        "name": "M4A4 | Turbine",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "118",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_m4a4_fusion_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1843,
+            "skin_id": "skin-1049048",
+            "crate_id": null,
+            "name": "M4A4 | Turbine (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 4.09465853658537,
+            "steam_last_7d": 4.06650354609929,
+            "steam_last_30d": 4.08985728643216,
+            "steam_last_90d": 3.68718475750577,
+            "steam_last_ever": 4
+          },
+          {
+            "id": 1844,
+            "skin_id": "skin-1049048",
+            "crate_id": null,
+            "name": "M4A4 | Turbine (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 42.2672,
+            "steam_last_7d": 44.4551666666667,
+            "steam_last_30d": 42.0172841530055,
+            "steam_last_90d": 31.4216856060606,
+            "steam_last_ever": 43.171
+          },
+          {
+            "id": 1845,
+            "skin_id": "skin-1049048",
+            "crate_id": null,
+            "name": "M4A4 | Turbine (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 4.00912820512821,
+            "steam_last_7d": 4.10892597402598,
+            "steam_last_30d": 4.34541875,
+            "steam_last_90d": 4.0061905190519,
+            "steam_last_ever": 3.97
+          },
+          {
+            "id": 1846,
+            "skin_id": "skin-1049048",
+            "crate_id": null,
+            "name": "M4A4 | Turbine (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 10.3314509803922,
+            "steam_last_7d": 10.417018018018,
+            "steam_last_30d": 10.308125984252,
+            "steam_last_90d": 9.24635218736191,
+            "steam_last_ever": 10.18
+          },
+          {
+            "id": 1847,
+            "skin_id": "skin-1049048",
+            "crate_id": null,
+            "name": "M4A4 | Turbine (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 5.06323076923077,
+            "steam_last_7d": 5.0935641025641,
+            "steam_last_30d": 5.27444522968198,
+            "steam_last_90d": 4.97238054363376,
+            "steam_last_ever": 5.108
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-1114616",
+        "name": "MAC-10 | Saibā Oni",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "126",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mac10_mac10_ozaki_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1996,
+            "skin_id": "skin-1114616",
+            "crate_id": null,
+            "name": "MAC-10 | Saibā Oni (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 2.38253333333333,
+            "steam_last_7d": 2.42078260869565,
+            "steam_last_30d": 2.77260879629629,
+            "steam_last_90d": 2.81368260427263,
+            "steam_last_ever": 2.427
+          },
+          {
+            "id": 1997,
+            "skin_id": "skin-1114616",
+            "crate_id": null,
+            "name": "MAC-10 | Saibā Oni (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 11.39475,
+            "steam_last_7d": 11.425536,
+            "steam_last_30d": 11.5355613207547,
+            "steam_last_90d": 11.5320974903475,
+            "steam_last_ever": 10.477
+          },
+          {
+            "id": 1998,
+            "skin_id": "skin-1114616",
+            "crate_id": null,
+            "name": "MAC-10 | Saibā Oni (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 2.80775806451613,
+            "steam_last_7d": 2.89025668449198,
+            "steam_last_30d": 3.03014747356052,
+            "steam_last_90d": 3.14038282603317,
+            "steam_last_ever": 2.588
+          },
+          {
+            "id": 1999,
+            "skin_id": "skin-1114616",
+            "crate_id": null,
+            "name": "MAC-10 | Saibā Oni (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 5.70542424242424,
+            "steam_last_7d": 6.03660344827586,
+            "steam_last_30d": 6.12379284649777,
+            "steam_last_90d": 6.57319555035129,
+            "steam_last_ever": 6.118
+          },
+          {
+            "id": 2000,
+            "skin_id": "skin-1114616",
+            "crate_id": null,
+            "name": "MAC-10 | Saibā Oni (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 4.2836,
+            "steam_last_7d": 3.58505128205128,
+            "steam_last_30d": 3.83689261744966,
+            "steam_last_90d": 3.9944611528822,
+            "steam_last_ever": 4.44
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-1245692",
+        "name": "P90 | Randy Rush",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "127",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_p90_p90_randy_rush_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3051,
+            "skin_id": "skin-1245692",
+            "crate_id": null,
+            "name": "P90 | Randy Rush (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 2.0104,
+            "steam_last_7d": 2.1056301369863,
+            "steam_last_30d": 1.92465644171779,
+            "steam_last_90d": 2.02864450127877,
+            "steam_last_ever": 1.925
+          },
+          {
+            "id": 3052,
+            "skin_id": "skin-1245692",
+            "crate_id": null,
+            "name": "P90 | Randy Rush (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 10.0086666666667,
+            "steam_last_7d": 9.52865671641791,
+            "steam_last_30d": 8.96540725806452,
+            "steam_last_90d": 9.35488163884674,
+            "steam_last_ever": 8.28
+          },
+          {
+            "id": 3053,
+            "skin_id": "skin-1245692",
+            "crate_id": null,
+            "name": "P90 | Randy Rush (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 2.18354901960784,
+            "steam_last_7d": 2.23559299191375,
+            "steam_last_30d": 2.28213646055437,
+            "steam_last_90d": 2.46823936026024,
+            "steam_last_ever": 2.186
+          },
+          {
+            "id": 3054,
+            "skin_id": "skin-1245692",
+            "crate_id": null,
+            "name": "P90 | Randy Rush (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 4.32030434782609,
+            "steam_last_7d": 4.5291801242236,
+            "steam_last_30d": 4.86576479514416,
+            "steam_last_90d": 5.32523440233236,
+            "steam_last_ever": 4.4
+          },
+          {
+            "id": 3055,
+            "skin_id": "skin-1245692",
+            "crate_id": null,
+            "name": "P90 | Randy Rush (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 2.14,
+            "steam_last_7d": 2.39278947368421,
+            "steam_last_30d": 2.77922549019608,
+            "steam_last_90d": 2.58842794759825,
+            "steam_last_ever": 2.14
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-131520",
+        "name": "Dual Berettas | Hydro Strike",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "112",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_elite_dual_elite_hydro_strike_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 774,
+            "skin_id": "skin-131520",
+            "crate_id": null,
+            "name": "Dual Berettas | Hydro Strike (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 2.0063,
+            "steam_last_7d": 2.23234285714286,
+            "steam_last_30d": 2.13320175438597,
+            "steam_last_90d": 2.19242379182156,
+            "steam_last_ever": 2.056
+          },
+          {
+            "id": 775,
+            "skin_id": "skin-131520",
+            "crate_id": null,
+            "name": "Dual Berettas | Hydro Strike (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 10.7728,
+            "steam_last_7d": 11.1331538461539,
+            "steam_last_30d": 11.5400717703349,
+            "steam_last_90d": 11.8211884816754,
+            "steam_last_ever": 9.874
+          },
+          {
+            "id": 776,
+            "skin_id": "skin-131520",
+            "crate_id": null,
+            "name": "Dual Berettas | Hydro Strike (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 2.24509090909091,
+            "steam_last_7d": 2.32039411764706,
+            "steam_last_30d": 2.4120800571837,
+            "steam_last_90d": 2.56511764705883,
+            "steam_last_ever": 2.24
+          },
+          {
+            "id": 777,
+            "skin_id": "skin-131520",
+            "crate_id": null,
+            "name": "Dual Berettas | Hydro Strike (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 5.106,
+            "steam_last_7d": 5.22649668874172,
+            "steam_last_30d": 5.55381773399015,
+            "steam_last_90d": 5.88001785714286,
+            "steam_last_ever": 5.154
+          },
+          {
+            "id": 778,
+            "skin_id": "skin-131520",
+            "crate_id": null,
+            "name": "Dual Berettas | Hydro Strike (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 3.21506666666667,
+            "steam_last_7d": 3.55583333333333,
+            "steam_last_30d": 4.14971621621622,
+            "steam_last_90d": 3.54353866666667,
+            "steam_last_ever": 2.807
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-1512048",
+        "name": "MP5-SD | Statics",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1180",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mp5sd_mp5_statics_blue_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2229,
+            "skin_id": "skin-1512048",
+            "crate_id": null,
+            "name": "MP5-SD | Statics (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.256789473684211,
+            "steam_last_7d": 0.267020661157025,
+            "steam_last_30d": 0.279895833333333,
+            "steam_last_90d": 0.268478383128295,
+            "steam_last_ever": 0.25
+          },
+          {
+            "id": 2230,
+            "skin_id": "skin-1512048",
+            "crate_id": null,
+            "name": "MP5-SD | Statics (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.58111111111111,
+            "steam_last_7d": 2.53456321839081,
+            "steam_last_30d": 2.49500706713781,
+            "steam_last_90d": 2.29744526627219,
+            "steam_last_ever": 2.342
+          },
+          {
+            "id": 2231,
+            "skin_id": "skin-1512048",
+            "crate_id": null,
+            "name": "MP5-SD | Statics (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.351916666666667,
+            "steam_last_7d": 0.368200498132005,
+            "steam_last_30d": 0.402157894736842,
+            "steam_last_90d": 0.38166969785861,
+            "steam_last_ever": 0.358
+          },
+          {
+            "id": 2232,
+            "skin_id": "skin-1512048",
+            "crate_id": null,
+            "name": "MP5-SD | Statics (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.04523188405797,
+            "steam_last_7d": 1.0311914893617,
+            "steam_last_30d": 0.968414153846154,
+            "steam_last_90d": 0.916744716618636,
+            "steam_last_ever": 1.013
+          },
+          {
+            "id": 2233,
+            "skin_id": "skin-1512048",
+            "crate_id": null,
+            "name": "MP5-SD | Statics (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.263586206896552,
+            "steam_last_7d": 0.273150753768844,
+            "steam_last_30d": 0.279438138479001,
+            "steam_last_90d": 0.270645255474452,
+            "steam_last_ever": 0.24
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-1573388",
+        "name": "UMP-45 | Neo-Noir",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "131",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ump45_ump45_neo_noir_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 4334,
+            "skin_id": "skin-1573388",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Neo-Noir (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 8.55691304347826,
+            "steam_last_7d": 8.3705223880597,
+            "steam_last_30d": 8.53348972099854,
+            "steam_last_90d": 7.80168230944254,
+            "steam_last_ever": 8.46
+          },
+          {
+            "id": 4335,
+            "skin_id": "skin-1573388",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Neo-Noir (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 23.5404545454545,
+            "steam_last_7d": 24.6843898305085,
+            "steam_last_30d": 24.7192234848485,
+            "steam_last_90d": 25.4367528248588,
+            "steam_last_ever": 24.65
+          },
+          {
+            "id": 4336,
+            "skin_id": "skin-1573388",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Neo-Noir (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 10.1574338624339,
+            "steam_last_7d": 10.1678929604629,
+            "steam_last_30d": 10.0522050541516,
+            "steam_last_90d": 9.70861863388482,
+            "steam_last_ever": 9.8
+          },
+          {
+            "id": 4337,
+            "skin_id": "skin-1573388",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Neo-Noir (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 15.151649122807,
+            "steam_last_7d": 14.8977697841727,
+            "steam_last_30d": 14.7255482406356,
+            "steam_last_90d": 15.1861970454052,
+            "steam_last_ever": 14.71
+          },
+          {
+            "id": 4338,
+            "skin_id": "skin-1573388",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Neo-Noir (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 9.19152173913043,
+            "steam_last_7d": 9.10966865079366,
+            "steam_last_30d": 9.04894775725594,
+            "steam_last_90d": 8.37147433439829,
+            "steam_last_ever": 9.1
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-2359816",
+        "name": "P250 | Epicenter",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "130",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_p250_p250_impact_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2833,
+            "skin_id": "skin-2359816",
+            "crate_id": null,
+            "name": "P250 | Epicenter (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 11.8523333333333,
+            "steam_last_7d": 11.2294821428571,
+            "steam_last_30d": 10.963847826087,
+            "steam_last_90d": 10.9777757437071,
+            "steam_last_ever": 12.186
+          },
+          {
+            "id": 2834,
+            "skin_id": "skin-2359816",
+            "crate_id": null,
+            "name": "P250 | Epicenter (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 39.78,
+            "steam_last_7d": 41.9642222222222,
+            "steam_last_30d": 41.980484375,
+            "steam_last_90d": 45.0498157894737,
+            "steam_last_ever": 42.69
+          },
+          {
+            "id": 2835,
+            "skin_id": "skin-2359816",
+            "crate_id": null,
+            "name": "P250 | Epicenter (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 13.5083928571429,
+            "steam_last_7d": 13.5071954887218,
+            "steam_last_30d": 13.9082087912088,
+            "steam_last_90d": 14.0537068245125,
+            "steam_last_ever": 13.514
+          },
+          {
+            "id": 2836,
+            "skin_id": "skin-2359816",
+            "crate_id": null,
+            "name": "P250 | Epicenter (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 25.688,
+            "steam_last_7d": 26.60012,
+            "steam_last_30d": 27.4441042654029,
+            "steam_last_90d": 28.5092570480929,
+            "steam_last_ever": 27.064
+          },
+          {
+            "id": 2837,
+            "skin_id": "skin-2359816",
+            "crate_id": null,
+            "name": "P250 | Epicenter (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 15.443,
+            "steam_last_7d": 12.751,
+            "steam_last_30d": 13.68105,
+            "steam_last_90d": 13.0297529411765,
+            "steam_last_ever": 15.443
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-2490836",
+        "name": "SCAR-20 | Trail Blazer",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "117",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_scar20_scar20_fury_topo_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3488,
+            "skin_id": "skin-2490836",
+            "crate_id": null,
+            "name": "SCAR-20 | Trail Blazer (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.263833333333333,
+            "steam_last_7d": 0.285268965517242,
+            "steam_last_30d": 0.282563748079877,
+            "steam_last_90d": 0.267429331756357,
+            "steam_last_ever": 0.245
+          },
+          {
+            "id": 3489,
+            "skin_id": "skin-2490836",
+            "crate_id": null,
+            "name": "SCAR-20 | Trail Blazer (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.34366666666667,
+            "steam_last_7d": 2.29602721088435,
+            "steam_last_30d": 2.05083409436834,
+            "steam_last_90d": 1.78589,
+            "steam_last_ever": 2.69
+          },
+          {
+            "id": 3490,
+            "skin_id": "skin-2490836",
+            "crate_id": null,
+            "name": "SCAR-20 | Trail Blazer (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.376565217391304,
+            "steam_last_7d": 0.380638888888889,
+            "steam_last_30d": 0.372553604682097,
+            "steam_last_90d": 0.3583690399137,
+            "steam_last_ever": 0.381
+          },
+          {
+            "id": 3491,
+            "skin_id": "skin-2490836",
+            "crate_id": null,
+            "name": "SCAR-20 | Trail Blazer (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.07768656716418,
+            "steam_last_7d": 1.0661626984127,
+            "steam_last_30d": 1.03259882478632,
+            "steam_last_90d": 0.971016241299307,
+            "steam_last_ever": 1.067
+          },
+          {
+            "id": 3492,
+            "skin_id": "skin-2490836",
+            "crate_id": null,
+            "name": "SCAR-20 | Trail Blazer (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.282333333333333,
+            "steam_last_7d": 0.326444444444444,
+            "steam_last_30d": 0.383153005464481,
+            "steam_last_90d": 0.418064338235294,
+            "steam_last_ever": 0.276
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-2621952",
+        "name": "SSG 08 | Rapid Transit",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "128",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ssg08_ssg08_transit_white_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3720,
+            "skin_id": "skin-2621952",
+            "crate_id": null,
+            "name": "SSG 08 | Rapid Transit (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 2.15068965517241,
+            "steam_last_7d": 2.25931818181818,
+            "steam_last_30d": 2.21351302083334,
+            "steam_last_90d": 2.33942948038176,
+            "steam_last_ever": 2.12
+          },
+          {
+            "id": 3721,
+            "skin_id": "skin-2621952",
+            "crate_id": null,
+            "name": "SSG 08 | Rapid Transit (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 17.347125,
+            "steam_last_7d": 17.6949841269841,
+            "steam_last_30d": 17.678830449827,
+            "steam_last_90d": 18.8858961892247,
+            "steam_last_ever": 17.24
+          },
+          {
+            "id": 3722,
+            "skin_id": "skin-2621952",
+            "crate_id": null,
+            "name": "SSG 08 | Rapid Transit (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 2.67566153846154,
+            "steam_last_7d": 2.63666425120773,
+            "steam_last_30d": 2.71442056650246,
+            "steam_last_90d": 2.9039402456306,
+            "steam_last_ever": 2.7
+          },
+          {
+            "id": 3723,
+            "skin_id": "skin-2621952",
+            "crate_id": null,
+            "name": "SSG 08 | Rapid Transit (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 7.48346428571429,
+            "steam_last_7d": 7.62722727272727,
+            "steam_last_30d": 7.75035399449035,
+            "steam_last_90d": 8.03437453580902,
+            "steam_last_ever": 7.63
+          },
+          {
+            "id": 3724,
+            "skin_id": "skin-2621952",
+            "crate_id": null,
+            "name": "SSG 08 | Rapid Transit (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 2.99007692307692,
+            "steam_last_7d": 3.26490322580645,
+            "steam_last_30d": 3.35918103448276,
+            "steam_last_90d": 3.52509479553904,
+            "steam_last_ever": 3.191
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-262660",
+        "name": "Glock-18 | Gold Toof",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "129",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_glock_glock_chomper_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1360,
+            "skin_id": "skin-262660",
+            "crate_id": null,
+            "name": "Glock-18 | Gold Toof (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 17.5446111111111,
+            "steam_last_7d": 17.6909424460432,
+            "steam_last_30d": 18.0016301615799,
+            "steam_last_90d": 18.7526102675343,
+            "steam_last_ever": 17.83
+          },
+          {
+            "id": 1361,
+            "skin_id": "skin-262660",
+            "crate_id": null,
+            "name": "Glock-18 | Gold Toof (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 82.9688571428571,
+            "steam_last_7d": 87.622027027027,
+            "steam_last_30d": 92.9758681318682,
+            "steam_last_90d": 98.4933482905983,
+            "steam_last_ever": 83
+          },
+          {
+            "id": 1362,
+            "skin_id": "skin-262660",
+            "crate_id": null,
+            "name": "Glock-18 | Gold Toof (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 18.5568260869565,
+            "steam_last_7d": 18.1163618421053,
+            "steam_last_30d": 18.7248140161725,
+            "steam_last_90d": 20.4806089119171,
+            "steam_last_ever": 19.423
+          },
+          {
+            "id": 1363,
+            "skin_id": "skin-262660",
+            "crate_id": null,
+            "name": "Glock-18 | Gold Toof (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 40.4487619047619,
+            "steam_last_7d": 40.5977643312102,
+            "steam_last_30d": 41.5451219879518,
+            "steam_last_90d": 45.9827643610786,
+            "steam_last_ever": 41.387
+          },
+          {
+            "id": 1364,
+            "skin_id": "skin-262660",
+            "crate_id": null,
+            "name": "Glock-18 | Gold Toof (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 21.415,
+            "steam_last_7d": 20.78308,
+            "steam_last_30d": 20.785514084507,
+            "steam_last_90d": 21.1383593314763,
+            "steam_last_ever": 22.325
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34471956",
+        "name": "★ Kukri Knife | Forest DDPAT",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "5",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_hy_ddpat_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12356,
+            "skin_id": "skin-34471956",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Forest DDPAT (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 183.4855,
+            "steam_last_7d": 179.775769230769,
+            "steam_last_30d": 173.302178571429,
+            "steam_last_90d": 163.577271428571,
+            "steam_last_ever": 183.786
+          },
+          {
+            "id": 12357,
+            "skin_id": "skin-34471956",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Forest DDPAT (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 292.99,
+            "steam_last_30d": 299.344,
+            "steam_last_90d": 310.7034,
+            "steam_last_ever": 292.99
+          },
+          {
+            "id": 12358,
+            "skin_id": "skin-34471956",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Forest DDPAT (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 193.682307692308,
+            "steam_last_7d": 195.928181818182,
+            "steam_last_30d": 191.835661375661,
+            "steam_last_90d": 179.850579881657,
+            "steam_last_ever": 199.96
+          },
+          {
+            "id": 12359,
+            "skin_id": "skin-34471956",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Forest DDPAT (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 201.242666666667,
+            "steam_last_7d": 205.7381,
+            "steam_last_30d": 204.670153846154,
+            "steam_last_90d": 196.678524193548,
+            "steam_last_ever": 194.95
+          },
+          {
+            "id": 12360,
+            "skin_id": "skin-34471956",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Forest DDPAT (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 186.3404,
+            "steam_last_30d": 177.533057142857,
+            "steam_last_90d": 167.59843877551,
+            "steam_last_ever": 179.22
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34471984",
+        "name": "★ Kukri Knife | Crimson Web",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "12",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_hy_webs_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12349,
+            "skin_id": "skin-34471984",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Crimson Web (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 271.724,
+            "steam_last_7d": 244.611818181818,
+            "steam_last_30d": 245.4737,
+            "steam_last_90d": 240.975580952381,
+            "steam_last_ever": 271.724
+          },
+          {
+            "id": 12350,
+            "skin_id": "skin-34471984",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Crimson Web (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 1261.2505,
+            "steam_last_ever": 1329.102
+          },
+          {
+            "id": 12351,
+            "skin_id": "skin-34471984",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Crimson Web (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 338.4586,
+            "steam_last_7d": 355.713111111111,
+            "steam_last_30d": 357.79507,
+            "steam_last_90d": 359.40013028169,
+            "steam_last_ever": 288.06
+          },
+          {
+            "id": 12352,
+            "skin_id": "skin-34471984",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Crimson Web (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 529.425,
+            "steam_last_30d": 494.552038461538,
+            "steam_last_90d": 513.7957,
+            "steam_last_ever": 550
+          },
+          {
+            "id": 12353,
+            "skin_id": "skin-34471984",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Crimson Web (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 308.06775,
+            "steam_last_30d": 305.374304347826,
+            "steam_last_90d": 303.496161290323,
+            "steam_last_ever": 310.011
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472088",
+        "name": "★ Kukri Knife | Fade",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "38",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_aa_fade_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12354,
+            "skin_id": "skin-34472088",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Fade (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 784.782166666667,
+            "steam_last_7d": 773.0110625,
+            "steam_last_30d": 778.357724770642,
+            "steam_last_90d": 778.033642857143,
+            "steam_last_ever": 816.805
+          },
+          {
+            "id": 12355,
+            "skin_id": "skin-34472088",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Fade (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 837.01,
+            "steam_last_30d": 751.184,
+            "steam_last_90d": 761.042944444444,
+            "steam_last_ever": 837.01
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472104",
+        "name": "★ Kukri Knife | Blue Steel",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "42",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_aq_blued_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12334,
+            "skin_id": "skin-34472104",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Blue Steel (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 273.368,
+            "steam_last_7d": 292.546,
+            "steam_last_30d": 281.694083333333,
+            "steam_last_90d": 279.651343137255,
+            "steam_last_ever": 273.368
+          },
+          {
+            "id": 12335,
+            "skin_id": "skin-34472104",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Blue Steel (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 499.99,
+            "steam_last_30d": 455.346727272727,
+            "steam_last_90d": 462.451294117647,
+            "steam_last_ever": 499.99
+          },
+          {
+            "id": 12336,
+            "skin_id": "skin-34472104",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Blue Steel (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 297.665,
+            "steam_last_7d": 306.144647058824,
+            "steam_last_30d": 307.798894117647,
+            "steam_last_90d": 308.179103448276,
+            "steam_last_ever": 294.06
+          },
+          {
+            "id": 12337,
+            "skin_id": "skin-34472104",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Blue Steel (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 327.8785,
+            "steam_last_30d": 339.039787878788,
+            "steam_last_90d": 335.93355,
+            "steam_last_ever": 299
+          },
+          {
+            "id": 12338,
+            "skin_id": "skin-34472104",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Blue Steel (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 300.19675,
+            "steam_last_7d": 271.904153846154,
+            "steam_last_30d": 279.197907692308,
+            "steam_last_90d": 278.586842105263,
+            "steam_last_ever": 314.749
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472108",
+        "name": "★ Kukri Knife | Stained",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "43",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_aq_forced_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12379,
+            "skin_id": "skin-34472108",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Stained (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 205.374666666667,
+            "steam_last_7d": 212.332090909091,
+            "steam_last_30d": 218.979782608696,
+            "steam_last_90d": 215.363429752066,
+            "steam_last_ever": 187.86
+          },
+          {
+            "id": 12380,
+            "skin_id": "skin-34472108",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Stained (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 385.31,
+            "steam_last_30d": 324.5676,
+            "steam_last_90d": 333.3615,
+            "steam_last_ever": 385.31
+          },
+          {
+            "id": 12381,
+            "skin_id": "skin-34472108",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Stained (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 242.399,
+            "steam_last_7d": 250.037368421053,
+            "steam_last_30d": 246.808731958763,
+            "steam_last_90d": 249.132713656388,
+            "steam_last_ever": 242.399
+          },
+          {
+            "id": 12382,
+            "skin_id": "skin-34472108",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Stained (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 270.2275,
+            "steam_last_30d": 267.476333333333,
+            "steam_last_90d": 268.047083333333,
+            "steam_last_ever": 283.148
+          },
+          {
+            "id": 12383,
+            "skin_id": "skin-34472108",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Stained (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 212.914,
+            "steam_last_7d": 225.262666666667,
+            "steam_last_30d": 227.870222222222,
+            "steam_last_90d": 223.143302857143,
+            "steam_last_ever": 212.914
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472112",
+        "name": "★ Kukri Knife | Case Hardened",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "44",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_aq_oiled_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12344,
+            "skin_id": "skin-34472112",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Case Hardened (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 281.215,
+            "steam_last_7d": 278.596727272727,
+            "steam_last_30d": 281.45948,
+            "steam_last_90d": 284.586189189189,
+            "steam_last_ever": 261.37
+          },
+          {
+            "id": 12345,
+            "skin_id": "skin-34472112",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Case Hardened (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 610.577666666667,
+            "steam_last_90d": 564.761625,
+            "steam_last_ever": 625.767
+          },
+          {
+            "id": 12346,
+            "skin_id": "skin-34472112",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Case Hardened (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 668.986666666667,
+            "steam_last_7d": 423.448307692308,
+            "steam_last_30d": 374.456416666667,
+            "steam_last_90d": 358.863530927835,
+            "steam_last_ever": 370
+          },
+          {
+            "id": 12347,
+            "skin_id": "skin-34472112",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Case Hardened (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 423.027,
+            "steam_last_7d": 394.1989,
+            "steam_last_30d": 407.037333333333,
+            "steam_last_90d": 397.175818181818,
+            "steam_last_ever": 433.03
+          },
+          {
+            "id": 12348,
+            "skin_id": "skin-34472112",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Case Hardened (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 323.18,
+            "steam_last_7d": 365.906,
+            "steam_last_30d": 322.875833333333,
+            "steam_last_90d": 314.569779661017,
+            "steam_last_ever": 279.68
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472172",
+        "name": "★ Kukri Knife | Slaughter",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "59",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_am_zebra_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12376,
+            "skin_id": "skin-34472172",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Slaughter (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 578.493666666667,
+            "steam_last_7d": 567.8615,
+            "steam_last_30d": 544.443775,
+            "steam_last_90d": 539.405301724138,
+            "steam_last_ever": 566.863
+          },
+          {
+            "id": 12377,
+            "skin_id": "skin-34472172",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Slaughter (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": null,
+            "steam_last_7d": 455.74,
+            "steam_last_30d": 466.563739130435,
+            "steam_last_90d": 463.535076923077,
+            "steam_last_ever": 459.5
+          },
+          {
+            "id": 12378,
+            "skin_id": "skin-34472172",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Slaughter (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 505.01,
+            "steam_last_7d": 504.444875,
+            "steam_last_30d": 492.337083333333,
+            "steam_last_90d": 487.755737430168,
+            "steam_last_ever": 505.01
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472224",
+        "name": "★ Kukri Knife | Safari Mesh",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "72",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_sp_mesh_tan_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12366,
+            "skin_id": "skin-34472224",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Safari Mesh (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 115.93,
+            "steam_last_7d": 164.716857142857,
+            "steam_last_30d": 171.0846,
+            "steam_last_90d": 163.956034013605,
+            "steam_last_ever": 173.65
+          },
+          {
+            "id": 12367,
+            "skin_id": "skin-34472224",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Safari Mesh (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 224.541,
+            "steam_last_90d": 220.2404,
+            "steam_last_ever": 214.082
+          },
+          {
+            "id": 12368,
+            "skin_id": "skin-34472224",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Safari Mesh (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 181.85,
+            "steam_last_7d": 193.819794871795,
+            "steam_last_30d": 189.909915584416,
+            "steam_last_90d": 175.588953629032,
+            "steam_last_ever": 190
+          },
+          {
+            "id": 12369,
+            "skin_id": "skin-34472224",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Safari Mesh (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 205.77,
+            "steam_last_7d": 196.805,
+            "steam_last_30d": 192.005557692308,
+            "steam_last_90d": 180.651273972603,
+            "steam_last_ever": 205.77
+          },
+          {
+            "id": 12370,
+            "skin_id": "skin-34472224",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Safari Mesh (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 184.591,
+            "steam_last_7d": 177.345,
+            "steam_last_30d": 172.693515151515,
+            "steam_last_90d": 162.781392405063,
+            "steam_last_ever": 176.98
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472244",
+        "name": "★ Kukri Knife | Boreal Forest",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "77",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_hy_forest_boreal_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12339,
+            "skin_id": "skin-34472244",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Boreal Forest (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 177.0432,
+            "steam_last_30d": 173.316522727273,
+            "steam_last_90d": 162.521040322581,
+            "steam_last_ever": 178.009
+          },
+          {
+            "id": 12340,
+            "skin_id": "skin-34472244",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Boreal Forest (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 261.378,
+            "steam_last_30d": 268.292666666667,
+            "steam_last_90d": 280.1335,
+            "steam_last_ever": 261.378
+          },
+          {
+            "id": 12341,
+            "skin_id": "skin-34472244",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Boreal Forest (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 182.2295,
+            "steam_last_7d": 195.069682926829,
+            "steam_last_30d": 190.353760638298,
+            "steam_last_90d": 177.57623138833,
+            "steam_last_ever": 181.1
+          },
+          {
+            "id": 12342,
+            "skin_id": "skin-34472244",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Boreal Forest (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 210.741666666667,
+            "steam_last_30d": 200.14711627907,
+            "steam_last_90d": 188.134808,
+            "steam_last_ever": 199.191
+          },
+          {
+            "id": 12343,
+            "skin_id": "skin-34472244",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Boreal Forest (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 187.756625,
+            "steam_last_30d": 179.707428571429,
+            "steam_last_90d": 169.525202380952,
+            "steam_last_ever": 184
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472508",
+        "name": "★ Kukri Knife | Urban Masked",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "143",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_sp_tape_urban_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12384,
+            "skin_id": "skin-34472508",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Urban Masked (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 198.288,
+            "steam_last_7d": 184.025384615385,
+            "steam_last_30d": 182.032278688525,
+            "steam_last_90d": 177.466612903226,
+            "steam_last_ever": 196.576
+          },
+          {
+            "id": 12385,
+            "skin_id": "skin-34472508",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Urban Masked (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 401.75,
+            "steam_last_90d": 383.183333333333,
+            "steam_last_ever": 420.69
+          },
+          {
+            "id": 12386,
+            "skin_id": "skin-34472508",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Urban Masked (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 193.65875,
+            "steam_last_7d": 197.747375,
+            "steam_last_30d": 191.723119791667,
+            "steam_last_90d": 179.773322820037,
+            "steam_last_ever": 190.6
+          },
+          {
+            "id": 12387,
+            "skin_id": "skin-34472508",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Urban Masked (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 259.049,
+            "steam_last_7d": 241.534777777778,
+            "steam_last_30d": 234.962411764706,
+            "steam_last_90d": 228.921282442748,
+            "steam_last_ever": 259.049
+          },
+          {
+            "id": 12388,
+            "skin_id": "skin-34472508",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Urban Masked (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 179.36,
+            "steam_last_7d": 181.3274,
+            "steam_last_30d": 184.635074074074,
+            "steam_last_90d": 170.997,
+            "steam_last_ever": 179.36
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34472636",
+        "name": "★ Kukri Knife | Scorched",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "175",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_sp_dapple_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12371,
+            "skin_id": "skin-34472636",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Scorched (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 196.172,
+            "steam_last_7d": 186.931,
+            "steam_last_30d": 185.586315789474,
+            "steam_last_90d": 171.864018181818,
+            "steam_last_ever": 206.652
+          },
+          {
+            "id": 12372,
+            "skin_id": "skin-34472636",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Scorched (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 294.685,
+            "steam_last_90d": 327.11975,
+            "steam_last_ever": 300
+          },
+          {
+            "id": 12373,
+            "skin_id": "skin-34472636",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Scorched (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 194.3995,
+            "steam_last_7d": 197.54275,
+            "steam_last_30d": 192.409542857143,
+            "steam_last_90d": 179.327703476483,
+            "steam_last_ever": 195.01
+          },
+          {
+            "id": 12374,
+            "skin_id": "skin-34472636",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Scorched (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 221,
+            "steam_last_7d": 218.426833333333,
+            "steam_last_30d": 222.385697674419,
+            "steam_last_90d": 220.100336134454,
+            "steam_last_ever": 221
+          },
+          {
+            "id": 12375,
+            "skin_id": "skin-34472636",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Scorched (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 175,
+            "steam_last_7d": 183.502333333333,
+            "steam_last_30d": 180.5997,
+            "steam_last_90d": 172.563590909091,
+            "steam_last_ever": 175
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-34474876",
+        "name": "★ Kukri Knife | Night Stripe",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "735",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_knife_kukri_sp_nightstripe_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12361,
+            "skin_id": "skin-34474876",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Night Stripe (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 195.423,
+            "steam_last_7d": 188.696384615385,
+            "steam_last_30d": 186.479833333333,
+            "steam_last_90d": 181.456159663866,
+            "steam_last_ever": 195.423
+          },
+          {
+            "id": 12362,
+            "skin_id": "skin-34474876",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Night Stripe (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 312.3,
+            "steam_last_ever": 313.9
+          },
+          {
+            "id": 12363,
+            "skin_id": "skin-34474876",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Night Stripe (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 212.2485,
+            "steam_last_7d": 206.057655172414,
+            "steam_last_30d": 199.457162650602,
+            "steam_last_90d": 191.71996701031,
+            "steam_last_ever": 207.88
+          },
+          {
+            "id": 12364,
+            "skin_id": "skin-34474876",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Night Stripe (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 253.9555,
+            "steam_last_7d": 250.909727272727,
+            "steam_last_30d": 245.522441860465,
+            "steam_last_90d": 245.622153846154,
+            "steam_last_ever": 248.01
+          },
+          {
+            "id": 12365,
+            "skin_id": "skin-34474876",
+            "crate_id": null,
+            "name": "★ Kukri Knife | Night Stripe (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 192.548,
+            "steam_last_7d": 189.664125,
+            "steam_last_30d": 181.425387096774,
+            "steam_last_90d": 172.430328947368,
+            "steam_last_ever": 184.72
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-3932584",
+        "name": "M4A1-S | Vaporwave",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "106",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_silencer_m4a1s_vaporwave_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1696,
+            "skin_id": "skin-3932584",
+            "crate_id": null,
+            "name": "M4A1-S | Vaporwave (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 140.149,
+            "steam_last_7d": 139.768363636364,
+            "steam_last_30d": 135.704756756757,
+            "steam_last_90d": 128.678535714286,
+            "steam_last_ever": 138
+          },
+          {
+            "id": 1697,
+            "skin_id": "skin-3932584",
+            "crate_id": null,
+            "name": "M4A1-S | Vaporwave (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 441.77,
+            "steam_last_7d": 487.57175,
+            "steam_last_30d": 472.290454545455,
+            "steam_last_90d": 494.102,
+            "steam_last_ever": 441.77
+          },
+          {
+            "id": 1698,
+            "skin_id": "skin-3932584",
+            "crate_id": null,
+            "name": "M4A1-S | Vaporwave (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 187.2395,
+            "steam_last_7d": 173.697952380952,
+            "steam_last_30d": 175.30245631068,
+            "steam_last_90d": 168.824610486891,
+            "steam_last_ever": 201.479
+          },
+          {
+            "id": 1699,
+            "skin_id": "skin-3932584",
+            "crate_id": null,
+            "name": "M4A1-S | Vaporwave (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 286.9715,
+            "steam_last_7d": 295.5515,
+            "steam_last_30d": 282.056808510638,
+            "steam_last_90d": 282.733716666667,
+            "steam_last_ever": 315.831
+          },
+          {
+            "id": 1700,
+            "skin_id": "skin-3932584",
+            "crate_id": null,
+            "name": "M4A1-S | Vaporwave (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 208.95,
+            "steam_last_7d": 162.546666666667,
+            "steam_last_30d": 144.785866666667,
+            "steam_last_90d": 144.228828571429,
+            "steam_last_ever": 208.95
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-3998156",
+        "name": "USP-S | 27",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "115",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_usp_silencer_usp_field_snake_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 4374,
+            "skin_id": "skin-3998156",
+            "crate_id": null,
+            "name": "StatTrak™ USP-S | 27 (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.172249128919861,
+            "steam_last_7d": 0.185083223597577,
+            "steam_last_30d": 0.203539699570816,
+            "steam_last_90d": 0.220801515669816,
+            "steam_last_ever": 0.18
+          },
+          {
+            "id": 4375,
+            "skin_id": "skin-3998156",
+            "crate_id": null,
+            "name": "StatTrak™ USP-S | 27 (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.20597959183673,
+            "steam_last_7d": 1.23622150882825,
+            "steam_last_30d": 1.33398224404987,
+            "steam_last_90d": 1.3777897044495,
+            "steam_last_ever": 1.22
+          },
+          {
+            "id": 4376,
+            "skin_id": "skin-3998156",
+            "crate_id": null,
+            "name": "StatTrak™ USP-S | 27 (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.249458735262594,
+            "steam_last_7d": 0.256931311777517,
+            "steam_last_30d": 0.277640038458323,
+            "steam_last_90d": 0.284141162556093,
+            "steam_last_ever": 0.249
+          },
+          {
+            "id": 4377,
+            "skin_id": "skin-3998156",
+            "crate_id": null,
+            "name": "StatTrak™ USP-S | 27 (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.525113320079523,
+            "steam_last_7d": 0.550263027295285,
+            "steam_last_30d": 0.569522696981576,
+            "steam_last_90d": 0.547087998950442,
+            "steam_last_ever": 0.543
+          },
+          {
+            "id": 4378,
+            "skin_id": "skin-3998156",
+            "crate_id": null,
+            "name": "StatTrak™ USP-S | 27 (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.172586834733894,
+            "steam_last_7d": 0.182146119733925,
+            "steam_last_30d": 0.198456977285662,
+            "steam_last_90d": 0.21497127530318,
+            "steam_last_ever": 0.173
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-4194796",
+        "name": "R8 Revolver | Tango",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "123",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_revolver_r8_roses_and_guns_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3393,
+            "skin_id": "skin-4194796",
+            "crate_id": null,
+            "name": "R8 Revolver | Tango (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.13330625,
+            "steam_last_7d": 0.136089020771513,
+            "steam_last_30d": 0.145959558057119,
+            "steam_last_90d": 0.145749501872958,
+            "steam_last_ever": 0.145
+          },
+          {
+            "id": 3394,
+            "skin_id": "skin-4194796",
+            "crate_id": null,
+            "name": "R8 Revolver | Tango (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.921397058823529,
+            "steam_last_7d": 0.959660847880299,
+            "steam_last_30d": 0.99207898089172,
+            "steam_last_90d": 0.954081815974751,
+            "steam_last_ever": 0.83
+          },
+          {
+            "id": 3395,
+            "skin_id": "skin-4194796",
+            "crate_id": null,
+            "name": "R8 Revolver | Tango (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.20868787276342,
+            "steam_last_7d": 0.217688713020539,
+            "steam_last_30d": 0.230226147883124,
+            "steam_last_90d": 0.224423135085865,
+            "steam_last_ever": 0.216
+          },
+          {
+            "id": 3396,
+            "skin_id": "skin-4194796",
+            "crate_id": null,
+            "name": "R8 Revolver | Tango (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.528339130434783,
+            "steam_last_7d": 0.530157350868953,
+            "steam_last_30d": 0.516478070175438,
+            "steam_last_90d": 0.493293800789412,
+            "steam_last_ever": 0.53
+          },
+          {
+            "id": 3397,
+            "skin_id": "skin-4194796",
+            "crate_id": null,
+            "name": "R8 Revolver | Tango (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.184847457627119,
+            "steam_last_7d": 0.198801526717557,
+            "steam_last_30d": 0.214621967654987,
+            "steam_last_90d": 0.211470983342289,
+            "steam_last_ever": 0.186
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-459204",
+        "name": "AK-47 | The Outsiders",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "113",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_ak47_t_bus_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 173,
+            "skin_id": "skin-459204",
+            "crate_id": null,
+            "name": "AK-47 | The Outsiders (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 30.8313,
+            "steam_last_7d": 30.72084375,
+            "steam_last_30d": 31.7194337349398,
+            "steam_last_90d": 31.8326661290323,
+            "steam_last_ever": 30.275
+          },
+          {
+            "id": 174,
+            "skin_id": "skin-459204",
+            "crate_id": null,
+            "name": "AK-47 | The Outsiders (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 155.009,
+            "steam_last_7d": 143.021818181818,
+            "steam_last_30d": 156.322517241379,
+            "steam_last_90d": 165.87504494382,
+            "steam_last_ever": 155.009
+          },
+          {
+            "id": 175,
+            "skin_id": "skin-459204",
+            "crate_id": null,
+            "name": "AK-47 | The Outsiders (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 35.80775,
+            "steam_last_7d": 35.5863265306122,
+            "steam_last_30d": 36.4478303249098,
+            "steam_last_90d": 38.6420900774103,
+            "steam_last_ever": 36.626
+          },
+          {
+            "id": 176,
+            "skin_id": "skin-459204",
+            "crate_id": null,
+            "name": "AK-47 | The Outsiders (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 63.8237,
+            "steam_last_7d": 63.5599344262295,
+            "steam_last_30d": 67.6787258064516,
+            "steam_last_90d": 72.6172525083613,
+            "steam_last_ever": 62.62
+          },
+          {
+            "id": 177,
+            "skin_id": "skin-459204",
+            "crate_id": null,
+            "name": "AK-47 | The Outsiders (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 32.2685,
+            "steam_last_7d": 32.2054736842105,
+            "steam_last_30d": 33.7993419354839,
+            "steam_last_90d": 33.8462343387471,
+            "steam_last_ever": 32.86
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-524772",
+        "name": "AUG | Luxe Trim",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "121",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_aug_aug_puffer_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 245,
+            "skin_id": "skin-524772",
+            "crate_id": null,
+            "name": "AUG | Luxe Trim (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.314152173913044,
+            "steam_last_7d": 0.315362275449102,
+            "steam_last_30d": 0.322288888888889,
+            "steam_last_90d": 0.312963271604939,
+            "steam_last_ever": 0.305
+          },
+          {
+            "id": 246,
+            "skin_id": "skin-524772",
+            "crate_id": null,
+            "name": "AUG | Luxe Trim (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 3.24208695652174,
+            "steam_last_7d": 3.25466981132075,
+            "steam_last_30d": 3.4354964028777,
+            "steam_last_90d": 4.02151287128713,
+            "steam_last_ever": 3.6
+          },
+          {
+            "id": 247,
+            "skin_id": "skin-524772",
+            "crate_id": null,
+            "name": "AUG | Luxe Trim (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.382931972789116,
+            "steam_last_7d": 0.382822198275862,
+            "steam_last_30d": 0.387633181126332,
+            "steam_last_90d": 0.393600985727488,
+            "steam_last_ever": 0.381
+          },
+          {
+            "id": 248,
+            "skin_id": "skin-524772",
+            "crate_id": null,
+            "name": "AUG | Luxe Trim (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.14585897435897,
+            "steam_last_7d": 1.17946624472574,
+            "steam_last_30d": 1.16476390977444,
+            "steam_last_90d": 1.12311045713165,
+            "steam_last_ever": 1.176
+          },
+          {
+            "id": 249,
+            "skin_id": "skin-524772",
+            "crate_id": null,
+            "name": "AUG | Luxe Trim (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.3376,
+            "steam_last_7d": 0.360396153846154,
+            "steam_last_30d": 0.355080673758865,
+            "steam_last_90d": 0.358362375533428,
+            "steam_last_ever": 0.319
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-65992",
+        "name": "Desert Eagle | Calligraffiti",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "114",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_deagle_deagle_calligraff_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 595,
+            "skin_id": "skin-65992",
+            "crate_id": null,
+            "name": "Desert Eagle | Calligraffiti (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.734102803738318,
+            "steam_last_7d": 0.770073548387097,
+            "steam_last_30d": 0.808521712907117,
+            "steam_last_90d": 0.796028949338658,
+            "steam_last_ever": 0.691
+          },
+          {
+            "id": 596,
+            "skin_id": "skin-65992",
+            "crate_id": null,
+            "name": "Desert Eagle | Calligraffiti (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 7.67518518518518,
+            "steam_last_7d": 7.708325,
+            "steam_last_30d": 7.59428542510121,
+            "steam_last_90d": 7.80800696257615,
+            "steam_last_ever": 6.86
+          },
+          {
+            "id": 597,
+            "skin_id": "skin-65992",
+            "crate_id": null,
+            "name": "Desert Eagle | Calligraffiti (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.850239382239382,
+            "steam_last_7d": 0.880659237536657,
+            "steam_last_30d": 0.901976673146348,
+            "steam_last_90d": 0.943027601836249,
+            "steam_last_ever": 0.809
+          },
+          {
+            "id": 598,
+            "skin_id": "skin-65992",
+            "crate_id": null,
+            "name": "Desert Eagle | Calligraffiti (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.6892625,
+            "steam_last_7d": 1.70933137583893,
+            "steam_last_30d": 1.76226661129568,
+            "steam_last_90d": 1.76941988749773,
+            "steam_last_ever": 1.635
+          },
+          {
+            "id": 599,
+            "skin_id": "skin-65992",
+            "crate_id": null,
+            "name": "Desert Eagle | Calligraffiti (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.737893401015228,
+            "steam_last_7d": 0.77111331861663,
+            "steam_last_30d": 0.809749867514572,
+            "steam_last_90d": 0.807612805998677,
+            "steam_last_ever": 0.724
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-917984",
+        "name": "M249 | Hypnosis",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "120",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m249_m249_hypnosis_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1522,
+            "skin_id": "skin-917984",
+            "crate_id": null,
+            "name": "M249 | Hypnosis (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.261476190476191,
+            "steam_last_7d": 0.260485849056604,
+            "steam_last_30d": 0.269037111334002,
+            "steam_last_90d": 0.251456726986625,
+            "steam_last_ever": 0.264
+          },
+          {
+            "id": 1523,
+            "skin_id": "skin-917984",
+            "crate_id": null,
+            "name": "M249 | Hypnosis (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.430625,
+            "steam_last_7d": 2.44328260869565,
+            "steam_last_30d": 2.38496078431373,
+            "steam_last_90d": 2.1399573283859,
+            "steam_last_ever": 2.207
+          },
+          {
+            "id": 1524,
+            "skin_id": "skin-917984",
+            "crate_id": null,
+            "name": "M249 | Hypnosis (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.386855072463768,
+            "steam_last_7d": 0.39814121037464,
+            "steam_last_30d": 0.410166341780377,
+            "steam_last_90d": 0.380873693255048,
+            "steam_last_ever": 0.345
+          },
+          {
+            "id": 1525,
+            "skin_id": "skin-917984",
+            "crate_id": null,
+            "name": "M249 | Hypnosis (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.98362962962963,
+            "steam_last_7d": 0.982468950749465,
+            "steam_last_30d": 0.987164057971015,
+            "steam_last_90d": 0.919140259149807,
+            "steam_last_ever": 0.969
+          },
+          {
+            "id": 1526,
+            "skin_id": "skin-917984",
+            "crate_id": null,
+            "name": "M249 | Hypnosis (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.258875,
+            "steam_last_7d": 0.281966507177034,
+            "steam_last_30d": 0.280229518855656,
+            "steam_last_90d": 0.262709957850368,
+            "steam_last_ever": 0.229
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-vanilla-weapon_knife_kukri",
+        "name": "★ Kukri Knife",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": null,
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapons/base_weapons/weapon_knife_kukri_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12333,
+            "skin_id": "skin-vanilla-weapon_knife_kukri",
+            "crate_id": null,
+            "name": "★ Kukri Knife",
+            "wear_category": "Default",
+            "steam_last_24h": 435.730333333333,
+            "steam_last_7d": 437.0278,
+            "steam_last_30d": 443.525867816092,
+            "steam_last_90d": 446.578809615385,
+            "steam_last_ever": 427.66
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      }
+    ]
+  }

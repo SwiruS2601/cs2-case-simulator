@@ -57,8 +57,8 @@ public class ApiScraper : IApiScraper
     private List<RarityDto> ExtractUniqueRarities(List<CrateDto> crates)
     {
         return [.. crates
-            .SelectMany(c => c.contains?.Select(s => s.rarity) ?? Enumerable.Empty<RarityDto>())
-            .Concat(crates.SelectMany(c => c.contains_rare?.Select(s => s.rarity) ?? Enumerable.Empty<RarityDto>()))
+            .SelectMany(c => c.contains?.Select(s => s.rarity) ?? [])
+            .Concat(crates.SelectMany(c => c.contains_rare?.Select(s => s.rarity) ?? []))
             .Where(r => r != null)
             .DistinctBy(r => r?.id)
             .Cast<RarityDto>()];

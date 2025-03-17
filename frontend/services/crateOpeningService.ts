@@ -30,7 +30,7 @@ function openCrate(crate: Crate, odds: Odds) {
   return { sliderSkins, wonSkin, wonSkinIndex: WON_SKIN_INDEX };
 }
 
-function getRandomSkinByOdds(crate: Crate, odds: Odds) {
+function getRandomSkinByOdds(crate: Crate, odds: Odds): Skin {
   const skins = crate.skins;
   if (!skins?.length) throw new CrateServiceError(ERROR_MESSAGES.CRATE_HAS_NO_SKINS);
 
@@ -40,10 +40,14 @@ function getRandomSkinByOdds(crate: Crate, odds: Odds) {
     const eligibleSkins = skins.filter(knivesAndGlovesSkinFilter);
 
     if (!eligibleSkins.length) {
-      return getRandomSkinByOdds(crate, { ...odds, exceedingly_rare: 0 });
+      const skin = getRandomSkinByOdds(crate, { ...odds, exceedingly_rare: 0 });
+      skin.rarity_id = 'exceedingly_rare';
+      return skin
     }
 
-    return eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
+    const skin = eligibleSkins[Math.floor(Math.random() * eligibleSkins.length)];
+    skin.rarity_id = 'exceedingly_rare';
+    return skin
   }
 
   let eligibleSkins = skins.filter((skin) => gunSkinFilter(skin) && skin.rarity_id === rarity);
@@ -65,18 +69,21 @@ function getRandomSkinRarityForCrateByOdds(crate: Crate, odds: Odds): string {
     if (bucketKey === 'exceedingly_rare' && odds.exceedingly_rare) {
       return true;
     }
-
     const bucketRarities = ODDS_TO_RARITY[bucketKey as BaseRarity];
     return bucketRarities.some((rarity) => availableRarities.has(rarity as RarityId));
   });
 
   const totalProbability = filteredOddsEntries.reduce((sum, [, prob]) => sum + prob, 0);
-  const rand = Math.random() * totalProbability;
-
+  
+  const normalizedOdds = filteredOddsEntries.map(([key, value]) => 
+    [key, value / totalProbability]
+  );
+  
+  const rand = Math.random();
   let cumulative = 0;
 
-  for (const [oddsRarity, probability] of filteredOddsEntries) {
-    cumulative += probability;
+  for (const [oddsRarity, probability] of normalizedOdds) {
+    cumulative += +probability;
 
     if (rand <= cumulative) {
       const mappedRarities = ODDS_TO_RARITY[oddsRarity as BaseRarity];

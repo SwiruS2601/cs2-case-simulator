@@ -1,0 +1,3281 @@
+{
+    "id": "crate-4880",
+    "name": "Revolution Case",
+    "description": null,
+    "type": "Case",
+    "first_sale_date": "2023-01-31T00:00:00Z",
+    "market_hash_name": "Revolution Case",
+    "rental": true,
+    "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/weapon_cases/crate_community_32_png.png",
+    "model_player": "models/props/crates/csgo_drop_crate_community_32.vmdl",
+    "price": {
+      "id": 13597,
+      "skin_id": null,
+      "crate_id": "crate-4880",
+      "name": "Revolution Case",
+      "wear_category": null,
+      "steam_last_24h": 0.58867840624443,
+      "steam_last_7d": 0.626953858295742,
+      "steam_last_30d": 0.653274678863202,
+      "steam_last_90d": 0.598177044156725,
+      "steam_last_ever": 0.64
+    },
+    "skins": [
+      {
+        "id": "skin-1053488",
+        "name": "M4A4 | Temukau",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "1228",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_cu_m4a4_temukau_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1818,
+            "skin_id": "skin-1053488",
+            "crate_id": null,
+            "name": "M4A4 | Temukau (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 30.8981818181818,
+            "steam_last_7d": 30.4514838709677,
+            "steam_last_30d": 29.3518275862069,
+            "steam_last_90d": 24.7831701602959,
+            "steam_last_ever": 27.24
+          },
+          {
+            "id": 1819,
+            "skin_id": "skin-1053488",
+            "crate_id": null,
+            "name": "M4A4 | Temukau (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 344.89,
+            "steam_last_7d": 343.26,
+            "steam_last_30d": 366.270347826087,
+            "steam_last_90d": 305.853329113924,
+            "steam_last_ever": 404.58
+          },
+          {
+            "id": 1820,
+            "skin_id": "skin-1053488",
+            "crate_id": null,
+            "name": "M4A4 | Temukau (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 39.0569523809524,
+            "steam_last_7d": 38.7633162393162,
+            "steam_last_30d": 37.1346412371134,
+            "steam_last_90d": 32.8931847826087,
+            "steam_last_ever": 38.89
+          },
+          {
+            "id": 1821,
+            "skin_id": "skin-1053488",
+            "crate_id": null,
+            "name": "M4A4 | Temukau (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 126.103,
+            "steam_last_7d": 141.930961538462,
+            "steam_last_30d": 133.750949579832,
+            "steam_last_90d": 117.668204488778,
+            "steam_last_ever": 125.243
+          },
+          {
+            "id": 1822,
+            "skin_id": "skin-1053488",
+            "crate_id": null,
+            "name": "M4A4 | Temukau (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 41.9832,
+            "steam_last_7d": 40.5356923076923,
+            "steam_last_30d": 39.5083703703704,
+            "steam_last_90d": 33.4560710059172,
+            "steam_last_ever": 45.491
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-1119028",
+        "name": "MAC-10 | Sakkaku",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1229",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mac10_cu_mac10_sakkaku_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2001,
+            "skin_id": "skin-1119028",
+            "crate_id": null,
+            "name": "MAC-10 | Sakkaku (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.747055555555556,
+            "steam_last_7d": 0.779483720930233,
+            "steam_last_30d": 0.932270571428572,
+            "steam_last_90d": 0.922508964771602,
+            "steam_last_ever": 0.73
+          },
+          {
+            "id": 2002,
+            "skin_id": "skin-1119028",
+            "crate_id": null,
+            "name": "MAC-10 | Sakkaku (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 3.58461224489796,
+            "steam_last_7d": 3.63166666666667,
+            "steam_last_30d": 3.74903461918892,
+            "steam_last_90d": 3.56813216313888,
+            "steam_last_ever": 3.757
+          },
+          {
+            "id": 2003,
+            "skin_id": "skin-1119028",
+            "crate_id": null,
+            "name": "MAC-10 | Sakkaku (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 1.46081012658228,
+            "steam_last_7d": 1.53751276102088,
+            "steam_last_30d": 1.62772016706444,
+            "steam_last_90d": 1.57139229867084,
+            "steam_last_ever": 1.602
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-1250116",
+        "name": "P90 | Neoqueen",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1233",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_p90_gs_p90_neoqueen_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3036,
+            "skin_id": "skin-1250116",
+            "crate_id": null,
+            "name": "P90 | Neoqueen (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 1.50286206896552,
+            "steam_last_7d": 1.56673248407643,
+            "steam_last_30d": 1.66941156462585,
+            "steam_last_90d": 1.56946397884997,
+            "steam_last_ever": 1.42
+          },
+          {
+            "id": 3037,
+            "skin_id": "skin-1250116",
+            "crate_id": null,
+            "name": "P90 | Neoqueen (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 4.35692307692308,
+            "steam_last_7d": 4.48654901960784,
+            "steam_last_30d": 4.38167121212121,
+            "steam_last_90d": 4.25190452261306,
+            "steam_last_ever": 4.37
+          },
+          {
+            "id": 3038,
+            "skin_id": "skin-1250116",
+            "crate_id": null,
+            "name": "P90 | Neoqueen (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.838,
+            "steam_last_7d": 0.863399545970488,
+            "steam_last_30d": 0.87981894383906,
+            "steam_last_90d": 0.851676700905116,
+            "steam_last_ever": 0.817
+          },
+          {
+            "id": 3039,
+            "skin_id": "skin-1250116",
+            "crate_id": null,
+            "name": "P90 | Neoqueen (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.93012195121951,
+            "steam_last_7d": 1.92139215686275,
+            "steam_last_30d": 1.94867642405063,
+            "steam_last_90d": 1.88579635811836,
+            "steam_last_ever": 1.909
+          },
+          {
+            "id": 3040,
+            "skin_id": "skin-1250116",
+            "crate_id": null,
+            "name": "P90 | Neoqueen (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 1.14392307692308,
+            "steam_last_7d": 1.19785981308411,
+            "steam_last_30d": 1.23025847457627,
+            "steam_last_90d": 1.24350769230769,
+            "steam_last_ever": 1.084
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-1512252",
+        "name": "MP5-SD | Liquidation",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1231",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mp5sd_cu_mp5sd_quick_liquidation_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2206,
+            "skin_id": "skin-1512252",
+            "crate_id": null,
+            "name": "MP5-SD | Liquidation (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.149121951219512,
+            "steam_last_7d": 0.15654525862069,
+            "steam_last_30d": 0.161819437592501,
+            "steam_last_90d": 0.146251139240506,
+            "steam_last_ever": 0.158
+          },
+          {
+            "id": 2207,
+            "skin_id": "skin-1512252",
+            "crate_id": null,
+            "name": "MP5-SD | Liquidation (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.68637037037037,
+            "steam_last_7d": 1.77624309392265,
+            "steam_last_30d": 1.80833742331288,
+            "steam_last_90d": 1.74579654859219,
+            "steam_last_ever": 1.5
+          },
+          {
+            "id": 2208,
+            "skin_id": "skin-1512252",
+            "crate_id": null,
+            "name": "MP5-SD | Liquidation (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.18512987012987,
+            "steam_last_7d": 0.191676622039135,
+            "steam_last_30d": 0.194519721072129,
+            "steam_last_90d": 0.18013139652621,
+            "steam_last_ever": 0.198
+          },
+          {
+            "id": 2209,
+            "skin_id": "skin-1512252",
+            "crate_id": null,
+            "name": "MP5-SD | Liquidation (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.415757142857143,
+            "steam_last_7d": 0.412205448354143,
+            "steam_last_30d": 0.436669402773846,
+            "steam_last_90d": 0.423560337462623,
+            "steam_last_ever": 0.436
+          },
+          {
+            "id": 2210,
+            "skin_id": "skin-1512252",
+            "crate_id": null,
+            "name": "MP5-SD | Liquidation (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.154765517241379,
+            "steam_last_7d": 0.160307228915663,
+            "steam_last_30d": 0.162979318380425,
+            "steam_last_90d": 0.149203901762725,
+            "steam_last_ever": 0.157
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-1577808",
+        "name": "UMP-45 | Wild Child",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "1236",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ump45_cu_ump_clutch_kick_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 4369,
+            "skin_id": "skin-1577808",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Wild Child (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 1.68884955752212,
+            "steam_last_7d": 1.77413323124043,
+            "steam_last_30d": 1.82711621021466,
+            "steam_last_90d": 1.64096441232615,
+            "steam_last_ever": 1.506
+          },
+          {
+            "id": 4370,
+            "skin_id": "skin-1577808",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Wild Child (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 17.3167,
+            "steam_last_7d": 15.4809047619048,
+            "steam_last_30d": 15.2145017064847,
+            "steam_last_90d": 14.250940397351,
+            "steam_last_ever": 14.4
+          },
+          {
+            "id": 4371,
+            "skin_id": "skin-1577808",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Wild Child (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 2.475,
+            "steam_last_7d": 2.50315962099125,
+            "steam_last_30d": 2.56141855591541,
+            "steam_last_90d": 2.36942036070556,
+            "steam_last_ever": 2.45
+          },
+          {
+            "id": 4372,
+            "skin_id": "skin-1577808",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Wild Child (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 6.0393488372093,
+            "steam_last_7d": 6.08896958174905,
+            "steam_last_30d": 6.2911973503883,
+            "steam_last_90d": 5.83349185185185,
+            "steam_last_ever": 6.11
+          },
+          {
+            "id": 4373,
+            "skin_id": "skin-1577808",
+            "crate_id": null,
+            "name": "StatTrak™ UMP-45 | Wild Child (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 1.74638211382114,
+            "steam_last_7d": 1.81517647058824,
+            "steam_last_30d": 1.86063387978142,
+            "steam_last_90d": 1.71506625798878,
+            "steam_last_ever": 1.67
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-1774352",
+        "name": "MAG-7 | Insomnia",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1220",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mag7_cu_mag7_insomnia_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2094,
+            "skin_id": "skin-1774352",
+            "crate_id": null,
+            "name": "MAG-7 | Insomnia (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.14768,
+            "steam_last_7d": 0.155175196850394,
+            "steam_last_30d": 0.158235294117647,
+            "steam_last_90d": 0.142354084909026,
+            "steam_last_ever": 0.155
+          },
+          {
+            "id": 2095,
+            "skin_id": "skin-1774352",
+            "crate_id": null,
+            "name": "MAG-7 | Insomnia (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.28088888888889,
+            "steam_last_7d": 1.35367,
+            "steam_last_30d": 1.37431004366812,
+            "steam_last_90d": 1.3460280448718,
+            "steam_last_ever": 1.372
+          },
+          {
+            "id": 2096,
+            "skin_id": "skin-1774352",
+            "crate_id": null,
+            "name": "MAG-7 | Insomnia (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.192651006711409,
+            "steam_last_7d": 0.190488866396761,
+            "steam_last_30d": 0.197860655737705,
+            "steam_last_90d": 0.180759492585926,
+            "steam_last_ever": 0.173
+          },
+          {
+            "id": 2097,
+            "skin_id": "skin-1774352",
+            "crate_id": null,
+            "name": "MAG-7 | Insomnia (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.398326923076923,
+            "steam_last_7d": 0.41601884057971,
+            "steam_last_30d": 0.410354906788604,
+            "steam_last_90d": 0.390249164550194,
+            "steam_last_ever": 0.381
+          },
+          {
+            "id": 2098,
+            "skin_id": "skin-1774352",
+            "crate_id": null,
+            "name": "MAG-7 | Insomnia (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.14963829787234,
+            "steam_last_7d": 0.159512345679012,
+            "steam_last_30d": 0.161538415900326,
+            "steam_last_90d": 0.145467240655187,
+            "steam_last_ever": 0.14
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-1971020",
+        "name": "Tec-9 | Rebel",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1235",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_tec9_cu_tec9_freedom_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 4262,
+            "skin_id": "skin-1971020",
+            "crate_id": null,
+            "name": "StatTrak™ Tec-9 | Rebel (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.0679,
+            "steam_last_7d": 0.0729183296378419,
+            "steam_last_30d": 0.0723369410649391,
+            "steam_last_90d": 0.0657594948818521,
+            "steam_last_ever": 0.07
+          },
+          {
+            "id": 4263,
+            "skin_id": "skin-1971020",
+            "crate_id": null,
+            "name": "StatTrak™ Tec-9 | Rebel (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 0.40515873015873,
+            "steam_last_7d": 0.391878243512974,
+            "steam_last_30d": 0.40328606597735,
+            "steam_last_90d": 0.378466065747614,
+            "steam_last_ever": 0.376
+          },
+          {
+            "id": 4264,
+            "skin_id": "skin-1971020",
+            "crate_id": null,
+            "name": "StatTrak™ Tec-9 | Rebel (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.0787044198895028,
+            "steam_last_7d": 0.0799620109190173,
+            "steam_last_30d": 0.0819089489301891,
+            "steam_last_90d": 0.0734805860075743,
+            "steam_last_ever": 0.069
+          },
+          {
+            "id": 4265,
+            "skin_id": "skin-1971020",
+            "crate_id": null,
+            "name": "StatTrak™ Tec-9 | Rebel (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.140825630252101,
+            "steam_last_7d": 0.147175556340516,
+            "steam_last_30d": 0.1523317045362,
+            "steam_last_90d": 0.143337396849212,
+            "steam_last_ever": 0.129
+          },
+          {
+            "id": 4266,
+            "skin_id": "skin-1971020",
+            "crate_id": null,
+            "name": "StatTrak™ Tec-9 | Rebel (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.0700222222222222,
+            "steam_last_7d": 0.0748916161059018,
+            "steam_last_30d": 0.0732026053215076,
+            "steam_last_90d": 0.0665901960784315,
+            "steam_last_ever": 0.062
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-2102048",
+        "name": "P2000 | Wicked Sick",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "1224",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_hkp2000_cu_p2000_decline_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2765,
+            "skin_id": "skin-2102048",
+            "crate_id": null,
+            "name": "P2000 | Wicked Sick (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 3.1498,
+            "steam_last_7d": 3.06836190476191,
+            "steam_last_30d": 3.16028065395095,
+            "steam_last_90d": 2.71172,
+            "steam_last_ever": 2.6
+          },
+          {
+            "id": 2766,
+            "skin_id": "skin-2102048",
+            "crate_id": null,
+            "name": "P2000 | Wicked Sick (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 28.703,
+            "steam_last_7d": 28.4156923076923,
+            "steam_last_30d": 30.4063541666667,
+            "steam_last_90d": 28.7564335664336,
+            "steam_last_ever": 28.703
+          },
+          {
+            "id": 2767,
+            "skin_id": "skin-2102048",
+            "crate_id": null,
+            "name": "P2000 | Wicked Sick (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 3.96826086956522,
+            "steam_last_7d": 4.20832666666667,
+            "steam_last_30d": 4.55328148148148,
+            "steam_last_90d": 4.15491998149861,
+            "steam_last_ever": 3.431
+          },
+          {
+            "id": 2768,
+            "skin_id": "skin-2102048",
+            "crate_id": null,
+            "name": "P2000 | Wicked Sick (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 10.8152857142857,
+            "steam_last_7d": 11.1433209876543,
+            "steam_last_30d": 11.522857605178,
+            "steam_last_90d": 10.40496069869,
+            "steam_last_ever": 11.141
+          },
+          {
+            "id": 2769,
+            "skin_id": "skin-2102048",
+            "crate_id": null,
+            "name": "P2000 | Wicked Sick (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 3.33058823529412,
+            "steam_last_7d": 3.35192553191489,
+            "steam_last_30d": 3.39098622589532,
+            "steam_last_90d": 2.97110171102662,
+            "steam_last_ever": 3.2
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      },
+      {
+        "id": "skin-2233124",
+        "name": "MP9 | Featherweight",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1225",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_mp9_cu_mp9_superlight_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2377,
+            "skin_id": "skin-2233124",
+            "crate_id": null,
+            "name": "MP9 | Featherweight (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.157952380952381,
+            "steam_last_7d": 0.168571161048689,
+            "steam_last_30d": 0.186903943771964,
+            "steam_last_90d": 0.172915857605178,
+            "steam_last_ever": 0.155
+          },
+          {
+            "id": 2378,
+            "skin_id": "skin-2233124",
+            "crate_id": null,
+            "name": "MP9 | Featherweight (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.21695454545455,
+            "steam_last_7d": 2.28522660098522,
+            "steam_last_30d": 2.38387384615385,
+            "steam_last_90d": 2.2499009786989,
+            "steam_last_ever": 2.156
+          },
+          {
+            "id": 2379,
+            "skin_id": "skin-2233124",
+            "crate_id": null,
+            "name": "MP9 | Featherweight (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.243930348258706,
+            "steam_last_7d": 0.251604964539007,
+            "steam_last_30d": 0.266312062380649,
+            "steam_last_90d": 0.236198001365526,
+            "steam_last_ever": 0.251
+          },
+          {
+            "id": 2380,
+            "skin_id": "skin-2233124",
+            "crate_id": null,
+            "name": "MP9 | Featherweight (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.52693085106383,
+            "steam_last_7d": 0.525885767790262,
+            "steam_last_30d": 0.565937771345875,
+            "steam_last_90d": 0.521735567257062,
+            "steam_last_ever": 0.543
+          },
+          {
+            "id": 2381,
+            "skin_id": "skin-2233124",
+            "crate_id": null,
+            "name": "MP9 | Featherweight (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.160668571428571,
+            "steam_last_7d": 0.172879120879121,
+            "steam_last_30d": 0.190655692729767,
+            "steam_last_90d": 0.17640168430812,
+            "steam_last_ever": 0.163
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-2364216",
+        "name": "P250 | Re.built",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1230",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_p250_cu_p250_rebuilt_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 2887,
+            "skin_id": "skin-2364216",
+            "crate_id": null,
+            "name": "P250 | Re.built (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.154989473684211,
+            "steam_last_7d": 0.156935779816514,
+            "steam_last_30d": 0.161273634204276,
+            "steam_last_90d": 0.149202497285559,
+            "steam_last_ever": 0.15
+          },
+          {
+            "id": 2888,
+            "skin_id": "skin-2364216",
+            "crate_id": null,
+            "name": "P250 | Re.built (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.13528571428571,
+            "steam_last_7d": 1.2458347107438,
+            "steam_last_30d": 1.31389448441247,
+            "steam_last_90d": 1.24819670781893,
+            "steam_last_ever": 1.09
+          },
+          {
+            "id": 2889,
+            "skin_id": "skin-2364216",
+            "crate_id": null,
+            "name": "P250 | Re.built (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.167909090909091,
+            "steam_last_7d": 0.170601461038961,
+            "steam_last_30d": 0.176306193601312,
+            "steam_last_90d": 0.167072857443672,
+            "steam_last_ever": 0.138
+          },
+          {
+            "id": 2890,
+            "skin_id": "skin-2364216",
+            "crate_id": null,
+            "name": "P250 | Re.built (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.470037974683544,
+            "steam_last_7d": 0.42082892906815,
+            "steam_last_30d": 0.428134698275862,
+            "steam_last_90d": 0.411792811296534,
+            "steam_last_ever": 0.41
+          },
+          {
+            "id": 2891,
+            "skin_id": "skin-2364216",
+            "crate_id": null,
+            "name": "P250 | Re.built (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.157485981308411,
+            "steam_last_7d": 0.165363957597173,
+            "steam_last_30d": 0.166362810707457,
+            "steam_last_90d": 0.153215624452619,
+            "steam_last_ever": 0.152
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-2495272",
+        "name": "SCAR-20 | Fragments",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1226",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_scar20_gs_scar_fragments_black_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3439,
+            "skin_id": "skin-2495272",
+            "crate_id": null,
+            "name": "SCAR-20 | Fragments (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.180888888888889,
+            "steam_last_7d": 0.165575197889182,
+            "steam_last_30d": 0.162121190644933,
+            "steam_last_90d": 0.144735568862275,
+            "steam_last_ever": 0.16
+          },
+          {
+            "id": 3440,
+            "skin_id": "skin-2495272",
+            "crate_id": null,
+            "name": "SCAR-20 | Fragments (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.45688235294118,
+            "steam_last_7d": 1.23756643356643,
+            "steam_last_30d": 1.11994940079893,
+            "steam_last_90d": 1.01273946360153,
+            "steam_last_ever": 1.13
+          },
+          {
+            "id": 3441,
+            "skin_id": "skin-2495272",
+            "crate_id": null,
+            "name": "SCAR-20 | Fragments (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.171150837988827,
+            "steam_last_7d": 0.174794707297514,
+            "steam_last_30d": 0.172604378420641,
+            "steam_last_90d": 0.161244041624706,
+            "steam_last_ever": 0.185
+          },
+          {
+            "id": 3442,
+            "skin_id": "skin-2495272",
+            "crate_id": null,
+            "name": "SCAR-20 | Fragments (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.425666666666667,
+            "steam_last_7d": 0.426718383311604,
+            "steam_last_30d": 0.414189093064612,
+            "steam_last_90d": 0.394709047900651,
+            "steam_last_ever": 0.43
+          },
+          {
+            "id": 3443,
+            "skin_id": "skin-2495272",
+            "crate_id": null,
+            "name": "SCAR-20 | Fragments (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.173222222222222,
+            "steam_last_7d": 0.169377192982456,
+            "steam_last_30d": 0.173701631701632,
+            "steam_last_90d": 0.16261007751938,
+            "steam_last_ever": 0.174
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-2560840",
+        "name": "SG 553 | Cyberforce",
+        "rarity_id": "rarity_rare_weapon",
+        "paint_index": "1234",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_sg556_cu_sg553_cyberforce_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3520,
+            "skin_id": "skin-2560840",
+            "crate_id": null,
+            "name": "SG 553 | Cyberforce (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.170715909090909,
+            "steam_last_7d": 0.174498194945848,
+            "steam_last_30d": 0.178945294390357,
+            "steam_last_90d": 0.163643546240852,
+            "steam_last_ever": 0.15
+          },
+          {
+            "id": 3521,
+            "skin_id": "skin-2560840",
+            "crate_id": null,
+            "name": "SG 553 | Cyberforce (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 1.6145,
+            "steam_last_7d": 1.62449681528662,
+            "steam_last_30d": 1.68057186081695,
+            "steam_last_90d": 1.58224944690266,
+            "steam_last_ever": 1.54
+          },
+          {
+            "id": 3522,
+            "skin_id": "skin-2560840",
+            "crate_id": null,
+            "name": "SG 553 | Cyberforce (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.17161797752809,
+            "steam_last_7d": 0.173034599156118,
+            "steam_last_30d": 0.180766859743484,
+            "steam_last_90d": 0.173345956218766,
+            "steam_last_ever": 0.162
+          },
+          {
+            "id": 3523,
+            "skin_id": "skin-2560840",
+            "crate_id": null,
+            "name": "SG 553 | Cyberforce (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 0.435603053435115,
+            "steam_last_7d": 0.426691599539701,
+            "steam_last_30d": 0.451308168316831,
+            "steam_last_90d": 0.427453954010096,
+            "steam_last_ever": 0.495
+          },
+          {
+            "id": 3524,
+            "skin_id": "skin-2560840",
+            "crate_id": null,
+            "name": "SG 553 | Cyberforce (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.162417582417582,
+            "steam_last_7d": 0.16563339070568,
+            "steam_last_30d": 0.169931469792606,
+            "steam_last_90d": 0.157120765832106,
+            "steam_last_ever": 0.142
+          }
+        ],
+        "rarity": {
+          "id": "rarity_rare_weapon",
+          "name": "Mil-Spec Grade",
+          "color": "#4b69ff"
+        }
+      },
+      {
+        "id": "skin-267052",
+        "name": "Glock-18 | Umbral Rabbit",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1227",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_glock_cu_glock_moon_rabbit_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1448,
+            "skin_id": "skin-267052",
+            "crate_id": null,
+            "name": "Glock-18 | Umbral Rabbit (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 1.29251136363636,
+            "steam_last_7d": 1.31446168582375,
+            "steam_last_30d": 1.33106673021926,
+            "steam_last_90d": 1.1410331027668,
+            "steam_last_ever": 1.23
+          },
+          {
+            "id": 1449,
+            "skin_id": "skin-267052",
+            "crate_id": null,
+            "name": "Glock-18 | Umbral Rabbit (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 7.45315384615385,
+            "steam_last_7d": 7.30649659863946,
+            "steam_last_30d": 7.32753716690042,
+            "steam_last_90d": 6.63511382925612,
+            "steam_last_ever": 6.4
+          },
+          {
+            "id": 1450,
+            "skin_id": "skin-267052",
+            "crate_id": null,
+            "name": "Glock-18 | Umbral Rabbit (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 1.30963671875,
+            "steam_last_7d": 1.35358419689119,
+            "steam_last_30d": 1.38355823409817,
+            "steam_last_90d": 1.2289232096184,
+            "steam_last_ever": 1.308
+          },
+          {
+            "id": 1451,
+            "skin_id": "skin-267052",
+            "crate_id": null,
+            "name": "Glock-18 | Umbral Rabbit (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 3.02326506024096,
+            "steam_last_7d": 3.19103492647059,
+            "steam_last_30d": 3.14105748924521,
+            "steam_last_90d": 2.99730933702508,
+            "steam_last_ever": 2.79
+          },
+          {
+            "id": 1452,
+            "skin_id": "skin-267052",
+            "crate_id": null,
+            "name": "Glock-18 | Umbral Rabbit (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 2.22276666666667,
+            "steam_last_7d": 2.28214798206278,
+            "steam_last_30d": 2.19814181152791,
+            "steam_last_90d": 1.99158433333333,
+            "steam_last_ever": 2.172
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-329686260",
+        "name": "★ Sport Gloves | Amphibious",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10045",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/sporty_gloves_sporty_poison_frog_blue_white_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12953,
+            "skin_id": "skin-329686260",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Amphibious (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 612.745333333333,
+            "steam_last_30d": 609.176176470588,
+            "steam_last_90d": 573.556634146342,
+            "steam_last_ever": 567.133
+          },
+          {
+            "id": 12954,
+            "skin_id": "skin-329686260",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Amphibious (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1259.332
+          },
+          {
+            "id": 12955,
+            "skin_id": "skin-329686260",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Amphibious (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 908.94,
+            "steam_last_7d": 1120.01525,
+            "steam_last_30d": 1020.78548148148,
+            "steam_last_90d": 945.496303030303,
+            "steam_last_ever": 908.94
+          },
+          {
+            "id": 12956,
+            "skin_id": "skin-329686260",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Amphibious (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 1800,
+            "steam_last_30d": 1764.80766666667,
+            "steam_last_90d": 1756.52583333333,
+            "steam_last_ever": 1800
+          },
+          {
+            "id": 12957,
+            "skin_id": "skin-329686260",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Amphibious (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 751.622,
+            "steam_last_30d": 743.457571428571,
+            "steam_last_90d": 744.5339,
+            "steam_last_ever": 810.014
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329686264",
+        "name": "★ Sport Gloves | Bronze Morph",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10046",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/sporty_gloves_sporty_poison_frog_red_green_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12968,
+            "skin_id": "skin-329686264",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Bronze Morph (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 205.674,
+            "steam_last_7d": 191.069923076923,
+            "steam_last_30d": 191.429018867924,
+            "steam_last_90d": 175.809371069182,
+            "steam_last_ever": 206.978
+          },
+          {
+            "id": 12969,
+            "skin_id": "skin-329686264",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Bronze Morph (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 974.276
+          },
+          {
+            "id": 12970,
+            "skin_id": "skin-329686264",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Bronze Morph (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 236.0006,
+            "steam_last_7d": 234.926090909091,
+            "steam_last_30d": 227.168248447205,
+            "steam_last_90d": 207.495772631579,
+            "steam_last_ever": 240
+          },
+          {
+            "id": 12971,
+            "skin_id": "skin-329686264",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Bronze Morph (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 348.716,
+            "steam_last_7d": 333.796,
+            "steam_last_30d": 343.039228070175,
+            "steam_last_90d": 322.096163120567,
+            "steam_last_ever": 352.435
+          },
+          {
+            "id": 12972,
+            "skin_id": "skin-329686264",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Bronze Morph (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 227.34,
+            "steam_last_7d": 197.960555555556,
+            "steam_last_30d": 207.545714285714,
+            "steam_last_90d": 194.224548076923,
+            "steam_last_ever": 229.24
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329686268",
+        "name": "★ Sport Gloves | Omega",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10047",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/sporty_gloves_sporty_black_webbing_yellow_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12983,
+            "skin_id": "skin-329686268",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Omega (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 348.7278,
+            "steam_last_30d": 331.959703703704,
+            "steam_last_90d": 319.25314084507,
+            "steam_last_ever": 278.57
+          },
+          {
+            "id": 12984,
+            "skin_id": "skin-329686268",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Omega (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1734.908
+          },
+          {
+            "id": 12985,
+            "skin_id": "skin-329686268",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Omega (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 612.92275,
+            "steam_last_7d": 591.605727272727,
+            "steam_last_30d": 599.933282608696,
+            "steam_last_90d": 582.452417322835,
+            "steam_last_ever": 549.994
+          },
+          {
+            "id": 12986,
+            "skin_id": "skin-329686268",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Omega (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 1299.7805,
+            "steam_last_30d": 1283.32983333333,
+            "steam_last_90d": 1259.81215,
+            "steam_last_ever": 1265
+          },
+          {
+            "id": 12987,
+            "skin_id": "skin-329686268",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Omega (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 433.67,
+            "steam_last_30d": 409.723166666667,
+            "steam_last_90d": 416.74459375,
+            "steam_last_ever": 433.67
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329686272",
+        "name": "★ Sport Gloves | Vice",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10048",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/sporty_gloves_sporty_blue_pink_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 13008,
+            "skin_id": "skin-329686272",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Vice (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 798.7005,
+            "steam_last_30d": 793.149416666667,
+            "steam_last_90d": 735.45811627907,
+            "steam_last_ever": 796.37
+          },
+          {
+            "id": 13009,
+            "skin_id": "skin-329686272",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Vice (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1641.67
+          },
+          {
+            "id": 13010,
+            "skin_id": "skin-329686272",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Vice (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 1578.394,
+            "steam_last_7d": 1510.456,
+            "steam_last_30d": 1505.93986956522,
+            "steam_last_90d": 1443.83782926829,
+            "steam_last_ever": 1578.394
+          },
+          {
+            "id": 13011,
+            "skin_id": "skin-329686272",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Vice (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 1671.589,
+            "steam_last_ever": 1799.991
+          },
+          {
+            "id": 13012,
+            "skin_id": "skin-329686272",
+            "crate_id": null,
+            "name": "★ Sport Gloves | Vice (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 1044.03,
+            "steam_last_7d": 1067.935,
+            "steam_last_30d": 1068.26025,
+            "steam_last_90d": 1079.98383333333,
+            "steam_last_ever": 1044.03
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329751780",
+        "name": "★ Driver Gloves | King Snake",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10041",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/slick_gloves_slick_snakeskin_white_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 11713,
+            "skin_id": "skin-329751780",
+            "crate_id": null,
+            "name": "★ Driver Gloves | King Snake (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 265.157888888889,
+            "steam_last_30d": 261.57455,
+            "steam_last_90d": 253.076888888889,
+            "steam_last_ever": 278.25
+          },
+          {
+            "id": 11714,
+            "skin_id": "skin-329751780",
+            "crate_id": null,
+            "name": "★ Driver Gloves | King Snake (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 900
+          },
+          {
+            "id": 11715,
+            "skin_id": "skin-329751780",
+            "crate_id": null,
+            "name": "★ Driver Gloves | King Snake (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 465.597333333333,
+            "steam_last_7d": 482.9682,
+            "steam_last_30d": 488.015608695652,
+            "steam_last_90d": 474.694601694915,
+            "steam_last_ever": 413.202
+          },
+          {
+            "id": 11716,
+            "skin_id": "skin-329751780",
+            "crate_id": null,
+            "name": "★ Driver Gloves | King Snake (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1452.82,
+            "steam_last_7d": 1459.405,
+            "steam_last_30d": 1382.7924,
+            "steam_last_90d": 1439.884875,
+            "steam_last_ever": 1452.82
+          },
+          {
+            "id": 11717,
+            "skin_id": "skin-329751780",
+            "crate_id": null,
+            "name": "★ Driver Gloves | King Snake (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 377.041,
+            "steam_last_30d": 377.2695,
+            "steam_last_90d": 337.991680851064,
+            "steam_last_ever": 381.984
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329751784",
+        "name": "★ Driver Gloves | Imperial Plaid",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10042",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/slick_gloves_slick_plaid_purple_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 11708,
+            "skin_id": "skin-329751784",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Imperial Plaid (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 365.97,
+            "steam_last_7d": 352.258428571429,
+            "steam_last_30d": 344.788880952381,
+            "steam_last_90d": 307.382673611111,
+            "steam_last_ever": 366.96
+          },
+          {
+            "id": 11709,
+            "skin_id": "skin-329751784",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Imperial Plaid (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1601.769
+          },
+          {
+            "id": 11710,
+            "skin_id": "skin-329751784",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Imperial Plaid (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 488.27925,
+            "steam_last_7d": 496.87404,
+            "steam_last_30d": 513.230483516483,
+            "steam_last_90d": 476.904264705883,
+            "steam_last_ever": 435.64
+          },
+          {
+            "id": 11711,
+            "skin_id": "skin-329751784",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Imperial Plaid (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 946.418,
+            "steam_last_7d": 916.77875,
+            "steam_last_30d": 931.329727272727,
+            "steam_last_90d": 872.039275,
+            "steam_last_ever": 946.418
+          },
+          {
+            "id": 11712,
+            "skin_id": "skin-329751784",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Imperial Plaid (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 476.569,
+            "steam_last_30d": 439.123578947369,
+            "steam_last_90d": 398.092193548387,
+            "steam_last_ever": 475
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329751788",
+        "name": "★ Driver Gloves | Overtake",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10043",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/slick_gloves_slick_stitched_black_orange_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 11723,
+            "skin_id": "skin-329751788",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Overtake (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 142.0415,
+            "steam_last_7d": 126.3872,
+            "steam_last_30d": 131.027016666667,
+            "steam_last_90d": 118.912508571429,
+            "steam_last_ever": 143.583
+          },
+          {
+            "id": 11724,
+            "skin_id": "skin-329751788",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Overtake (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 697.979,
+            "steam_last_30d": 660.1295,
+            "steam_last_90d": 667.565,
+            "steam_last_ever": 697.979
+          },
+          {
+            "id": 11725,
+            "skin_id": "skin-329751788",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Overtake (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 183.507333333333,
+            "steam_last_7d": 172.761136363636,
+            "steam_last_30d": 173.532030769231,
+            "steam_last_90d": 154.798190366972,
+            "steam_last_ever": 181.08
+          },
+          {
+            "id": 11726,
+            "skin_id": "skin-329751788",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Overtake (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 229.940333333333,
+            "steam_last_7d": 247.21,
+            "steam_last_30d": 255.95471875,
+            "steam_last_90d": 238.849555555556,
+            "steam_last_ever": 217.815
+          },
+          {
+            "id": 11727,
+            "skin_id": "skin-329751788",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Overtake (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 156.82,
+            "steam_last_7d": 150.237111111111,
+            "steam_last_30d": 150.639682926829,
+            "steam_last_90d": 133.810536585366,
+            "steam_last_ever": 156.82
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329751792",
+        "name": "★ Driver Gloves | Racing Green",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10044",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/slick_gloves_slick_stitched_green_grey_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 11733,
+            "skin_id": "skin-329751792",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Racing Green (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 87.31,
+            "steam_last_7d": 85.0206666666667,
+            "steam_last_30d": 82.9843820224719,
+            "steam_last_90d": 82.7025955882353,
+            "steam_last_ever": 91.31
+          },
+          {
+            "id": 11734,
+            "skin_id": "skin-329751792",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Racing Green (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 516.987,
+            "steam_last_30d": 457.997,
+            "steam_last_90d": 397.085857142857,
+            "steam_last_ever": 516.987
+          },
+          {
+            "id": 11735,
+            "skin_id": "skin-329751792",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Racing Green (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 89.5774375,
+            "steam_last_7d": 87.6934074074074,
+            "steam_last_30d": 88.7422606516291,
+            "steam_last_90d": 86.8159198813056,
+            "steam_last_ever": 82.672
+          },
+          {
+            "id": 11736,
+            "skin_id": "skin-329751792",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Racing Green (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 160.245,
+            "steam_last_7d": 184.599166666667,
+            "steam_last_30d": 167.709636363636,
+            "steam_last_90d": 145.841290540541,
+            "steam_last_ever": 168
+          },
+          {
+            "id": 11737,
+            "skin_id": "skin-329751792",
+            "crate_id": null,
+            "name": "★ Driver Gloves | Racing Green (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 86.618,
+            "steam_last_7d": 87.5535294117647,
+            "steam_last_30d": 89.2566507936508,
+            "steam_last_90d": 86.9869301310043,
+            "steam_last_ever": 91.426
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329817364",
+        "name": "★ Hand Wraps | Cobalt Skulls",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10053",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/leather_handwraps_handwrap_leathery_fabric_blue_skulls_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12066,
+            "skin_id": "skin-329817364",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Cobalt Skulls (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 459.992,
+            "steam_last_7d": 462.503,
+            "steam_last_30d": 408.38188,
+            "steam_last_90d": 386.479816666667,
+            "steam_last_ever": 459.992
+          },
+          {
+            "id": 12067,
+            "skin_id": "skin-329817364",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Cobalt Skulls (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1534.49
+          },
+          {
+            "id": 12068,
+            "skin_id": "skin-329817364",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Cobalt Skulls (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 550.01,
+            "steam_last_7d": 596.8517,
+            "steam_last_30d": 575.171348837209,
+            "steam_last_90d": 547.05490625,
+            "steam_last_ever": 550.01
+          },
+          {
+            "id": 12069,
+            "skin_id": "skin-329817364",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Cobalt Skulls (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 1264.323,
+            "steam_last_30d": 1018.9727,
+            "steam_last_90d": 1005.24541935484,
+            "steam_last_ever": 1264.323
+          },
+          {
+            "id": 12070,
+            "skin_id": "skin-329817364",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Cobalt Skulls (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 520,
+            "steam_last_30d": 465.585,
+            "steam_last_90d": 443.711736842105,
+            "steam_last_ever": 520
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329817368",
+        "name": "★ Hand Wraps | Overprint",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10054",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/leather_handwraps_handwrap_leathery_fabric_geometric_blue_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12096,
+            "skin_id": "skin-329817368",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Overprint (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 206.988,
+            "steam_last_30d": 187.910193548387,
+            "steam_last_90d": 169.938018518518,
+            "steam_last_ever": 175
+          },
+          {
+            "id": 12097,
+            "skin_id": "skin-329817368",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Overprint (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 899.73,
+            "steam_last_ever": 899.73
+          },
+          {
+            "id": 12098,
+            "skin_id": "skin-329817368",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Overprint (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 297.6875,
+            "steam_last_7d": 274.896130434783,
+            "steam_last_30d": 277.434574712644,
+            "steam_last_90d": 270.640095454545,
+            "steam_last_ever": 263.005
+          },
+          {
+            "id": 12099,
+            "skin_id": "skin-329817368",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Overprint (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 402.5,
+            "steam_last_7d": 452.24475,
+            "steam_last_30d": 440.257111111111,
+            "steam_last_90d": 435.366568181818,
+            "steam_last_ever": 402.5
+          },
+          {
+            "id": 12100,
+            "skin_id": "skin-329817368",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Overprint (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 239.996,
+            "steam_last_7d": 244.9655,
+            "steam_last_30d": 233.6382,
+            "steam_last_90d": 235.005132075472,
+            "steam_last_ever": 239.996
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329817372",
+        "name": "★ Hand Wraps | Duct Tape",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10055",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/leather_handwraps_handwrap_leathery_ducttape_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12081,
+            "skin_id": "skin-329817372",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Duct Tape (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 130.8825,
+            "steam_last_30d": 137.224519230769,
+            "steam_last_90d": 123.811025641026,
+            "steam_last_ever": 155.01
+          },
+          {
+            "id": 12082,
+            "skin_id": "skin-329817372",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Duct Tape (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 517.2505,
+            "steam_last_ever": 589.5
+          },
+          {
+            "id": 12083,
+            "skin_id": "skin-329817372",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Duct Tape (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 145.433,
+            "steam_last_7d": 149.177971428571,
+            "steam_last_30d": 150.39106993007,
+            "steam_last_90d": 133.492527233115,
+            "steam_last_ever": 145.212
+          },
+          {
+            "id": 12084,
+            "skin_id": "skin-329817372",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Duct Tape (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 178.096,
+            "steam_last_7d": 190.710166666667,
+            "steam_last_30d": 193.431088235294,
+            "steam_last_90d": 163.473523076923,
+            "steam_last_ever": 178.096
+          },
+          {
+            "id": 12085,
+            "skin_id": "skin-329817372",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Duct Tape (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 121.3,
+            "steam_last_7d": 145.7866,
+            "steam_last_30d": 145.270155555556,
+            "steam_last_90d": 130.344059322034,
+            "steam_last_ever": 121.3
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329817376",
+        "name": "★ Hand Wraps | Arboreal",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10056",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/leather_handwraps_handwrap_leathery_fabric_green_camo_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12051,
+            "skin_id": "skin-329817376",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Arboreal (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 125.38,
+            "steam_last_7d": 130.064071428571,
+            "steam_last_30d": 130.48912,
+            "steam_last_90d": 122.3138359375,
+            "steam_last_ever": 125.38
+          },
+          {
+            "id": 12052,
+            "skin_id": "skin-329817376",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Arboreal (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 356.664,
+            "steam_last_ever": 374.708
+          },
+          {
+            "id": 12053,
+            "skin_id": "skin-329817376",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Arboreal (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 168.205333333333,
+            "steam_last_7d": 168.78475,
+            "steam_last_30d": 163.619731707317,
+            "steam_last_90d": 147.233097560976,
+            "steam_last_ever": 163.04
+          },
+          {
+            "id": 12054,
+            "skin_id": "skin-329817376",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Arboreal (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 191.826,
+            "steam_last_30d": 192.915259259259,
+            "steam_last_90d": 175.329098765432,
+            "steam_last_ever": 148.64
+          },
+          {
+            "id": 12055,
+            "skin_id": "skin-329817376",
+            "crate_id": null,
+            "name": "★ Hand Wraps | Arboreal (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 150.839,
+            "steam_last_7d": 144.707545454545,
+            "steam_last_30d": 143.347866666667,
+            "steam_last_90d": 133.052766666667,
+            "steam_last_ever": 165.1
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329882884",
+        "name": "★ Moto Gloves | POW!",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10049",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/motorcycle_gloves_motorcycle_choco_boom_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12520,
+            "skin_id": "skin-329882884",
+            "crate_id": null,
+            "name": "★ Moto Gloves | POW! (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 181.0794,
+            "steam_last_30d": 169.359941176471,
+            "steam_last_90d": 154.455253968254,
+            "steam_last_ever": 188.529
+          },
+          {
+            "id": 12521,
+            "skin_id": "skin-329882884",
+            "crate_id": null,
+            "name": "★ Moto Gloves | POW! (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 1629.97,
+            "steam_last_ever": 1629.97
+          },
+          {
+            "id": 12522,
+            "skin_id": "skin-329882884",
+            "crate_id": null,
+            "name": "★ Moto Gloves | POW! (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 330.9815,
+            "steam_last_7d": 284.315777777778,
+            "steam_last_30d": 273.11101754386,
+            "steam_last_90d": 269.050994535519,
+            "steam_last_ever": 275.993
+          },
+          {
+            "id": 12523,
+            "skin_id": "skin-329882884",
+            "crate_id": null,
+            "name": "★ Moto Gloves | POW! (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 757.7835,
+            "steam_last_30d": 680.2555,
+            "steam_last_90d": 656.255352941177,
+            "steam_last_ever": 665
+          },
+          {
+            "id": 12524,
+            "skin_id": "skin-329882884",
+            "crate_id": null,
+            "name": "★ Moto Gloves | POW! (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 262.415,
+            "steam_last_7d": 245.951,
+            "steam_last_30d": 221.342529411765,
+            "steam_last_90d": 202.6528125,
+            "steam_last_ever": 262.415
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329882888",
+        "name": "★ Moto Gloves | Turtle",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10050",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/motorcycle_gloves_motorcycle_basic_green_orange_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12545,
+            "skin_id": "skin-329882888",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Turtle (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 172.5,
+            "steam_last_7d": 172.8238,
+            "steam_last_30d": 166.700707317073,
+            "steam_last_90d": 149.900441441441,
+            "steam_last_ever": 172.5
+          },
+          {
+            "id": 12546,
+            "skin_id": "skin-329882888",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Turtle (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 820.01,
+            "steam_last_ever": 820.01
+          },
+          {
+            "id": 12547,
+            "skin_id": "skin-329882888",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Turtle (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 204.882,
+            "steam_last_7d": 225.80828,
+            "steam_last_30d": 219.021147826087,
+            "steam_last_90d": 196.054328165375,
+            "steam_last_ever": 204.834
+          },
+          {
+            "id": 12548,
+            "skin_id": "skin-329882888",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Turtle (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 415.47,
+            "steam_last_7d": 364.961857142857,
+            "steam_last_30d": 356.9156,
+            "steam_last_90d": 342.206476190476,
+            "steam_last_ever": 415.47
+          },
+          {
+            "id": 12549,
+            "skin_id": "skin-329882888",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Turtle (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 207.894,
+            "steam_last_7d": 199.106142857143,
+            "steam_last_30d": 185.921882352941,
+            "steam_last_90d": 169.241834862385,
+            "steam_last_ever": 208.799
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329882892",
+        "name": "★ Moto Gloves | Transport",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10051",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/motorcycle_gloves_motorcycle_yellow_camo_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12540,
+            "skin_id": "skin-329882892",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Transport (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 114.347,
+            "steam_last_7d": 113.581,
+            "steam_last_30d": 115.330647058824,
+            "steam_last_90d": 107.607975845411,
+            "steam_last_ever": 108.896
+          },
+          {
+            "id": 12541,
+            "skin_id": "skin-329882892",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Transport (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": 480.55,
+            "steam_last_90d": 480.55,
+            "steam_last_ever": 480.55
+          },
+          {
+            "id": 12542,
+            "skin_id": "skin-329882892",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Transport (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 136.52325,
+            "steam_last_7d": 128.307390243902,
+            "steam_last_30d": 131.183731343284,
+            "steam_last_90d": 126.015118644068,
+            "steam_last_ever": 128.71
+          },
+          {
+            "id": 12543,
+            "skin_id": "skin-329882892",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Transport (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 185.105666666667,
+            "steam_last_7d": 192.774454545455,
+            "steam_last_30d": 190.118465116279,
+            "steam_last_90d": 177.749175572519,
+            "steam_last_ever": 194.027
+          },
+          {
+            "id": 12544,
+            "skin_id": "skin-329882892",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Transport (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 125.951888888889,
+            "steam_last_30d": 122.824057142857,
+            "steam_last_90d": 114.289504761905,
+            "steam_last_ever": 131.998
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329882896",
+        "name": "★ Moto Gloves | Polygon",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10052",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/motorcycle_gloves_motorcycle_trigrid_blue_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12525,
+            "skin_id": "skin-329882896",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Polygon (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 203.507222222222,
+            "steam_last_30d": 190.717618181818,
+            "steam_last_90d": 175.268251461988,
+            "steam_last_ever": 200.299
+          },
+          {
+            "id": 12526,
+            "skin_id": "skin-329882896",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Polygon (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 1581.7415,
+            "steam_last_ever": 1625.843
+          },
+          {
+            "id": 12527,
+            "skin_id": "skin-329882896",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Polygon (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 295.4295,
+            "steam_last_7d": 290.174448275862,
+            "steam_last_30d": 287.628075,
+            "steam_last_90d": 264.134178823529,
+            "steam_last_ever": 296.799
+          },
+          {
+            "id": 12528,
+            "skin_id": "skin-329882896",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Polygon (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 459.1515,
+            "steam_last_7d": 466.163166666667,
+            "steam_last_30d": 463.496481481482,
+            "steam_last_90d": 447.355395604396,
+            "steam_last_ever": 417.82
+          },
+          {
+            "id": 12529,
+            "skin_id": "skin-329882896",
+            "crate_id": null,
+            "name": "★ Moto Gloves | Polygon (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 224.029,
+            "steam_last_7d": 240.57,
+            "steam_last_30d": 247.445419354839,
+            "steam_last_90d": 230.087152173913,
+            "steam_last_ever": 217.823
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329948468",
+        "name": "★ Specialist Gloves | Crimson Web",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10061",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/specialist_gloves_specialist_webs_red_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12903,
+            "skin_id": "skin-329948468",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Crimson Web (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 230.001,
+            "steam_last_7d": 237.543363636364,
+            "steam_last_30d": 233.577487804878,
+            "steam_last_90d": 209.8003046875,
+            "steam_last_ever": 230.001
+          },
+          {
+            "id": 12904,
+            "skin_id": "skin-329948468",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Crimson Web (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1936.762
+          },
+          {
+            "id": 12905,
+            "skin_id": "skin-329948468",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Crimson Web (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 413.8655,
+            "steam_last_7d": 382.013,
+            "steam_last_30d": 370.183190476191,
+            "steam_last_90d": 352.788810185185,
+            "steam_last_ever": 407.741
+          },
+          {
+            "id": 12906,
+            "skin_id": "skin-329948468",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Crimson Web (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 962.357666666667,
+            "steam_last_30d": 935.064888888889,
+            "steam_last_90d": 915.766380952381,
+            "steam_last_ever": 805
+          },
+          {
+            "id": 12907,
+            "skin_id": "skin-329948468",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Crimson Web (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 326.722,
+            "steam_last_7d": 288.438888888889,
+            "steam_last_30d": 281.106178571429,
+            "steam_last_90d": 273.576550724638,
+            "steam_last_ever": 326.722
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329948472",
+        "name": "★ Specialist Gloves | Buckshot",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10062",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/specialist_gloves_specialist_forest_brown_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12893,
+            "skin_id": "skin-329948472",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Buckshot (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 106.765,
+            "steam_last_7d": 123.871333333333,
+            "steam_last_30d": 128.654679245283,
+            "steam_last_90d": 116.34952,
+            "steam_last_ever": 105.72
+          },
+          {
+            "id": 12894,
+            "skin_id": "skin-329948472",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Buckshot (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 374.76,
+            "steam_last_ever": 387.03
+          },
+          {
+            "id": 12895,
+            "skin_id": "skin-329948472",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Buckshot (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 143.0775,
+            "steam_last_7d": 147.752571428571,
+            "steam_last_30d": 148.915244444445,
+            "steam_last_90d": 137.300466666667,
+            "steam_last_ever": 147.574
+          },
+          {
+            "id": 12896,
+            "skin_id": "skin-329948472",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Buckshot (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 176.04,
+            "steam_last_7d": 188.561666666667,
+            "steam_last_30d": 190.681902439024,
+            "steam_last_90d": 175.138035460993,
+            "steam_last_ever": 176.04
+          },
+          {
+            "id": 12897,
+            "skin_id": "skin-329948472",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Buckshot (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 131.079,
+            "steam_last_7d": 138.273272727273,
+            "steam_last_30d": 134.048944444445,
+            "steam_last_90d": 123.15907518797,
+            "steam_last_ever": 126.028
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329948476",
+        "name": "★ Specialist Gloves | Fade",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10063",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/specialist_gloves_specialist_fade_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12913,
+            "skin_id": "skin-329948476",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Fade (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 260.1595,
+            "steam_last_7d": 270.923833333333,
+            "steam_last_30d": 276.210057142857,
+            "steam_last_90d": 245.813660869565,
+            "steam_last_ever": 271.319
+          },
+          {
+            "id": 12914,
+            "skin_id": "skin-329948476",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Fade (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": null,
+            "steam_last_ever": 1800
+          },
+          {
+            "id": 12915,
+            "skin_id": "skin-329948476",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Fade (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 546.304,
+            "steam_last_7d": 530.120375,
+            "steam_last_30d": 551.240020408163,
+            "steam_last_90d": 538.773901840491,
+            "steam_last_ever": 559.3
+          },
+          {
+            "id": 12916,
+            "skin_id": "skin-329948476",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Fade (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 1400.67066666667,
+            "steam_last_30d": 1376.34875,
+            "steam_last_90d": 1357.69027777778,
+            "steam_last_ever": 1556.645
+          },
+          {
+            "id": 12917,
+            "skin_id": "skin-329948476",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Fade (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 421.3915,
+            "steam_last_30d": 412.647538461538,
+            "steam_last_90d": 391.955871794872,
+            "steam_last_ever": 432.77
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-329948480",
+        "name": "★ Specialist Gloves | Mogul",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10064",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/specialist_gloves_specialist_winterhex_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12943,
+            "skin_id": "skin-329948480",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Mogul (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 190.66,
+            "steam_last_7d": 193.218,
+            "steam_last_30d": 193.622576923077,
+            "steam_last_90d": 181.564623188406,
+            "steam_last_ever": 198.64
+          },
+          {
+            "id": 12944,
+            "skin_id": "skin-329948480",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Mogul (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 1160.002,
+            "steam_last_ever": 1160.002
+          },
+          {
+            "id": 12945,
+            "skin_id": "skin-329948480",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Mogul (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 248.6156,
+            "steam_last_7d": 253.95695,
+            "steam_last_30d": 257.395532467533,
+            "steam_last_90d": 238.972121673004,
+            "steam_last_ever": 260.005
+          },
+          {
+            "id": 12946,
+            "skin_id": "skin-329948480",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Mogul (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": null,
+            "steam_last_7d": 419.5362,
+            "steam_last_30d": 442.8508125,
+            "steam_last_90d": 414.95612,
+            "steam_last_ever": 393.89
+          },
+          {
+            "id": 12947,
+            "skin_id": "skin-329948480",
+            "crate_id": null,
+            "name": "★ Specialist Gloves | Mogul (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 238.020666666667,
+            "steam_last_30d": 224.540692307692,
+            "steam_last_90d": 207.3138,
+            "steam_last_ever": 233.503
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-330013988",
+        "name": "★ Hydra Gloves | Emerald",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10057",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/studded_hydra_gloves_bloodhound_hydra_black_green_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12217,
+            "skin_id": "skin-330013988",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Emerald (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 103.581,
+            "steam_last_7d": 100.177961538462,
+            "steam_last_30d": 98.6084893617021,
+            "steam_last_90d": 91.3576506410256,
+            "steam_last_ever": 99.867
+          },
+          {
+            "id": 12218,
+            "skin_id": "skin-330013988",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Emerald (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 550.009,
+            "steam_last_30d": 441.1095,
+            "steam_last_90d": 373.4455,
+            "steam_last_ever": 550.009
+          },
+          {
+            "id": 12219,
+            "skin_id": "skin-330013988",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Emerald (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 104.9406,
+            "steam_last_7d": 108.496557142857,
+            "steam_last_30d": 104.884394321767,
+            "steam_last_90d": 98.5684643705463,
+            "steam_last_ever": 105.537
+          },
+          {
+            "id": 12220,
+            "skin_id": "skin-330013988",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Emerald (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 164.38,
+            "steam_last_7d": 175.082666666667,
+            "steam_last_30d": 176.194764705882,
+            "steam_last_90d": 144.524395209581,
+            "steam_last_ever": 164.38
+          },
+          {
+            "id": 12221,
+            "skin_id": "skin-330013988",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Emerald (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 103.4612,
+            "steam_last_30d": 104.702982142857,
+            "steam_last_90d": 99.2118024691358,
+            "steam_last_ever": 106.178
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-330013992",
+        "name": "★ Hydra Gloves | Mangrove",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10058",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/studded_hydra_gloves_bloodhound_hydra_green_leather_mesh_brass_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12222,
+            "skin_id": "skin-330013992",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Mangrove (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 83.058,
+            "steam_last_7d": 84.02132,
+            "steam_last_30d": 83.3777362637363,
+            "steam_last_90d": 82.5052474576271,
+            "steam_last_ever": 80.5
+          },
+          {
+            "id": 12223,
+            "skin_id": "skin-330013992",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Mangrove (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 960.122285714286,
+            "steam_last_ever": 897
+          },
+          {
+            "id": 12224,
+            "skin_id": "skin-330013992",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Mangrove (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 87.0431578947368,
+            "steam_last_7d": 86.73862,
+            "steam_last_30d": 85.0094966592427,
+            "steam_last_90d": 83.8566295603367,
+            "steam_last_ever": 84.36
+          },
+          {
+            "id": 12225,
+            "skin_id": "skin-330013992",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Mangrove (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 113.4415,
+            "steam_last_7d": 119.450357142857,
+            "steam_last_30d": 116.933290322581,
+            "steam_last_90d": 115.242,
+            "steam_last_ever": 107.61
+          },
+          {
+            "id": 12226,
+            "skin_id": "skin-330013992",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Mangrove (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 92,
+            "steam_last_7d": 92.8785,
+            "steam_last_30d": 87.989875,
+            "steam_last_90d": 85.2249835164836,
+            "steam_last_ever": 92
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-330013996",
+        "name": "★ Hydra Gloves | Rattler",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10059",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/studded_hydra_gloves_bloodhound_hydra_snakeskin_brass_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12227,
+            "skin_id": "skin-330013996",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Rattler (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 85.5784,
+            "steam_last_7d": 83.83604,
+            "steam_last_30d": 83.0692307692308,
+            "steam_last_90d": 82.3444940239044,
+            "steam_last_ever": 80.43
+          },
+          {
+            "id": 12228,
+            "skin_id": "skin-330013996",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Rattler (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": 275,
+            "steam_last_30d": 303.289,
+            "steam_last_90d": 286.709833333333,
+            "steam_last_ever": 275
+          },
+          {
+            "id": 12229,
+            "skin_id": "skin-330013996",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Rattler (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 88.1733636363637,
+            "steam_last_7d": 86.821,
+            "steam_last_30d": 85.4431111111111,
+            "steam_last_90d": 84.1933461128861,
+            "steam_last_ever": 81.684
+          },
+          {
+            "id": 12230,
+            "skin_id": "skin-330013996",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Rattler (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 116.231,
+            "steam_last_7d": 109.930375,
+            "steam_last_30d": 123.017738095238,
+            "steam_last_90d": 118.079046875,
+            "steam_last_ever": 104.183
+          },
+          {
+            "id": 12231,
+            "skin_id": "skin-330013996",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Rattler (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 88.175,
+            "steam_last_7d": 85.1930833333333,
+            "steam_last_30d": 87.8397205882353,
+            "steam_last_90d": 85.5641555555556,
+            "steam_last_ever": 96.958
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-330014000",
+        "name": "★ Hydra Gloves | Case Hardened",
+        "rarity_id": "rarity_ancient",
+        "paint_index": "10060",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/studded_hydra_gloves_bloodhound_hydra_case_hardened_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 12212,
+            "skin_id": "skin-330014000",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Case Hardened (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": null,
+            "steam_last_7d": 178.012857142857,
+            "steam_last_30d": 170.630350877193,
+            "steam_last_90d": 149.577446236559,
+            "steam_last_ever": 150.006
+          },
+          {
+            "id": 12213,
+            "skin_id": "skin-330014000",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Case Hardened (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": null,
+            "steam_last_7d": null,
+            "steam_last_30d": null,
+            "steam_last_90d": 800.27125,
+            "steam_last_ever": 734.984
+          },
+          {
+            "id": 12214,
+            "skin_id": "skin-330014000",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Case Hardened (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 184.3175,
+            "steam_last_7d": 187.103228571429,
+            "steam_last_30d": 186.949090322581,
+            "steam_last_90d": 161.492570661896,
+            "steam_last_ever": 192.21
+          },
+          {
+            "id": 12215,
+            "skin_id": "skin-330014000",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Case Hardened (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 266.2295,
+            "steam_last_7d": 272.426071428571,
+            "steam_last_30d": 255.127590163934,
+            "steam_last_90d": 240.547875,
+            "steam_last_ever": 273.75
+          },
+          {
+            "id": 12216,
+            "skin_id": "skin-330014000",
+            "crate_id": null,
+            "name": "★ Hydra Gloves | Case Hardened (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": null,
+            "steam_last_7d": 157.890166666667,
+            "steam_last_30d": 169.440939393939,
+            "steam_last_90d": 151.362520661157,
+            "steam_last_ever": 150
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient",
+          "name": "Extraordinary",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-3937052",
+        "name": "M4A1-S | Emphorosaur-S",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1223",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_m4a1_silencer_cu_m4a1s_feeding_frenzy_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 1619,
+            "skin_id": "skin-3937052",
+            "crate_id": null,
+            "name": "M4A1-S | Emphorosaur-S (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 2.71845977011494,
+            "steam_last_7d": 2.79880994671403,
+            "steam_last_30d": 2.86749452954048,
+            "steam_last_90d": 2.62038815220525,
+            "steam_last_ever": 2.4
+          },
+          {
+            "id": 1620,
+            "skin_id": "skin-3937052",
+            "crate_id": null,
+            "name": "M4A1-S | Emphorosaur-S (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 13.2830697674419,
+            "steam_last_7d": 13.8958516949153,
+            "steam_last_30d": 14.1605259336099,
+            "steam_last_90d": 12.6456418533992,
+            "steam_last_ever": 13.42
+          },
+          {
+            "id": 1621,
+            "skin_id": "skin-3937052",
+            "crate_id": null,
+            "name": "M4A1-S | Emphorosaur-S (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 2.72907629427793,
+            "steam_last_7d": 2.81687307512832,
+            "steam_last_30d": 2.90944548524126,
+            "steam_last_90d": 2.60077709855376,
+            "steam_last_ever": 2.87
+          },
+          {
+            "id": 1622,
+            "skin_id": "skin-3937052",
+            "crate_id": null,
+            "name": "M4A1-S | Emphorosaur-S (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 5.16538686131387,
+            "steam_last_7d": 5.25135174746336,
+            "steam_last_30d": 5.39478098471986,
+            "steam_last_90d": 4.99547235323633,
+            "steam_last_ever": 5.504
+          },
+          {
+            "id": 1623,
+            "skin_id": "skin-3937052",
+            "crate_id": null,
+            "name": "M4A1-S | Emphorosaur-S (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 3.76442372881356,
+            "steam_last_7d": 3.89093515358362,
+            "steam_last_30d": 4.02104880294659,
+            "steam_last_90d": 3.60352232951117,
+            "steam_last_ever": 4.029
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-4199232",
+        "name": "R8 Revolver | Banana Cannon",
+        "rarity_id": "rarity_mythical_weapon",
+        "paint_index": "1232",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_revolver_gs_r8_banana_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 3311,
+            "skin_id": "skin-4199232",
+            "crate_id": null,
+            "name": "R8 Revolver | Banana Cannon (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 0.403995575221239,
+            "steam_last_7d": 0.4056253894081,
+            "steam_last_30d": 0.401007066462949,
+            "steam_last_90d": 0.376289905339982,
+            "steam_last_ever": 0.351
+          },
+          {
+            "id": 3312,
+            "skin_id": "skin-4199232",
+            "crate_id": null,
+            "name": "R8 Revolver | Banana Cannon (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 2.55941935483871,
+            "steam_last_7d": 2.43700843881856,
+            "steam_last_30d": 3.35157130124777,
+            "steam_last_90d": 2.86388888888889,
+            "steam_last_ever": 2.39
+          },
+          {
+            "id": 3313,
+            "skin_id": "skin-4199232",
+            "crate_id": null,
+            "name": "R8 Revolver | Banana Cannon (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 0.493934065934066,
+            "steam_last_7d": 0.493945267958951,
+            "steam_last_30d": 0.458830265452432,
+            "steam_last_90d": 0.442277168042926,
+            "steam_last_ever": 0.49
+          },
+          {
+            "id": 3314,
+            "skin_id": "skin-4199232",
+            "crate_id": null,
+            "name": "R8 Revolver | Banana Cannon (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 1.11278414096916,
+            "steam_last_7d": 1.11278915202445,
+            "steam_last_30d": 1.06994995073892,
+            "steam_last_90d": 0.989153694380187,
+            "steam_last_ever": 1.11
+          },
+          {
+            "id": 3315,
+            "skin_id": "skin-4199232",
+            "crate_id": null,
+            "name": "R8 Revolver | Banana Cannon (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 0.396037037037037,
+            "steam_last_7d": 0.4021289933695,
+            "steam_last_30d": 0.404545620715918,
+            "steam_last_90d": 0.387425854194368,
+            "steam_last_ever": 0.385
+          }
+        ],
+        "rarity": {
+          "id": "rarity_mythical_weapon",
+          "name": "Restricted",
+          "color": "#8847ff"
+        }
+      },
+      {
+        "id": "skin-463636",
+        "name": "AK-47 | Head Shot",
+        "rarity_id": "rarity_ancient_weapon",
+        "paint_index": "1221",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_ak47_cu_ak_head_shot_holo_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 69,
+            "skin_id": "skin-463636",
+            "crate_id": null,
+            "name": "AK-47 | Head Shot (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 27.2310588235294,
+            "steam_last_7d": 28.0048125,
+            "steam_last_30d": 25.6031950464396,
+            "steam_last_90d": 21.0888957746479,
+            "steam_last_ever": 27.56
+          },
+          {
+            "id": 70,
+            "skin_id": "skin-463636",
+            "crate_id": null,
+            "name": "AK-47 | Head Shot (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 160.192,
+            "steam_last_7d": 163.455,
+            "steam_last_30d": 171.529357142857,
+            "steam_last_90d": 153.248924528302,
+            "steam_last_ever": 160.192
+          },
+          {
+            "id": 71,
+            "skin_id": "skin-463636",
+            "crate_id": null,
+            "name": "AK-47 | Head Shot (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 36.2652631578947,
+            "steam_last_7d": 36.0735378151261,
+            "steam_last_30d": 34.9241239837398,
+            "steam_last_90d": 31.9851160839161,
+            "steam_last_ever": 37.823
+          },
+          {
+            "id": 72,
+            "skin_id": "skin-463636",
+            "crate_id": null,
+            "name": "AK-47 | Head Shot (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 59.3535714285714,
+            "steam_last_7d": 59.127,
+            "steam_last_30d": 61.2632333333334,
+            "steam_last_90d": 59.7892731629393,
+            "steam_last_ever": 55.85
+          },
+          {
+            "id": 73,
+            "skin_id": "skin-463636",
+            "crate_id": null,
+            "name": "AK-47 | Head Shot (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 27.9229444444444,
+            "steam_last_7d": 28.0733058823529,
+            "steam_last_30d": 27.1692551319648,
+            "steam_last_90d": 23.2665396085741,
+            "steam_last_ever": 30.965
+          }
+        ],
+        "rarity": {
+          "id": "rarity_ancient_weapon",
+          "name": "Covert",
+          "color": "#eb4b4b"
+        }
+      },
+      {
+        "id": "skin-594712",
+        "name": "AWP | Duality",
+        "rarity_id": "rarity_legendary_weapon",
+        "paint_index": "1222",
+        "image": "https://raw.githubusercontent.com/ByMykel/counter-strike-image-tracker/main/static/panorama/images/econ/default_generated/weapon_awp_gs_awp_limbo_snake_light_png.png",
+        "min_float": null,
+        "max_float": null,
+        "stattrak": null,
+        "souvenir": null,
+        "category": null,
+        "pattern": null,
+        "prices": [
+          {
+            "id": 381,
+            "skin_id": "skin-594712",
+            "crate_id": null,
+            "name": "AWP | Duality (Battle-Scarred)",
+            "wear_category": "Battle-Scarred",
+            "steam_last_24h": 8.28376923076923,
+            "steam_last_7d": 8.45991764705883,
+            "steam_last_30d": 8.11682578875171,
+            "steam_last_90d": 7.26614520019296,
+            "steam_last_ever": 8.44
+          },
+          {
+            "id": 382,
+            "skin_id": "skin-594712",
+            "crate_id": null,
+            "name": "AWP | Duality (Factory New)",
+            "wear_category": "Factory New",
+            "steam_last_24h": 37.2228333333333,
+            "steam_last_7d": 40.5650425531915,
+            "steam_last_30d": 38.4138208955224,
+            "steam_last_90d": 36.1392275862069,
+            "steam_last_ever": 37.78
+          },
+          {
+            "id": 383,
+            "skin_id": "skin-594712",
+            "crate_id": null,
+            "name": "AWP | Duality (Field-Tested)",
+            "wear_category": "Field-Tested",
+            "steam_last_24h": 8.55001204819277,
+            "steam_last_7d": 8.91517117117117,
+            "steam_last_30d": 8.56044050509955,
+            "steam_last_90d": 7.75920950645908,
+            "steam_last_ever": 8.729
+          },
+          {
+            "id": 384,
+            "skin_id": "skin-594712",
+            "crate_id": null,
+            "name": "AWP | Duality (Minimal Wear)",
+            "wear_category": "Minimal Wear",
+            "steam_last_24h": 17.9327826086957,
+            "steam_last_7d": 17.5911636363636,
+            "steam_last_30d": 17.487589958159,
+            "steam_last_90d": 16.0648679602461,
+            "steam_last_ever": 17.59
+          },
+          {
+            "id": 385,
+            "skin_id": "skin-594712",
+            "crate_id": null,
+            "name": "AWP | Duality (Well-Worn)",
+            "wear_category": "Well-Worn",
+            "steam_last_24h": 12.1202222222222,
+            "steam_last_7d": 11.8173090909091,
+            "steam_last_30d": 12.4824402173913,
+            "steam_last_90d": 10.7320052083333,
+            "steam_last_ever": 12.188
+          }
+        ],
+        "rarity": {
+          "id": "rarity_legendary_weapon",
+          "name": "Classified",
+          "color": "#d32ce6"
+        }
+      }
+    ]
+  }

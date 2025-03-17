@@ -6,15 +6,15 @@ export function sortSkinByRarity(a: Skin, b: Skin) {
 }
 
 export function gunSkinFilter(skin: Skin): boolean {
-  return !skin.name.startsWith('★');
+  return !skin?.name.includes('★');
 }
 
 export function knivesAndGlovesSkinFilter(skin: Skin): boolean {
-  return skin.name.startsWith('★');
+  return skin?.name.includes('★');
 }
 
 export function filterSkinsByOnlyKnives(skin: Skin): boolean {
-  return skin.name.includes('Knife');
+  return skin?.name.includes('Knife');
 }
 
 export function filterSkinsByOnlyGloves(skin: Skin): boolean {

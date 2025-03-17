@@ -52,6 +52,7 @@ export type RarityId =
   | 'rarity_mythical_weapon'
   | 'rarity_rare'
   | 'rarity_rare_weapon'
-  | 'rarity_uncommon_weapon';
+  | 'rarity_uncommon_weapon'
+  | 'exceedingly_rare';
 
 export type BaseRarity = 'rare' | 'mythical' | 'legendary' | 'ancient' | 'exceedingly_rare';
