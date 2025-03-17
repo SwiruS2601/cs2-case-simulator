@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useInventoryStore } from '~/composables/inventoryStore';
 import Button from './Button.vue';
+
 defineOptions({ name: 'NavigationBar' });
 const inventory = useInventoryStore();
 </script>
@@ -11,10 +12,18 @@ const inventory = useInventoryStore();
             <router-link to="/">
                 <Button>Home</Button>
             </router-link>
-            <div>
-                Balance:
+            <div class="flex gap-2 items-center">
+                <span class="sm:block hidden">Balance:</span>
                 <ClientOnly>
-                    <span :class="inventory.balance > 0 ? 'text-green-400' : 'text-red-400'">
+                    <span
+                        :class="
+                            inventory.balance === 0
+                                ? 'text-gray-200'
+                                : inventory.balance > 0
+                                ? 'text-green-400'
+                                : 'text-red-400'
+                        "
+                    >
                         € {{ inventory?.balance?.toFixed(2) }}
                     </span>
                     <template #fallback>

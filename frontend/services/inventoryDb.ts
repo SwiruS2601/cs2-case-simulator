@@ -196,6 +196,23 @@ async function getItems({
     };
 }
 
+async function getItemCountByRarity() {
+    const db = await getDB();
+    const result: Record<string, number> = {};
+
+    const transaction = db.transaction('items', 'readonly');
+    const store = transaction.objectStore('items');
+    let cursor = await store.openCursor();
+
+    while (cursor) {
+        const rarityId = cursor.value.rarity_id;
+        result[rarityId] = (result[rarityId] || 0) + 1;
+        cursor = await cursor.continue();
+    }
+
+    return result;
+}
+
 async function clearItems() {
     const db = await getDB();
     return db.clear('items');
@@ -206,7 +223,6 @@ async function getItemsCount() {
     return db.count('items');
 }
 
-// Export with consistent naming
 export const inventoryDb = {
     addItem,
     updateItem,
@@ -215,5 +231,6 @@ export const inventoryDb = {
     getItems,
     clearItems,
     getItemsCount,
+    getItemCountByRarity,
     resetDatabase,
 };

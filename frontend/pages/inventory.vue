@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import InventoryGrid from '~/components/InventoryGrid.vue';
 import { useInventoryStore } from '~/composables/inventoryStore';
-import type { InventoryItem } from '~/services/inventoryDb';
+import { COLOR_ORDER, RARITY_COLORS } from '~/constants';
+import { inventoryDb, type InventoryItem } from '~/services/inventoryDb';
 
 const inventory = useInventoryStore();
 const selectedSort = ref('latest');
 const currentPage = ref(1);
-const pageSize = ref(window?.innerWidth < 768 ? 15 : 35);
+const pageSize = ref(window?.innerWidth < 768 ? 51 : 63);
 const items = ref<InventoryItem[]>([]);
+const rarityStats = ref<{ color: string; percent: string; count: number }[]>([]);
+const isLoading = ref(false);
 const pagination = ref({
     totalCount: 0,
     totalPages: 0,
 });
-const isLoading = ref(false);
 
 const selectOptions = [
     { value: 'latest', label: 'Latest' },
@@ -21,8 +23,52 @@ const selectOptions = [
     { value: 'name', label: 'Name' },
 ];
 
+async function loadRarityStats() {
+    const rarityCounts = await inventoryDb.getItemCountByRarity();
+    const totalItems = await inventoryDb.getItemsCount();
+
+    if (totalItems === 0) {
+        rarityStats.value = [];
+        return;
+    }
+
+    const colorCounts: Record<string, { count: number; color: string }> = {};
+
+    Object.entries(rarityCounts).forEach(([rarityId, count]) => {
+        const colorHex = RARITY_COLORS[rarityId] || '#ffffff';
+
+        if (!colorCounts[colorHex]) {
+            colorCounts[colorHex] = { count: 0, color: colorHex };
+        }
+
+        colorCounts[colorHex].count += count;
+    });
+
+    const stats = Object.entries(colorCounts)
+        .map(([colorHex, { count }]) => {
+            const percent = ((count / totalItems) * 100).toFixed(2);
+            return { color: colorHex, percent, count };
+        })
+        .sort((a, b) => {
+            const indexA = COLOR_ORDER.indexOf(a.color);
+            const indexB = COLOR_ORDER.indexOf(b.color);
+
+            if (indexA !== -1 && indexB !== -1) {
+                return indexA - indexB;
+            }
+
+            if (indexA !== -1) return -1;
+            if (indexB !== -1) return 1;
+
+            return 0;
+        });
+
+    rarityStats.value = stats;
+}
+
 async function loadItems() {
     isLoading.value = true;
+
     try {
         const sortBy = ['latest', 'name', 'rarity', 'price'].includes(selectedSort.value)
             ? selectedSort.value
@@ -39,6 +85,8 @@ async function loadItems() {
             totalCount: result.totalCount,
             totalPages: result.totalPages,
         };
+
+        await loadRarityStats();
     } catch (error) {
         console.error('Failed to load inventory:', error);
     } finally {
@@ -90,9 +138,41 @@ onMounted(() => {
 
 <template>
     <Container>
-        <div class="flex justify-between items-center flex-wrap gap-4 pb-5">
+        <div class="flex justify-between items-center gap-4 pb-3">
             <div class="flex gap-4 items-center flex-wrap">
                 <BackButton></BackButton>
+                <p
+                    v-if="pagination.totalCount"
+                    class="text-xl text-white/80 absolute left-1/2 transform -translate-x-1/2 sm:relative sm:translate-x-0 sm:left-0"
+                >
+                    {{ pagination.totalCount }} Items
+                </p>
+            </div>
+            <ClientOnly>
+                <Button v-if="items.length || inventory.balance" variant="danger" @click="handleReset">Reset</Button>
+            </ClientOnly>
+        </div>
+
+        <div
+            v-if="items.length && rarityStats.length"
+            class="mb-4 flex justify-between items-center flex-col sm:flex-row sm:gap-4"
+        >
+            <div
+                class="flex gap-x-2 items-center bg-white/10 border border-black/15 rounded-lg py-1 px-2 mr-auto mt-auto flex-wrap"
+            >
+                <div
+                    v-for="stat in rarityStats"
+                    :key="stat.color"
+                    class="flex font-semibold items-center drop-shadow-2xl gap-x-1"
+                    :style="{ color: stat.color, textShadow: '0 1px 1px black' }"
+                >
+                    <span class="text-base sm:text-lg"> ({{ stat.count }}) </span>
+                    <span class="text-base sm:text-lg"> {{ stat.percent }}% </span>
+                </div>
+            </div>
+            <div
+                class="flex flex-wrap gap-4 items-center sm:mt-auto sm:mb-0 mt-4 mb-2 justify-between sm:justify-normal w-full sm:w-auto"
+            >
                 <div class="flex flex-col">
                     <label for="inventory-sort" class="sr-only">Sort inventory by</label>
                     <select
@@ -105,36 +185,29 @@ onMounted(() => {
                             :key="option.value"
                             :value="option.value"
                             :selected="option.value === selectedSort"
-                            class="bg-black/50"
+                            class="bg-black/70"
                         >
                             {{ option.label }}
                         </option>
                     </select>
                 </div>
-            </div>
-
-            <Button variant="danger" @click="handleReset">Reset</Button>
-        </div>
-
-        <div class="my-4 flex justify-between items-center">
-            <p class="text-lg text-white/90">My Items: {{ pagination.totalCount }}</p>
-
-            <div v-if="pagination.totalPages > 1" class="flex gap-2 items-center">
-                <Button
-                    :disabled="currentPage <= 1"
-                    :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
-                    @click="prevPage"
-                >
-                    Previous
-                </Button>
-                <span class="text-white/90"> {{ currentPage }} / {{ pagination.totalPages }} </span>
-                <Button
-                    :disabled="currentPage >= pagination.totalPages"
-                    :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
-                    @click="nextPage"
-                >
-                    Next
-                </Button>
+                <div v-if="pagination.totalPages > 1" class="flex gap-2 items-center">
+                    <Button
+                        :disabled="currentPage <= 1"
+                        :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
+                        @click="prevPage"
+                    >
+                        Previous
+                    </Button>
+                    <div class="text-white/90 sm:text-nowrap">{{ currentPage }} / {{ pagination.totalPages }}</div>
+                    <Button
+                        :disabled="currentPage >= pagination.totalPages"
+                        :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
+                        @click="nextPage"
+                    >
+                        Next
+                    </Button>
+                </div>
             </div>
         </div>
 

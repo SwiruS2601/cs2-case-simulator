@@ -10,7 +10,7 @@ export function gunSkinFilter(skin: Skin): boolean {
     return !skin?.name.includes('★');
 }
 
-export function knivesAndGlovesSkinFilter(skin: Skin): boolean {
+export function knivesAndGlovesSkinFilter(skin: Skin | InventoryItem): boolean {
     return skin?.name.includes('★');
 }
 

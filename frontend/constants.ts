@@ -152,5 +152,15 @@ export const RARITY_COLORS: Record<string, string> = {
     rarity_legendary: '#d32ce6',
     rarity_ancient_weapon: '#eb4b4b',
     rarity_ancient: '#eb4b4b',
-    exceedingly_rare: '#eb4b4b',
+    exceedingly_rare: '#FFD700',
 };
+
+export const COLOR_ORDER = [
+    RARITY_COLORS.exceedingly_rare,
+    RARITY_COLORS.rarity_ancient,
+    RARITY_COLORS.rarity_legendary,
+    RARITY_COLORS.rarity_mythical,
+    RARITY_COLORS.rarity_rare,
+    RARITY_COLORS.rarity_uncommon_weapon,
+    RARITY_COLORS.rarity_common_weapon,
+];
