@@ -28,7 +28,6 @@ beforeEach(() => {
 });
 
 describe('Crate Opening Service Probability Tests', () => {
-    // Helper function to run multiple simulations and collect statistics
     function runSimulations(crate: Crate, odds: Record<string, number>, iterations = 100000) {
         const results: Record<string, number> = {};
 
@@ -41,7 +40,6 @@ describe('Crate Opening Service Probability Tests', () => {
         return results;
     }
 
-    // Helper function to verify odds are within expected margin of error
     function verifyOddsDistribution(
         actual: Record<string, number>,
         expected: Record<string, number>,
@@ -50,11 +48,9 @@ describe('Crate Opening Service Probability Tests', () => {
     ) {
         const marginOfError = 2;
 
-        // Aggregate counts by rarity group
         const aggregatedActual: Record<string, number> = {};
 
         Object.entries(actual).forEach(([rarity, count]) => {
-            // Find which expected category this belongs to
             for (const [key, values] of Object.entries(RARITY_MAP)) {
                 if (values.includes(rarity)) {
                     aggregatedActual[key] = (aggregatedActual[key] || 0) + count;
@@ -63,7 +59,6 @@ describe('Crate Opening Service Probability Tests', () => {
             }
         });
 
-        // Now compare aggregated values against expected
         for (const [category, count] of Object.entries(aggregatedActual)) {
             if (expected[category]) {
                 const actualPercentage = (count / iterations) * 100;
@@ -150,7 +145,7 @@ describe('Crate Opening Service Probability Tests', () => {
         test('should handle custom odds', () => {
             const customOdds = { ...ODDS } as any;
             const weights = [50, 30, 15, 4, 1];
-            const total = weights.reduce((sum, w) => sum + w, 0); // Calculate sum (100)
+            const total = weights.reduce((sum, w) => sum + w, 0);
 
             Object.keys(customOdds).forEach((key, index) => {
                 customOdds[key] = weights[index % 5] / total || customOdds[key];
@@ -161,8 +156,6 @@ describe('Crate Opening Service Probability Tests', () => {
         });
 
         test('should fallback to any skin of the selected rarity if gun skin filter returns no results', () => {
-            // This test depends on the implementation of gunSkinFilter
-            // Assuming it might filter out some skins, we want to make sure we still get a skin
             for (let i = 0; i < 100; i++) {
                 const skin = crateOpeningService.getRandomSkinByOdds(galleryCaseData, ODDS);
                 expect(skin).toBeDefined();
@@ -183,9 +176,7 @@ describe('Crate Opening Service Probability Tests', () => {
             for (const caseInfo of cases) {
                 const results = runSimulations(caseInfo.data, ODDS, iterations);
 
-                // Calculate percentages and prepare table data
                 const tableData = Object.entries(results).map(([rarity, count]) => {
-                    // Find which category this rarity belongs to
                     let expectedKey = '';
                     for (const [key, values] of Object.entries(RARITY_MAP)) {
                         if (values.includes(rarity)) {
@@ -207,10 +198,8 @@ describe('Crate Opening Service Probability Tests', () => {
                     };
                 });
 
-                // Sort by count (descending)
                 tableData.sort((a, b) => b.count - a.count);
 
-                // Log the table
                 console.log(`\n===== ${caseInfo.name} Distribution (${iterations} iterations) =====`);
                 console.table(tableData);
 
@@ -221,7 +210,7 @@ describe('Crate Opening Service Probability Tests', () => {
     });
 
     test('should verify exceedingly rare drop rates', () => {
-        const highIterations = 100000; // Higher number for rare items
+        const highIterations = 100000;
         const cases = [
             { name: 'Gallery Case', data: galleryCaseData },
             { name: 'Revolution Case', data: revolutionCaseData },
@@ -230,8 +219,7 @@ describe('Crate Opening Service Probability Tests', () => {
         for (const caseInfo of cases) {
             console.log(`\n===== Testing ${caseInfo.name} exceedingly rare drops =====`);
 
-            // Use custom odds to increase chances of rare items for testing
-            const testOdds = { ...ODDS, exceedingly_rare: 0.05 }; // 5% chance for testing
+            const testOdds = { ...ODDS, exceedingly_rare: 0.05 };
             const results = runSimulations(caseInfo.data, testOdds, highIterations);
             const rareCount = results['exceedingly_rare'] || 0;
             const percentage = (rareCount / highIterations) * 100;
@@ -240,7 +228,6 @@ describe('Crate Opening Service Probability Tests', () => {
             console.log(`Expected from test odds: 5.00%`);
 
             if (rareCount > 0) {
-                // If we got any rare items with boosted odds, test passed
                 expect(percentage).toBeGreaterThan(0);
             } else {
                 console.log('No exceedingly rare items found even with boosted odds.');
