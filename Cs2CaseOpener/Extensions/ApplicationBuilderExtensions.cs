@@ -34,11 +34,7 @@ public static class ApplicationBuilderExtensions
         app.UseMiddleware<ExceptionMiddleware>();
         app.UseCors("AllowLocalhost");
 
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+        app.UseSwaggerWhenDevelopment();
 
         app.MapControllers();
         
@@ -70,24 +66,42 @@ public static class ApplicationBuilderExtensions
     }
 
     public static async Task InitializeCountersAsync(this WebApplication app)
-{
-    using var scope = app.Services.CreateScope();
-    var services = scope.ServiceProvider;
+    {
+        using var scope = app.Services.CreateScope();
+        var services = scope.ServiceProvider;
     
-    try
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogInformation("Initializing crate opening counter...");
+        try
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogInformation("Initializing crate opening counter...");
         
-        var crateOpeningService = services.GetRequiredService<CrateOpeningService>();
-        await crateOpeningService.InitializeCounterAsync();
+            var crateOpeningService = services.GetRequiredService<CrateOpeningService>();
+            await crateOpeningService.InitializeCounterAsync();
         
-        logger.LogInformation("Crate opening counter initialized successfully");
+            logger.LogInformation("Crate opening counter initialized successfully");
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred while initializing the crate opening counter");
+        }
     }
-    catch (Exception ex)
+
+    public static WebApplication UseSwaggerWhenDevelopment(this WebApplication app)
     {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while initializing the crate opening counter");
+   if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CS2 Case Opener API v1");
+                c.RoutePrefix = "swagger";
+                c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.List);
+                c.EnableDeepLinking();
+                c.DisplayRequestDuration();
+            });
+        }
+        
+        return app;
     }
-}
 }

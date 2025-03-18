@@ -19,15 +19,12 @@ public static class ServiceCollectionExtensions
         services.AddMemoryCache();
         services.AddControllers();
 
-        services.AddHostedService<ScrapeApiBackgroundService>();
-        services.AddHostedService<DataRetentionService>();
-        
+        services.AddSingleton<DataRetentionService>();
         services.AddSingleton<CrateOpeningService>();
-        services.AddHostedService(sp => sp.GetRequiredService<CrateOpeningService>());
 
-        services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        services.AddSwaggerConfiguration();
 
+        services.AddScoped<AuthorizationService>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IByMykelDataService, ByMykelDataService>();
         services.AddScoped<DatabaseInitializationService>();
@@ -37,40 +34,12 @@ public static class ServiceCollectionExtensions
         services.AddScoped<PriceService>();
         services.AddScoped<IApiScraper, ApiScraper>();
 
-        services.Configure<ApiScraperConfiguration>(options => 
-        {
-            var scheduledTimeValue = configuration.GetValue<string>("ApiScraper:ScheduledTime");
-            options.ScheduledTime = string.IsNullOrEmpty(scheduledTimeValue)
-                ? null 
-                : TimeSpan.Parse(scheduledTimeValue);
-            options.EnableScraping = configuration.GetValue("ApiScraper:EnableScraping", true);
-            var intervalValue = configuration.GetValue<string>("ApiScraper:Interval");
-            options.Interval = string.IsNullOrEmpty(intervalValue)
-                ? TimeSpan.FromDays(1)
-                : TimeSpan.Parse(intervalValue);
-        });
+        services.AddHostedService<ScrapeApiBackgroundService>();
+        services.AddHostedService(sp => sp.GetRequiredService<DataRetentionService>());
+        services.AddHostedService(sp => sp.GetRequiredService<CrateOpeningService>());
 
-        return services;
-    }
+        services.ConfigureApiScraper(configuration);
 
-    public static IServiceCollection AddCorsPolicy(this IServiceCollection services)
-    {
-        services.AddCors(options =>
-        {
-            options.AddPolicy("AllowLocalhost", policy =>
-            {
-                policy.WithOrigins(
-                    "http://localhost", 
-                    "http://localhost:3000", 
-                    "http://localhost:5173", 
-                    "http://10.10.10.46:5020", 
-                    "https://case.oki.gg"
-                )
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-            });
-        });
-        
         return services;
     }
 }

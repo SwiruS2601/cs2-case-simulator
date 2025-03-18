@@ -36,16 +36,15 @@ public class DataRetentionService : BackgroundService
         }
     }
 
-    private async Task PurgeOldData()
+    public async Task PurgeOldData(DateTime? cutoffDate = null)
     {
         _logger.LogInformation("Starting data retention job");
 
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         
-        var retentionDays = _configuration.GetValue<int>("DataRetention:DaysToKeep", 7);
+        var retentionDays = _configuration.GetValue<int>("DataRetention:DaysToKeep", 1);
         var valuableRarities = _configuration.GetValue<string[]>("DataRetention:ValuableRarities", ["rarity_ancient_weapon", "rarity_ancient", "exceedingly_rare"]);
-        var cutoffDate = DateTime.UtcNow.AddDays(-retentionDays);
 
         const int batchSize = 50000;
         int totalDeleted = 0;
@@ -54,7 +53,8 @@ public class DataRetentionService : BackgroundService
         while (true)
         {
             var itemsToDelete = await dbContext.CrateOpenings
-                .Where(c => !valuableRarities.Contains(c.Rarity) && c.OpenedAt < cutoffDate)
+                .Where(c => !valuableRarities
+                    .Contains(c.Rarity) && c.OpenedAt < (cutoffDate ?? DateTime.UtcNow.AddDays(-retentionDays)))
                 .OrderBy(c => c.Id)
                 .Take(batchSize)
                 .Select(c => c.Id)
@@ -78,5 +78,12 @@ public class DataRetentionService : BackgroundService
         }
 
         _logger.LogInformation("Data retention job completed. Deleted {Count} records", totalDeleted);
+        
+        if (totalDeleted > 0)
+        {
+            _logger.LogInformation("Running VACUUM to reclaim space...");
+            await dbContext.Database.ExecuteSqlRawAsync("VACUUM ANALYZE \"CrateOpenings\"");
+            _logger.LogInformation("VACUUM completed");
+        }
     }
 }

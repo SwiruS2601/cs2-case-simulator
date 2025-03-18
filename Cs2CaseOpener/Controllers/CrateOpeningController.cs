@@ -1,6 +1,7 @@
 using Cs2CaseOpener.Models;
 using Cs2CaseOpener.Services;
 using Microsoft.AspNetCore.Mvc;
+using Cs2CaseOpener.Contracts;
 
 namespace Cs2CaseOpener.Controllers;
 
@@ -9,30 +10,12 @@ namespace Cs2CaseOpener.Controllers;
 public class CrateOpeningController : ControllerBase
 {
     private readonly CrateOpeningService _crateOpeningService;
-    private readonly IConfiguration _configuration;
+    private readonly AuthorizationService _authService;
 
-    public CrateOpeningController(CrateOpeningService crateOpeningService, IConfiguration configuration)
+    public CrateOpeningController(CrateOpeningService crateOpeningService, AuthorizationService authService)
     {
         _crateOpeningService = crateOpeningService;
-        _configuration = configuration;
-    }
-
-    private bool IsAuthorized(string authHeader)
-    {
-         if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
-        {
-            return false;
-        }
-
-        var token = authHeader["Bearer ".Length..].Trim();
-        var expectedToken = _configuration["ApiSecrets:AuthToken"];
-        
-        if (token != expectedToken)
-        {
-            return false;
-        }
-
-        return true;
+        _authService = authService;
     }
 
     [HttpGet("count")]
@@ -52,7 +35,7 @@ public class CrateOpeningController : ControllerBase
     [HttpPost("batch")]
     public IActionResult TrackOpeningBatch([FromHeader(Name = "Authorization")] string authHeader, CrateOpeningBatchRequest request)
     {
-        if (!IsAuthorized(authHeader))
+        if (!_authService.IsAuthorized(authHeader))
         {
             return Unauthorized();
         }
@@ -63,8 +46,13 @@ public class CrateOpeningController : ControllerBase
         if(string.IsNullOrEmpty(request.ClientId))
             return BadRequest("ClientId is required");
 
-        var clientIp = HttpContext.Request.Headers["CF-Connecting-IP"].FirstOrDefault() ??
-            HttpContext.Connection.RemoteIpAddress?.ToString();
+        var clientIp = HttpContext.Request.Headers["X-Client-IP"].FirstOrDefault();
+
+        if (string.IsNullOrEmpty(clientIp))
+        {
+            clientIp = HttpContext.Request.Headers["CF-Connecting-IP"].FirstOrDefault() ??
+                HttpContext.Connection.RemoteIpAddress?.ToString();
+        }
 
         var openings = new List<CrateOpening>(request.Openings.Count);
         foreach (var item in request.Openings)
@@ -91,22 +79,4 @@ public class CrateOpeningController : ControllerBase
     }
 }
 
-public record CrateOpeningRequest
-{
-    public required string CrateId { get; set; }
-    public required string SkinId { get; set; }
-    public string? ClientId { get; set; }
-    public string? Rarity { get; set; }
-    public string? WearCategory { get; set; }
-    public string? CrateName { get; set; }
-    public string? SkinName { get; set; }
-    public long Timestamp { get; set; }
-    
-}
-
-public record CrateOpeningBatchRequest
-{
-    public required List<CrateOpeningRequest> Openings { get; set; }
-    public string? ClientId { get; set; }
-}
 
