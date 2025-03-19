@@ -7,18 +7,12 @@ namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
 [Route("api/crate-opening")]
-public class CrateOpeningController : ControllerBase
+public class CrateOpeningController(
+    CrateOpeningService crateOpeningService,
+    AuthorizationService authService) : ControllerBase
 {
-    private readonly CrateOpeningService _crateOpeningService;
-    private readonly AuthorizationService _authService;
-
-    public CrateOpeningController(
-        CrateOpeningService crateOpeningService, 
-        AuthorizationService authService)
-    {
-        _crateOpeningService = crateOpeningService;
-        _authService = authService;
-    }
+    private readonly CrateOpeningService _crateOpeningService = crateOpeningService;
+    private readonly AuthorizationService _authService = authService;
 
     [HttpGet("count")]
     public async Task<IActionResult> GetTotalOpeningCount()
@@ -45,7 +39,7 @@ public class CrateOpeningController : ControllerBase
         if (request.Openings == null || request.Openings.Count == 0)
             return BadRequest("No openings provided");
 
-        if(string.IsNullOrEmpty(request.ClientId))
+        if (string.IsNullOrEmpty(request.ClientId))
             return BadRequest("ClientId is required");
 
         var clientIp = HttpContext.Request.Headers["X-Client-IP"].FirstOrDefault();

@@ -5,14 +5,9 @@ namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
 [Route("api/prices")]
-public class PriceController : ControllerBase
+public class PriceController(PriceService priceService) : ControllerBase
 {
-    private readonly PriceService _priceService;
-
-    public PriceController(PriceService priceService)
-    {
-        _priceService = priceService;
-    }
+    private readonly PriceService _priceService = priceService;
 
     [HttpGet]
     public async Task<IActionResult> Get()

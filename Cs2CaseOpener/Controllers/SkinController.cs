@@ -5,15 +5,10 @@ namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
 [Route("api/skins")]
-public class SkinController : ControllerBase
+public class SkinController(SkinService skinService) : ControllerBase
 {
 
-    private readonly SkinService _skinService;
-
-    public SkinController(SkinService skinService)
-    {
-        _skinService = skinService;
-    }
+    private readonly SkinService _skinService = skinService;
 
     [HttpGet]
     public async Task<IActionResult> Get()

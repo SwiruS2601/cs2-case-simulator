@@ -5,24 +5,16 @@ namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
 [Route("api/misc")]
-public class MiscController : ControllerBase
+public class MiscController(ApiScraper apiScraper, AuthorizationService authService) : ControllerBase
 {
-    private readonly ApiScraper _apiScraper;
-    private readonly AuthorizationService _authService;
-
-    public MiscController(ApiScraper apiScraper, AuthorizationService authService)
-    {
-        _apiScraper = apiScraper;
-        _authService = authService;
-    }
+    private readonly ApiScraper _apiScraper = apiScraper;
+    private readonly AuthorizationService _authService = authService;
 
     [HttpGet("update-skin-properties")]
     public async Task<IActionResult> UpdateSkinProperties([FromHeader(Name = "Authorization")] string authHeader)
     {
         if (!_authService.IsAuthorized(authHeader))
-        {
             return Unauthorized();
-        }
 
         try
         {

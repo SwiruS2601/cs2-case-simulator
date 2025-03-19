@@ -5,14 +5,9 @@ namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
 [Route("api/rarity")]
-public class RarityController : ControllerBase
+public class RarityController(RarityService rarityService) : ControllerBase
 {
-    private readonly RarityService _rarityService;
-
-    public RarityController(RarityService rarityService)
-    {
-        _rarityService = rarityService;
-    }
+    private readonly RarityService _rarityService = rarityService;
 
     [HttpGet]
     public async Task<IActionResult> Get()

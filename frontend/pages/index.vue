@@ -16,9 +16,9 @@ if (data.value) {
     <Container>
         <h1 class="text-xl pb-4">Counter-Strike 2 Cases</h1>
         <div class="flex gap-4 flex-col">
-            <SearchCrates v-model="searchData" ></SearchCrates>
-            <CrateNav active-link="Cases" ></CrateNav>
+            <SearchCrates v-model="searchData"></SearchCrates>
+            <CrateNav active-link="Cases"></CrateNav>
         </div>
-        <CrateGrid v-bind="{ crates, imageHeight: 192 }" ></CrateGrid>
+        <CrateGrid v-bind="{ crates, imageHeight: 192 }"></CrateGrid>
     </Container>
 </template>

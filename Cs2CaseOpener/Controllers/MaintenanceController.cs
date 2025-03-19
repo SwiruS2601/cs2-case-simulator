@@ -5,21 +5,14 @@ namespace Cs2CaseOpener.Controllers;
 
 [ApiController]
 [Route("api/maintenance")]
-public class MaintenanceController : ControllerBase
+public class MaintenanceController(
+    DataRetentionService dataRetentionService,
+    AuthorizationService authService,
+    ILogger<MaintenanceController> logger) : ControllerBase
 {
-    private readonly DataRetentionService _dataRetentionService;
-    private readonly AuthorizationService _authService;
-    private readonly ILogger<MaintenanceController> _logger;
-
-    public MaintenanceController(
-        DataRetentionService dataRetentionService,
-        AuthorizationService authService,
-        ILogger<MaintenanceController> logger)
-    {
-        _dataRetentionService = dataRetentionService;
-        _authService = authService;
-        _logger = logger;
-    }
+    private readonly DataRetentionService _dataRetentionService = dataRetentionService;
+    private readonly AuthorizationService _authService = authService;
+    private readonly ILogger<MaintenanceController> _logger = logger;
 
     [HttpPost("cleanup")]
     public async Task<IActionResult> CleanupDatabase([FromHeader(Name = "Authorization")] string authHeader)
