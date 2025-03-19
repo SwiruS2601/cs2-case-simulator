@@ -1,5 +1,4 @@
 using Cs2CaseOpener.Data;
-using Cs2CaseOpener.Interfaces;
 using Cs2CaseOpener.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,14 +24,14 @@ public static class ServiceCollectionExtensions
         services.AddSwaggerConfiguration();
 
         services.AddScoped<AuthorizationService>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddScoped<IByMykelDataService, ByMykelDataService>();
+        services.AddScoped<UnitOfWork, UnitOfWork>();
+        services.AddScoped<ByMykelDataService, ByMykelDataService>();
         services.AddScoped<DatabaseInitializationService>();
         services.AddScoped<SkinService>();
         services.AddScoped<CrateService>();
         services.AddScoped<RarityService>();
         services.AddScoped<PriceService>();
-        services.AddScoped<IApiScraper, ApiScraper>();
+        services.AddScoped<ApiScraper, ApiScraper>();
 
         services.AddHostedService<ScrapeApiBackgroundService>();
         services.AddHostedService(sp => sp.GetRequiredService<DataRetentionService>());

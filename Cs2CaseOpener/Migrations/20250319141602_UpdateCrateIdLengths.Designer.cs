@@ -3,6 +3,7 @@ using System;
 using Cs2CaseOpener.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cs2CaseOpener.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250319141602_UpdateCrateIdLengths")]
+    partial class UpdateCrateIdLengths
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,8 +148,8 @@ namespace Cs2CaseOpener.Migrations
 
                     b.Property<string>("CrateId")
                         .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("character varying(25)")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("crate_id");
 
                     b.Property<string>("CrateName")
@@ -206,8 +209,8 @@ namespace Cs2CaseOpener.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CrateId")
-                        .HasMaxLength(25)
-                        .HasColumnType("character varying(25)")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("crate_id")
                         .HasAnnotation("Relational:JsonPropertyName", "crate_id");
 
@@ -339,7 +342,8 @@ namespace Cs2CaseOpener.Migrations
                         .HasAnnotation("Relational:JsonPropertyName", "paint_index");
 
                     b.Property<string>("Pattern")
-                        .HasColumnType("text")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
                         .HasColumnName("pattern")
                         .HasAnnotation("Relational:JsonPropertyName", "pattern");
 

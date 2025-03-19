@@ -3,6 +3,7 @@ using System;
 using Cs2CaseOpener.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cs2CaseOpener.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250319160850_AddPatternColumnToSkins")]
+    partial class AddPatternColumnToSkins
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -337,11 +340,6 @@ namespace Cs2CaseOpener.Migrations
                         .HasColumnType("character varying(10)")
                         .HasColumnName("paint_index")
                         .HasAnnotation("Relational:JsonPropertyName", "paint_index");
-
-                    b.Property<string>("Pattern")
-                        .HasColumnType("text")
-                        .HasColumnName("pattern")
-                        .HasAnnotation("Relational:JsonPropertyName", "pattern");
 
                     b.Property<string>("RarityId")
                         .HasMaxLength(50)

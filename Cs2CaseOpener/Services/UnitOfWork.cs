@@ -1,10 +1,9 @@
 using Cs2CaseOpener.Data;
-using Cs2CaseOpener.Interfaces;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Cs2CaseOpener.Services;
 
-public class UnitOfWork : IUnitOfWork
+public class UnitOfWork
 {
     private readonly ApplicationDbContext _dbContext;
     private IDbContextTransaction? _transaction;

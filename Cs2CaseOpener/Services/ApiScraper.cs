@@ -1,23 +1,21 @@
 using Cs2CaseOpener.Contracts;
 using Cs2CaseOpener.Data;
-using Cs2CaseOpener.Interfaces;
 using Cs2CaseOpener.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace Cs2CaseOpener.Services;
 
-public class ApiScraper : IApiScraper
+public class ApiScraper
 {
     private readonly ApplicationDbContext _dbContext;
-    private readonly IByMykelDataService _dataService;
-    private readonly IUnitOfWork _unitOfWork;
+    private readonly ByMykelDataService _dataService;
+    private readonly UnitOfWork _unitOfWork;
     private readonly ILogger<ApiScraper> _logger;
     private readonly string[] ValidWears = ["Minimal Wear", "Field-Tested", "Battle-Scarred", "Well-Worn", "Factory New"];
     private readonly string[] AllowedTypes = ["Case", "Souvenir", "Sticker Capsule", "Autograph Capsule"];
     private const int BatchSize = 100;
 
-    public ApiScraper(ApplicationDbContext dbContext, IByMykelDataService dataService, IUnitOfWork unitOfWork, ILogger<ApiScraper> logger)
+    public ApiScraper(ApplicationDbContext dbContext, ByMykelDataService dataService, UnitOfWork unitOfWork, ILogger<ApiScraper> logger)
     {
         _dbContext = dbContext;
         _dataService = dataService;
@@ -29,9 +27,10 @@ public class ApiScraper : IApiScraper
     {
         var crates = await _dataService.GetCratesAsync();
         var prices = await _dataService.GetPricesAsync();
+        var skins = await _dataService.GetAllSkinsAsync();
 
         await ProcessRaritiesAsync(crates);
-        await ProcessCratesAndSkinsAsync(crates);
+        await ProcessCratesAndSkinsAsync(crates, skins);
         await ProcessPricesAsync(prices);
     }
 
@@ -84,7 +83,7 @@ public class ApiScraper : IApiScraper
         await _unitOfWork.SaveChangesAsync();
     }
 
-    private async Task ProcessCratesAndSkinsAsync(List<CrateDto> crates)
+    private async Task ProcessCratesAndSkinsAsync(List<CrateDto> crates, List<SkinDetailDto> skinDetails)
     {
         _dbContext.ChangeTracker.Clear();
         await _unitOfWork.BeginTransactionAsync();
@@ -93,13 +92,17 @@ public class ApiScraper : IApiScraper
         {
             var existingRarities = await _dbContext.Rarities.ToDictionaryAsync(r => r.Id);
             
+            var skinDetailsDict = skinDetails
+                .Where(s => s != null)
+                .ToDictionary(s => s.id, s => s);
+            
             foreach (var crateDto in crates)
             {
                 if (!AllowedTypes.Contains(crateDto.type ?? string.Empty))
                     continue;
                 
                 var crate = await GetOrCreateCrateAsync(crateDto);
-                await ProcessCrateItemsAsync(crateDto, crate, existingRarities);
+                await ProcessCrateItemsAsync(crateDto, crate, existingRarities, skinDetailsDict);
             }
             
             await _unitOfWork.SaveChangesAsync();
@@ -137,7 +140,9 @@ public class ApiScraper : IApiScraper
         return crate;
     }
 
-    private async Task ProcessCrateItemsAsync(CrateDto crateDto, Crate crate, Dictionary<string, Rarity> existingRarities)
+    private async Task ProcessCrateItemsAsync(CrateDto crateDto, Crate crate, 
+        Dictionary<string, Rarity> existingRarities, 
+        Dictionary<string, SkinDetailDto> skinDetailsDict)
     {
         var items = new List<ItemDto>();
         if (crateDto.contains != null) items.AddRange(crateDto.contains);
@@ -145,7 +150,7 @@ public class ApiScraper : IApiScraper
 
         foreach (var itemDto in items.Where(s => s != null))
         {
-            var skin = await GetOrCreateSkinAsync(itemDto, existingRarities);
+            var skin = await GetOrCreateSkinAsync(itemDto, existingRarities, skinDetailsDict);
             if (!crate.Skins.Any(s => s.Id == skin.Id))
                 crate.Skins.Add(skin);
         }
@@ -153,11 +158,15 @@ public class ApiScraper : IApiScraper
         await _unitOfWork.SaveChangesAsync();
     }
 
-    private async Task<Skin> GetOrCreateSkinAsync(ItemDto itemDto, Dictionary<string, Rarity> existingRarities)
+    private async Task<Skin> GetOrCreateSkinAsync(ItemDto itemDto, 
+        Dictionary<string, Rarity> existingRarities,
+        Dictionary<string, SkinDetailDto> skinDetailsDict)
     {
         var skin = await _dbContext.Skins.FirstOrDefaultAsync(s => s.Id == itemDto.id);
         if (skin != null)
             return skin;
+        
+        skinDetailsDict.TryGetValue(itemDto.id, out var skinDetails);
         
         skin = new Skin
         {
@@ -166,12 +175,11 @@ public class ApiScraper : IApiScraper
             RarityId = itemDto.rarity?.id,
             PaintIndex = itemDto.paint_index,
             Image = itemDto.image,
-            MinFloat = double.TryParse(itemDto.min_float, out var minFloat) ? minFloat : (double?)null,
-            MaxFloat = double.TryParse(itemDto.max_float, out var maxFloat) ? maxFloat : (double?)null,
-            Souvenir = itemDto.souvenir,
-            StatTrak = itemDto.stattrak,
-            Category = itemDto.category?.id,
-            Pattern = itemDto.pattern?.id
+            MinFloat = skinDetails?.min_float ?? null,
+            MaxFloat = skinDetails?.max_float ?? null,
+            Souvenir = skinDetails?.souvenir ?? null,
+            StatTrak = skinDetails?.stattrak ?? null,
+            Category = skinDetails?.category?.name ?? null,
         };
 
         if (itemDto.rarity != null && !existingRarities.ContainsKey(itemDto.rarity.id))
@@ -491,6 +499,106 @@ public class ApiScraper : IApiScraper
         {
             var duration = DateTime.UtcNow - startTime;
             _logger.LogError(ex, "API scrape failed after {Duration}: {Message}", duration, ex.Message);
+            throw;
+        }
+    }
+
+    public async Task UpdateNullSkinPropertiesAsync()
+    {
+        _dbContext.ChangeTracker.Clear();
+        _logger.LogInformation("Starting update of skins with null properties");
+        
+        var crates = await _dataService.GetCratesAsync();
+        var skinData = await _dataService.GetAllSkinsAsync();
+        
+        var allItems = new List<ItemDto>();
+        foreach (var crateDto in crates)
+        {
+            if (crateDto.contains != null) allItems.AddRange(crateDto.contains);
+            if (crateDto.contains_rare != null) allItems.AddRange(crateDto.contains_rare);
+        }
+        
+        var itemsDict = allItems
+            .Where(item => item != null)
+            .DistinctBy(item => item.id)
+            .ToDictionary(item => item.id, item => item);
+        
+        var skinDetailsDict = skinData
+            .Where(s => s != null)
+            .ToDictionary(s => s.id, s => s);
+        
+        var skinsToUpdate = await _dbContext.Skins
+            .Where(s => 
+                s.MinFloat == null || 
+                s.MaxFloat == null || 
+                s.Souvenir == null || 
+                s.StatTrak == null || 
+                s.Category == null)
+            .ToListAsync();
+        
+        _logger.LogInformation("Found {Count} skins with null properties to update", skinsToUpdate.Count);
+        
+        int updatedCount = 0;
+        int notFoundCount = 0;
+        int categoryUpdates = 0;
+        
+        await _unitOfWork.BeginTransactionAsync();
+        
+        try
+        {
+            foreach (var skin in skinsToUpdate)
+            {
+                bool updated = false;
+                
+                if (skinDetailsDict.TryGetValue(skin.Id, out var skinDetail))
+                {
+                    if (skinDetail.min_float.HasValue)
+                        skin.MinFloat = skinDetail.min_float;
+                        
+                    if (skinDetail.max_float.HasValue)
+                        skin.MaxFloat = skinDetail.max_float;
+                        
+                    if (skinDetail.souvenir.HasValue)
+                        skin.Souvenir = skinDetail.souvenir;
+                        
+                    if (skinDetail.stattrak.HasValue)
+                        skin.StatTrak = skinDetail.stattrak;
+                        
+                    if (skinDetail.category != null && !string.IsNullOrEmpty(skinDetail.category.name))
+                    {
+                        skin.Category = skinDetail.category.name;
+                        categoryUpdates++;
+                    }
+                    
+                    updated = true;
+                }
+                
+                if (updated)
+                {
+                    updatedCount++;
+                    
+                    if (updatedCount % 100 == 0)
+                    {
+                        _logger.LogInformation("Updated {Count} skins so far", updatedCount);
+                        await _unitOfWork.SaveChangesAsync();
+                    }
+                }
+                else
+                {
+                    notFoundCount++;
+                }
+            }
+            
+            await _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.CommitAsync();
+            
+            _logger.LogInformation("Completed updating skins. Updated: {UpdatedCount}, Categories updated: {CategoryUpdates}, Not found in API data: {NotFoundCount}", 
+                updatedCount, categoryUpdates, notFoundCount);
+        }
+        catch (Exception ex)
+        {
+            await _unitOfWork.RollbackAsync();
+            _logger.LogError(ex, "Error updating skin properties: {Message}", ex.Message);
             throw;
         }
     }

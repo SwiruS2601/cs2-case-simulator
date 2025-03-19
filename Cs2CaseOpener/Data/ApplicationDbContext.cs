@@ -12,8 +12,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<CrateOpening> CrateOpenings { get; set; }
     public DbSet<CounterStat> CounterStats { get; set; } = null!;
 
-
-
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
@@ -53,7 +51,6 @@ public class ApplicationDbContext : DbContext
             entity.Property(e => e.Category).HasMaxLength(100).HasColumnName("category");
             entity.Property(e => e.StatTrak).HasColumnName("stat_trak");
             entity.Property(e => e.Souvenir).HasColumnName("souvenir");
-            entity.Property(e => e.Pattern).HasMaxLength(100).HasColumnName("pattern");
             entity.HasIndex(e => e.Name);
             
             entity.HasOne(s => s.Rarity)
@@ -74,7 +71,7 @@ public class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.SkinId).HasMaxLength(50).HasColumnName("skin_id");
-            entity.Property(e => e.CrateId).HasMaxLength(50).HasColumnName("crate_id");
+            entity.Property(e => e.CrateId).HasMaxLength(25).HasColumnName("crate_id");
             entity.Property(e => e.Name).HasMaxLength(150).HasColumnName("name");
             entity.Property(e => e.Wear_Category).HasMaxLength(50).HasColumnName("wear_category");
             
@@ -100,7 +97,7 @@ public class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.CrateId).HasMaxLength(25).HasColumnName("crate_id");
-            entity.Property(e => e.SkinId).HasMaxLength(25).HasColumnName("skin_id");
+            entity.Property(e => e.SkinId).HasMaxLength(50).HasColumnName("skin_id");
             entity.Property(e => e.ClientId).HasMaxLength(50).HasColumnName("client_id");
             entity.Property(e => e.ClientIp).HasMaxLength(50).HasColumnName("client_ip");
             entity.Property(e => e.OpenedAt).HasColumnName("opened_at");

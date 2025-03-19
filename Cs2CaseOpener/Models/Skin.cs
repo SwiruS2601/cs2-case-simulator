@@ -49,7 +49,7 @@ public class Skin
     [Column("pattern")]
     [JsonPropertyName("pattern")]
     public string? Pattern { get; set; }
-    
+
     public ICollection<Price>? Prices { get; set; }
 
     [JsonIgnore]

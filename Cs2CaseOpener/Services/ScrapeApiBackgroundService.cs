@@ -1,6 +1,4 @@
-using Cs2CaseOpener.Interfaces;
 using Microsoft.Extensions.Options;
-using Serilog;
 
 namespace Cs2CaseOpener.Services;
 
@@ -104,7 +102,7 @@ public class ScrapeApiBackgroundService : BackgroundService
     private async Task RunScraperAsync()
     {
         using var scope = _scopeFactory.CreateScope();
-        var apiScraper = scope.ServiceProvider.GetRequiredService<IApiScraper>();
+        var apiScraper = scope.ServiceProvider.GetRequiredService<ApiScraper>();
         
         await apiScraper.ScrapeApiWithMonitoringAsync();
     }

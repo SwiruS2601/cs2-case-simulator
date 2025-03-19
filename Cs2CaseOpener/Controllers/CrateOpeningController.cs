@@ -12,7 +12,9 @@ public class CrateOpeningController : ControllerBase
     private readonly CrateOpeningService _crateOpeningService;
     private readonly AuthorizationService _authService;
 
-    public CrateOpeningController(CrateOpeningService crateOpeningService, AuthorizationService authService)
+    public CrateOpeningController(
+        CrateOpeningService crateOpeningService, 
+        AuthorizationService authService)
     {
         _crateOpeningService = crateOpeningService;
         _authService = authService;

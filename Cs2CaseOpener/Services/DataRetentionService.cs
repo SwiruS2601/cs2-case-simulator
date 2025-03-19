@@ -60,7 +60,7 @@ public class DataRetentionService : BackgroundService
                 .Select(c => c.Id)
                 .ToListAsync();
 
-            if (itemsToDelete.Count == 0)
+            if (itemsToDelete.Count < 1000)
                 break;
 
             var placeholders = string.Join(",", itemsToDelete.Select((_, i) => $"@p{i}"));
