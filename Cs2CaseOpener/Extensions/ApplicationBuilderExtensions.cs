@@ -54,8 +54,8 @@ public static class ApplicationBuilderExtensions
             var dbInitializer = services.GetRequiredService<DatabaseInitializationService>();
             await dbInitializer.InitializeAsync();
             
-            var apiScraper = services.GetRequiredService<ApiScraper>();
-            await apiScraper.ScrapeApiAsync();
+            // var apiScraper = services.GetRequiredService<ApiScraper>();
+            // await apiScraper.ScrapeApiAsync();
         }
         catch (Exception ex)
         {
