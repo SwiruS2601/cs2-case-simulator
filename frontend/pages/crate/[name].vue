@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import Image from '~/components/Image.vue';
-import AdPlaceholder from '~/components/AdPlaceholder.vue';
+import GoogleAd from '~/components/GoogleAd.vue';
 import { useCrateOpening } from '~/composables/useCrateOpening';
 import { gunSkinFilter, sortSkinByRarity, knivesAndGlovesSkinFilter, sortSkinByName } from '~/utils/sortAndfilters';
 import { useCrateDetailSeo } from '~/services/metaSeoService';
 import { useOptionsStore } from '~/composables/optionsStore';
 import { useCrateOpeningStore } from '~/composables/crateOpeningStore';
 import { useCrate } from '~/composables/useCrate';
-import { ref } from 'vue';
 
 const router = useRouter();
 const name = decodeURIComponent(router.currentRoute.value.params.name as string);
@@ -60,37 +59,17 @@ onMounted(() => {
 onUnmounted(() => {
     document.removeEventListener('keyup', escListener);
 });
-
-// For testing different ad positions
-const showPreOpenAd = ref(true);
-const showPostOpenAd = ref(true);
-
-// For testing different ad sizes
-const preOpenAdSize = ref('leaderboard');
-const postOpenAdSize = ref('leaderboard');
-
-const toggleAd = (position: 'preOpen' | 'postOpen') => {
-    if (position === 'preOpen') showPreOpenAd.value = !showPreOpenAd.value;
-    if (position === 'postOpen') showPostOpenAd.value = !showPostOpenAd.value;
-};
-
-const changeAdSize = (position: 'preOpen' | 'postOpen', size: string) => {
-    if (position === 'preOpen') preOpenAdSize.value = size;
-    if (position === 'postOpen') postOpenAdSize.value = size;
-};
 </script>
 
 <template>
     <div v-bind="$attrs">
         <Container v-if="!crateOpeningStore.isOpeningCase && !showWonSkin && crate">
-            <!-- Pre-opening ad placement -->
-            <AdPlaceholder
-                v-if="showPreOpenAd && !crateOpeningStore.isOpeningCase && !showWonSkin"
+            <GoogleAd
+                v-if="!crateOpeningStore.isOpeningCase && !showWonSkin"
                 class="ad-container block md:hidden"
-                :size="preOpenAdSize"
-                @toggle="toggleAd('preOpen')"
-                @change-size="(size) => changeAdSize('preOpen', size)"
-            ></AdPlaceholder>
+                size="leaderboard"
+                adSlot="pre-open-ad"
+            ></GoogleAd>
             <div class="px-4 pt-4 sm:pt-0">
                 <div class="pb-4 flex gap-4 items-center">
                     <Image
@@ -161,16 +140,10 @@ const changeAdSize = (position: 'preOpen' | 'postOpen', size: string) => {
             @toggle-auto-open="toggleAutoOpen"
             @quick-open-toggle="toggleQuickOpen"
         >
-            <!-- Post-opening ad placement -->
-            <template v-if="showPostOpenAd && !crateOpeningStore.isOpeningCase && !showWonSkin" #after-buttons>
-                <AdPlaceholder
-                    :size="postOpenAdSize"
-                    class="mt-4"
-                    @toggle="toggleAd('postOpen')"
-                    @change-size="(size) => changeAdSize('postOpen', size)"
-                ></AdPlaceholder>
+            <template v-if="!crateOpeningStore.isOpeningCase && !showWonSkin" #after-buttons>
+                <GoogleAd size="leaderboard" class="mt-4" adSlot="post-open-ad"></GoogleAd>
             </template>
         </LazyWonItemDisplay>
-        <AdPlaceholder size="mobile"></AdPlaceholder>
+        <GoogleAd size="mobile" adSlot="bottom-mobile-ad"></GoogleAd>
     </div>
 </template>

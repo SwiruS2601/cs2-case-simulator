@@ -4,6 +4,7 @@ import CrateNav from '~/components/CrateNav.vue';
 import SearchCrates from '~/components/SearchCrates.vue';
 import { useSouvenirPageSeo } from '~/services/metaSeoService';
 import { useCrateList } from '~/composables/useCrateList';
+import GoogleAd from '~/components/GoogleAd.vue';
 
 const { data, searchData, crates } = useCrateList('souvenirs');
 
@@ -15,7 +16,7 @@ if (data.value) {
 <template>
     <div>
         <Container>
-            <AdPlaceholder class="block md:hidden" size="mobile"></AdPlaceholder>
+            <GoogleAd class="block md:hidden" size="mobile" adSlot="souvenirs-top-mobile"></GoogleAd>
             <div class="px-4 pt-2 sm:pt-0">
                 <h1 class="text-xl pb-4">Counter-Strike 2 Souvenir Cases</h1>
                 <div class="flex gap-4 flex-col">
@@ -25,6 +26,6 @@ if (data.value) {
                 <CrateGrid v-bind="{ crates }"></CrateGrid>
             </div>
         </Container>
-        <AdPlaceholder size="mobile"></AdPlaceholder>
+        <GoogleAd size="mobile" adSlot="souvenirs-bottom-mobile"></GoogleAd>
     </div>
 </template>

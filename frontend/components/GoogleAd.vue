@@ -2,15 +2,17 @@
     <div
         ref="adContainer"
         :class="[
-            'flex relative items-center justify-center overflow-hidden sm:rounded mx-auto',
-            'md:border-black/15 md:rounded-lg transition-opacity duration-300',
-            { 'fixed left-0 right-0': isFixed },
+            'flex relative items-center justify-center overflow-hidden sm:rounded',
+            'mx-auto transition-opacity duration-300',
             { 'opacity-0 pointer-events-none': shouldHideAd },
+            { 'fixed left-0 right-0': isFixed },
             {
                 'h-[90px] sm:max-w-[728px] w-full': size === 'banner',
                 'h-[250px] w-[250px]': size === 'square',
                 'h-[50px] sm:max-w-[320px] w-full': size === 'leaderboard' || size === 'mobile',
+                'h-[600px] w-[160px]': size === 'skyscraper',
             },
+            ' md:rounded-lg',
         ]"
         :style="customStyle"
     >
@@ -36,7 +38,7 @@ interface Props {
     adSlot: string;
     adFormat?: string;
     adClient?: string;
-    size?: 'banner' | 'square' | 'leaderboard' | 'mobile';
+    size?: 'banner' | 'square' | 'leaderboard' | 'mobile' | 'skyscraper';
     isResponsive?: boolean;
     isFixed?: boolean;
     customStyle?: Record<string, string>;
@@ -60,7 +62,7 @@ const isVisible = ref(false);
 const crateOpeningStore = useCrateOpeningStore();
 
 const shouldHideAd = computed(() => {
-    if (!props.hideDuringOpening) return false;
+    if (props.size === 'skyscraper' || !props.hideDuringOpening) return false;
     return crateOpeningStore.isOpeningCase || crateOpeningStore.wonSkin !== null;
 });
 
@@ -76,6 +78,8 @@ const adStyles = computed(() => {
         case 'leaderboard':
         case 'mobile':
             return { ...baseStyle, width: '320px', height: '50px' };
+        case 'skyscraper':
+            return { ...baseStyle, width: '160px', height: '600px' };
         default:
             return baseStyle;
     }
@@ -118,5 +122,7 @@ watch(isVisible, (visible) => {
 .adsbygoogle {
     display: block;
     text-align: center;
+    width: 100%;
+    height: 100%;
 }
 </style>

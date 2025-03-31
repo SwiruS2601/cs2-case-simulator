@@ -2,7 +2,7 @@
 import { BACKGROUNDS } from '~/constants';
 import { useLayoutSeo } from '~/services/metaSeoService';
 import Image from '~/components/Image.vue';
-import AdPlaceholder from '~/components/AdPlaceholder.vue';
+import GoogleAd from '~/components/GoogleAd.vue';
 
 useHead({
     htmlAttrs: {
@@ -37,38 +37,31 @@ useLayoutSeo();
         <div class="fixed inset-0 object-cover size-full z-0 backdrop-blur-xs"></div>
         <Nav></Nav>
 
-        <!-- Desktop Layout with Side Ads -->
         <div class="desktop-layout">
-            <!-- Left Side Ad (Desktop Only) -->
             <div class="side-ad left-side">
-                <AdPlaceholder size="skyscraper" :hide-during-opening="false"></AdPlaceholder>
+                <GoogleAd size="skyscraper" :hide-during-opening="false" adSlot="left-skyscraper"></GoogleAd>
             </div>
 
-            <!-- Main Content Area -->
             <div class="main-content">
                 <slot></slot>
             </div>
 
-            <!-- Right Side Ad (Desktop Only) -->
             <div class="side-ad right-side">
-                <AdPlaceholder size="skyscraper" :hide-during-opening="false"></AdPlaceholder>
+                <GoogleAd size="skyscraper" :hide-during-opening="false" adSlot="right-skyscraper"></GoogleAd>
             </div>
         </div>
 
-        <!-- Fixed Bottom Ad -->
         <div class="fixed-bottom-ad">
-            <AdPlaceholder size="mobile" :hide-during-opening="false"></AdPlaceholder>
+            <GoogleAd size="mobile" :hide-during-opening="false" adSlot="fixed-bottom"></GoogleAd>
         </div>
     </main>
 </template>
 
 <style>
-/* Add some padding at the bottom to prevent fixed ad from covering content */
 body {
     padding-bottom: 60px;
 }
 
-/* Desktop Layout Styles */
 .desktop-layout {
     display: flex;
     justify-content: center;
@@ -85,7 +78,6 @@ body {
     }
 }
 
-/* Side Ad Styles */
 .side-ad {
     display: none;
     width: 160px;
@@ -109,12 +101,10 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(0 0 0 / 0.15);
         border-radius: 8px;
     }
 }
 
-/* Main content styles */
 .main-content {
     width: 100%;
     max-width: 1280px;
@@ -126,7 +116,6 @@ body {
     }
 }
 
-/* Fixed bottom ad - always visible on top */
 .fixed-bottom-ad {
     position: fixed;
     bottom: 0;
