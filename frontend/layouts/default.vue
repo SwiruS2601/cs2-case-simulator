@@ -83,24 +83,7 @@ useLayoutSeo();
 
             <!-- Main Content Area -->
             <div class="main-content">
-                <!-- Top Banner Ad -->
-                <div v-if="showTopAd" class="ad-section">
-                    <AdPlaceholder
-                        :size="topAdSize"
-                        @toggle="toggleAd('top')"
-                        @change-size="(size) => changeAdSize('top', size)"
-                    ></AdPlaceholder>
-                </div>
-
                 <slot></slot>
-
-                <!-- Bottom Banner Ad -->
-                <AdPlaceholder
-                    v-if="showBottomAd"
-                    :size="bottomAdSize"
-                    @toggle="toggleAd('bottom')"
-                    @change-size="(size) => changeAdSize('bottom', size)"
-                ></AdPlaceholder>
             </div>
 
             <!-- Right Side Ad (Desktop Only) -->
@@ -131,62 +114,40 @@ body {
     padding-bottom: 60px;
 }
 
-/* Full-width container behind the top ad */
-.ad-section {
-    display: none; /* Hidden by default on desktop */
-    width: 100%;
-    background-color: transparent;
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .ad-section {
-        display: block;
-        background-color: rgb(0 0 0 / 0.4);
-        backdrop-filter: blur(4px);
-        padding: 8px 0;
-        margin: 0;
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-    }
-}
-
 /* Desktop Layout Styles */
 .desktop-layout {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 2rem;
-    max-width: 1920px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 1rem;
+    position: relative;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
     .desktop-layout {
-        padding: 0 1rem;
+        padding: 0;
     }
-}
-
-.main-content {
-    flex: 1;
-    min-width: 0; /* Prevent flex item from overflowing */
-    max-width: 1280px; /* Match your current max-width */
 }
 
 /* Side Ad Styles */
 .side-ad {
-    display: none; /* Hidden by default on mobile */
-    width: 160px; /* Wide skyscraper width */
-    position: sticky;
-    align-self: center; /* Center vertically */
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 600px; /* Standard skyscraper height */
+    display: none;
+    width: 160px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.left-side {
+    right: calc(50% + 640px + 1rem);
+}
+
+.right-side {
+    left: calc(50% + 640px + 1rem);
 }
 
 @media (min-width: 1600px) {
@@ -194,19 +155,22 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: rgb(0 0 0 / 0.4); /* Match the mobile ad background */
+        background-color: rgb(0 0 0 / 0.4);
         backdrop-filter: blur(4px);
         border-radius: 8px;
         padding: 0.5rem;
     }
-
-    .desktop-layout {
-        padding: 0 2rem;
-    }
 }
 
-/* Ensure the slot content doesn't have unwanted margins */
-main > :not(.ad-section) {
-    margin-top: 0;
+/* Main content styles */
+.main-content {
+    width: 100%;
+    max-width: 1280px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 0;
+    }
 }
 </style>

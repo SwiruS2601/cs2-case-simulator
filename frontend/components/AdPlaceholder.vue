@@ -1,26 +1,3 @@
-<template>
-    <div
-        :class="['ad-placeholder', `ad-placeholder--${size}`, { 'ad-placeholder--fixed': isFixed }]"
-        :style="customStyle"
-    >
-        <div class="ad-placeholder__content">
-            <div class="ad-placeholder__label">Ad {{ size }}</div>
-            <div class="ad-placeholder__dimensions">{{ dimensions }}</div>
-            <div v-if="showControls" class="ad-placeholder__controls">
-                <button class="ad-placeholder__button" @click="$emit('toggle')" title="Toggle visibility">Hide</button>
-                <div class="ad-placeholder__format-selector">
-                    <select @change="onChangeSize">
-                        <option value="mobile" :selected="size === 'mobile'">Mobile (320×50)</option>
-                        <option value="square" :selected="size === 'square'">Square (250×250)</option>
-                        <option value="leaderboard" :selected="size === 'leaderboard'">Leaderboard (320×50)</option>
-                        <option value="banner" :selected="size === 'banner'">Banner (728×90)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue';
 
@@ -69,109 +46,47 @@ const onChangeSize = (event: Event) => {
 };
 </script>
 
-<style scoped>
-.ad-placeholder {
-    background-color: rgba(200, 200, 200, 0.2);
-    border: 1px dashed rgba(255, 255, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0.5rem 0;
-    overflow: hidden;
-    border-radius: 4px;
-    backdrop-filter: blur(2px);
-}
+<template>
+    <div
+        :class="[
+            'flex items-center justify-center overflow-hidden sm:rounded',
+            'bg-white/20 border border-dashed border-white/30',
+            'mx-auto',
+            { 'fixed left-0 right-0 z-10': isFixed },
+            {
+                'h-[90px] sm:max-w-[728px] w-full': size === 'banner',
+                'h-[250px] w-[250px]': size === 'square',
+                'h-[50px] sm:max-w-[320px] w-full': size === 'leaderboard' || size === 'mobile',
+            },
+            'md:border-black/15 md:rounded-lg',
+        ]"
+        :style="customStyle"
+    >
+        <div class="text-center text-white/70 font-mono">
+            <div class="text-base font-bold">Ad {{ size }}</div>
+            <div class="text-sm">{{ dimensions }}</div>
+            <div v-if="showControls" class="flex gap-2 justify-center">
+                <button
+                    class="bg-black/30 border border-white/20 rounded px-2 py-0.5 text-[0.7rem] text-white/80 cursor-pointer"
+                    title="Toggle visibility"
+                    @click="$emit('toggle')"
+                >
+                    Hide
+                </button>
+                <div class="format-selector">
+                    <select
+                        class="bg-black/30 border border-white/20 rounded px-1.5 py-0.5 text-[0.7rem] text-white/80 cursor-pointer"
+                        @change="onChangeSize"
+                    >
+                        <option value="mobile" :selected="size === 'mobile'">Mobile (320×50)</option>
+                        <option value="square" :selected="size === 'square'">Square (250×250)</option>
+                        <option value="leaderboard" :selected="size === 'leaderboard'">Leaderboard (320×50)</option>
+                        <option value="banner" :selected="size === 'banner'">Banner (728×90)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
 
-.ad-placeholder--fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
-
-.ad-placeholder--banner {
-    height: 90px;
-    max-width: 728px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.ad-placeholder--square {
-    height: 250px;
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.ad-placeholder--leaderboard,
-.ad-placeholder--mobile {
-    height: 50px;
-    max-width: 320px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.ad-placeholder__content {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: monospace;
-}
-
-.ad-placeholder__label {
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.ad-placeholder__dimensions {
-    font-size: 0.8rem;
-}
-
-.ad-placeholder__controls {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-    justify-content: center;
-}
-
-.ad-placeholder__button {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 0.1rem 0.5rem;
-    font-size: 0.7rem;
-    cursor: pointer;
-}
-
-.ad-placeholder__format-selector select {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 0.1rem 0.3rem;
-    font-size: 0.7rem;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .ad-placeholder--banner {
-        height: 50px;
-        max-width: 320px;
-    }
-
-    .ad-placeholder--square {
-        height: 200px;
-        width: 200px;
-    }
-
-    .ad-placeholder {
-        background-color: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(1px);
-        border-radius: 8px;
-        padding: 4px;
-    }
-}
-</style>
+<style scoped></style>

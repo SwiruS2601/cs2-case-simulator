@@ -13,12 +13,18 @@ if (data.value) {
 </script>
 
 <template>
-    <Container>
-        <h1 class="text-xl pb-4">Counter-Strike 2 Souvenir Cases</h1>
-        <div class="flex gap-4 flex-col">
-            <SearchCrates v-model="searchData" ></SearchCrates>
-            <CrateNav active-link="Souvenirs" ></CrateNav>
-        </div>
-        <CrateGrid v-bind="{ crates }" ></CrateGrid>
-    </Container>
+    <div>
+        <Container>
+            <AdPlaceholder class="block md:hidden" size="mobile"></AdPlaceholder>
+            <div class="px-4 pt-2 sm:pt-0">
+                <h1 class="text-xl pb-4">Counter-Strike 2 Souvenir Cases</h1>
+                <div class="flex gap-4 flex-col">
+                    <SearchCrates v-model="searchData"></SearchCrates>
+                    <CrateNav active-link="Souvenirs"></CrateNav>
+                </div>
+                <CrateGrid v-bind="{ crates }"></CrateGrid>
+            </div>
+        </Container>
+        <AdPlaceholder size="mobile"></AdPlaceholder>
+    </div>
 </template>

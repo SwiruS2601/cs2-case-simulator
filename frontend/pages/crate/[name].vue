@@ -62,11 +62,11 @@ onUnmounted(() => {
 });
 
 // For testing different ad positions
-const showPreOpenAd = ref(false);
+const showPreOpenAd = ref(true);
 const showPostOpenAd = ref(true);
 
 // For testing different ad sizes
-const preOpenAdSize = ref('square');
+const preOpenAdSize = ref('leaderboard');
 const postOpenAdSize = ref('leaderboard');
 
 const toggleAd = (position: 'preOpen' | 'postOpen') => {
@@ -83,48 +83,49 @@ const changeAdSize = (position: 'preOpen' | 'postOpen', size: string) => {
 <template>
     <div v-bind="$attrs">
         <Container v-if="!crateOpeningStore.isOpeningCase && !showWonSkin && crate">
-            <div class="pb-4 flex gap-4 items-center">
-                <Image
-                    :width="128"
-                    :height="96"
-                    :src="crate?.image"
-                    :alt="crate?.name"
-                    class-name="h-10 sm:h-11 w-auto"
-                ></Image>
-                <h1 class="text-xl">{{ crate?.name }}</h1>
-            </div>
-            <div class="flex gap-4 flex-wrap items-center">
-                <BackButton></BackButton>
-                <div class="flex gap-4 flex-wrap items-center">
-                    <Button variant="success" :disabled="crateOpeningStore.isOpeningCase" @click="handleOpenCase">
-                        Unlock Container
-                    </Button>
-                    <h2 class="text-green-400 bg-black/20 rounded-sm px-2 py-0.5">
-                        {{ formatEuro(getCratePrice(crate)) }}
-                    </h2>
-                </div>
-            </div>
-
             <!-- Pre-opening ad placement -->
-            <div v-if="showPreOpenAd" class="ad-section">
-                <AdPlaceholder
-                    :size="preOpenAdSize"
-                    @toggle="toggleAd('preOpen')"
-                    @change-size="(size) => changeAdSize('preOpen', size)"
-                ></AdPlaceholder>
+            <AdPlaceholder
+                v-if="showPreOpenAd && !crateOpeningStore.isOpeningCase && !showWonSkin"
+                class="ad-container block md:hidden"
+                :size="preOpenAdSize"
+                @toggle="toggleAd('preOpen')"
+                @change-size="(size) => changeAdSize('preOpen', size)"
+            ></AdPlaceholder>
+            <div class="px-4 pt-4 sm:pt-0">
+                <div class="pb-4 flex gap-4 items-center">
+                    <Image
+                        :width="128"
+                        :height="96"
+                        :src="crate?.image"
+                        :alt="crate?.name"
+                        class-name="h-10 sm:h-11 w-auto"
+                    ></Image>
+                    <h1 class="text-xl">{{ crate?.name }}</h1>
+                </div>
+                <div class="flex gap-4 flex-wrap items-center">
+                    <BackButton></BackButton>
+                    <div class="flex gap-4 flex-wrap items-center">
+                        <Button variant="success" :disabled="crateOpeningStore.isOpeningCase" @click="handleOpenCase">
+                            Unlock Container
+                        </Button>
+                        <h2 class="text-green-400 bg-black/20 rounded-sm px-2 py-0.5">
+                            {{ formatEuro(getCratePrice(crate)) }}
+                        </h2>
+                    </div>
+                </div>
+
+                <ItemGrid v-if="guns.length" :items="guns" class="mt-6"></ItemGrid>
+
+                <Button v-if="knivesAndGloves.length" class="mt-8" @click="optionsStore.toggleShowKnivesAndGloves">
+                    {{ optionsStore.showKnivesAndGloves ? 'Hide' : 'Show' }} Knives & Gloves
+                </Button>
+
+                <ItemGrid
+                    v-if="knivesAndGloves.length && optionsStore.showKnivesAndGloves"
+                    class="mt-6"
+                    :items="knivesAndGloves"
+                ></ItemGrid>
             </div>
-
-            <ItemGrid v-if="guns.length" :items="guns" class="mt-6"></ItemGrid>
-
-            <Button v-if="knivesAndGloves.length" class="mt-8" @click="optionsStore.toggleShowKnivesAndGloves">
-                {{ optionsStore.showKnivesAndGloves ? 'Hide' : 'Show' }} Knives & Gloves
-            </Button>
-
-            <ItemGrid
-                v-if="knivesAndGloves.length && optionsStore.showKnivesAndGloves"
-                class="mt-6"
-                :items="knivesAndGloves"
-            ></ItemGrid>
         </Container>
 
         <div
@@ -161,7 +162,7 @@ const changeAdSize = (position: 'preOpen' | 'postOpen', size: string) => {
             @quick-open-toggle="toggleQuickOpen"
         >
             <!-- Post-opening ad placement -->
-            <template v-if="showPostOpenAd" #after-buttons>
+            <template v-if="showPostOpenAd && !crateOpeningStore.isOpeningCase && !showWonSkin" #after-buttons>
                 <AdPlaceholder
                     :size="postOpenAdSize"
                     class="mt-4"
@@ -170,25 +171,6 @@ const changeAdSize = (position: 'preOpen' | 'postOpen', size: string) => {
                 ></AdPlaceholder>
             </template>
         </LazyWonItemDisplay>
+        <AdPlaceholder size="mobile"></AdPlaceholder>
     </div>
 </template>
-
-<style scoped>
-.radial-fade {
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5), transparent 70%);
-}
-
-/* Full-width container behind the ad */
-.ad-section {
-    width: 100%;
-    background-color: transparent;
-}
-
-@media (max-width: 768px) {
-    .ad-section {
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(1px);
-        padding: 8px 0 0;
-    }
-}
-</style>

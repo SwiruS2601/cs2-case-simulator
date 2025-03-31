@@ -18,14 +18,6 @@ const pagination = ref({
     totalPages: 0,
 });
 
-// For testing different ad positions
-const showInventoryTopAd = ref(true);
-const showBetweenPagesAd = ref(true);
-
-// For testing different ad sizes
-const inventoryTopAdSize = ref('leaderboard');
-const betweenPagesAdSize = ref('leaderboard');
-
 const selectOptions = [
     { value: 'latest', label: 'Latest' },
     { value: 'price', label: 'Price' },
@@ -141,89 +133,110 @@ const handleReset = async () => {
     }
 };
 
-const toggleAd = (position: 'inventoryTop' | 'betweenPages') => {
-    if (position === 'inventoryTop') showInventoryTopAd.value = !showInventoryTopAd.value;
-    if (position === 'betweenPages') showBetweenPagesAd.value = !showBetweenPagesAd.value;
-};
-
-const changeAdSize = (position: 'inventoryTop' | 'betweenPages', size: string) => {
-    if (position === 'inventoryTop') inventoryTopAdSize.value = size;
-    if (position === 'betweenPages') betweenPagesAdSize.value = size;
-};
-
 onMounted(() => {
     loadItems();
 });
 </script>
 
 <template>
-    <Container>
-        <div class="flex justify-between items-center gap-4 pb-3">
-            <div class="flex gap-4 items-center flex-wrap">
-                <BackButton></BackButton>
-                <p
-                    v-if="pagination.totalCount"
-                    class="text-xl text-white/85 absolute left-1/2 transform -translate-x-1/2 sm:relative sm:translate-x-0 sm:left-0"
-                >
-                    {{ pagination.totalCount }} Items
-                </p>
-            </div>
-            <ClientOnly>
-                <Button v-if="items.length || inventory.balance" variant="danger" @click="handleReset">Reset</Button>
-            </ClientOnly>
-        </div>
-
-        <!-- Top inventory ad -->
-        <div v-if="showInventoryTopAd" class="ad-section">
-            <AdPlaceholder
-                :size="inventoryTopAdSize"
-                @toggle="toggleAd('inventoryTop')"
-                @change-size="(size) => changeAdSize('inventoryTop', size)"
-            ></AdPlaceholder>
-        </div>
-
-        <div
-            v-if="items.length && rarityStats.length"
-            class="mb-4 flex justify-between items-center flex-col sm:flex-row sm:gap-4"
-        >
-            <div
-                class="flex gap-x-2 items-center pb-2 bg-black/20 border border-black/15 rounded-lg py-1 px-2 mr-auto mt-auto flex-wrap"
-            >
-                <div
-                    v-for="stat in rarityStats"
-                    :key="stat.color"
-                    class="flex flex-col items-center drop-shadow-2xl gap-x-1 rounded-xs"
-                >
-                    <div>
-                        <span class="text-sm font-bold text-white/90"> {{ stat.count }} </span>
-                        <span class="text-white/50 px-[3px]">-</span>
-                        <span class="text-sm text-white/75 font-semibold"> {{ stat.percent }}% </span>
-                    </div>
-                    <div class="h-1 w-full rounded-xs" :style="{ background: stat.color }"></div>
-                </div>
-            </div>
-            <div
-                class="flex flex-wrap sm:flex-nowrap gap-4 items-center sm:mt-auto sm:mb-0 mt-4 mb-2 justify-between sm:justify-normal w-full sm:w-auto"
-            >
-                <div class="flex flex-col">
-                    <label for="inventory-sort" class="sr-only">Sort inventory by</label>
-                    <select
-                        id="inventory-sort"
-                        class="rounded-lg py-2 w-fit border pr-4 h-[42px] border-black/10 bg-black/20 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-black/10 select:outline-none"
-                        @change="onChange"
-                    >
-                        <option
-                            v-for="option in selectOptions"
-                            :key="option.value"
-                            :value="option.value"
-                            :selected="option.value === selectedSort"
-                            class="bg-black/70"
+    <div>
+        <Container>
+            <!-- Top inventory ad -->
+            <AdPlaceholder class="block md:hidden" size="mobile"></AdPlaceholder>
+            <div class="px-4 pt-4">
+                <div class="flex justify-between items-center gap-4 pb-3">
+                    <div class="flex gap-4 items-center flex-wrap">
+                        <BackButton></BackButton>
+                        <p
+                            v-if="pagination.totalCount"
+                            class="text-xl text-white/85 absolute left-1/2 transform -translate-x-1/2 sm:relative sm:translate-x-0 sm:left-0"
                         >
-                            {{ option.label }}
-                        </option>
-                    </select>
+                            {{ pagination.totalCount }} Items
+                        </p>
+                    </div>
+                    <ClientOnly>
+                        <Button v-if="items.length || inventory.balance" variant="danger" @click="handleReset"
+                            >Reset</Button
+                        >
+                    </ClientOnly>
                 </div>
-                <div v-if="pagination.totalPages > 1" class="flex gap-2 items-center">
+
+                <div
+                    v-if="items.length && rarityStats.length"
+                    class="mb-4 flex justify-between items-center flex-col sm:flex-row sm:gap-4"
+                >
+                    <div
+                        class="flex gap-x-2 items-center pb-2 bg-black/20 border border-black/15 rounded-lg py-1 px-2 mr-auto mt-auto flex-wrap"
+                    >
+                        <div
+                            v-for="stat in rarityStats"
+                            :key="stat.color"
+                            class="flex flex-col items-center drop-shadow-2xl gap-x-1 rounded-xs"
+                        >
+                            <div>
+                                <span class="text-sm font-bold text-white/90"> {{ stat.count }} </span>
+                                <span class="text-white/50 px-[3px]">-</span>
+                                <span class="text-sm text-white/75 font-semibold"> {{ stat.percent }}% </span>
+                            </div>
+                            <div class="h-1 w-full rounded-xs" :style="{ background: stat.color }"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-wrap sm:flex-nowrap gap-4 items-center sm:mt-auto sm:mb-0 mt-4 mb-2 justify-between sm:justify-normal w-full sm:w-auto"
+                    >
+                        <div class="flex flex-col">
+                            <label for="inventory-sort" class="sr-only">Sort inventory by</label>
+                            <select
+                                id="inventory-sort"
+                                class="rounded-lg py-2 w-fit border pr-4 h-[42px] border-black/10 bg-black/20 focus:outline-none px-4 font-semibold cursor-pointer hover:bg-black/10 select:outline-none"
+                                @change="onChange"
+                            >
+                                <option
+                                    v-for="option in selectOptions"
+                                    :key="option.value"
+                                    :value="option.value"
+                                    :selected="option.value === selectedSort"
+                                    class="bg-black/70"
+                                >
+                                    {{ option.label }}
+                                </option>
+                            </select>
+                        </div>
+                        <div v-if="pagination.totalPages > 1" class="flex gap-2 items-center">
+                            <Button
+                                :disabled="currentPage <= 1"
+                                :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
+                                @click="prevPage"
+                            >
+                                Previous
+                            </Button>
+                            <div class="text-white/90 sm:text-nowrap">
+                                {{ currentPage }} / {{ pagination.totalPages }}
+                            </div>
+                            <Button
+                                :disabled="currentPage >= pagination.totalPages"
+                                :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
+                                @click="nextPage"
+                            >
+                                Next
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-h-[70dvh]">
+                    <div v-if="isLoading"></div>
+
+                    <div v-else-if="items.length > 0">
+                        <InventoryGrid :items="items" inventory-view></InventoryGrid>
+                    </div>
+
+                    <div v-else class="text-center py-10">
+                        <p class="text-white/90 text-lg">Your inventory is empty</p>
+                    </div>
+                </div>
+
+                <div v-if="pagination.totalPages > 1" class="mt-4 flex justify-center gap-2 items-center">
                     <Button
                         :disabled="currentPage <= 1"
                         :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
@@ -231,7 +244,7 @@ onMounted(() => {
                     >
                         Previous
                     </Button>
-                    <div class="text-white/90 sm:text-nowrap">{{ currentPage }} / {{ pagination.totalPages }}</div>
+                    <span class="text-white/90"> {{ currentPage }} / {{ pagination.totalPages }} </span>
                     <Button
                         :disabled="currentPage >= pagination.totalPages"
                         :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
@@ -241,61 +254,7 @@ onMounted(() => {
                     </Button>
                 </div>
             </div>
-        </div>
-
-        <div class="min-h-[70dvh]">
-            <div v-if="isLoading"></div>
-
-            <div v-else-if="items.length > 0">
-                <InventoryGrid :items="items" inventory-view></InventoryGrid>
-            </div>
-
-            <div v-else class="text-center py-10">
-                <p class="text-white/90 text-lg">Your inventory is empty</p>
-            </div>
-        </div>
-
-        <!-- Between pages ad -->
-        <AdPlaceholder
-            v-if="showBetweenPagesAd && pagination.totalPages > 1"
-            :size="betweenPagesAdSize"
-            class="my-4"
-            @toggle="toggleAd('betweenPages')"
-            @change-size="(size) => changeAdSize('betweenPages', size)"
-        ></AdPlaceholder>
-
-        <div v-if="pagination.totalPages > 1" class="mt-4 flex justify-center gap-2 items-center">
-            <Button
-                :disabled="currentPage <= 1"
-                :class="{ 'opacity-50 cursor-not-allowed': currentPage <= 1 }"
-                @click="prevPage"
-            >
-                Previous
-            </Button>
-            <span class="text-white/90"> {{ currentPage }} / {{ pagination.totalPages }} </span>
-            <Button
-                :disabled="currentPage >= pagination.totalPages"
-                :class="{ 'opacity-50 cursor-not-allowed': currentPage >= pagination.totalPages }"
-                @click="nextPage"
-            >
-                Next
-            </Button>
-        </div>
-    </Container>
+        </Container>
+        <AdPlaceholder size="mobile"></AdPlaceholder>
+    </div>
 </template>
-
-<style scoped>
-/* Full-width container behind the top ad */
-.ad-section {
-    width: 100%;
-    background-color: transparent;
-}
-
-@media (max-width: 768px) {
-    .ad-section {
-        background-color: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(1px);
-        padding: 8px 0 0;
-    }
-}
-</style>

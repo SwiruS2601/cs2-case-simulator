@@ -1,8 +1,16 @@
 <template>
     <div
         ref="adContainer"
-        class="google-ad"
-        :class="[`google-ad--${size}`, { 'google-ad--fixed': isFixed }]"
+        :class="[
+            'flex items-center justify-center overflow-hidden sm:rounded mx-auto',
+            'md:border-black/15 md:rounded-lg',
+            { 'fixed left-0 right-0 z-10': isFixed },
+            {
+                'h-[90px] sm:max-w-[728px] w-full': size === 'banner',
+                'h-[250px] w-[250px]': size === 'square',
+                'h-[50px] sm:max-w-[320px] w-full': size === 'leaderboard' || size === 'mobile',
+            },
+        ]"
         :style="customStyle"
     >
         <ClientOnly>
@@ -96,49 +104,8 @@ watch(isVisible, (visible) => {
 </script>
 
 <style scoped>
-.google-ad {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-    overflow: hidden;
-}
-
-.google-ad--fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
-
-.google-ad--banner {
-    min-height: 90px;
-}
-
-.google-ad--square {
-    min-height: 250px;
-}
-
-.google-ad--leaderboard,
-.google-ad--mobile {
-    min-height: 50px;
-}
-
-@media (max-width: 768px) {
-    .google-ad--banner {
-        min-height: 50px;
-    }
-
-    .google-ad--square {
-        min-height: 200px;
-    }
-
-    /* Add mobile-specific styling with dark background to match app UI */
-    .google-ad {
-        background-color: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(1px);
-        border-radius: 8px;
-        padding: 4px;
-    }
+.adsbygoogle {
+    display: block;
+    text-align: center;
 }
 </style>
