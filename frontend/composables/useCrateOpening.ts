@@ -103,6 +103,7 @@ export function useCrateOpening(crate: ShallowRef<Crate | undefined>) {
         showSlider.value = false;
         wonSkin.value = null;
         caseOpeningStore.isOpeningCase = false;
+        caseOpeningStore.setWonSkin(null);
     };
 
     const toggleAutoOpen = () => {

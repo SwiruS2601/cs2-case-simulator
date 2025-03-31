@@ -38,7 +38,7 @@ const toggleQuickOpen = () => {
 </script>
 
 <template>
-    <div class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-[70] fade-scale-up backdrop-blur-xs">
+    <div class="absolute inset-0 h-dvh flex items-center justify-center p-4 z-[40] fade-scale-up backdrop-blur-xs">
         <div class="flex items-center flex-col gap-4 rounded-xl">
             <img :src="item?.image" class="select-none max-w-[380px] lg:max-w-[500px] w-full" />
             <div class="flex flex-col gap-4 items-center pb-6 pt-2">

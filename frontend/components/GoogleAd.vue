@@ -2,9 +2,10 @@
     <div
         ref="adContainer"
         :class="[
-            'flex items-center justify-center overflow-hidden sm:rounded mx-auto',
-            'md:border-black/15 md:rounded-lg',
-            { 'fixed left-0 right-0 z-10': isFixed },
+            'flex relative items-center justify-center overflow-hidden sm:rounded mx-auto',
+            'md:border-black/15 md:rounded-lg transition-opacity duration-300',
+            { 'fixed left-0 right-0': isFixed },
+            { 'opacity-0 pointer-events-none': shouldHideAd },
             {
                 'h-[90px] sm:max-w-[728px] w-full': size === 'banner',
                 'h-[250px] w-[250px]': size === 'square',
@@ -16,7 +17,7 @@
         <ClientOnly>
             <ins
                 v-if="isVisible"
-                class="adsbygoogle"
+                class="adsbygoogle block text-center"
                 :style="adStyles"
                 :data-ad-client="adClient"
                 :data-ad-slot="adSlot"
@@ -29,6 +30,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
+import { useCrateOpeningStore } from '~/composables/crateOpeningStore';
 
 interface Props {
     adSlot: string;
@@ -38,6 +40,7 @@ interface Props {
     isResponsive?: boolean;
     isFixed?: boolean;
     customStyle?: Record<string, string>;
+    hideDuringOpening?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -47,12 +50,19 @@ const props = withDefaults(defineProps<Props>(), {
     isResponsive: true,
     isFixed: false,
     customStyle: () => ({}),
+    hideDuringOpening: true,
 });
 
 const { $adsense } = useNuxtApp();
 const adContainer = ref<HTMLElement | null>(null);
 const adInitialized = ref(false);
 const isVisible = ref(false);
+const crateOpeningStore = useCrateOpeningStore();
+
+const shouldHideAd = computed(() => {
+    if (!props.hideDuringOpening) return false;
+    return crateOpeningStore.isOpeningCase || crateOpeningStore.wonSkin !== null;
+});
 
 // Calculate ad dimensions based on size
 const adStyles = computed(() => {
@@ -104,6 +114,7 @@ watch(isVisible, (visible) => {
 </script>
 
 <style scoped>
+/* Only keep essential AdSense-related styles */
 .adsbygoogle {
     display: block;
     text-align: center;

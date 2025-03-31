@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useCrateOpeningStore } from '~/composables/crateOpeningStore';
 
 const props = defineProps({
     size: {
         type: String,
         default: 'banner', // banner, square, leaderboard
-        validator: (val: string) => ['banner', 'square', 'leaderboard', 'mobile'].includes(val),
+        validator: (val: string) => ['banner', 'square', 'leaderboard', 'mobile', 'skyscraper'].includes(val),
     },
     isFixed: {
         type: Boolean,
@@ -19,9 +20,20 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    hideDuringOpening: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const emit = defineEmits(['toggle', 'change-size']);
+
+const crateOpeningStore = useCrateOpeningStore();
+
+const shouldHideAd = computed(() => {
+    if (props.size === 'skyscraper' || !props.hideDuringOpening) return false;
+    return crateOpeningStore.isOpeningCase || crateOpeningStore.wonSkin !== null;
+});
 
 const dimensions = computed(() => {
     switch (props.size) {
@@ -33,6 +45,8 @@ const dimensions = computed(() => {
             return '320×50';
         case 'mobile':
             return '320×50';
+        case 'skyscraper':
+            return '160×600';
         default:
             return '728×90';
     }
@@ -49,14 +63,16 @@ const onChangeSize = (event: Event) => {
 <template>
     <div
         :class="[
-            'flex items-center justify-center overflow-hidden sm:rounded',
+            'flex relative items-center justify-center overflow-hidden sm:rounded',
             'bg-white/20 border border-dashed border-white/30',
-            'mx-auto',
-            { 'fixed left-0 right-0 z-10': isFixed },
+            'mx-auto transition-opacity duration-300',
+            { 'opacity-0 pointer-events-none': shouldHideAd },
+            { 'fixed left-0 right-0': isFixed },
             {
                 'h-[90px] sm:max-w-[728px] w-full': size === 'banner',
                 'h-[250px] w-[250px]': size === 'square',
                 'h-[50px] sm:max-w-[320px] w-full': size === 'leaderboard' || size === 'mobile',
+                'h-[600px] w-[160px]': size === 'skyscraper',
             },
             'md:border-black/15 md:rounded-lg',
         ]"
