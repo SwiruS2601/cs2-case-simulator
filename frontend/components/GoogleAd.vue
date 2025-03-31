@@ -3,6 +3,7 @@
         ref="adContainer"
         :class="[
             'flex relative items-center justify-center overflow-hidden sm:rounded',
+            'bg-white/5 border border-white/10',
             'mx-auto transition-opacity duration-300',
             { 'opacity-0 pointer-events-none': shouldHideAd },
             { 'fixed left-0 right-0': isFixed },
@@ -12,7 +13,7 @@
                 'h-[50px] sm:max-w-[320px] w-full': size === 'leaderboard' || size === 'mobile',
                 'h-[600px] w-[160px]': size === 'skyscraper',
             },
-            ' md:rounded-lg',
+            'md:border-black/15 md:rounded-lg',
         ]"
         :style="customStyle"
     >

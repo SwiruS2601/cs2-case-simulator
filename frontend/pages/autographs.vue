@@ -14,18 +14,20 @@ if (data.value) {
 </script>
 
 <template>
-    <Container>
-        <GoogleAd class="block md:hidden" size="mobile" adSlot="autographs-top-mobile"></GoogleAd>
-        <div>
-            <div class="px-4 pt-2 sm:pt-0">
-                <h1 class="text-xl pb-4">Counter-Strike 2 Autograph Capsules</h1>
-                <div class="flex gap-4 flex-col">
-                    <SearchCrates v-model="searchData"></SearchCrates>
-                    <CrateNav active-link="Autographs"></CrateNav>
+    <div>
+        <Container>
+            <GoogleAd class="block md:hidden" size="mobile" adSlot="autographs-top-mobile"></GoogleAd>
+            <div>
+                <div class="px-4 pt-2 sm:pt-0">
+                    <h1 class="text-xl pb-4">Counter-Strike 2 Autograph Capsules</h1>
+                    <div class="flex gap-4 flex-col">
+                        <SearchCrates v-model="searchData"></SearchCrates>
+                        <CrateNav active-link="Autographs"></CrateNav>
+                    </div>
+                    <CrateGrid v-bind="{ crates }"></CrateGrid>
                 </div>
-                <CrateGrid v-bind="{ crates }"></CrateGrid>
             </div>
-        </div>
+        </Container>
         <GoogleAd size="mobile" adSlot="autographs-bottom-mobile"></GoogleAd>
-    </Container>
+    </div>
 </template>
