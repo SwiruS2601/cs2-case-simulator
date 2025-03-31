@@ -143,6 +143,7 @@ public class CrateService
 
         var crates = await _dbContext.Crates
             .AsNoTracking()
+            .Include(c => c.Price)
             .Where(c => AllowedTypes.Contains(c.Type))
             .Where(c => c.Name!.ToLower().Contains(searchKey.ToLower()))
             .Take(20)

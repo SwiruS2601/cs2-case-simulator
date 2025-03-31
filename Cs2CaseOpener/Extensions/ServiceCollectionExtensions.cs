@@ -1,6 +1,5 @@
 using Cs2CaseOpener.Data;
 using Cs2CaseOpener.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cs2CaseOpener.Extensions;
 
@@ -8,20 +7,20 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(options =>
-        {
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-            o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
-        });
+        services.ConfigureDbContext(configuration);
 
         services.AddHttpClient();
+        services.AddSignalR();
+        
         services.AddMemoryCache();
         services.AddControllers();
 
+        services.AddSwaggerConfiguration();
+
         services.AddSingleton<DataRetentionService>();
         services.AddSingleton<CrateOpeningService>();
-
-        services.AddSwaggerConfiguration();
+        
+        services.ConfigureIPGeolocationService(configuration);
 
         services.AddScoped<AuthorizationService>();
         services.AddScoped<UnitOfWork, UnitOfWork>();

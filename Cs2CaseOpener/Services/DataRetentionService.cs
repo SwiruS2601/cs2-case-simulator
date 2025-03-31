@@ -21,10 +21,20 @@ public class DataRetentionService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        var retentionTime = _configuration.GetValue<int>("DataRetention:HoursToKeep", 12);
+
         while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
+                var now = DateTime.UtcNow;
+                var next4am = now.Date.AddHours(4);
+                if (now > next4am)
+                    next4am = next4am.AddDays(1);
+
+                var delay = next4am - now;
+                await Task.Delay(delay, stoppingToken);
+
                 await PurgeOldData();
             }
             catch (Exception ex)
@@ -32,7 +42,7 @@ public class DataRetentionService : BackgroundService
                 _logger.LogError(ex, "Error occurred during data retention job");
             }
 
-            await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
+            await Task.Delay(TimeSpan.FromHours(retentionTime), stoppingToken);
         }
     }
 
@@ -43,8 +53,11 @@ public class DataRetentionService : BackgroundService
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         
-        var retentionDays = _configuration.GetValue<int>("DataRetention:DaysToKeep", 1);
+        var retentionTime = _configuration.GetValue<int>("DataRetention:HoursToKeep", 12);
         var valuableRarities = _configuration.GetValue<string[]>("DataRetention:ValuableRarities", ["rarity_ancient_weapon", "rarity_ancient", "exceedingly_rare"]);
+
+        if (cutoffDate == null)
+            cutoffDate = DateTime.UtcNow.AddHours(-retentionTime);
 
         const int batchSize = 50000;
         int totalDeleted = 0;
@@ -54,7 +67,7 @@ public class DataRetentionService : BackgroundService
         {
             var itemsToDelete = await dbContext.CrateOpenings
                 .Where(c => !valuableRarities
-                    .Contains(c.Rarity) && c.OpenedAt < (cutoffDate ?? DateTime.UtcNow.AddDays(-retentionDays)))
+                    .Contains(c.Rarity) && c.OpenedAt < cutoffDate)
                 .OrderBy(c => c.Id)
                 .Take(batchSize)
                 .Select(c => c.Id)

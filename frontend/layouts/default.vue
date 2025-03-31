@@ -8,6 +8,7 @@ useHead({
     htmlAttrs: {
         lang: 'en',
     },
+    meta: [{ name: 'google-adsense-account', content: 'ca-pub-2203615625330226' }],
     link: [
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },

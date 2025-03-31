@@ -1,0 +1,58 @@
+# Counter-Strike 2 Case Unboxer - Project Intelligence
+
+## Key Implementation Patterns
+
+### Frontend Patterns
+
+-   Vue components use PascalCase for filenames (e.g., `CrateGrid.vue`, `SliderItem.vue`)
+-   TypeScript interfaces/types use PascalCase (e.g., `Crate`, `Skin`)
+-   Constants use UPPER_SNAKE_CASE (e.g., `REAL_ODDS`, `SLIDER_SIZE`)
+-   Components are organized by functionality rather than type
+-   Reusable logic is extracted into composables (in `composables/` directory)
+-   UI components maintain a clean separation from data fetching logic
+
+### Backend Patterns
+
+-   C# follows standard naming conventions (PascalCase for types and methods)
+-   Controllers use the suffix `Controller` and inherit from `ControllerBase`
+-   API routes use kebab-case (e.g., `/api/crate-opening`)
+-   Entity models have navigation properties for related entities
+-   Services are injected via dependency injection in constructors
+-   Configuration stored in appsettings.json with environment-specific overrides
+
+### Project Structure
+
+-   Frontend and backend are clearly separated in dedicated directories
+-   Docker is used for containerization and deployment
+-   Nginx handles routing and serves as a reverse proxy
+-   Database schema managed through Entity Framework migrations
+
+## Known Project Preferences
+
+-   Prefer realistic odds matching the actual CS2 probabilities
+-   Keep animations smooth and visually similar to the real game
+-   Maintain mobile-friendly responsive design
+-   Ensure backend services have proper error handling
+-   Follow RESTful API conventions for endpoints
+
+## Critical Implementation Areas
+
+-   Case opening algorithm closely follows CS2's multi-tier probability system
+-   Animation timing and easing functions are carefully tuned for authenticity
+-   Color schemes match CS2's rarity tier colors
+-   Database models maintain relationships for efficient data access
+
+## Workflow Notes
+
+-   Docker Compose is used for local development environment
+-   Build script (`build.sh`) automates environment setup
+-   Frontend development server provides hot reloading
+-   Backend uses Entity Framework migrations for database updates
+
+## Evolution of Project
+
+-   Started with core case opening functionality
+-   Added support for different case types (stickers, autographs, souvenirs)
+-   Implemented inventory tracking for opened items
+-   Enhanced with statistics for openings
+-   Most recent work focused on performance optimizations and UI refinements

@@ -3,11 +3,29 @@ using Cs2CaseOpener.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Cs2CaseOpener.Services;
+// using Cs2CaseOpener.Hubs;
 
 namespace Cs2CaseOpener.Extensions;
 
 public static class ApplicationBuilderExtensions
 {
+    public static WebApplication ConfigureMiddleware(this WebApplication app)
+    {
+        app.UseRequestLogging();
+        app.UseMiddleware<ExceptionMiddleware>();
+        app.UseCors("AllowLocalhost");
+        app.UseSwaggerWhenDevelopment();
+        app.MapControllers();
+        // app.MapHub<UnboxHub>("/unbox-hub");
+        
+        return app;
+    }
+    
+    public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware<RequestLoggingMiddleware>();
+    }
+
     public static WebApplicationBuilder ConfigureSerilog(this WebApplicationBuilder builder)
     {
         builder.Logging.ClearProviders();
@@ -22,25 +40,6 @@ public static class ApplicationBuilderExtensions
         return builder;
     }
 
-    public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)
-    {
-        return builder.UseMiddleware<RequestLoggingMiddleware>();
-    }
-
-    public static WebApplication ConfigureMiddleware(this WebApplication app)
-    {
-        app.UseRequestLogging();
-        
-        app.UseMiddleware<ExceptionMiddleware>();
-        app.UseCors("AllowLocalhost");
-
-        app.UseSwaggerWhenDevelopment();
-
-        app.MapControllers();
-        
-        return app;
-    }
-    
     public static async Task InitializeDatabaseAsync(this WebApplication app)
     {
         using var scope = app.Services.CreateScope();
