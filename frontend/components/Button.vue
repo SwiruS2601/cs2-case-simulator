@@ -19,7 +19,7 @@ const sizes = {
 };
 
 const variants = {
-    primary: 'text-white border-black/10 hover:bg-black/20 bg-black/30',
+    primary: 'text-white/90 border-black/10 hover:bg-black/20 bg-black/30',
     text: 'text-white border-white hover:bg-black/20',
     secondary: 'bg-gray-600 text-white border-gray-600 hover:bg-gray-900',
     success: 'bg-green-400 text-green-900 border-green-400 hover:bg-green-500 hover:text-green-900',
@@ -36,6 +36,6 @@ const buttonClasses = computed(() => {
 
 <template>
     <button :class="[buttonClasses, $attrs.class]" v-bind="$attrs">
-        <slot ></slot>
+        <slot></slot>
     </button>
 </template>

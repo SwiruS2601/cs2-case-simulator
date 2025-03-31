@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { InventoryItem } from '~/services/inventoryDb';
+import type { Skin } from '../types';
 import Image from './Image.vue';
 const props = defineProps<{
-    items: InventoryItem[];
+    items: Skin[];
     inventoryView?: boolean;
 }>();
 
-const getSkinKey = (item: InventoryItem, index: number) => {
-    return `${item.item_id || ''}${item.name}${item.wear_category || ''}${index}`;
+const getSkinKey = (skin: Skin, index: number) => {
+    return `${skin.id || ''}${skin.name}${skin.wear_category || ''}${index}`;
 };
 </script>
 
@@ -22,14 +22,21 @@ const getSkinKey = (item: InventoryItem, index: number) => {
                         :height="120"
                         :src="item?.image ?? '/images/placeholder.webp'"
                         :alt="item?.name"
-                        class-name="transition-transform duration-75 hover:scale-[133%] pb-4 p-0 m-0"
+                        class-name="relative transition-transform duration-75 pb-4 hover:scale-[133%] p-0 m-0 z-1"
                     ></Image>
-
                     <div
-                        v-if="item.price && item.price > 0"
+                        v-if="item?.prices?.[0]?.wear_category == 'Default'"
                         class="absolute flex justify-end w-full bottom-0 right-0 text-green-400 pb-0.5 text-xs bg-black/20 px-1"
                     >
-                        {{ formatEuro(item.price) }}
+                        {{ formatEuro(getItemMinPrice(item)) }}
+                    </div>
+                    <div
+                        v-else
+                        class="absolute flex justify-between flex-wrap w-full bottom-0 right-0 text-green-400 pb-0.5 text-xs bg-black/20 px-1"
+                    >
+                        <span> {{ formatEuro(getItemMinPrice(item)) }} </span>
+                        <span class="text-white/20">-</span>
+                        <span> {{ formatEuro(getItemMaxPrice(item)) }}</span>
                     </div>
                 </div>
             </div>

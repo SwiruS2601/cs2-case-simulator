@@ -1,9 +1,9 @@
 import type { Skin } from '../types';
-import { RARITY_INDEX } from '../constants';
+import { RARITY_ORDER } from '../constants';
 import type { InventoryItem } from '~/services/inventoryDb';
 
 export function sortSkinByRarity(a: Skin | InventoryItem, b: Skin | InventoryItem) {
-    return RARITY_INDEX[a.rarity_id] - RARITY_INDEX[b.rarity_id];
+    return RARITY_ORDER[a.rarity_id] - RARITY_ORDER[b.rarity_id];
 }
 
 export function gunSkinFilter(skin: Skin): boolean {

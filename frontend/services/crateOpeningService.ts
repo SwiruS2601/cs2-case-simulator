@@ -1,5 +1,5 @@
 import { ERROR_MESSAGES, ODDS_TO_RARITY, SKIN_WEAR_AND_FLOAT, SLIDER_SIZE, WON_SKIN_INDEX } from '../constants';
-import type { BaseRarity, Crate, RarityId, Skin } from '../types';
+import type { BaseRarity, Crate, RarityId, Skin, WearCategory } from '../types';
 import { gunSkinFilter, knivesAndGlovesSkinFilter } from '../utils/sortAndfilters';
 
 type Odds = Record<string, number>;
@@ -209,7 +209,7 @@ function getSkinsForSlider(crate: Crate, count: number, odds: Odds, wonSkin: Ski
     return randomSkins;
 }
 
-export function getSkinWearCategory(skin: Skin) {
+export function getSkinWearCategory(skin: Skin): WearCategory {
     if (skin.paint_index === null) {
         return 'Default';
     }

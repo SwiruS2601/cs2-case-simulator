@@ -3,33 +3,33 @@ import '~/assets/css/main.css';
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage ></NuxtPage>
-  </NuxtLayout>
+    <NuxtLayout>
+        <NuxtPage></NuxtPage>
+    </NuxtLayout>
 </template>
 
 <style>
 html,
 dialog {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-    'Helvetica Neue', sans-serif;
-  color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 body {
-  background: #1a1c20;
+    background: #1a1c20;
 }
 
 .responsive-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
 }
 
 @media screen and (max-width: 720px) {
-  .responsive-grid {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-  }
+    .responsive-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
 }
 </style>

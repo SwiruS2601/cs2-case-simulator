@@ -24,10 +24,10 @@ const inventory = useInventoryStore();
                                 : 'text-red-400'
                         "
                     >
-                        € {{ inventory?.balance?.toFixed(2) }}
+                        {{ formatEuro(inventory?.balance) }}
                     </span>
                     <template #fallback>
-                        <span class="text-gray-400">€ 0.00</span>
+                        <span class="text-gray-400">0.00 €</span>
                     </template>
                 </ClientOnly>
             </div>

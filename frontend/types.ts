@@ -20,7 +20,7 @@ export type Skin = {
     image: string;
     prices: Price[];
     rarity: Rarity;
-    wear_category: string;
+    wear_category: WearCategory;
 };
 
 export type Price = {
@@ -56,3 +56,5 @@ export type RarityId =
     | 'exceedingly_rare';
 
 export type BaseRarity = 'rare' | 'mythical' | 'legendary' | 'ancient' | 'exceedingly_rare';
+
+export type WearCategory = 'Factory New' | 'Minimal Wear' | 'Field-Tested' | 'Well-Worn' | 'Battle-Scarred' | 'Default';

@@ -1,4 +1,5 @@
 import { openDB, deleteDB, type IDBPDatabase, type DBSchema } from 'idb';
+import { RARITY_ORDER } from '~/constants';
 
 export type InventoryItem = {
     item_id: string;
@@ -91,22 +92,8 @@ async function getItem(key: number) {
     return db.get('items', key);
 }
 
-const rarityOrder: Record<string, number> = {
-    rarity_common_weapon: 0,
-    rarity_uncommon_weapon: 1,
-    rarity_rare_weapon: 2,
-    rarity_rare: 3,
-    rarity_mythical_weapon: 4,
-    rarity_mythical: 5,
-    rarity_legendary_weapon: 6,
-    rarity_legendary: 7,
-    rarity_ancient_weapon: 8,
-    rarity_ancient: 9,
-    exceedingly_rare: 10,
-};
-
 function getRarityOrder(rarityId: string) {
-    return rarityOrder[rarityId] || 0;
+    return RARITY_ORDER[rarityId] || 0;
 }
 
 async function getItems({

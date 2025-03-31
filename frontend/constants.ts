@@ -53,19 +53,27 @@ export const RARITY_TO_GRADE: Record<string, string> = {
     exceedingly_rare: 'Contraband',
 };
 
-export const RARITY_INDEX: Record<string, number> = {
+export const RARITY_ORDER: Record<string, number> = {
     rarity_common_weapon: 0,
     rarity_uncommon_weapon: 1,
-    rarity_rare_weapon: 2,
-    rarity_rare: 3,
-    rarity_mythical_weapon: 4,
-    rarity_mythical: 5,
-    rarity_legendary_weapon: 6,
-    rarity_legendary: 7,
-    rarity_ancient_weapon: 8,
-    rarity_ancient: 9,
+    rarity_rare: 2,
+    rarity_rare_weapon: 3,
+    rarity_mythical: 4,
+    rarity_mythical_weapon: 5,
+    rarity_legendary: 6,
+    rarity_legendary_weapon: 7,
+    rarity_ancient: 8,
+    rarity_ancient_weapon: 9,
     exceedingly_rare: 10,
 };
+
+export const SKIN_WEAR_CATEGORIES = [
+    'Factory New',
+    'Minimal Wear',
+    'Field-Tested',
+    'Well-Worn',
+    'Battle-Scarred',
+] as const;
 
 export const SKIN_WEAR_AND_FLOAT = {
     'Factory New': { floatRange: [0, 0.07], odds: 0.025 }, // ~2-3%
