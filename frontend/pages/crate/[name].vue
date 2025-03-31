@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Image from '~/components/Image.vue';
-import GoogleAd from '~/components/GoogleAd.vue';
 import { useCrateOpening } from '~/composables/useCrateOpening';
 import { gunSkinFilter, sortSkinByRarity, knivesAndGlovesSkinFilter, sortSkinByName } from '~/utils/sortAndfilters';
 import { useCrateDetailSeo } from '~/services/metaSeoService';
@@ -64,12 +63,6 @@ onUnmounted(() => {
 <template>
     <div v-bind="$attrs">
         <Container v-if="!crateOpeningStore.isOpeningCase && !showWonSkin && crate">
-            <GoogleAd
-                v-if="!crateOpeningStore.isOpeningCase && !showWonSkin"
-                class="ad-container block md:hidden"
-                size="leaderboard"
-                adSlot="pre-open-ad"
-            ></GoogleAd>
             <div class="px-4 pt-4 sm:pt-0">
                 <div class="pb-4 flex gap-4 items-center">
                     <Image
@@ -140,10 +133,6 @@ onUnmounted(() => {
             @toggle-auto-open="toggleAutoOpen"
             @quick-open-toggle="toggleQuickOpen"
         >
-            <template v-if="!crateOpeningStore.isOpeningCase && !showWonSkin" #after-buttons>
-                <GoogleAd size="leaderboard" class="mt-4" adSlot="post-open-ad"></GoogleAd>
-            </template>
         </LazyWonItemDisplay>
-        <GoogleAd size="mobile" adSlot="bottom-mobile-ad"></GoogleAd>
     </div>
 </template>

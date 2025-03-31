@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import InventoryGrid from '~/components/InventoryGrid.vue';
-import GoogleAd from '~/components/GoogleAd.vue';
 import { useInventoryStore } from '~/composables/inventoryStore';
 import { COLOR_ORDER, RARITY_COLORS } from '~/constants';
 import { inventoryDb, type InventoryItem } from '~/services/inventoryDb';
@@ -141,8 +140,6 @@ onMounted(() => {
 <template>
     <div>
         <Container>
-            <!-- Top inventory ad -->
-            <GoogleAd class="block md:hidden" size="mobile" adSlot="inventory-top-mobile"></GoogleAd>
             <div class="px-4 pt-4">
                 <div class="flex justify-between items-center gap-4 pb-3">
                     <div class="flex gap-4 items-center flex-wrap">
@@ -255,6 +252,5 @@ onMounted(() => {
                 </div>
             </div>
         </Container>
-        <GoogleAd size="mobile" adSlot="inventory-bottom-mobile"></GoogleAd>
     </div>
 </template>

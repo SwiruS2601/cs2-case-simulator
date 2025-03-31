@@ -16,7 +16,6 @@ export default defineNuxtConfig({
         '@nuxt/test-utils/module',
         '@nuxt/eslint',
     ],
-    plugins: ['~/plugins/google-adsense.client.ts'],
     eslint: {},
     piniaPluginPersistedstate: {
         storage: 'localStorage',
