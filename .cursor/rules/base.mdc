@@ -17,4 +17,5 @@ alwaysApply: true
 
 - If the task involves frontend code (e.g., Vue, Nuxt, TypeScript in the `frontend/` directory), please request the `frontend.mdc` rule for specific frontend guidelines.
 - If the task involves backend code (e.g., C#, ASP.NET Core in the `Cs2CaseOpener/` directory), please request the `backend.mdc` rule for specific backend guidelines.
+- For tasks requiring a high-level project overview, understanding core goals/principles, or involving cross-cutting concerns (e.g., architecture, full-stack features), please request the `project.mdc` rule.
 - The `base.mdc` rules are always applied and available.

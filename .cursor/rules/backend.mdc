@@ -1,5 +1,5 @@
 ---
-description: 
+description: If the task involves backend code (e.g., C#, ASP.NET Core in the `Cs2CaseOpener/` directory)
 globs: 
 alwaysApply: false
 ---
@@ -22,7 +22,7 @@ alwaysApply: false
 
 ## Coding Guidelines
 
-- Follow ASP.NET 8 best practices guided by SOLID, KISS, and CQRS principles.
+- Follow ASP.NET 8 best practices guided by SOLID, KISS, SRP, and CQRS principles.
 - Prefer records over classes for immutable data structures.
 - Utilize LINQ and generics for concise and reusable code.
 - For data modifications, favor EF Core's `ExecuteUpdate`/`ExecuteDelete` over fetching entities first when appropriate, to enhance performance.
