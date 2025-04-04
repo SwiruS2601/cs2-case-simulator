@@ -27,4 +27,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Data/GeoLite2-Country.mmdb"> 
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
