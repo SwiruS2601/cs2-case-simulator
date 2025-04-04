@@ -56,7 +56,6 @@ public static class ApplicationBuilderExtensions
             var apiScraperInstance = services.GetRequiredService<ApiScraper>();
             
             await apiScraperInstance.ScrapeApiAsync();
-            
             await apiScraperInstance.CleanupDuplicateSkinsAsync();
         }
         catch (Exception ex)

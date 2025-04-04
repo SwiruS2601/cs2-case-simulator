@@ -581,15 +581,18 @@ public class ApiScraper
         try
         {
             await ScrapeApiAsync();
+            _logger.LogInformation("Main API scrape logic completed. Proceeding to duplicate cleanup.");
+            
+            await CleanupDuplicateSkinsAsync();
             
             var duration = DateTime.UtcNow - startTime;
-            _logger.LogInformation("API scrape completed successfully in {Duration}", duration);
+            _logger.LogInformation("API scrape and cleanup completed successfully in {Duration}", duration);
         }
         catch (Exception ex)
         {
             var duration = DateTime.UtcNow - startTime;
-            _logger.LogError(ex, "API scrape failed after {Duration}: {Message}", duration, ex.Message);
-            throw;
+            _logger.LogError(ex, "API scrape/cleanup failed after {Duration}: {Message}", duration, ex.Message);
+            throw; 
         }
     }
 
