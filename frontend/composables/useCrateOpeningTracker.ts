@@ -6,9 +6,10 @@ type CrateOpeningEntry = {
     skinId: string;
     skinName: string;
     crateName: string;
-    wearCategory: string;
+    wearCategory: string | null | undefined;
     rarity: string;
     timestamp: number;
+    paintIndex: number | null | undefined;
 };
 
 export function useCrateOpeningTracker() {
@@ -28,6 +29,7 @@ export function useCrateOpeningTracker() {
             wearCategory: skin.wear_category,
             rarity: skin.rarity_id,
             timestamp: Date.now(),
+            paintIndex: skin.paint_index ? parseInt(skin.paint_index, 10) || null : null,
         });
 
         if (openingQueue.value.length >= MAX_QUEUE_SIZE) {

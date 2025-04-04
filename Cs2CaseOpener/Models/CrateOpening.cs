@@ -26,6 +26,9 @@ public class CrateOpening
     
     public DateTime OpenedAt { get; set; } = DateTime.UtcNow;
     
+    [NotMapped]
+    public int? PaintIndex { get; set; }
+
     [JsonIgnore]
     public virtual Crate? Crate { get; set; }
     [JsonIgnore]

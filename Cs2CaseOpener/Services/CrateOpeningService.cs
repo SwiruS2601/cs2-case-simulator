@@ -87,35 +87,60 @@ public class CrateOpeningService : BackgroundService
         var validOpenings = new List<CrateOpening>(batch.Capacity);
         foreach (var opening in batch)
         {
-            // Check if we have the necessary info (using the existing SkinName property)
-            if (string.IsNullOrEmpty(opening.SkinName))
+            // Determine if the item is likely a sticker based on SkinId prefix
+            bool isSticker = opening.SkinId?.StartsWith("sticker-") ?? false;
+
+            // Validation: Always require SkinName. Require PaintIndex only if NOT a sticker.
+            if (string.IsNullOrEmpty(opening.SkinName) || (!isSticker && opening.PaintIndex == null))
             {
-                _logger.LogWarning("Skipping opening record (Original SkinId: {OriginalSkinId}) because SkinName is missing.", opening.SkinId);
+                _logger.LogWarning("Skipping opening record (Original SkinId: {OriginalSkinId}, IsSticker: {IsSticker}) because required info (SkinName or PaintIndex if not sticker) is missing.", 
+                    opening.SkinId, isSticker);
                 continue; 
             }
             
-            // Look up the CURRENT Skin record using ONLY the Name (from SkinName property)
-            var currentSkin = await dbContext.Skins
-                .AsNoTracking() 
-                .FirstOrDefaultAsync(s => 
-                    s.Name == opening.SkinName, // Use opening.SkinName
-                    cancellationToken);
+            // Look up the CURRENT Skin record conditionally
+            Skin? currentSkin;
+            if (isSticker)
+            {
+                // Look up stickers by Name only
+                currentSkin = await dbContext.Skins
+                    .AsNoTracking() 
+                    .FirstOrDefaultAsync(s => s.Name == opening.SkinName, cancellationToken);
+            }
+            else
+            {
+                // Look up non-stickers by Name AND PaintIndex
+                string? paintIndexString = opening.PaintIndex?.ToString(); 
+                currentSkin = await dbContext.Skins
+                    .AsNoTracking() 
+                    .FirstOrDefaultAsync(s => 
+                        s.Name == opening.SkinName &&
+                        s.PaintIndex == paintIndexString, 
+                        cancellationToken);
+            }
 
             if (currentSkin != null)
             {
                 // Found the definitive skin. Update the SkinId if needed.
                 if (opening.SkinId != currentSkin.Id)
                 {
-                    _logger.LogInformation("Correcting SkinId for opening. Original: {OriginalId}, Corrected: {CorrectedId} (Name: {Name})", 
-                        opening.SkinId, currentSkin.Id, opening.SkinName); // Use opening.SkinName
+                    _logger.LogInformation("Correcting SkinId for opening. Original: {OriginalId}, Corrected: {CorrectedId} (Name: {Name}, IsSticker: {IsSticker})", 
+                        opening.SkinId, currentSkin.Id, opening.SkinName, isSticker);
                     opening.SkinId = currentSkin.Id;
                 }
                 validOpenings.Add(opening); 
             }
             else
             {
-                _logger.LogError("Failed to find definitive Skin record for Name: {Name} before saving CrateOpening. Original SkinId was {OriginalSkinId}. Skipping this opening.", 
-                    opening.SkinName, opening.SkinId); // Use opening.SkinName
+                 // Log slightly differently depending on sticker status
+                if (isSticker) {
+                     _logger.LogError("Failed to find definitive Sticker record for Name: {Name} before saving CrateOpening. Original SkinId was {OriginalSkinId}. Skipping this opening.", 
+                        opening.SkinName, opening.SkinId);
+                }
+                 else {
+                    _logger.LogError("Failed to find definitive Skin record for Name: {Name}, PaintIndex: {Index} before saving CrateOpening. Original SkinId was {OriginalSkinId}. Skipping this opening.", 
+                        opening.SkinName, opening.PaintIndex, opening.SkinId);
+                }
             }
         }
 

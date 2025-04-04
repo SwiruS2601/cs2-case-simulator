@@ -10,4 +10,5 @@ public record CrateOpeningRequest
     public string CrateName { get; set; } = null!;
     public string SkinName { get; set; } = null!;
     public long Timestamp { get; set; }
+    public int? PaintIndex { get; set; }
 }

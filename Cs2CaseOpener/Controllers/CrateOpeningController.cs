@@ -63,7 +63,8 @@ public class CrateOpeningController(
                 WearCategory = item.WearCategory,
                 CrateName = item.CrateName,
                 SkinName = item.SkinName,
-                OpenedAt = DateTimeOffset.FromUnixTimeMilliseconds(item.Timestamp).UtcDateTime
+                OpenedAt = DateTimeOffset.FromUnixTimeMilliseconds(item.Timestamp).UtcDateTime,
+                PaintIndex = item.PaintIndex
             };
             
             openings.Add(opening);

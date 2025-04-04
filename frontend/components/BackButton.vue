@@ -10,16 +10,20 @@ const { fallbackUrl } = defineProps<{
 const router = useRouter();
 
 const handleBack = () => {
-    if (window.history.length > 1) {
-        return router.go(-1);
+    if (history.state && history.state.back) {
+        router.go(-1);
+        return;
     }
 
     if (fallbackUrl) {
         router.push(fallbackUrl);
+        return;
     }
+
+    router.push('/');
 };
 </script>
 
 <template>
-    <Button class="flex items-center gap-2" @click="handleBack"> <BackIcon ></BackIcon> Back </Button>
+    <Button class="flex items-center gap-2" @click="handleBack"> <BackIcon></BackIcon> Back </Button>
 </template>

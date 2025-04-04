@@ -183,51 +183,51 @@ public class ApiScraper
             return skin;
         }
 
-        // 2. Not found by current API ID. Try finding by Name ONLY.
+        // 2. Not found by current API ID. Try finding by Name AND PaintIndex.
         // This might find a record with an OLD ID if the API changed it.
-        var existingSkinByName = await _dbContext.Skins.FirstOrDefaultAsync(s =>
-            s.Name == itemDto.name); // Removed PaintIndex check
+        var existingSkinByNameAndIndex = await _dbContext.Skins.FirstOrDefaultAsync(s =>
+            s.Name == itemDto.name && 
+            s.PaintIndex == itemDto.paint_index); // Added PaintIndex check back
 
-        if (existingSkinByName != null)
+        if (existingSkinByNameAndIndex != null)
         {
-            // Found by Name. Check if its ID needs updating.
-            if (existingSkinByName.Id != itemDto.id)
+            // Found by Name/Index. Check if its ID needs updating.
+            if (existingSkinByNameAndIndex.Id != itemDto.id)
             {
                 // ID mismatch detected! Create new record with correct ID.
-                _logger.LogWarning("Skin '{SkinName}' found by Name with old ID '{OldId}'. Current API ID is '{NewId}'. Creating new record with current ID and marking old for potential cleanup.",
-                    itemDto.name, existingSkinByName.Id, itemDto.id);
+                _logger.LogWarning("Skin '{SkinName}' (PaintIndex: {PaintIndex}) found by Name/Index with old ID '{OldId}'. Current API ID is '{NewId}'. Creating new record with current ID and marking old for potential cleanup.",
+                    itemDto.name, itemDto.paint_index, existingSkinByNameAndIndex.Id, itemDto.id);
 
                 // Create the new skin entity with the correct ID from the API
                 var newSkinWithCorrectId = new Skin
                 {
-                    Id = itemDto.id, // Use the CURRENT API ID
+                    Id = itemDto.id, 
                     Name = itemDto.name,
-                    // Set PaintIndex on the new record if available in itemDto
                     PaintIndex = itemDto.paint_index 
                 };
-                // Update its properties fully
                 await UpdateSkinPropertiesIfNeeded(newSkinWithCorrectId, itemDto, skinDetails, existingRarities);
-                _dbContext.Skins.Add(newSkinWithCorrectId); // Add the NEW entity
-                return newSkinWithCorrectId; // Return the NEW entity
+                _dbContext.Skins.Add(newSkinWithCorrectId); 
+                return newSkinWithCorrectId; 
             }
             else
             {
-                // Found by Name and ID already matches the current API ID.
-                 _logger.LogDebug("Skin '{SkinName}' found by Name with matching ID '{Id}'. Updating properties.",
-                   itemDto.name, existingSkinByName.Id);
-                await UpdateSkinPropertiesIfNeeded(existingSkinByName, itemDto, skinDetails, existingRarities);
-                return existingSkinByName; // Return the existing entity
+                // Found by Name/Index and ID already matches the current API ID.
+                 _logger.LogDebug("Skin '{SkinName}' (PaintIndex: {PaintIndex}) found by Name/Index with matching ID '{Id}'. Updating properties.",
+                   itemDto.name, itemDto.paint_index, existingSkinByNameAndIndex.Id);
+                await UpdateSkinPropertiesIfNeeded(existingSkinByNameAndIndex, itemDto, skinDetails, existingRarities);
+                return existingSkinByNameAndIndex; // Return the existing entity
             }
         }
 
-        // 3. Not found by current API ID NOR by Name.
+        // 3. Not found by current API ID NOR by Name/Index.
         // Create a new skin with the current API ID.
-        _logger.LogInformation("Creating new skin record: Name='{SkinName}', ID='{SkinId}'", itemDto.name, itemDto.id);
+        _logger.LogInformation("Creating new skin record: Name='{SkinName}', PaintIndex: {PaintIndex}, ID='{SkinId}'", 
+            itemDto.name, itemDto.paint_index, itemDto.id);
         var newSkin = new Skin
         {
             Id = itemDto.id, 
             Name = itemDto.name,
-            PaintIndex = itemDto.paint_index, // Still set PaintIndex if available
+            PaintIndex = itemDto.paint_index,
         };
         // *** Pass the potentially null skinDetails to the helper ***
         await UpdateSkinPropertiesIfNeeded(newSkin, itemDto, skinDetails, existingRarities);
@@ -738,42 +738,42 @@ public class ApiScraper
 
         try
         {
-            // Find groups of skins with the same Name (ignore PaintIndex)
+            // Find groups of skins with the same Name AND PaintIndex
             var duplicateGroups = await _dbContext.Skins
-                .GroupBy(s => s.Name) // Group ONLY by Name
+                .GroupBy(s => new { s.Name, s.PaintIndex }) // Group by Name AND PaintIndex
                 .Where(g => g.Count() > 1)
-                .Select(g => g.Key) // Select only the Name
+                .Select(g => g.Key) // Select the composite key
                 .ToListAsync();
 
-            _logger.LogInformation("Found {Count} groups of skins with potentially duplicate Name.", duplicateGroups.Count);
+            _logger.LogInformation("Found {Count} groups of skins with potentially duplicate Name and PaintIndex.", duplicateGroups.Count);
             int totalDeleted = 0;
 
-            foreach (var groupName in duplicateGroups) // Iterate by Name
+            foreach (var groupKey in duplicateGroups) // Iterate by composite key
             {
-                // Get all skins belonging to this duplicate Name group
+                // Get all skins belonging to this duplicate Name/PaintIndex group
                 var duplicates = await _dbContext.Skins
                     .Include(s => s.Prices) 
                     .Include(s => s.Crates) 
-                    .Where(s => s.Name == groupName) // Where ONLY by Name
+                    .Where(s => s.Name == groupKey.Name && s.PaintIndex == groupKey.PaintIndex) // Where by Name AND PaintIndex
                     .OrderBy(s => s.Id) 
                     .ToListAsync();
 
                 if (duplicates.Count <= 1) continue;
 
-                // --- Determine the single skin record to keep ---
+                // Determine the single skin record to keep (logic remains the same)
                 Skin skinToKeep = duplicates
-                    .OrderByDescending(s => latestItemIds.Contains(s.Id)) // 1. Prioritize ID matching latest API data
-                    .ThenByDescending(s => s.Prices.Any())                // 2. Then prioritize skins that have price entries
-                    .ThenByDescending(s => s.Crates.Count)              // 3. Then by number of associated crates
-                    .First();                                            // 4. Fallback
+                    .OrderByDescending(s => latestItemIds.Contains(s.Id)) 
+                    .ThenByDescending(s => s.Prices.Any())                
+                    .ThenByDescending(s => s.Crates.Count)              
+                    .First();                                            
 
-                // Log the decision
                 var keepReason = latestItemIds.Contains(skinToKeep.Id) ? "Matches latest API ID"
                                : skinToKeep.Prices.Any() ? "Has Price Data"
                                : skinToKeep.Crates.Count > 0 ? "Has Crate Links"
                                : "Fallback (Lowest ID)";
-                _logger.LogInformation("Duplicate Group: Name='{Name}'. Keeping SkinId='{KeepId}' (Reason: {Reason}). Planning to delete {DeleteCount} other records.",
-                    groupName, skinToKeep.Id, keepReason, duplicates.Count - 1);
+                // Update log message to include PaintIndex
+                _logger.LogInformation("Duplicate Group: Name='{Name}', PaintIndex='{PaintIndex}'. Keeping SkinId='{KeepId}' (Reason: {Reason}). Planning to delete {DeleteCount} other records.",
+                    groupKey.Name, groupKey.PaintIndex, skinToKeep.Id, keepReason, duplicates.Count - 1);
 
                 // Identify the skins to be deleted
                 var skinsToDelete = duplicates.Where(s => s.Id != skinToKeep.Id).ToList();

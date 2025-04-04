@@ -20,11 +20,17 @@ let revolutionCaseData = revolutionCase as unknown as Crate;
 let shanghaiSouvenirData = shanghaiSouvenir as unknown as Crate;
 let shanghaiStickerCapsuleData = shanghaiStickerCapsule as unknown as Crate;
 
-beforeEach(() => {
-    galleryCaseData = JSON.parse(JSON.stringify(galleryCase)) as unknown as Crate;
-    revolutionCaseData = JSON.parse(JSON.stringify(revolutionCase)) as unknown as Crate;
-    shanghaiSouvenirData = JSON.parse(JSON.stringify(shanghaiSouvenir)) as unknown as Crate;
-    shanghaiStickerCapsuleData = JSON.parse(JSON.stringify(shanghaiStickerCapsule)) as unknown as Crate;
+const baseUrl = 'https://caseapi.oki.gg/api/crates/name';
+
+beforeEach(async () => {
+    galleryCaseData = await fetch(`${baseUrl}/Gallery%20Case`).then((res) => res.json());
+    revolutionCaseData = await fetch(`${baseUrl}/Revolution%20Case`).then((res) => res.json());
+    shanghaiSouvenirData = await fetch(`${baseUrl}/Shanghai%202024%20Vertigo%20Souvenir%20Package`).then((res) =>
+        res.json(),
+    );
+    shanghaiStickerCapsuleData = await fetch(`${baseUrl}/Shanghai%202024%20Contenders%20Sticker%20Capsule`).then(
+        (res) => res.json(),
+    );
 });
 
 describe('Crate Opening Service Probability Tests', () => {
