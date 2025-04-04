@@ -163,6 +163,14 @@ public class ApiScraper
         Dictionary<string, SkinDetailDto> skinDetailsDict)
     {
         var skin = await _dbContext.Skins.FirstOrDefaultAsync(s => s.Id == itemDto.id);
+        
+        if (skin == null)
+        {
+            skin = await _dbContext.Skins.FirstOrDefaultAsync(s => 
+                s.Name == itemDto.name && 
+                s.PaintIndex == itemDto.paint_index);
+        }
+        
         if (skin != null)
             return skin;
         
@@ -599,6 +607,74 @@ public class ApiScraper
         {
             await _unitOfWork.RollbackAsync();
             _logger.LogError(ex, "Error updating skin properties: {Message}", ex.Message);
+            throw;
+        }
+    }
+
+    public async Task CleanupDuplicateSkinsAsync()
+    {
+        _dbContext.ChangeTracker.Clear();
+        await _unitOfWork.BeginTransactionAsync();
+        _logger.LogInformation("Starting duplicate skin cleanup process.");
+
+        try
+        {
+            var duplicateGroups = await _dbContext.Skins
+                .GroupBy(s => new { s.Name, s.PaintIndex })
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key)
+                .ToListAsync();
+
+            _logger.LogInformation("Found {Count} groups of duplicate skins based on Name and PaintIndex.", duplicateGroups.Count);
+            int totalDeleted = 0;
+
+            foreach (var groupKey in duplicateGroups)
+            {
+                // Important: Load prices and crates for accurate comparison
+                var duplicates = await _dbContext.Skins
+                    .Include(s => s.Prices)
+                    .Include(s => s.Crates) // Assuming a navigation property 'Crates' exists
+                    .Where(s => s.Name == groupKey.Name && s.PaintIndex == groupKey.PaintIndex)
+                    .OrderBy(s => s.Id) // Consistent ordering for tie-breaking
+                    .ToListAsync();
+
+                if (duplicates.Count <= 1) continue; // Should not happen based on query, but safe check
+
+                // Determine the skin to keep
+                Skin skinToKeep = duplicates
+                    .OrderByDescending(s => s.Prices.Any()) // Prioritize skins with prices
+                    .ThenByDescending(s => s.Crates.Count) // Then by number of crate associations
+                    .First(); // If still tied, OrderBy(s => s.Id) picks the one with the 'lowest' ID
+                
+                _logger.LogDebug("Duplicate group: Name='{Name}', PaintIndex='{PaintIndex}'. Keeping SkinId='{SkinId}'. Deleting {DeleteCount} others.", 
+                    groupKey.Name, groupKey.PaintIndex, skinToKeep.Id, duplicates.Count - 1);
+
+                // Identify skins to delete
+                var skinsToDelete = duplicates.Where(s => s.Id != skinToKeep.Id).ToList();
+
+                if (skinsToDelete.Any())
+                {
+                    _dbContext.Skins.RemoveRange(skinsToDelete);
+                    totalDeleted += skinsToDelete.Count;
+                }
+            }
+
+            if (totalDeleted > 0)
+            {
+                await _unitOfWork.SaveChangesAsync();
+                _logger.LogInformation("Successfully deleted {Count} duplicate skin entries.", totalDeleted);
+            }
+            else
+            {
+                _logger.LogInformation("No duplicate skins needed deletion.");
+            }
+            
+            await _unitOfWork.CommitAsync();
+        }
+        catch (Exception ex)
+        {   
+            await _unitOfWork.RollbackAsync();
+            _logger.LogError(ex, "Error during duplicate skin cleanup: {Message}", ex.Message);
             throw;
         }
     }
