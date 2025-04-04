@@ -14,6 +14,7 @@ public class ApiScraper
     private readonly string[] ValidWears = ["Minimal Wear", "Field-Tested", "Battle-Scarred", "Well-Worn", "Factory New"];
     private readonly string[] AllowedTypes = ["Case", "Souvenir", "Sticker Capsule", "Autograph Capsule"];
     private const int BatchSize = 100;
+    private Dictionary<string, ItemDto>? _latestItemsDict = null;
 
     public ApiScraper(ApplicationDbContext dbContext, ByMykelDataService dataService, UnitOfWork unitOfWork, ILogger<ApiScraper> logger)
     {
@@ -28,6 +29,13 @@ public class ApiScraper
         var crates = await _dataService.GetCratesAsync();
         var prices = await _dataService.GetPricesAsync();
         var skins = await _dataService.GetAllSkinsAsync();
+
+        _latestItemsDict = crates
+            .SelectMany(c => (c.contains ?? Enumerable.Empty<ItemDto>()).Concat(c.contains_rare ?? Enumerable.Empty<ItemDto>()))
+            .Where(item => item != null)
+            .DistinctBy(item => item.id)
+            .ToDictionary(item => item.id, item => item);
+        _logger.LogInformation("Stored {Count} unique items from latest crates data.", _latestItemsDict.Count);
 
         await ProcessRaritiesAsync(crates);
         await ProcessCratesAndSkinsAsync(crates, skins);
@@ -158,52 +166,126 @@ public class ApiScraper
         await _unitOfWork.SaveChangesAsync();
     }
 
-    private async Task<Skin> GetOrCreateSkinAsync(ItemDto itemDto, 
+    private async Task<Skin> GetOrCreateSkinAsync(ItemDto itemDto,
         Dictionary<string, Rarity> existingRarities,
         Dictionary<string, SkinDetailDto> skinDetailsDict)
     {
+        // 1. Try finding by the ID provided in the current API data (itemDto.id)
         var skin = await _dbContext.Skins.FirstOrDefaultAsync(s => s.Id == itemDto.id);
-        
-        if (skin == null)
-        {
-            skin = await _dbContext.Skins.FirstOrDefaultAsync(s => 
-                s.Name == itemDto.name && 
-                s.PaintIndex == itemDto.paint_index);
-        }
-        
+        // *** Safely get skinDetails using TryGetValue BEFORE using it ***
+        skinDetailsDict.TryGetValue(itemDto.id, out var skinDetails); 
+
         if (skin != null)
+        {
+            // Found by current API ID. Ensure its properties are up-to-date.
+            // *** Pass the potentially null skinDetails to the helper ***
+            await UpdateSkinPropertiesIfNeeded(skin, itemDto, skinDetails, existingRarities);
             return skin;
-        
-        skinDetailsDict.TryGetValue(itemDto.id, out var skinDetails);
-        
-        skin = new Skin
-        {
-            Id = itemDto.id,
-            Name = itemDto.name,
-            RarityId = itemDto.rarity?.id,
-            PaintIndex = itemDto.paint_index,
-            Image = itemDto.image,
-            MinFloat = skinDetails?.min_float ?? null,
-            MaxFloat = skinDetails?.max_float ?? null,
-            Souvenir = skinDetails?.souvenir ?? null,
-            StatTrak = skinDetails?.stattrak ?? null,
-            Category = skinDetails?.category?.name ?? null,
-        };
-
-        if (itemDto.rarity != null && !existingRarities.ContainsKey(itemDto.rarity.id))
-        {
-            var rarity = new Rarity
-            {
-                Id = itemDto.rarity.id,
-                Name = itemDto.rarity.name,
-                Color = itemDto.rarity.color
-            };
-            existingRarities[rarity.Id] = rarity;
-            _dbContext.Rarities.Add(rarity);
         }
 
-        _dbContext.Skins.Add(skin);
-        return skin;
+        // 2. Not found by current API ID. Try finding by Name and PaintIndex.
+        var existingSkinByName = await _dbContext.Skins.FirstOrDefaultAsync(s =>
+            s.Name == itemDto.name &&
+            s.PaintIndex == itemDto.paint_index);
+
+        if (existingSkinByName != null)
+        {
+            // Found by Name/PaintIndex. Check if its ID needs updating.
+            if (existingSkinByName.Id != itemDto.id)
+            {
+                // ID mismatch detected! The existing record has an outdated ID.
+                // We will create a NEW record with the correct ID and let cleanup handle the old one.
+                _logger.LogWarning("Skin '{SkinName}' (PaintIndex: {PaintIndex}) found with old ID '{OldId}'. Current API ID is '{NewId}'. Creating new record with current ID and marking old for potential cleanup.",
+                    itemDto.name, itemDto.paint_index, existingSkinByName.Id, itemDto.id);
+
+                // Create the new skin entity with the correct ID from the API
+                var newSkinWithCorrectId = new Skin
+                {
+                    Id = itemDto.id, // Use the CURRENT API ID
+                    Name = itemDto.name,
+                    PaintIndex = itemDto.paint_index,
+                };
+                // Update its properties fully
+                await UpdateSkinPropertiesIfNeeded(newSkinWithCorrectId, itemDto, skinDetails, existingRarities);
+                _dbContext.Skins.Add(newSkinWithCorrectId); // Add the NEW entity
+                return newSkinWithCorrectId; // Return the NEW entity
+            }
+            else
+            {
+                // Found by Name/PaintIndex and ID already matches the current API ID.
+                // Just update properties on the existing one.
+                _logger.LogDebug("Skin '{SkinName}' (PaintIndex: {PaintIndex}) found by Name/PaintIndex with matching ID '{Id}'. Updating properties.",
+                   itemDto.name, itemDto.paint_index, existingSkinByName.Id);
+                await UpdateSkinPropertiesIfNeeded(existingSkinByName, itemDto, skinDetails, existingRarities);
+                return existingSkinByName; // Return the existing entity
+            }
+        }
+
+        // 3. Not found by current API ID NOR by Name/PaintIndex.
+        // Create a new skin with the current API ID.
+        _logger.LogInformation("Creating new skin record: Name='{SkinName}', ID='{SkinId}'", itemDto.name, itemDto.id);
+        var newSkin = new Skin
+        {
+            Id = itemDto.id, // Use the ID from the current API data
+            Name = itemDto.name,
+            PaintIndex = itemDto.paint_index,
+        };
+        // *** Pass the potentially null skinDetails to the helper ***
+        await UpdateSkinPropertiesIfNeeded(newSkin, itemDto, skinDetails, existingRarities);
+        _dbContext.Skins.Add(newSkin);
+        return newSkin;
+    }
+
+    private async Task UpdateSkinPropertiesIfNeeded(Skin skin, ItemDto itemDto, SkinDetailDto? skinDetails, Dictionary<string, Rarity> existingRarities)
+    {
+        bool changed = false;
+
+        var newRarityId = itemDto.rarity?.id;
+        if (skin.RarityId != newRarityId)
+        {
+            if (newRarityId != null && itemDto.rarity != null && !existingRarities.ContainsKey(newRarityId))
+            {
+                var newRarity = new Rarity
+                {
+                    Id = newRarityId,
+                    Name = itemDto.rarity.name,
+                    Color = itemDto.rarity.color
+                };
+                 _logger.LogInformation("Adding new rarity found during skin update: ID='{RarityId}', Name='{RarityName}'", newRarity.Id, newRarity.Name);
+                existingRarities[newRarity.Id] = newRarity;
+                _dbContext.Rarities.Add(newRarity);
+            }
+             else if (newRarityId != null && itemDto.rarity != null && !await _dbContext.Rarities.AnyAsync(r => r.Id == newRarityId))
+            {
+                 _logger.LogWarning("Rarity '{RarityId}' not found in cache but exists in DB? Skipping add.", newRarityId);
+            }
+            skin.RarityId = newRarityId;
+            changed = true;
+        }
+
+        if (skin.Name != itemDto.name) { skin.Name = itemDto.name; changed = true; }
+        if (skin.PaintIndex != itemDto.paint_index) { skin.PaintIndex = itemDto.paint_index; changed = true; }
+        if (skin.Image != itemDto.image) { skin.Image = itemDto.image; changed = true; }
+
+        if (skinDetails != null)
+        {
+            if (skin.MinFloat != skinDetails.min_float) { skin.MinFloat = skinDetails.min_float; changed = true; }
+            if (skin.MaxFloat != skinDetails.max_float) { skin.MaxFloat = skinDetails.max_float; changed = true; }
+            if (skin.Souvenir != skinDetails.souvenir) { skin.Souvenir = skinDetails.souvenir; changed = true; }
+            if (skin.StatTrak != skinDetails.stattrak) { skin.StatTrak = skinDetails.stattrak; changed = true; }
+            var newCategory = skinDetails.category?.name;
+            if (skin.Category != newCategory) { skin.Category = newCategory; changed = true; }
+        }
+        else
+        {
+             _logger.LogDebug("No detailed skin info found for ID '{SkinId}' (Name: {SkinName}) from skins.json. Retaining existing details.", itemDto.id, itemDto.name);
+        }
+
+        if (changed && _dbContext.Entry(skin).State != EntityState.Added)
+        {
+            _logger.LogInformation("Properties updated for existing Skin ID: {SkinId}, Name: {SkinName}", skin.Id, skin.Name);
+        }
+         await Task.CompletedTask;
     }
 
     private async Task ProcessPricesAsync(Dictionary<string, PriceDetailDto> prices)
@@ -617,43 +699,71 @@ public class ApiScraper
         await _unitOfWork.BeginTransactionAsync();
         _logger.LogInformation("Starting duplicate skin cleanup process.");
 
+        if (_latestItemsDict == null || !_latestItemsDict.Any())
+        {
+            _logger.LogWarning("Latest item dictionary is empty or null. Fetching fresh data for cleanup comparison...");
+            try {
+                var crates = await _dataService.GetCratesAsync();
+                _latestItemsDict = crates
+                    .SelectMany(c => (c.contains ?? Enumerable.Empty<ItemDto>()).Concat(c.contains_rare ?? Enumerable.Empty<ItemDto>()))
+                    .Where(item => item != null)
+                    .DistinctBy(item => item.id)
+                    .ToDictionary(item => item.id, item => item);
+                _logger.LogInformation("Fetched {Count} unique items from latest API data for cleanup.", _latestItemsDict.Count);
+            } catch (Exception fetchEx) {
+                 _logger.LogError(fetchEx, "Failed to fetch latest item data for cleanup. Aborting cleanup.");
+                 await _unitOfWork.RollbackAsync();
+                 return;
+            }
+        }
+
+        var latestItemIds = _latestItemsDict?.Keys.ToHashSet() ?? new HashSet<string>();
+         if (!latestItemIds.Any()) {
+              _logger.LogError("Latest item ID set is empty after fetch attempt. Aborting cleanup.");
+              await _unitOfWork.RollbackAsync();
+              return;
+         }
+
         try
         {
             var duplicateGroups = await _dbContext.Skins
                 .GroupBy(s => new { s.Name, s.PaintIndex })
                 .Where(g => g.Count() > 1)
-                .Select(g => g.Key)
+                .Select(g => new { g.Key.Name, g.Key.PaintIndex })
                 .ToListAsync();
 
-            _logger.LogInformation("Found {Count} groups of duplicate skins based on Name and PaintIndex.", duplicateGroups.Count);
+            _logger.LogInformation("Found {Count} groups of skins with potentially duplicate Name and PaintIndex.", duplicateGroups.Count);
             int totalDeleted = 0;
 
             foreach (var groupKey in duplicateGroups)
             {
-                // Important: Load prices and crates for accurate comparison
                 var duplicates = await _dbContext.Skins
                     .Include(s => s.Prices)
-                    .Include(s => s.Crates) // Assuming a navigation property 'Crates' exists
+                    .Include(s => s.Crates)
                     .Where(s => s.Name == groupKey.Name && s.PaintIndex == groupKey.PaintIndex)
-                    .OrderBy(s => s.Id) // Consistent ordering for tie-breaking
+                    .OrderBy(s => s.Id)
                     .ToListAsync();
 
-                if (duplicates.Count <= 1) continue; // Should not happen based on query, but safe check
+                if (duplicates.Count <= 1) continue;
 
-                // Determine the skin to keep
                 Skin skinToKeep = duplicates
-                    .OrderByDescending(s => s.Prices.Any()) // Prioritize skins with prices
-                    .ThenByDescending(s => s.Crates.Count) // Then by number of crate associations
-                    .First(); // If still tied, OrderBy(s => s.Id) picks the one with the 'lowest' ID
-                
-                _logger.LogDebug("Duplicate group: Name='{Name}', PaintIndex='{PaintIndex}'. Keeping SkinId='{SkinId}'. Deleting {DeleteCount} others.", 
-                    groupKey.Name, groupKey.PaintIndex, skinToKeep.Id, duplicates.Count - 1);
+                    .OrderByDescending(s => latestItemIds.Contains(s.Id))
+                    .ThenByDescending(s => s.Prices.Any())
+                    .ThenByDescending(s => s.Crates.Count)
+                    .First();
 
-                // Identify skins to delete
+                var keepReason = latestItemIds.Contains(skinToKeep.Id) ? "Matches latest API ID"
+                               : skinToKeep.Prices.Any() ? "Has Price Data"
+                               : skinToKeep.Crates.Count > 0 ? "Has Crate Links"
+                               : "Fallback (Lowest ID)";
+                _logger.LogInformation("Duplicate Group: Name='{Name}', PaintIndex='{PaintIndex}'. Keeping SkinId='{KeepId}' (Reason: {Reason}). Planning to delete {DeleteCount} other records.",
+                    groupKey.Name, groupKey.PaintIndex, skinToKeep.Id, keepReason, duplicates.Count - 1);
+
                 var skinsToDelete = duplicates.Where(s => s.Id != skinToKeep.Id).ToList();
 
                 if (skinsToDelete.Any())
                 {
+                    _logger.LogDebug("Deleting Skin IDs: {SkinIds}", string.Join(", ", skinsToDelete.Select(s => s.Id)));
                     _dbContext.Skins.RemoveRange(skinsToDelete);
                     totalDeleted += skinsToDelete.Count;
                 }
@@ -661,20 +771,21 @@ public class ApiScraper
 
             if (totalDeleted > 0)
             {
+                _logger.LogInformation("Attempting to save changes, deleting {Count} duplicate/outdated skin entries.", totalDeleted);
                 await _unitOfWork.SaveChangesAsync();
-                _logger.LogInformation("Successfully deleted {Count} duplicate skin entries.", totalDeleted);
+                _logger.LogInformation("Successfully deleted {Count} duplicate/outdated skin entries.", totalDeleted);
             }
             else
             {
-                _logger.LogInformation("No duplicate skins needed deletion.");
+                _logger.LogInformation("No duplicate skins required deletion based on the criteria.");
             }
-            
+
             await _unitOfWork.CommitAsync();
         }
         catch (Exception ex)
-        {   
+        {
             await _unitOfWork.RollbackAsync();
-            _logger.LogError(ex, "Error during duplicate skin cleanup: {Message}", ex.Message);
+            _logger.LogError(ex, "Error during duplicate skin cleanup: {Message}. Inner Exception: {InnerMessage}", ex.Message, ex.InnerException?.Message);
             throw;
         }
     }
