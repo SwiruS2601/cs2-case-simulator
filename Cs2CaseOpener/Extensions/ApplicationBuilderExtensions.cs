@@ -57,6 +57,7 @@ public static class ApplicationBuilderExtensions
             
             await apiScraperInstance.ScrapeApiAsync();
             await apiScraperInstance.CleanupDuplicateSkinsAsync();
+            await apiScraperInstance.CleanupOrphanedPricesAsync();
         }
         catch (Exception ex)
         {

@@ -83,15 +83,61 @@ public class CrateOpeningService : BackgroundService
     {
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        
+        var validOpenings = new List<CrateOpening>(batch.Capacity);
+        foreach (var opening in batch)
+        {
+            // Check if we have the necessary info (using the existing SkinName property)
+            if (string.IsNullOrEmpty(opening.SkinName))
+            {
+                _logger.LogWarning("Skipping opening record (Original SkinId: {OriginalSkinId}) because SkinName is missing.", opening.SkinId);
+                continue; 
+            }
+            
+            // Look up the CURRENT Skin record using ONLY the Name (from SkinName property)
+            var currentSkin = await dbContext.Skins
+                .AsNoTracking() 
+                .FirstOrDefaultAsync(s => 
+                    s.Name == opening.SkinName, // Use opening.SkinName
+                    cancellationToken);
+
+            if (currentSkin != null)
+            {
+                // Found the definitive skin. Update the SkinId if needed.
+                if (opening.SkinId != currentSkin.Id)
+                {
+                    _logger.LogInformation("Correcting SkinId for opening. Original: {OriginalId}, Corrected: {CorrectedId} (Name: {Name})", 
+                        opening.SkinId, currentSkin.Id, opening.SkinName); // Use opening.SkinName
+                    opening.SkinId = currentSkin.Id;
+                }
+                validOpenings.Add(opening); 
+            }
+            else
+            {
+                _logger.LogError("Failed to find definitive Skin record for Name: {Name} before saving CrateOpening. Original SkinId was {OriginalSkinId}. Skipping this opening.", 
+                    opening.SkinName, opening.SkinId); // Use opening.SkinName
+            }
+        }
+
+        if (!validOpenings.Any())
+        {
+            _logger.LogWarning("No valid openings to save in this batch after validation.");
+            return;
+        }
 
         try
         {
-            dbContext.CrateOpenings.AddRange(batch);
+            dbContext.CrateOpenings.AddRange(validOpenings);
             await dbContext.SaveChangesAsync(cancellationToken);
+        }
+        catch (DbUpdateException ex) when (ex.InnerException is Npgsql.PostgresException pgEx && pgEx.SqlState == "23503")
+        {
+            _logger.LogError(pgEx, "Foreign key violation saving batch of {Count} openings despite pre-check. SqlState: {SqlState}. Check data consistency.", 
+                validOpenings.Count, pgEx.SqlState);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to save batch of {Count} openings", batch.Count);
+            _logger.LogError(ex, "Failed to save batch of {Count} openings", validOpenings.Count);
         }
     }
 

@@ -4,12 +4,10 @@ FROM node:${NODE_VERSION}-slim AS build
 
 WORKDIR /app
 COPY ./package.json /app/
-COPY ./pnpm-lock.yaml /app/
-RUN npm install -g pnpm
-RUN pnpm install
+RUN npm install
 COPY . ./
 
-RUN pnpm run build
+RUN npm run build
 
 FROM node:${NODE_VERSION}-slim
 

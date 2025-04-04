@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Cs2CaseOpener.Models;
 
@@ -25,6 +26,8 @@ public class CrateOpening
     
     public DateTime OpenedAt { get; set; } = DateTime.UtcNow;
     
+    [JsonIgnore]
     public virtual Crate? Crate { get; set; }
+    [JsonIgnore]
     public virtual Skin? Skin { get; set; }
 }
