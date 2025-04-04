@@ -31,4 +31,4 @@ The live version can be found at: https://case.oki.gg
 
 - The project utilizes a custom image optimizer (https://github.com/Joel-Adving/image-optimizer).
 - Backend development follows ASP.NET 8 best practices (SOLID, KISS, SRP, CQRS where applicable).
-- Frontend development uses Nuxt 3, Typescript and TailwindCss 
+- Frontend development uses Nuxt 3, Typescript and TailwindCSS, @pinia/colada useQuery for data fetching, and pinia for global state 
