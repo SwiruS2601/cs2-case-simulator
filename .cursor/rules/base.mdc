@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Base Coding Rules
+
+## General Principles
+
+- **Clean Design:** Keep designs clean, maintainable, testable, and robust.
+- **Single Responsibility Principle (SRP):** Split complex logic into smaller methods or abstractions. Methods and functions should ideally have a single responsibility.
+- **Minimize Nesting:** Minimize nested conditionals (e.g., `if`/`else if`/`else`). Prefer returning or throwing exceptions early to flatten code structure.
+- **Update Folder Structures:** If a new directory is created within the `frontend/` or `Cs2CaseOpener/` structure, update the corresponding `frontend.mdc` or `backend.mdc` rule file to reflect the change in the folder structure documentation.
+
+## Rule Request Guidelines
+
+- If the task involves frontend code (e.g., Vue, Nuxt, TypeScript in the `frontend/` directory), please request the `frontend.mdc` rule for specific frontend guidelines.
+- If the task involves backend code (e.g., C#, ASP.NET Core in the `Cs2CaseOpener/` directory), please request the `backend.mdc` rule for specific backend guidelines.
+- The `base.mdc` rules are always applied and available.
