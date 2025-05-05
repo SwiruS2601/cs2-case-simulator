@@ -1,7 +1,7 @@
 ---
-description: If the task involves frontend code (e.g., Vue, Nuxt, TypeScript in the `frontend/` directory)
-globs: 
-alwaysApply: false
+description:
+globs:
+alwaysApply: true
 ---
 
 # Frontend Rules
@@ -20,19 +20,16 @@ alwaysApply: false
 - `frontend/types/`: TypeScript type definitions.
 - `frontend/utils/`: Utility functions.
 
-## Coding Guidelines
-
-- Utilize Nuxt 3's features, including the Composition API via `<script setup lang="ts">`.
-- Write code in TypeScript using Types and not interfaces for type safety.
-- Use Tailwind CSS for styling components and layouts.
-- For global state use pinia stores in the composables dir.
-- For making API calls to backend, use config.public.apiUrl, unless we need to proxy the request through the nuxt api for security reasons.
-- Data fetching and caching is done with '@pinia/colada' useQuery, make into custom composable.
-
 ## Vue Component Structure
 
 Always structure `.vue` files as follows:
 
-1.  `<script>` at the top.
+1.  `<script setup lang="ts">` at the top.
 2.  `<template>` in the middle.
 3.  `<style>` at the bottom.
+
+## Coding Guidelines
+
+- Utilize Nuxt 3's features, including the Composition API via `<script setup>`.
+- Write code in TypeScript for type safety.
+- Use Tailwind CSS for styling components and layouts.

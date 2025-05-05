@@ -78,3 +78,5 @@ dist-ssr
 .temp
 
 logs/
+
+.cursor/
