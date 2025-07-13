@@ -5,10 +5,10 @@ env: dotnet
 branch: main
 region: oregon
 buildCommand: dotnet build API/cs2-case-simulator.API.csproj
-startCommand: dotnet run --project API/cs2-case-simulator.API.csproj --urls http://0.0.0.0:10000
+startCommand: dotnet run --project API/cs2-case-simulator.API.csproj --urls "http://0.0.0.0:10000"
 envVars:
 - key: ASPNETCORE_URLS
-value: http://0.0.0.0:10000
+value: "http://0.0.0.0:10000"
 - key: ConnectionStrings__DefaultConnection
 fromDatabase:
 name: cs2-postgres-db
