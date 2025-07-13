@@ -1,0 +1,40 @@
+services:
+- type: web
+name: cs2-case-backend
+env: dotnet
+branch: main
+region: oregon
+buildCommand: dotnet build API/cs2-case-simulator.API.csproj
+startCommand: dotnet run --project API/cs2-case-simulator.API.csproj --urls http://0.0.0.0:10000
+envVars:
+- key: ASPNETCORE_URLS
+value: http://0.0.0.0:10000
+- key: ConnectionStrings__DefaultConnection
+fromDatabase:
+name: cs2-postgres-db
+property: connectionString
+autoDeploy: true
+
+- type: web
+name: cs2-case-frontend
+env: node
+branch: main
+region: oregon
+buildCommand: |
+cd Frontend/case-simulator-frontend
+npm install
+npm run build
+startCommand: |
+cd Frontend/case-simulator-frontend
+npm run preview
+envVars:
+- key: NUXT_PUBLIC_API_URL
+value: http://cs2-case-backend.onrender.com
+autoDeploy: true
+
+databases:
+- name: cs2-postgres-db
+engine: postgresql
+version: "14"
+region: oregon
+plan: free
